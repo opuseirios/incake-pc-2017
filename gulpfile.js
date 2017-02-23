@@ -54,9 +54,9 @@
 			.pipe(sourcemaps.init())
 			.pipe(autoprefixer({
 				browsers: ['last 3 versions'],
-				cascade: false
+				cascade: true
 			}))
-			.pipe(sourcemaps.write(path.root))
+			.pipe(sourcemaps.write(paths.root))
 			.pipe(gulp.dest(paths.source.styles))
 			.pipe(browserSync.reload({
 				stream: true
@@ -72,7 +72,7 @@
 
 	// 浏览器同步
 	gulp.task('liveload', function() {
-		broswerSync.init({
+		browserSync.init({
 			server: {
 				baseDir: paths.source.root
 			}
