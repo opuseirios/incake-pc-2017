@@ -40,6 +40,9 @@
 				text-align: center;
 				border-radius: 9px;
 				color: #b3a3a3;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
 
 				&.active, &:hover {
 					border-color: #e9546b;
@@ -51,6 +54,118 @@
 
 		&.first {
 			margin-top: 0;
+		}
+	}
+}
+
+.list-contents {
+	width: 100%;
+	margin-bottom: 30px;
+
+	li {
+		position: relative;
+		float: left;
+		width: 291px;
+		margin: 0 12px 10px 0;
+		overflow: hidden;
+
+		&:nth-of-type(4n) {
+			margin-right: 0;
+		}
+		&.last-col {
+			margin-right: 0;
+		}
+
+		.img {
+			display: block;
+			width: 291px;
+			height: 291px;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.text {
+			width: 100%;
+			height: 119px;
+
+			p {
+				text-align: center;
+				color: #635859;
+
+				&.cn {
+					padding-top: 10px;
+					font-size: 14px;
+					line-height: 20px;
+				}
+
+				&.en {
+					font-size: 10px;
+					line-height: 16px;
+				}
+
+				&.attr {
+					padding-top: 5px;
+					color: #e9546b;
+
+					.price {
+						font-size: 14px;
+					}
+
+					.pound {
+						font-size: 12px;
+					}
+				}
+			}
+		}
+
+		.operate {
+			display: block;
+			position: absolute;
+			bottom: -30px;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background: {
+				repeat: no-repeat;
+				size: cover;
+				position: center center;
+			}
+			transition: all 0.4s;
+			transform-origin: center center;
+
+			&.favor {
+				left: 91px;
+				background-image: url('../imgs/icons/icon_favor.png');
+
+				&.active {
+					background-image: url('../imgs/icons/icon_favor_active.png');
+				}
+			}
+
+			&.basket {
+				left: 131px;
+				background-image: url('../imgs/icons/icon_basket.png');
+			}
+
+			&.buy {
+				left: 171px;
+				background-image: url('../imgs/icons/icon_buy.png');
+			}
+
+			&:hover {
+				transform: scale(1.3);
+			}
+		}
+
+		&:hover {
+			outline: 1px solid #e9546b;
+
+			.operate {
+				bottom: 10px;
+			}
 		}
 	}
 }
