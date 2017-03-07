@@ -63,8 +63,8 @@ body {
 }
 
 .layout {
+	width: 100%;
     min-width: 1200px;
-    max-width: 1920px;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -78,6 +78,23 @@ body {
         width: 1200px;
         height: 100px;
         margin: 0 auto;
+
+        .hotline {
+        	position: absolute;
+        	top: 13px;
+        	right: 0;
+        	width: 147px;
+
+        	p {
+        		font-size: 12px;
+        		color: #fff;
+
+        		&.tel {
+        			font-size: 15px;
+        			padding-top: 4px;
+        		}
+        	}        	
+        }
 
         .logo {
             display: block;
@@ -93,6 +110,82 @@ body {
                 position: center center;
             }
         }
+
+        .nav {
+        	position: absolute;
+        	bottom: 20px;
+        	left: 260px;
+        	width: 570px;
+
+        	a {
+        		display: block;
+        		position: relative;
+        		z-index: 9;
+        		float: left;
+        		width: 75px;
+        		height: 24px;
+        		margin-right: 5px;
+        		line-height: 24px;
+        		text-align: center;
+        		font-size: 14px;
+        		color: #fff;
+        	}
+
+        	.indicator {
+        		display: block;
+        		position: absolute;
+        		top: 0;
+        		left: 0;
+        		z-index: 8;
+        		width: 73px;
+        		height: 22px;
+        		border: 1px solid #fff;
+        		border-radius: 5px;
+        	}
+        }
+
+        .portal {
+        	position: absolute;
+    		right: 24px;
+    		bottom: 20px;
+
+    		> div {
+    			display: none;
+
+    			&.active {
+    				display: block;
+    			}
+
+    			a {
+	    			display: inline-block;
+	    			float: left;
+	    			height: 22px;
+	    			line-height: 22px;
+	    			color: #fff;
+	    			font-size: 14px;
+
+	    			&.login {
+	    				width: 81px;
+	    				text-align: center;
+	    				border: 1px solid #fff;
+	    				border-radius: 5px;
+	    			}
+	    			&.register {
+	    				margin-left: 10px;
+	    			}
+	    			&.uname:hover {
+						text-decoration: underline;
+	    			}
+	    		}
+	    		span {
+	    			display: inline-block;
+	    			float: left;
+	    			margin: 0 10px;
+	    			line-height: 22px;
+	    			color: #fff;
+	    		}
+    		}    		
+    	}
     }
 }
 
@@ -250,7 +343,7 @@ body {
 			margin: 0 auto;
 
 			p {
-				color: #b3a3a3;
+				color: #b4b4b4;
 				text-align: center;
 				line-height: 46px;
 			}
