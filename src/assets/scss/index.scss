@@ -1,0 +1,46 @@
+.home-page {
+	background-color: #fff;
+}
+.page-container {	
+	width: 1200px;
+	margin: 0 auto;
+}
+.main-slider {
+	position: relative;
+	width: 1200px;
+	height: 680px;
+	margin: 0 auto;
+
+	.swiper-container {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 1920px;
+		height: 680px;
+		margin-left: -960px;
+		border-bottom: 1px solid #dfe0e2;
+	}
+
+	.swiper-slide {
+		display: block;
+	}
+
+	.swiper-pagination {
+		position: relative;
+		top: -30px;
+		text-align: center;
+
+		.swiper-pagination-switch {
+			display: inline-block;
+			width: 30px;
+			height: 6px;
+			margin: 0 5px;
+			border-radius: 3px;
+			background-color: #b3a3a3;
+		}
+
+		.swiper-active-switch {
+			background-color: #e9546b;
+		}
+	}
+}
