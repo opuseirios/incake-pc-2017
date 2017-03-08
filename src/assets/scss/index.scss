@@ -3,6 +3,7 @@
 }
 .main-slider {
 	width: 100%;
+	border-bottom: 2px solid #dfe0e2;
 
 	.slider-wrapper {
 		position: relative;
@@ -18,7 +19,6 @@
 		width: 1920px;
 		height: 680px;
 		margin-left: -960px;
-		border-bottom: 2px solid #dfe0e2;
 	}
 
 	.swiper-slide {
@@ -37,6 +37,7 @@
 			margin: 0 5px;
 			border-radius: 3px;
 			background-color: #45515e;
+			cursor: pointer;
 		}
 
 		.swiper-active-switch {
@@ -77,5 +78,262 @@
 
 	&:hover .btn-slide {
 		display: block;
+	}
+}
+
+.section {
+	position: relative;
+
+	.section-title {
+		position: relative;
+		z-index: 999;
+		width: 270px;
+		height: 204px;
+		background: {
+			image: url('../imgs/index/section_title_bg.png');
+			repeat: no-repeat;
+			size: cover;
+			position: center center;
+		}
+		
+		p {
+			color: #e9546b;
+			text-align: center;
+		}
+		.cn {
+			height: 26px;
+			padding-top: 80px;
+			line-height: 26px;
+			font-size: 26px;
+		}
+		.en {
+			height: 18px;
+			margin-top: 20px;
+			line-height: 18px;
+			font-size: 18px;
+		}
+	}
+
+	.section-content {
+		position: relative;
+		z-index: 998;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.our-inspiration {
+	width: 940px;
+	height: 690px;
+	margin: 137px auto 128px;
+
+	.section-title {
+		position: absolute;
+		top: -27px;
+		left: 50%;
+		margin-left: -135px;
+	}
+
+	.item {
+		position: absolute;
+		width: 270px;
+		height: 190px;
+
+		&.item-large {
+			height: 460px;
+		}
+
+		&.cake {
+			top: 27px;
+			left: 0;
+		}
+		&.flower {
+			top:257px;
+			left: 50%;
+			margin-left: -135px;
+		}
+		&.drink {
+			top: 27px;
+			right: 0;
+		}
+		&.dessert {
+			bottom: 0;
+			left: 0;
+		}
+		&.more {
+			bottom: 0;
+			left: 50%;
+			margin-left: -135px;
+		}
+		&.cartoon {
+			right: 0;
+			bottom: 0;
+		}
+
+		.img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		.text {
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 35px;
+			line-height: 35px;
+			text-align: center;
+			font-size: 16px;
+			color: #fff;
+			background-color: rgba(233, 84, 107, 0.8);
+		}		
+
+		&:hover .text {
+			color: #e9546b;
+			background-color: rgba(255, 255, 255, 0.8);
+		}
+	}
+}
+
+.ad-container {
+	width: 100%;
+	border-top: 1px solid #eaeaea;
+	border-bottom: 2px solid #eaeaea;
+
+	.ad-wrapper {
+		position: relative;
+		width: 1200px;
+		height: 560px;
+		margin: 0 auto;
+
+		.ad {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 1920px;
+			height: 560px;
+			margin-left: -960px;
+			overflow: hidden;
+
+			img {
+				width: 1920px;
+				height: 560px;
+			}
+		}
+	}
+}
+
+.best-choice {
+	width: 1200px;
+	margin: 100px auto 70px;
+
+	.section-title {
+		margin: 0 auto;
+	}
+
+	.section-content {
+		margin-top: 84px;
+	}
+
+	.list-contents {
+		width: 100%;
+
+		li {
+			position: relative;
+			float: left;
+			width: 291px;
+			margin: 0 12px 10px 0;
+			overflow: hidden;
+
+			&:nth-of-type(4n) {
+				margin-right: 0;
+			}
+			&.last-col {
+				margin-right: 0;
+			}
+
+			.img {
+				position: relative;
+				display: block;
+				width: 291px;
+				height: 291px;
+				overflow: hidden;
+
+				img {
+					width: 100%;
+				}
+
+				.favor {
+					display: none;
+					position: absolute;
+					right: 14px;
+					bottom: 14px;
+					z-index: 99;
+					width: 30px;
+					height: 30px;
+					border-radius: 50%;
+					overflow: hidden;
+					background: {
+						image: url('../imgs/icons/icon_favor.png');
+						repeat: no-repeat;
+						size: cover;
+						position: center center;
+					}
+
+					&:hover {
+						background-image: url('../imgs/icons/icon_favor_hover.png');
+					}
+					&.selected {
+						display: block;
+						background-image: url('../imgs/icons/icon_favor_selected.png');
+					}
+				}
+			}
+
+			.text {
+				width: 100%;
+				height: 109px;
+
+				p {
+					text-align: center;
+					color: #635859;
+
+					&.cn {
+						padding-top: 10px;
+						font-size: 14px;
+						line-height: 20px;
+					}
+
+					&.en {
+						font-size: 10px;
+						line-height: 16px;
+					}
+
+					&.attr {
+						padding-top: 5px;
+						color: #e9546b;
+
+						.price {
+							font-size: 14px;
+						}
+
+						.pound {
+							font-size: 12px;
+						}
+					}
+				}
+			}
+
+			&:hover {
+				outline: 1px solid #e9546b;
+
+				.img .favor {
+					display: block;
+				}
+			}
+		}
 	}
 }

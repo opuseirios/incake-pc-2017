@@ -85,10 +85,10 @@
 		<!-- layout header end -->
 
 		<!-- layout container begin -->
-		<div class="layout-container" id="layoutContainer">
+		<div class="layout-container">
 			
 			<!-- home page begin -->
-			<div class="page home-page">
+			<div class="page home-page" id="homePage">
 				<div class="page-container">
 
 					<!-- main slider begin -->
@@ -114,6 +114,103 @@
 					</div>
 					<!-- main slider end -->
 					
+					<!-- our inspiration begin -->
+					<div class="section our-inspiration">
+						<div class="section-title">
+							<p class="cn">我们的灵感</p>
+							<p class="en">OUR INSPIRATION</p>
+						</div>
+						<div class="section-content">
+							<div class="item item-large cake">
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/index/item_cake.jpg" alt="">
+								</a>
+								<p class="text">蛋糕馆 | CAKE</p>
+							</div>
+							<div class="item flower">
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/index/item_flower.jpg" alt="">
+								</a>
+								<p class="text">鲜花 | FLOWER</p>
+							</div>
+							<div class="item item-large drink">
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/index/item_drink.jpg" alt="">
+								</a>
+								<p class="text">饮品 | DRINK</p>
+							</div>
+							<div class="item dessert">
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/index/item_dessert.jpg" alt="">
+								</a>
+								<p class="text">甜品 | DESSERT</p>
+							</div>
+							<div class="item more">
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/index/item_more.jpg" alt="">
+								</a>
+								<p class="text">更多 | MORE</p>
+							</div>
+							<div class="item cartoon">
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/index/item_cartoon.jpg" alt="">
+								</a>
+								<p class="text">阿狸专区 | CARTOON</p>
+							</div>
+						</div>
+					</div>
+					<!-- our inspiration end -->
+					
+					<!-- ad container begin -->
+					<div class="ad-container">
+						<div class="ad-wrapper">
+							<a href="javascript:;" class="ad">
+								<img src="assets/imgs/index/ad.jpg" alt="">
+							</a>
+						</div>
+					</div>
+					<!-- ad container end -->
+
+					<!-- best choice begin -->
+					<div class="section best-choice">
+						<div class="section-title">
+							<p class="cn">当季热卖</p>
+							<p class="en">BEST CHOICE</p>
+						</div>
+						<div class="section-content">
+							<ul id="bestChoice" class="list-contents clearfix"></ul>
+							<script id="tplBestChoice" type="text/html">
+								{{if list.length > 0}}
+									{{each list as item i}}
+									{{if i%4 === 3}}
+									<li class="last-col">
+									{{else}}
+									<li>
+									{{/if}}
+										<a href="{{item.link}}" class="img">
+											<img src="{{item.imgUrl}}" alt="">
+											{{if item.favor}}
+											<span class="favor selected"></span>
+											{{else}}
+											<span class="favor"></span>
+											{{/if}}
+										</a>
+										<div class="text">
+											<p class="cn">{{item.name.cn}}</p>
+											<p class="en">{{item.name.en}}</p>
+											<p class="attr">
+												<span class="price">￥{{item.price}}</span>
+												<span class="pound">/{{item.pound}}磅</span>
+											</p>
+										</div>
+									</li>
+									{{/each}}
+								{{/if}}
+							</script>
+						</div>
+					</div>
+					<!-- best choice end -->
+
 				</div>
 			</div>
 			<!-- home page end -->
@@ -167,12 +264,17 @@
 	<!-- layout end -->
 
 	<!-- javscript begin -->
-	<script src="assets/plugins/polyfill/polyfill.min.js"></script>
-	<script src="assets/plugins/jquery/jquery-1.12.4.min.js"></script>
-	<script src="assets/plugins/swiper/js/idangerous.swiper.min.js"></script>
-	<script src="assets/plugins/tweenmax/TweenMax.min.js"></script>
-	<script src="assets/js/layout.js"></script>
-	<script src="assets/js/index.js"></script>
+	<script src="assets/plugins/LABjs/LAB.min.js"></script>
+	<script>
+		$LAB
+		.script('assets/plugins/polyfill/polyfill.min.js').wait()
+		.script('assets/plugins/jquery/jquery-1.12.4.min.js').wait()
+		.script('assets/plugins/swiper/js/idangerous.swiper.min.js').wait()
+		.script('assets/plugins/tweenmax/TweenMax.min.js').wait()
+		.script('assets/plugins/artTemplate/template.js').wait()
+		.script('assets/js/layout.js').wait()
+		.script('assets/js/index.js');
+	</script>
 	<!-- javascript end -->
 </body>
 </html>
