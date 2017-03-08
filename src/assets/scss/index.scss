@@ -1,15 +1,15 @@
 .home-page {
 	background-color: #fff;
 }
-.page-container {	
-	width: 1200px;
-	margin: 0 auto;
-}
 .main-slider {
-	position: relative;
-	width: 1200px;
-	height: 680px;
-	margin: 0 auto;
+	width: 100%;
+
+	.slider-wrapper {
+		position: relative;
+		width: 1200px;
+		height: 680px;
+		margin: 0 auto;
+	}
 
 	.swiper-container {
 		position: absolute;
@@ -42,5 +42,40 @@
 		.swiper-active-switch {
 			background-color: #e9546b;
 		}
+	}
+
+	.btn-slide {
+		display: none;
+		position: absolute;
+		top: 50%;
+		z-index: 99;
+		width: 53px;
+		height: 86px;
+		margin-top: -43px;
+		background: {
+			image: url('../imgs/icons/icon_arrow_slide.png');
+			repeat: no-repeat;
+		}
+
+		&.prev-slide {
+			left: -53px;
+			background-position: 0 0;
+
+			&:hover {
+				background-position: 0 -86px;
+			}
+		}
+		&.next-slide {
+			right: -53px;
+			background-position: -53px 0;
+
+			&:hover {
+				background-position: -53px -86px;
+			}
+		}
+	}
+
+	&:hover .btn-slide {
+		display: block;
 	}
 }
