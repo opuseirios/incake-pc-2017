@@ -42,11 +42,11 @@
 				<!-- nav end -->
 				<!-- portal begin -->
 				<div class="portal clearfix">
-					<div class="unlogin">
+					<div class="unlogin active">
 						<a href="javascript:;" class="login">登录</a>
 						<a href="javascript:;" class="register">注册</a>
 					</div>
-					<div class="logined active">
+					<div class="logined">
 						<a href="javascript:;" class="uname">你猜猜我是谁吧...</a>
 						<span>|</span>
 						<a href="javascript:;" class="logout">退出</a>
@@ -55,7 +55,34 @@
 				<!-- portal end -->
 				<!-- basket begin -->
 				<div class="basket">
-					<a href="javascript:;"><span>10</span></a>
+					<a href="javascript:;" class="view"><span>10</span></a>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<ul class="list basket-list"></ul>
+						<script id="tplBasketList" type="text/html">
+							{{if list.length > 0}}
+							{{each list as item i}}
+							<li class="clearfix">
+								<a href="{{item.link}}" class="img">
+									<img src="{{item.thumbUrl}}" alt="">
+								</a>
+								<div class="text">
+									<p class="first-row clearfix">
+										<span class="name">{{item.name}}</span>
+										<span class="price">￥{{item.price}}</span>
+									</p>
+									<p class="second-row clearfix">
+										<span class="pound">{{item.pound}}磅</span>
+										<span class="num">x{{item.num}}</span>
+									</p>
+								</div>
+								<a href="javascript:;" class="remove"></a>
+							</li>
+							{{/each}}
+							{{/if}}
+						</script>
+						<a href="javascript:;" class="view-basket">查看购物篮 >></a>
+					</div>
 				</div>
 				<!-- basket end -->
 				<!-- locator begin -->
@@ -210,7 +237,8 @@
 						</div>
 					</div>
 					<!-- best choice end -->
-
+					
+					<!-- ads container begin -->
 					<div class="ads-container clearfix">
 						<a href="javascript:;">
 							<img src="assets/imgs/index/ad_01.jpg" alt="">
@@ -222,6 +250,7 @@
 							<img src="assets/imgs/index/ad_03.jpg" alt="">
 						</a>
 					</div>
+					<!-- ads container end -->
 
 				</div>
 			</div>
