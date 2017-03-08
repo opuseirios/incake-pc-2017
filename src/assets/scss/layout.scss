@@ -115,7 +115,7 @@ body {
         	position: absolute;
         	bottom: 20px;
         	left: 260px;
-        	width: 570px;
+        	width: 560px;
 
         	a {
         		display: block;
@@ -185,6 +185,140 @@ body {
 	    			color: #fff;
 	    		}
     		}    		
+    	}
+
+    	.basket {
+    		position: absolute;
+    		right: 290px;
+    		bottom: 23px;
+    		width: 80px;
+    		height: 18px;
+    		border-left: 1px solid #fff;
+    		border-right: 1px solid #fff;
+
+    		a {
+    			display: block;
+    			position: absolute;
+    			top: 50%;
+    			left: 50%;
+    			width: 24px;
+    			height: 20px;
+    			margin: -10px 0 0 -12px;
+    			background: {
+    				image: url('../imgs/icons/icon_basket_header.png');
+    				repeat: no-repeat;
+    				size: cover;
+    				position: center center;
+    			}
+
+    			span {
+    				display: block;
+    				position: absolute;
+    				top: -10px;
+    				right: -10px;
+    				width: 16px;
+    				height: 16px;
+    				text-align: center;
+    				line-height: 16px;
+    				font-size: 12px;
+    				color: #e9546b;
+    				background-color: #fff;
+    				border-radius: 50%;
+    			}
+    		}
+    	}
+
+    	.locator {
+    		position: absolute;
+    		right: 205px;
+    		bottom: 20px;
+    		width: 62px;
+    		height: 24px;
+
+    		> span {
+    			position: absolute;
+    			top: 10px;
+    			right: 0;
+    			width: 10px;
+    			height: 5px;
+    			background: {
+    				image: url('../imgs/icons/icon_arrow_down.png');
+    				repeat: no-repeat;
+    				size: cover;
+    				position: center center;
+    			}
+
+    			&.active {
+	    			background-image: url('../imgs/icons/icon_arrow_up.png');
+	    		}
+    		}    		
+
+    		> p {
+    			width: 100%;
+    			height: 24px;
+    			line-height: 24px;
+    			text-align: center;
+    			font-size: 14px;
+    			color: #fff;
+    			cursor: pointer;
+    		}
+
+    		.content {
+    			display: none;
+    			position: absolute;
+    			top: 44px;
+    			right: -205px;
+    			z-index: 99;
+    			width: 288px;
+    			border: 1px solid #e9546b;
+    			border-top: none;
+				font-size: 14px;
+    			color: #515151;
+    			background-color: #fff;
+
+    			.arrow-up {
+    				display: block;
+    				position: absolute;
+    				top: -6px;
+    				left: 55px;
+    				width: 12px;
+    				height: 6px;
+    				background: {
+    					image: url('../imgs/icons/icon_arrow_up_fill.png');
+    					repeat: no-repeat;
+    					size: cover;
+    					position: center center;
+    				}
+    			}
+
+    			> p {
+    				line-height: 60px;
+    				margin-left: 18px;
+    			}
+
+    			ul {
+    				width: 100%;
+
+    				li {
+    					display: inline-block;
+    					float: left;
+    					width: 48px;
+    					height: 24px;
+    					margin: 0 0 15px 17px;
+    					line-height: 24px;
+    					text-align: center;
+    					border: 1px solid #b4c6d2;
+    					border-radius: 12px;
+    					cursor: pointer;
+
+    					&.active, &:hover {
+    						border-color: #e9546b;
+    						background-color: #e9546b;
+    						color: #fff;
+    					}
+    				}
+    			}
+    		}
     	}
     }
 }
