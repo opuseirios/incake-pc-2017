@@ -6,7 +6,7 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	<title>INCAKE|蛋糕馆</title>
+	<title>INCAKE | 蛋糕馆</title>
 	<link rel="stylesheet" href="assets/plugins/normalize/normalize.css">
 	<link rel="stylesheet" href="assets/css/layout.css">
 	<link rel="stylesheet" href="assets/css/list.css">
@@ -17,10 +17,95 @@
 	<div class="layout">
 
 		<!-- layout header begin -->
-		<div class="layout-header">
+		<div class="layout-header" id="layoutHeader">
 			<div class="header-body">
-				<p class="hotline">客服热线：400 921 5757</p>
+				<!-- hotline begin -->
+				<div class="hotline">
+					<p>客服热线</p>
+					<p class="tel">400 921 5757</p>
+				</div>
+				<!-- hotline end -->
+				<!-- logo begin -->
 				<a href="javascript:;" class="logo"></a>
+				<!-- logo end -->
+				<!-- nav begin -->
+				<div class="nav clearfix">
+					<span class="indicator"></span>
+					<a href="index.html">首页</a>
+					<a href="list.html" class="active">蛋糕馆</a>
+					<a href="dessert.html">甜品</a>
+					<a href="drink.html">饮品</a>
+					<a href="flower.html">鲜花</a>
+					<a href="cartoon.html">阿狸</a>
+				</div>
+				<!-- nav end -->
+				<!-- portal begin -->
+				<div class="portal clearfix">
+					<div class="unlogin active">
+						<a href="javascript:;" class="login">登录</a>
+						<a href="javascript:;" class="register">注册</a>
+					</div>
+					<div class="logined">
+						<a href="javascript:;" class="uname">你猜猜我是谁吧...</a>
+						<span>|</span>
+						<a href="javascript:;" class="logout">退出</a>
+					</div>
+				</div>
+				<!-- portal end -->
+				<!-- basket begin -->
+				<div class="basket">
+					<a href="javascript:;" class="view"><span>10</span></a>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<ul class="list basket-list"></ul>
+						<script id="tplBasketList" type="text/html">
+							{{if list.length > 0}}
+							{{each list as item i}}
+							<li class="clearfix">
+								<a href="{{item.link}}" class="img">
+									<img src="{{item.thumbUrl}}" alt="">
+								</a>
+								<div class="text">
+									<p class="first-row clearfix">
+										<span class="name">{{item.name}}</span>
+										<span class="price">￥{{item.price}}</span>
+									</p>
+									<p class="second-row clearfix">
+										<span class="pound">{{item.pound}}磅</span>
+										<span class="num">x{{item.num}}</span>
+									</p>
+								</div>
+								<a href="javascript:;" class="remove"></a>
+							</li>
+							{{/each}}
+							{{/if}}
+						</script>
+						<a href="javascript:;" class="view-basket">查看购物篮 >></a>
+					</div>
+				</div>
+				<!-- basket end -->
+				<!-- locator begin -->
+				<div class="locator">
+					<span class="arrow"></span>
+					<p>上海</p>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<p>请选择您要配送的城市：</p>
+						<ul class="clearfix">
+							<li class="active">上海</li>
+							<li>福州</li>
+							<li>苏州</li>
+							<li>昆山</li>
+							<li>厦门</li>
+							<li>北京</li>
+							<li>南京</li>
+							<li>杭州</li>
+							<li>青岛</li>
+							<li>扬州</li>
+						</ul>
+					</div>
+				</div>
+				<!-- locator end -->
 			</div>
 		</div>
 		<!-- layout header end -->
@@ -29,7 +114,7 @@
 		<div class="layout-container">
 			
 			<!-- list page begin -->
-			<div class="page list-page">
+			<div class="page list-page" id="listPage">
 				<div class="page-container">
 					<ul class="list-categories">
 						<li class="first clearfix">
@@ -58,264 +143,45 @@
 							</div>
 						</li>
 					</ul>
-					<ul class="list-contents clearfix">
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_01.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">小鸡派对</p>
-								<p class="en">Chick Party</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_02.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor active"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_03.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_04.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_05.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_06.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_07.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_08.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_01.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">小鸡派对</p>
-								<p class="en">Chick Party</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_02.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_03.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_04.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_05.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_06.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_07.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-						<li>
-							<a href="javascript:;" class="img">
-								<img src="assets/imgs/list/cake_08.jpg" alt="">
-							</a>
-							<div class="text">
-								<p class="cn">百变魔方</p>
-								<p class="en">Rubik Cube</p>
-								<p class="attr">
-									<span class="price">￥198</span>
-									<span class="pound">/1.5磅</span>
-								</p>
-							</div>
-							<a href="javascript:;" class="operate favor"></a>
-							<a href="javascript:;" class="operate basket"></a>
-							<a href="javascript:;" class="operate buy"></a>
-						</li>
-					</ul>
+					<ul class="list-contents clearfix" id="cakeList"></ul>
+					<script id="tplCakeList" type="text/html">
+						{{if diy.length > 0}}
+						{{each diy as item i}}
+							<li class="diy">
+								<div class="img">
+									<img src="{{item.img}}" alt="">
+								</div>
+								<a href="{{item.url}}" class="diy-immediately">立即定制 >></a>
+							</li>
+						{{/each}}
+						{{/if}}
+						{{if list.length > 0}}
+							{{each list as item i}}
+							{{if i%4 === 1}}
+							<li class="last-col">
+							{{else}}
+							<li>
+							{{/if}}
+								<a href="{{item.link}}" class="img">
+									<img src="{{item.imgUrl}}" alt="">
+									{{if item.favor}}
+									<span class="favor selected"></span>
+									{{else}}
+									<span class="favor"></span>
+									{{/if}}
+								</a>
+								<div class="text">
+									<p class="cn">{{item.name.cn}}</p>
+									<p class="en">{{item.name.en}}</p>
+									<p class="attr">
+										<span class="price">￥{{item.price}}</span>
+										<span class="pound">/{{item.pound}}磅</span>
+									</p>
+								</div>
+							</li>
+							{{/each}}
+						{{/if}}
+					</script>
 				</div>
 			</div>
 			<!-- list page end -->
@@ -367,5 +233,18 @@
 
 	</div>
 	<!-- layout end -->
+
+	<!-- javscript begin -->
+	<script src="assets/plugins/LABjs/LAB.min.js"></script>
+	<script>
+		$LAB
+		.script('assets/plugins/polyfill/polyfill.min.js').wait()
+		.script('assets/plugins/jquery/jquery-1.12.4.min.js').wait()
+		.script('assets/plugins/tweenmax/TweenMax.min.js').wait()
+		.script('assets/plugins/artTemplate/template.js').wait()
+		.script('assets/js/layout.js').wait()
+		.script('assets/js/list.js');
+	</script>
+	<!-- javascript end -->
 </body>
 </html>

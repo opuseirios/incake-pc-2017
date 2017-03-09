@@ -41,28 +41,28 @@
 		var $oBasketList = $('#layoutHeader').find('.basket-list');
 		var _data = {
 			list: [{
-				link: 'javascript:;',
+				link: 'detail.html',
 				thumbUrl: 'assets/imgs/list/cake_thumb_01.jpg',
 				name: '百变魔方',
 				price: 198,
 				pound: 1.5,
 				num: 1
 			}, {
-				link: 'javascript:;',
+				link: 'detail.html',
 				thumbUrl: 'assets/imgs/list/cake_thumb_01.jpg',
 				name: '百变魔方',
 				price: 198,
 				pound: 1.5,
 				num: 1
 			}, {
-				link: 'javascript:;',
+				link: 'detail.html',
 				thumbUrl: 'assets/imgs/list/cake_thumb_01.jpg',
 				name: '百变魔方',
 				price: 198,
 				pound: 1.5,
 				num: 1
 			}, {
-				link: 'javascript:;',
+				link: 'detail.html',
 				thumbUrl: 'assets/imgs/list/cake_thumb_01.jpg',
 				name: '百变魔方',
 				price: 198,
