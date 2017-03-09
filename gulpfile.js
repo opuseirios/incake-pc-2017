@@ -102,7 +102,7 @@
     gulp.task('useref', function() {
     	return gulp.src(paths.source.root + '**/*.html')
     		.pipe(useref())
-    		.pipe(gulpIf('*.js', uglify()))
+    		//.pipe(gulpIf('*.js', uglify()))
     		.pipe(gulpIf('*.css', cssnano()))
     		.pipe(gulp.dest(paths.build.root));
     });
@@ -133,7 +133,7 @@
     // 拷贝js
     gulp.task('build:scripts', function() {
     	return gulp.src(paths.source.scripts + '**/*.js')
-    		.pipe(uglify())
+    		//.pipe(uglify())
     		.pipe(gulp.dest(paths.build.scripts));
     });
 

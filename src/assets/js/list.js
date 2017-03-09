@@ -16,6 +16,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_01.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '小鸡派对',
 					en: 'Chick Party'
@@ -26,6 +27,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_02.jpg',
 				favor: true,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '百变魔方',
 					en: 'Rubik Cube'
@@ -36,6 +38,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_03.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '小鸡派对',
 					en: 'Chick Party'
@@ -46,6 +49,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_04.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '百变魔方',
 					en: 'Rubik Cube'
@@ -56,6 +60,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_01.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '小鸡派对',
 					en: 'Chick Party'
@@ -66,6 +71,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_02.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '百变魔方',
 					en: 'Rubik Cube'
@@ -76,6 +82,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_03.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '小鸡派对',
 					en: 'Chick Party'
@@ -86,6 +93,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_04.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '百变魔方',
 					en: 'Rubik Cube'
@@ -96,6 +104,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_01.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '小鸡派对',
 					en: 'Chick Party'
@@ -106,6 +115,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_02.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '百变魔方',
 					en: 'Rubik Cube'
@@ -116,6 +126,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_03.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '小鸡派对',
 					en: 'Chick Party'
@@ -126,6 +137,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_04.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '百变魔方',
 					en: 'Rubik Cube'
@@ -136,6 +148,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_03.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '小鸡派对',
 					en: 'Chick Party'
@@ -146,6 +159,7 @@
 				link: 'detail.html',
 				imgUrl: 'assets/imgs/list/cake_04.jpg',
 				favor: false,
+				desc: '纯芝士与醇香奶油的梦幻组合',
 				name: {
 					cn: '百变魔方',
 					en: 'Rubik Cube'

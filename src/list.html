@@ -26,7 +26,7 @@
 				</div>
 				<!-- hotline end -->
 				<!-- logo begin -->
-				<a href="javascript:;" class="logo"></a>
+				<a href="index.html" class="logo"></a>
 				<!-- logo end -->
 				<!-- nav begin -->
 				<div class="nav clearfix">
@@ -143,45 +143,50 @@
 							</div>
 						</li>
 					</ul>
-					<ul class="list-contents clearfix" id="cakeList"></ul>
-					<script id="tplCakeList" type="text/html">
-						{{if diy.length > 0}}
-						{{each diy as item i}}
-							<li class="diy">
-								<div class="img">
-									<img src="{{item.img}}" alt="">
-								</div>
-								<a href="{{item.url}}" class="diy-immediately">立即定制 >></a>
-							</li>
-						{{/each}}
-						{{/if}}
-						{{if list.length > 0}}
-							{{each list as item i}}
-							{{if i%4 === 1}}
-							<li class="last-col">
-							{{else}}
-							<li>
-							{{/if}}
-								<a href="{{item.link}}" class="img">
-									<img src="{{item.imgUrl}}" alt="">
-									{{if item.favor}}
-									<span class="favor selected"></span>
-									{{else}}
-									<span class="favor"></span>
-									{{/if}}
-								</a>
-								<div class="text">
-									<p class="cn">{{item.name.cn}}</p>
-									<p class="en">{{item.name.en}}</p>
-									<p class="attr">
-										<span class="price">￥{{item.price}}</span>
-										<span class="pound">/{{item.pound}}磅</span>
-									</p>
-								</div>
-							</li>
+					<div class="contents-wrapper">
+						<ul class="list-contents clearfix" id="cakeList"></ul>
+						<script id="tplCakeList" type="text/html">
+							{{if diy.length > 0}}
+							{{each diy as item i}}
+								<li class="diy">
+									<div class="img">
+										<img src="{{item.img}}" alt="">
+									</div>
+									<a href="{{item.url}}" class="diy-immediately">立即定制 >></a>
+								</li>
 							{{/each}}
-						{{/if}}
-					</script>
+							{{/if}}
+							{{if list.length > 0}}
+								{{each list as item i}}
+								{{if i%4 === 1}}
+								<li class="last-col">
+								{{else}}
+								<li>
+								{{/if}}
+									<a href="{{item.link}}" class="img">
+										<img src="{{item.imgUrl}}" alt="">
+										{{if item.favor}}
+										<span class="favor selected"></span>
+										{{else}}
+										<span class="favor"></span>
+										{{/if}}
+									</a>
+									<div class="text">
+										<p class="desc">{{item.desc}}</p>
+										<p class="name">
+											<span class="cn">{{item.name.cn}}</span>
+											<span class="en">{{item.name.en}}</span>
+										</p>
+										<p class="attr">
+											<span class="price">￥{{item.price}}</span>
+											<span class="pound">/{{item.pound}}磅</span>
+										</p>
+									</div>
+								</li>
+								{{/each}}
+							{{/if}}
+						</script>
+					</div>
 				</div>
 			</div>
 			<!-- list page end -->
