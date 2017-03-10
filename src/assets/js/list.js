@@ -3,7 +3,47 @@
 	$(doc).on('ready', function() {
 		// 绑定蛋糕列表数据
 		fnBindCakeList();
+
+		// 加载更多数据
+		var throttle = _.throttle(updateCakeList, 200);
+		$(window).on('scroll', throttle);
 	});
+
+	var isLoading = false; // 避免多次加载
+	function updateCakeList() {
+		var viewHeight = $(window).height(),
+			$oMorecake = $('#listPage').find('.morecake'),
+			iTop = $oMorecake.offset().top,
+			scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+		var $oLoading = $oMorecake.find('.loading');
+		var disT = iTop - viewHeight;
+
+		if(disT < scrollTop) {
+			
+			if(!isLoading) {
+				// 加载数据
+				$.ajax({
+					url: 'assets/data/morecake.json', // 加载更多api
+					type: 'get',
+					data: {},
+					dataType: 'json',
+					beforeSend: function() {
+						isLoading = true;
+						$oLoading.show();
+					},
+					success: function(response) {
+						if(response.list.length > 0) {
+							// 绑定dom
+							fnBindMoreList(response);
+						}						
+						isLoading = false;
+						$oLoading.hide();
+					}
+				});
+			}
+		} 
+	}
 
 	function fnBindCakeList() {
 		var $oCakeList = $('#cakeList');
@@ -170,6 +210,12 @@
 		};
 		var _html = template('tplCakeList', _data);
 		$oCakeList.html(_html);
+	}
+
+	function fnBindMoreList(_data) {
+		var $oCakeList = $('#cakeList');
+		var _html = template('tplMoreList', _data);
+		$oCakeList.append(_html);
 	}
 
 })(window, jQuery);
