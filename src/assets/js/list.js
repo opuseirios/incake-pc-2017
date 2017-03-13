@@ -1,6 +1,7 @@
 (function(window, $, undefined) {
 	var doc = window.document;
 	$(doc).on('ready', function() {
+
 		// 绑定蛋糕列表数据
 		fnBindCakeList();
 
@@ -10,7 +11,17 @@
 	});
 
 	var isLoading = false; // 避免多次加载
+	var beforeScrollTop = document.documentElement.scrollTop || document.body.scrollTop, // 滚动前scrollTop值
+		afterScrollTop = 0;	// 滚动后scrollTop值
 	function updateCakeList() {
+
+		afterScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		var delta = afterScrollTop - beforeScrollTop;
+		beforeScrollTop = afterScrollTop;
+		if(delta === 0 || delta < 0) { // 页面未滑动或者上滑
+			return false;
+		}
+
 		var viewHeight = $(window).height(),
 			$oMorecake = $('#listPage').find('.morecake'),
 			iTop = $oMorecake.offset().top,
@@ -20,7 +31,6 @@
 		var disT = iTop - viewHeight;
 
 		if(disT < scrollTop) {
-			
 			if(!isLoading) {
 				// 加载数据
 				$.ajax({
@@ -42,7 +52,7 @@
 					}
 				});
 			}
-		} 
+		}		
 	}
 
 	function fnBindCakeList() {
