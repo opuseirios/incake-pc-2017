@@ -1,6 +1,6 @@
 (function(window, $, undefined) {
-	var doc = window.document;
-	$(doc).on('ready', function() {
+	
+	$(function() {
 
 		// 绑定蛋糕列表数据
 		fnBindCakeList();

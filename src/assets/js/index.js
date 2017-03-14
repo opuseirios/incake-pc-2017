@@ -1,6 +1,6 @@
 (function(window, $, undefined) {
-	var doc = window.document;
-	$(doc).on('ready', function() {
+	
+	$(function() {
 		// 轮播图
 		fnInitMainSlider();
 

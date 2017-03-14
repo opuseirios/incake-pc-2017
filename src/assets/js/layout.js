@@ -1,7 +1,6 @@
 (function(window, $, undefined) {
 
-	var doc = window.document;
-	$(doc).on('ready', function() {
+	$(function() {
 		// 导航栏
 		fnInitHeaderNav();
 		// 城市切换
