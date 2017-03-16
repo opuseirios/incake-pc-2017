@@ -59,6 +59,9 @@
 			if($oUphone.val() == ""){
 				$aRegTip.text("请输入手机号码！");
 				$oUphone.focus();
+			}else if(!($oUphone.val().match(/^1[34578]\d{9}$/))){
+				$aRegTip.text("手机号码格式不正确，请重新输入！");
+				$oUphone.focus();
 			}else{
 				$aRegTip.text("");
 				$oUreg.focus();
