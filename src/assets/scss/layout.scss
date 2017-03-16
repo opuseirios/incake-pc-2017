@@ -52,6 +52,28 @@ body {
     background-color: #fff;
 }
 
+input {
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+::-webkit-input-placeholder {
+    color: #b4b4b4;
+}
+
+::-ms-input-placeholder {
+    color: #b4b4b4;
+}
+
+::-moz-placeholder {
+    color: #b4b4b4;
+}
+
+::-moz-placeholder {
+    color: #b4b4b4;
+}
+
 .clearfix {
     zoom: 1;
 }
