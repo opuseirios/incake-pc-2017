@@ -17,11 +17,11 @@
             // TODO 处理一些验证事宜
 
             tl.clear();
-            tl.to($oIndicator, 1, {
+            tl.to($oIndicator, 0.5, {
                 left: '50%',
                 ease: Back.easeOut,
                 onComplete: function () {
-                    tl.to($oStepList, 0.6, {
+                    tl.to($oStepList, 0.8, {
                         left: '-1200px',
                         ease: Back.easeOut
                     });
@@ -35,11 +35,11 @@
             // TODO 处理一些验证事宜
 
             tl.clear();
-            tl.to($oIndicator, 1, {
+            tl.to($oIndicator, 0.5, {
                 left: '100%',
                 ease: Back.easeOut,
                 onComplete: function () {
-                    tl.to($oStepList, 0.6, {
+                    tl.to($oStepList, 0.8, {
                         left: '-2400px',
                         ease: Back.easeOut
                     });
