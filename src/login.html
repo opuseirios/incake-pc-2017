@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>INCAKE | 登录</title>
+	<link rel="stylesheet" href="assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="assets/css/layout.css">
+	<link rel="stylesheet" href="assets/css/login.css">
+	<link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+	<!-- layout begin -->
+	<div class="layout">
+
+		<!-- layout header begin -->
+		<div class="layout-header" id="layoutHeader">
+			<div class="header-body">
+				<!-- hotline begin -->
+				<div class="hotline">
+					<p>客服热线</p>
+					<p class="tel">400 921 5757</p>
+				</div>
+				<!-- hotline end -->
+				<!-- logo begin -->
+				<a href="index.html" class="logo"></a>
+				<!-- logo end -->
+				<!-- nav begin -->
+				<div class="nav clearfix">
+					<span class="indicator"></span>
+					<a href="index.html">首页</a>
+					<a href="list.html" class="active">蛋糕馆</a>
+					<a href="dessert.html">甜品</a>
+					<a href="drink.html">饮品</a>
+					<a href="flower.html">鲜花</a>
+					<a href="cartoon.html">阿狸</a>
+				</div>
+				<!-- nav end -->
+				<!-- portal begin -->
+				<div class="portal clearfix">
+					<div class="unlogin active">
+						<a href="javascript:;" class="login">登录</a>
+						<a href="javascript:;" class="register">注册</a>
+					</div>
+					<div class="logined">
+						<a href="javascript:;" class="uname">你猜猜我是谁吧...</a>
+						<span>|</span>
+						<a href="javascript:;" class="logout">退出</a>
+					</div>
+				</div>
+				<!-- portal end -->
+				<!-- basket begin -->
+				<div class="basket">
+					<a href="javascript:;" class="view"><span>10</span></a>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<ul class="list basket-list"></ul>
+						<script id="tplBasketList" type="text/html">
+							{{if list.length > 0}}
+							{{each list as item i}}
+							<li class="clearfix">
+								<a href="{{item.link}}" class="img">
+									<img src="{{item.thumbUrl}}" alt="">
+								</a>
+								<div class="text">
+									<p class="first-row clearfix">
+										<span class="name">{{item.name}}</span>
+										<span class="price">￥{{item.price}}</span>
+									</p>
+									<p class="second-row clearfix">
+										<span class="pound">{{item.pound}}磅</span>
+										<span class="num">x{{item.num}}</span>
+									</p>
+								</div>
+								<a href="javascript:;" class="remove"></a>
+							</li>
+							{{/each}}
+							{{/if}}
+						</script>
+						<a href="javascript:;" class="view-basket">查看购物篮 >></a>
+					</div>
+				</div>
+				<!-- basket end -->
+				<!-- locator begin -->
+				<div class="locator">
+					<span class="arrow"></span>
+					<p>上海</p>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<p>请选择您要配送的城市：</p>
+						<ul class="clearfix">
+							<li class="active">上海</li>
+							<li>福州</li>
+							<li>苏州</li>
+							<li>昆山</li>
+							<li>厦门</li>
+							<li>北京</li>
+							<li>南京</li>
+							<li>杭州</li>
+							<li>青岛</li>
+							<li>扬州</li>
+						</ul>
+					</div>
+				</div>
+				<!-- locator end -->
+			</div>
+		</div>
+		<!-- layout header end -->
+
+		<!-- layout container begin -->
+		<div class="layout-container">
+			
+			<!-- login page begin -->
+			<div class="page login-page" id="loginPage">
+				<div class="page-container clearfix">
+					<div class="login-slogan"></div>
+					<div class="login-mode">
+						<ul class="mode-number">
+							<li class="login-title">LOGIN</li>
+							<li>
+								<input type="text" class="uName" placeholder="请输入用户名/手机号码" />
+							</li>
+							<li>
+								<input type="password" class="uPwd" placeholder="请输入密码" />
+							</li>
+							<li class="other-option">
+								<a href="javascript:;" class="forget-pwd">忘记密码</a>
+							</li>
+							<li><a href="javascript:;" class="btn-login">登&nbsp;录</a></li>
+							<li>
+								<p class="reg-tip"></p>
+								<p class="mode-change">还不是会员？<a href="javascript:;" class="btn-register">手机号注册登录</a></p>
+							</li>
+						</ul>
+						<ul class="mode-phone">
+							<li class="login-title">LOGIN</li>
+							<li>
+								<input type="text" class="uPhone" placeholder="请输入手机号码" />
+							</li>
+							<li class="clearfix">
+								<input type="text" class="uReg" placeholder="请输入验证码" />
+								<a href="javascript:;" class="btn-reg">获取验证码</a>
+							</li>
+							<li class="other-option">
+								<a href="javascript:;" class="forget-pwd"></a>
+							</li>
+							<li><a href="javascript:;" class="btn-login">登&nbsp;录</a></li>
+							<li>
+								<p class="reg-tip"></p>
+								<p class="mode-change">还不是会员？<a href="javascript:;" >手机号注册登录</a></p>
+							</li>
+						</ul>
+						<p class="mode-tip tip-phone"><span><img src="assets/imgs/login/mode-phone-tip.png"/></span><a href="javascript:;"><img src="assets/imgs/login/mode-phone-icon.png"/></a></p>
+						<p class="mode-tip tip-number"><span><img src="assets/imgs/login/mode-number-tip.png"/></span><a href="javascript:;"><img src="assets/imgs/login/mode-number-icon.png"/></a></p>
+					</div>
+				</div>
+			</div>
+			<!-- login page end -->
+
+		</div>
+		<!-- layout container end -->
+
+		<!-- layout footer begin -->
+		<div class="layout-footer">
+			<div class="footer-body">
+				<div class="container">
+					<div class="logo"></div>
+					<div class="content">
+						<p class="nav clearfix">
+							<a href="javascript:;">配送范围</a><span>|</span>
+							<a href="javascript:;">帮助中心</a><span>|</span>
+							<a href="javascript:;">品牌故事</a><span>|</span>
+							<a href="javascript:;">关于我们</a><span>|</span>
+							<a href="javascript:;">招贤纳士</a>
+						</p>
+						<p class="hotline clearfix">
+							<span>客服热线：</span>
+							<span class="tel">400-921-5757</span>
+						</p>
+						<div class="third-party clearfix">
+							<a class="wechat" href="javascript:;"></a>
+							<a class="sina" href="javascript:;"></a>
+							<a class="qq" href="javascript:;"></a>
+							<a class="dianping" href="javascript:;"></a>
+						</div>
+					</div>
+					<div class="qrcode">
+						<div class="img"></div>
+						<p class="text">微信订购更方便</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					<p>
+						<span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+						<span>沪ICP备12045835</span>
+						<span>沪公网安备31010802001150</span>
+					</p>
+				</div>				
+			</div>
+		</div>
+		<!-- layout footer end -->
+
+	</div>
+	<!-- layout end -->
+
+	<!-- javscript begin -->
+	<script src="assets/plugins/LABjs/LAB.min.js"></script>
+	<script>
+		$LAB
+		.script('assets/plugins/polyfill/polyfill.min.js').wait()
+		.script('assets/plugins/jquery/jquery-1.12.4.min.js').wait()
+		.script('assets/plugins/tweenmax/TweenMax.min.js').wait()
+		.script('assets/plugins/artTemplate/template.js').wait()
+		.script('assets/plugins/underscore/underscore-min.js').wait()
+		.script('assets/js/layout.js').wait()
+		.script('assets/js/login.js');
+	</script>
+	<!-- javascript end -->
+</body>
+</html>

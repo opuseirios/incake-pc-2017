@@ -1,0 +1,164 @@
+.login-page {
+	background-color: #fff;
+}
+
+.page-container {
+	width: 1200px;
+	padding: 80px 0 160px;
+	margin: 0 auto;
+    
+    .login-slogan {
+        float: left;
+        width: 572px;
+        height: 348px;
+        background: url(../imgs/login/login-slogan.png) no-repeat;
+        margin: 86px 0 0 48px;
+    }
+    
+    .login-mode {
+        position: relative;
+        float: left;
+        width: 579px;
+        height: 520px;
+        border-left: 1px solid #c8c8c8;
+        
+        ul {
+            width: 392px;
+            padding: 54px 0 0 98px;
+            
+            li.login-title {
+                font-size: 40px;
+                line-height: 32px;
+                color: #d6dce2;
+                text-align: center;  
+            }
+            
+            li{
+                input {
+                    width: 390px;
+                    height: 50px;
+                    background-color: #fafafa;
+                    border: 1px solid #929eab;
+                    border-radius: 4px;
+                    margin-top: 18px;
+                    font-size: 18px;
+                    line-height: 50px;
+                    color: #505050;
+                    text-indent: 1em;
+                    outline:none;
+                }
+                
+                input:focus {
+                    border-color: #e9546a;
+                }
+                
+                .forget-pwd {
+                    display: block;
+                    height: 44px;
+                    margin-right: 10px;
+                    font-size: 14px;
+                    line-height: 44px;
+                    text-align: right;
+                    color: #1478be;
+                }
+                
+                .forget-pwd:hover {
+                    text-decoration: underline;
+                }
+                
+                .btn-login {
+                    display: block;
+                    width: 390px;
+                    height: 50px;
+                    background-color: #fff;
+                    border: 1px solid #45515e;
+                    border-radius: 4px;
+                    margin-bottom: 4px;
+                    font-size: 20px;
+                    line-height: 52px;
+                    color: #45515e;
+                    text-align: center;
+                }
+                
+                .reg-tip,.mode-change {
+                    height: 30px;
+                    margin-left: 10px;
+                    font-size: 14px;
+                    line-height: 30px;
+                }
+                
+                .reg-tip {
+                    color: #e9546b;
+                }
+                
+                .mode-change {
+                    color: #505050;
+                    
+                    a{
+                        color: #1478be;
+                    }
+                    a:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+     
+        ul.mode-phone {
+            display: none;
+            li{
+                input.uReg {
+                    float: left;
+                    width: 260px;
+                    margin-right: 8px;
+                }
+                a.btn-reg {
+                    float: right;
+                    display: block;
+                    width: 122px;
+                    height: 52px;
+                    background-color: #929eab;
+                    border-radius: 4px;
+                    margin-top: 18px;
+                    font-size: 14px;
+                    line-height: 52px;
+                    color: #fff;
+                    text-align: center;
+                }
+                a.btn-reg.active {
+                    background-color: #e6e6e6;
+                    color: #e9546b;
+                }
+            }
+        }
+        
+        .mode-tip {
+            position: absolute;
+            top: -26px;
+            right: 14px;
+            
+            span {
+                display: inline-block;
+                width: 105px;
+                height: 30px;
+                
+                img {
+                    margin-top: 6px;
+                }
+            }
+            
+            a {
+                display: inline-block;
+                width: 76px;
+                height: 76px;
+                margin-left: 5px;
+            }
+            
+        }
+        
+        .mode-tip.tip-number {
+            display: none;
+        }
+    }
+    
+}
