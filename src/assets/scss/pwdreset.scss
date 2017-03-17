@@ -107,9 +107,16 @@
                         margin-bottom: 18px;
 
                         &.btn {
-                            padding-top: 25px;
+                            padding-top: 18px;
                             margin-bottom: 0;
                         }
+                    }
+                    
+                    li.reg-tip {
+                        height: 16px;
+                        line-height: 16px;
+                        color: #e9546b;
+                        margin: 0 0 0 10px;
                     }
 
                     input {
@@ -120,11 +127,16 @@
                         border: 1px solid #45515e;
                         border-radius: 5px;
                         text-indent: 1em;
+                        color: #505050;
 
                         &.txt-vcode {
                             float: left;
                             width: 260px;
                         }
+                    }
+                    
+                    input:focus {
+                        border-color: #e9546a;
                     }
 
                     .btn-vcode {
@@ -138,8 +150,13 @@
                         color: #fff;
                         border-radius: 5px;
                     }
+                    
+                    .btn-vcode.active {
+                        background-color: #e6e6e6;
+                        color: #e9546b;
+                    }
 
-                    .btn-next {
+                    .btn-next, .btn-update {
                         display: block;
                         width: 392px;
                         height: 52px;
