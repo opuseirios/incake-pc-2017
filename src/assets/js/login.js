@@ -13,13 +13,9 @@
 		
 	});
 	
-	var $oLoginPage	= $("#loginPage"),
-		count = 0,
-		_interval = '',
-		time = 58;
-	
 	function fnChangeMode() {
-		var $oLoginMode = $oLoginPage.find(".login-mode"),
+		var $oLoginPage	= $("#loginPage"),
+			$oLoginMode = $oLoginPage.find(".login-mode"),
 			$oModeNumber = $oLoginMode.find('.mode-number'),
 			$oModePhone = $oLoginMode.find('.mode-phone'),
 			$oUname = $oModeNumber.find(".uName"),
@@ -49,11 +45,15 @@
 	}
 	
 	function fnRegCode(){
-		var $oBtnReg = $oLoginPage.find(".btn-reg"),
+		var $oLoginPage	= $("#loginPage"),
+			$oBtnReg = $oLoginPage.find(".btn-reg"),
 			$oModePhone = $oBtnReg.closest(".mode-phone"),
 			$oUphone = $oModePhone.find(".uPhone"),
 			$oUreg = $oModePhone.find(".uReg"),
-			$aRegTip = $oModePhone.find(".reg-tip");
+			$aRegTip = $oModePhone.find(".reg-tip"),
+			count = 0,
+			_interval = '',
+			time = 58;
 			
 		$oBtnReg.on("click", function(){
 			if($oUphone.val() == ""){
@@ -85,7 +85,8 @@
 	}
 	
 	function fnRegLogin(){
-		var $aBtnLogin = $oLoginPage.find(".btn-login");
+		var $oLoginPage	= $("#loginPage"),
+			$aBtnLogin = $oLoginPage.find(".btn-login");
 			
 		$aBtnLogin.on("click", function(){
 			
