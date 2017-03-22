@@ -7,10 +7,6 @@
 		fnInitCitySwitch();
 		// 购物篮
 		fnInitBasket();
-
-		$(window).on('resize', function() {
-			fnInitHeaderNav();
-		});
 	});
 
 	function fnInitBasket() {
@@ -105,32 +101,28 @@
 			$oIndicator = $oNav.find('.indicator'),
 			$oActive = null,
 			tl = new TimelineMax(),
-			iNavL = $oNav.offset().left,
 			iLeft = 0;
-
-		// 绑定之前先解绑事件，解决改变窗口尺寸时导致的导航栏动画不流畅问题
-		$oNav.off('.nav');
 
 		$oActive = $oNav.find('.active');
 		$oIndicator.css({
-			left: $oActive.offset().left - iNavL + 'px'
+			left: $oActive.position().left + 'px'
 		});
 
-		$oNav.on('mouseover.nav click.nav', 'a', function() {
-			iLeft = $(this).offset().left;
+		$oNav.on('mouseover click', 'a', function() {
+			iLeft = $(this).position().left;
 			tl.clear();
 			tl.to($oIndicator, 0.3, {
-				left: iLeft - iNavL + 'px',
+				left: iLeft + 'px',
 				ease: Back.easeOut
 			});
-		}).on('mouseleave.nav', 'a', function() {
-			iLeft = $oActive.offset().left;
+		}).on('mouseleave', 'a', function() {
+            iLeft = $oActive.position().left;
 			tl.clear();
 			tl.to($oIndicator, 0.3, {
-				left: iLeft - iNavL + 'px',
+				left: iLeft + 'px',
 				ease: Back.easeOut
 			}, 0.15);
-		}).on('click.nav', 'a', function() {
+		}).on('click', 'a', function() {
 			$oActive = $(this);
 			$(this).addClass('active').siblings('a').removeClass('active');
 		});
