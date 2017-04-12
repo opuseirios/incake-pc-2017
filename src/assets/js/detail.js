@@ -16,6 +16,17 @@
             showEffect: 'fadein',
             hideEffect: 'fadeout'
         });
+
+		var $thumblist = $('#thumblist');
+
+		// resize thumblist width
+		(function() {
+	        var totalW = 0;
+	        $thumblist.find('li').each(function(idx, ele) {
+	        	totalW += $(ele).width() + parseInt($(ele).css('margin-right'), 10);
+	        });
+	        $thumblist.width(totalW);
+        })();
 	}
 
 })(window, document, jQuery);
