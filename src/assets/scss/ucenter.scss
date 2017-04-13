@@ -348,3 +348,50 @@
         }
     }
 }
+
+
+/* pwd reset page */
+
+.pwd-wrap {
+    .pwd-reset {
+        line-height: 40px;
+        .friendly-tips {
+            height: 70px;
+            line-height: 70px;
+            color: #45515e;
+        }
+        .reset-list {
+            li {
+                height: 40px;
+                margin-top: 10px;
+                span {
+                    float: left;
+                    display: inline-block;
+                    width: 56px;
+                    height: 40px;
+                    margin-right: 20px;
+                    color: #969696;
+                    text-align: right;
+                }
+                input {
+                    float: left;
+                    width: 350px;
+                    height: 40px;
+                    background-color: #f5f5f5;
+                    border-radius: 2px;
+                    text-indent: 2em;
+                }
+            }
+        }
+        .btn-submit {
+            display: block;
+            width: 190px;
+            height: 40px;
+            background-color: #e9546b;
+            border-radius: 2px;
+            margin: 40px 0 0 150px;
+            color: #fff;
+            text-align: center;
+        }
+    }
+}
