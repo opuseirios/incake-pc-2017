@@ -211,6 +211,7 @@
                     width: 100%;
                     .order-item {
                         width: 100%;
+                        padding-bottom: 20px;
                         .item-header {
                             line-height: 30px;
                             color: #a0a0a0;
@@ -237,7 +238,112 @@
                             }
                         }
                         .item-body {
+                            position: relative;
                         	width: 100%;
+                            color: #4f4f4f;
+                            font-size: 12px;
+
+                            .item-cakes {
+                                float: left;
+                                width: 530px;
+
+                                li {
+                                    width: 100%;
+
+                                    > div {
+                                        float: left;
+                                        height: 80px;
+                                        padding: 20px 0;
+                                        border-bottom: 1px solid #f0f0f0;
+                                        border-right: 1px solid #f0f0f0;
+                                        margin-left: -1px;
+
+                                        p {
+                                            line-height: 18px;
+                                        }
+                                    }
+
+                                    .o-info {
+                                        width: 230px;
+
+                                        .img {
+                                            float: left;
+                                            display: block;
+                                            width: 78px;
+                                            height: 78px;
+                                            margin-left: 10px;
+                                            border: 1px solid #f0f0f0;
+                                        }
+                                        .text {
+                                            float: right;
+                                            width: 120px;
+                                            height: 80px;
+
+                                            p {
+                                                line-height: 20px;
+                                                text-align: left;
+                                            }
+                                        }
+                                    }
+                                    .o-price {
+                                        width: 110px;
+                                    }
+                                    .o-count {
+                                        width: 80px;
+                                    }
+                                    .o-require {
+                                        width: 110px;
+                                    }
+                                }
+                            }
+                            > div {
+                                position: absolute;
+                                top: 0;
+                                width: 109px;
+                                height: 100%;
+                                border-right: 1px solid #f0f0f0;
+                                border-bottom: 1px solid #f0f0f0;
+                                margin-top: -1px;
+
+                                p, a {
+                                    display: inline-block;
+                                    width: 100%;
+                                    line-height: 20px;
+                                    text-align: center;
+                                }
+
+                                a {
+                                    color: #3c78c8;
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+
+                                &.o-total {
+                                    right: 220px;
+                                }
+                                &.o-state {
+                                    right: 110px;
+                                }
+                                &.o-operate {
+                                    right: 0;
+                                    text-align: center;
+
+                                    a {
+                                        display: inline-block;
+                                        width: auto;
+                                        padding: 3px 15px;
+                                        border: 1px solid #3c78c8;
+                                    }
+                                }
+
+                                .vcenter-position {
+                                    position: absolute;
+                                    width: 100%;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                }
+                            }
                         }
                     }
                 }
