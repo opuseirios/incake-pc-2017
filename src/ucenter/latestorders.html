@@ -6,11 +6,10 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	<title>INCAKE | 详情页</title>
+	<title>INCAKE | 最近的订单</title>
 	<link rel="stylesheet" href="/assets/plugins/normalize/normalize.css">
-	<link rel="stylesheet" href="/assets/plugins/jqzoom/css/jquery.jqzoom.css">
 	<link rel="stylesheet" href="/assets/css/layout.css">
-	<link rel="stylesheet" href="/assets/css/detail.css">
+	<link rel="stylesheet" href="/assets/css/ucenter.css">
 	<link rel="shortcut icon" href="/favicon.ico" />
 </head>
 <body>
@@ -114,57 +113,110 @@
 		<!-- layout container begin -->
 		<div class="layout-container">
 			
-			<!-- detail page begin -->
-			<div class="page detail-page" id="detailPage">
+			<!-- ucenter page begin -->
+			<div class="page ucenter-page" id="ucenterPage">
 				<div class="page-container">
-				
-					<!-- product intro begin -->
-					<div class="product-intro clearfix">
-						<!-- preview wrap begin -->
-						<div class="preview-wrap">
-							<div class="preview">
-								<a href="assets/imgs/detail/cake_big01.jpg" class="jqzoom" rel="cake">
-									<img src="assets/imgs/detail/cake_small01.jpg">
-								</a>
+					
+					<!-- ucenter wrap begin -->
+					<div class="ucenter-wrap clearfix">
+						
+						<!-- ucenter menu begin -->
+						<div class="uc-menu">
+							<p class="title">我的INCAKE</p>
+							<div class="section section-trade">
+								<p>交易管理</p>
+								<ul>
+									<li class="active"><a href="javascript:;">我的订单</a></li>
+								</ul>
 							</div>
-							<div class="thumbs clearfix">
-								<a href="javascript:;" class="btn btn-prev disabled"></a>
-								<a href="javascript:;" class="btn btn-next"></a>
-								<div class="thumblist-wrap">
-									<ul id="thumblist" class="thumblist clearfix">
-										<li>
-						                    <a class="zoomThumbActive" href='javascript:void(0);' rel="{gallery: 'cake', smallimage: 'assets/imgs/detail/cake_small01.jpg',largeimage: 'assets/imgs/detail/cake_big01.jpg'}"><img src='assets/imgs/detail/thumbs/cake_thumb01.jpg'></a>
-						                </li>
-						                <li>
-						                    <a href='javascript:void(0);' rel="{gallery: 'cake', smallimage: 'assets/imgs/detail/cake_small02.jpg',largeimage: 'assets/imgs/detail/cake_big02.jpg'}"><img src='assets/imgs/detail/thumbs/cake_thumb02.jpg'></a>
-						                </li>
-						                <li>
-						                    <a href='javascript:void(0);' rel="{gallery: 'cake', smallimage: 'assets/imgs/detail/cake_small03.jpg',largeimage: 'assets/imgs/detail/cake_big03.jpg'}"><img src='assets/imgs/detail/thumbs/cake_thumb03.jpg'></a>
-						                </li>
-						                <li>
-						                    <a href='javascript:void(0);' rel="{gallery: 'cake', smallimage: 'assets/imgs/detail/cake_small04.jpg',largeimage: 'assets/imgs/detail/cake_big04.jpg'}"><img src='assets/imgs/detail/thumbs/cake_thumb04.jpg'></a>
-						                </li>
-						                <li>
-						                    <a href='javascript:void(0);' rel="{gallery: 'cake', smallimage: 'assets/imgs/detail/cake_small05.jpg',largeimage: 'assets/imgs/detail/cake_big05.jpg'}"><img src='assets/imgs/detail/thumbs/cake_thumb05.jpg'></a>
-						                </li>
-						                <li class="last-thumb">
-						                    <a href='javascript:void(0);' rel="{gallery: 'cake', smallimage: 'assets/imgs/detail/cake_small06.jpg',largeimage: 'assets/imgs/detail/cake_big06.jpg'}"><img src='assets/imgs/detail/thumbs/cake_thumb06.jpg'></a>
-						                </li>
-									</ul>
-								</div>
+							<div class="section section-account">
+								<p>我的账户</p>
+								<ul>
+									<li><a href="javascript:;">我的积分</a></li>
+									<li><a href="javascript:;">我的奖品</a></li>
+									<li><a href="javascript:;">我的优惠券</a></li>
+									<li><a href="javascript:;">积分兑换优惠券</a></li>
+									<li><a href="javascript:;">我喜欢的</a></li>
+									<li><a href="javascript:;">我的评论</a></li>
+								</ul>
+							</div>
+							<div class="section section-personal">
+								<p>个人信息管理</p>
+								<ul>
+									<li><a href="javascript:;">个人信息</a></li>
+									<li><a href="javascript:;">纪念日管理</a></li>
+									<li><a href="javascript:;">修改密码</a></li>
+									<li><a href="javascript:;">收货地址</a></li>
+									<li><a href="javascript:;">发票管理</a></li>
+								</ul>
 							</div>
 						</div>
-						<!-- preview wrap end -->
+						<!-- ucenter menu end -->
 
-						<!-- iteminfo wrap begin -->
-						<div class="iteminfo-wrap"></div>
-						<!-- iteminfo wrap end -->
+						<!-- ucenter container begin -->
+						<div class="uc-container">
+							
+							<!-- latest wrap begin -->
+							<div class="container-wrap latest-wrap">
+								<div class="header">
+									<h2>您好，<span>13888880000</span>欢迎进入会员中心！</h2>
+									<ul class="info">
+										<li class="total-points clearfix">
+											<span class="title">账户总积分：</span>
+											<span class="content"><i>42</i>分</span>
+											<a href="javascript:;" class="points-record">查看积分纪录</a>
+										</li>
+										<li class="trade-tip clearfix">
+											<span class="title">交易提醒：</span>
+											<span class="content"><a href="javascript:;">未支付订单（<i>1</i>）</a></span>
+										</li>
+									</ul>
+								</div>
+								<div class="body">
+									<!-- latest orders begin -->
+										<div class="latest-orders">
+											<p class="header clearfix">
+												<span class="title">最近的订单</span>
+												<span class="content">您最近有<i>2</i>个订单</span>
+											</p>
+											<div class="body">
+												<p class="title clearfix">
+													<span class="h-info">商品信息</span>
+													<span class="h-price">单价（元）</span>
+													<span class="h-count">数量</span>
+													<span class="h-total">总金额（元）</span>
+													<span class="h-require">要求</span>
+													<span class="h-state">订单状态</span>
+													<span class="h-operate">操作</span>
+												</p>
+												<ul class="order-list">
+													<li class="order-item">
+														<p class="item-header clearfix">
+															<span class="order-no">订单编号：<i>SHW0865760</i></span>
+															<span>下单时间：<i>2017-03-21 11:58:03</i></span>
+															<span>配送方式：<i>incake快递</i></span>
+															<span>初始</span>
+															<a href="javascript:;" class="detail">查看订单详情</a>
+														</p>
+														<div class="item-body"></div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									<!-- latest orders end -->
+								</div>
+							</div>
+							<!-- latest wrap end -->
+
+						</div>
+						<!-- ucenter container end -->
+
 					</div>
-					<!-- product intor end -->
+					<!-- ucenter wrap end -->
 
 				</div>
 			</div>
-			<!-- detail page end -->
+			<!-- ucenter page end -->
 
 		</div>
 		<!-- layout container end -->
@@ -222,9 +274,8 @@
 		.script('/assets/plugins/jquery/jquery-1.12.4.min.js').wait()
 		.script('/assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('/assets/plugins/artTemplate/template.js').wait()
-		.script('/assets/plugins/jqzoom/js/jquery.jqzoom.js').wait()
 		.script('/assets/js/layout.js').wait()
-		.script('/assets/js/detail.js');
+		.script('/assets/js/ucenter.js');
 	</script>
 	<!-- javascript end -->
 </body>

@@ -1,0 +1,247 @@
+.page-container {
+    width: 100%;
+    background-color: #fff;
+}
+
+.ucenter-wrap {
+    width: 1200px;
+    margin: 40px auto 50px;
+}
+
+.uc-menu {
+    float: left;
+    width: 270px;
+    border-bottom: 1px solid #e9546b;
+    .title {
+        width: 100%;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        font-size: 24px;
+        color: #fff;
+        background-color: #e9546b;
+    }
+    .section {
+        width: 100%;
+        > p {
+            width: 220px;
+            height: 25px;
+            padding-left: 50px;
+            line-height: 25px;
+            color: #fff;
+            background: {
+                color: #f2b4be;
+                size: 20px 25px;
+                position: 20px 0;
+                repeat: no-repeat;
+            }
+        }
+        &.section-trade > p {
+            background-image: url('../imgs/icons/icon_uc_trade.png');
+        }
+        &.section-account > p {
+            background-image: url('../imgs/icons/icon_uc_account.png');
+        }
+        &.section-personal > p {
+            background-image: url('../imgs/icons/icon_uc_personal.png');
+        }
+        ul {
+            width: 100%;
+        }
+        li {
+            width: 100%;
+            border-bottom: 1px solid #f0f0f0;
+            &:last-of-type {
+                border-bottom: none;
+            }
+            a {
+                display: block;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                color: #a0a0a0;
+            }
+            &.active a,
+            &:hover a {
+                position: relative;
+                color: #e9546b;
+                &:after {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 4px;
+                    height: 50px;
+                    content: '';
+                    background-color: #e9546b;
+                }
+            }
+        }
+    }
+}
+
+.uc-container {
+    float: right;
+    width: 860px;
+    .container-wrap {
+        width: 100%;
+        > .header {
+            width: 100%;
+            border-bottom: 1px solid #45515e;
+        }
+        > .body {
+            width: 100%;
+        }
+    }
+}
+
+
+/* latest orders page */
+
+.latest-wrap {
+    > .header {
+        > h2 {
+            line-height: 80px;
+            font-size: 20px;
+            font-weight: normal;
+            color: #45515e;
+        }
+        .info {
+            padding: 3px 0 40px;
+            li {
+                width: 100%;
+                line-height: 34px;
+                span,
+                a {
+                    float: left;
+                    display: inline-block;
+                }
+                i {
+                    font-style: normal;
+                }
+                .title {
+                    color: #45515e;
+                }
+                &.total-points {
+                    .content {
+                        font-size: 18px;
+                        color: #e9546b;
+                    }
+                    .points-record {
+                        margin-left: 46px;
+                        color: #3c78c8;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                &.trade-tip {
+                    .content a {
+                        color: #e9546b;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    > .body {
+        padding-top: 20px;
+        .latest-orders {
+            width: 100%;
+            .header {
+                width: 100%;
+                line-height: 40px;
+                span {
+                    float: left;
+                    display: inline-block;
+                    color: #e9546b;
+                    &.title {
+                        font-weight: bold;
+                        margin-right: 28px;
+                        padding-left: 16px;
+                        background: {
+                            image: url('../imgs/icons/icon_title_circle.png');
+                            repeat: no-repeat;
+                            size: 6px 6px;
+                            position: left center;
+                        }
+                    }
+                    i {
+                        font-style: normal;
+                    }
+                }
+            }
+            .body {
+                width: 100%;
+                .title {
+                    line-height: 30px;
+                    color: #fff;
+                    background-color: #f2b4be;
+                    span {
+                        float: left;
+                        display: inline-block;
+                        text-align: center;
+                        font-size: 12px;
+                        &.h-info {
+                            width: 230px;
+                        }
+                        &.h-price {
+                            width: 110px;
+                        }
+                        &.h-count {
+                            width: 80px;
+                        }
+                        &.h-total {
+                            width: 110px;
+                        }
+                        &.h-require {
+                            width: 110px;
+                        }
+                        &.h-state {
+                            width: 110px;
+                        }
+                        &.h-operate {
+                            width: 110px;
+                        }
+                    }
+                }
+                .order-list {
+                    width: 100%;
+                    .order-item {
+                        width: 100%;
+                        .item-header {
+                            line-height: 30px;
+                            color: #a0a0a0;
+                            font-size: 12px;
+                            background-color: #f5f5f5;
+                            span {
+                                float: left;
+                                display: inline-block;
+                                margin-left: 25px;
+                            }
+                            i {
+                                font-style: normal;
+                            }
+                            .order-no i {
+                            	color: #45515e;
+                            }
+                            .detail {
+                                float: right;
+                                margin-right: 18px;
+                                color: #3c78c8;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                        .item-body {
+                        	width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
