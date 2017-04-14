@@ -95,7 +95,7 @@
         .list-wrap {
             position: relative;
             padding-bottom: 40px;
-            .title {
+            > .title {
                 line-height: 30px;
                 color: #fff;
                 background-color: #f2b4be;
@@ -497,6 +497,200 @@
                     border: 1px solid #d0d0d0;
                     &:hover {
                         text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* invoice page */
+
+.invoice-wrap {
+    .header {
+        border: 0 !important;
+        .tips {
+            height: 70px;
+            line-height: 70px;
+            color: #45515e;
+            .number {
+                display: inline-block;
+                margin-right: 4px;
+                font-size: 18px;
+                color: #e9546b;   
+            }
+        }
+        .btn-add {
+            position: relative;
+            display: block;
+            width: 190px;
+            height: 40px;
+            background-color: #e9546b;
+            border-radius: 2px;
+            line-height: 40px;
+            color: #fff;
+            text-indent: 60px;
+            &:after {
+                position: absolute;
+                top: 10px;
+                left: 20px;
+                display: block;
+                width: 20px;
+                height: 20px;
+                content: '';
+                background: url("../imgs/ucenter/icon_add.png") no-repeat center;
+            }
+        }
+    }
+    .body {
+        margin-top: 20px;
+        .title {
+            height: 30px;
+            background-color: #f2b4be;
+            font-size: 12px;
+            line-height: 30px;
+            color: #fff;
+            span {
+                float: left;
+                display: inline-block;
+                text-align: center;
+            }
+            span.t-type {
+                width: 100px;
+            }
+            span.t-header {
+                width: 350px;
+                text-align: left;
+                text-indent: 24px;
+            }
+            span.t-content {
+                width: 94px;
+            }
+            span.t-operate {
+                width: 316px;
+            }
+        }
+        .invoice-list {
+            .item-info {
+                height: 99px;
+                border-bottom: 1px solid #f0f0f0;
+                >li {
+                    float: left;
+                    height: 99px;
+                    border-right: 1px solid #f0f0f0;
+                    font-size: 12px;
+                    line-height: 100px;
+                    text-align: center;
+                }
+                >li.i-type {
+                    width: 99px;
+                }
+                >li.i-header {
+                    width: 349px;
+                    p{
+                        line-height: 24px;
+                        text-align: left;
+                        text-indent: 24px;
+                    }
+                }
+                >li.i-content {
+                    width: 93px;
+                }
+                >li.i-operate {
+                    width: 316px;
+                    border:0;
+                    text-align: right;
+                    a {
+                        display: inline-block;
+                        width: 68px;
+                        height: 24px;
+                        border: 1px solid #45515e;
+                        border-radius: 2px;
+                        line-height: 24px;
+                        text-align: center;
+                        color: #45515e;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                        &.btn-update {
+                            margin-right: 6px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* mask */
+
+#mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 999;
+    .popup-content {
+        position: absolute; 
+        top: 50%; 
+        left: 0; 
+        right: 0;
+        width: 440px;
+        height: 360px;
+        background-color: #fff;
+        border-radius: 5px;
+        margin: -220px auto 0;
+        overflow: hidden;
+        .popup-invoice {
+            width: 362px;
+            margin: 28px auto 0;
+            .popup-title {
+                height: 40px;
+                border-bottom: 1px solid #c6c6c6;
+                font-size: 20px;
+                line-height: 40px;
+                color: #e9546b;
+                span {
+                    float: left;
+                    display: inline-block;   
+                }
+                a.btn-close {
+                    float: right;
+                    display: inline-block;
+                    width: 17px;
+                    height: 16px;
+                    background: url(../imgs/ucenter/icon_close.png) no-repeat;
+                    margin-top: 12px;
+                }
+            }
+            .popup-info {
+                li {
+                    height: 40px;
+                    margin-top: 20px;
+                    line-height: 40px;
+                    p.name {
+                        float: left;
+                        width: 56px;
+                        margin-right: 15px;
+                        color: #969696;
+                    }
+                    select {
+                        float: left;
+                        width: 134px;
+                        height: 40px;
+                        background-color: #f5f5f5;
+                        border: 0;
+                        text-align: center;                        
+                    }
+                    input {
+                        width: 280px;
+                        height: 40px;
+                        background-color: #f5f5f5;
+                        margin-left: 70px;
+                        
                     }
                 }
             }

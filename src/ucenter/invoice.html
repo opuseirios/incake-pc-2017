@@ -10,7 +10,6 @@
 	<link rel="stylesheet" href="/assets/plugins/normalize/normalize.css">
 	<link rel="stylesheet" href="/assets/css/layout.css">
 	<link rel="stylesheet" href="/assets/css/ucenter.css">
-	<link rel="stylesheet" href="/assets/css/ucenter2.css">
 	<link rel="shortcut icon" href="/favicon.ico" />
 </head>
 <body>
@@ -127,6 +126,7 @@
 							<div class="section section-trade">
 								<p>交易管理</p>
 								<ul>
+									<li><a href="javascript:;">最近的订单</a></li>
 									<li><a href="javascript:;">我的订单</a></li>
 								</ul>
 							</div>
@@ -163,25 +163,27 @@
 									<p class="tips">已有 <span class="number">20</span>个发票信息</p>
 									<a href="javascript:;" class="btn-add">添加发票信息</a>
 								</div>
-								<div class="body">
+								<div class="body list-wrap">
 									<!-- invoice begin -->
 									<div class="invoice">
 										<p class="title clearfix">
 											<span class="t-type">发票类型</span>
 											<span class="t-header">发票抬头</span>
 											<span class="t-content">发票内容</span>
-											<span class="t-operate">操作</span>
+											<span class="t-operate"></span>
 										</p>
 										<ul class="invoice-list">
 											<li class="invoice-item">
 												<ul class="item-info clearfix">
 													<li class="i-type">普通发票</li>
-													<li class="i-header">
-														<p>公司</p>
-														<p>上海印克电子商务股份有限公司</p>
+													<li class="i-header vcenter">
+														<div class="vcenter-child">
+															<p>公司</p>
+															<p>上海印克电子商务股份有限公司</p>
+														</div>
 													</li>
 													<li class="i-content">蛋糕</li>
-													<li class="i-operate clearfix">
+													<li class="i-operate">
 														<a href="javascript:;" class="btn-update">修改</a>
 														<a href="javascript:;" class="btn-delete">删除</a>
 													</li>
@@ -190,8 +192,10 @@
 											<li class="invoice-item">
 												<ul class="item-info clearfix">
 													<li class="i-type">普通发票</li>
-													<li class="i-header">
-														<p>个人</p>
+													<li class="i-header vcenter">
+														<div class="vcenter-child">
+															<p>个人</p>
+														</div>
 													</li>
 													<li class="i-content">食品</li>
 													<li class="i-operate clearfix">
@@ -203,9 +207,11 @@
 											<li class="invoice-item">
 												<ul class="item-info clearfix">
 													<li class="i-type">普通发票</li>
-													<li class="i-header">
-														<p>公司</p>
-														<p>上海印克电子商务股份有限公司</p>
+													<li class="i-header vcenter">
+														<div class="vcenter-child">
+															<p>公司</p>
+															<p>上海印克电子商务股份有限公司</p>
+														</div>
 													</li>
 													<li class="i-content">蛋糕</li>
 													<li class="i-operate clearfix">
@@ -217,8 +223,10 @@
 											<li class="invoice-item">
 												<ul class="item-info clearfix">
 													<li class="i-type">普通发票</li>
-													<li class="i-header">
-														<p>个人</p>
+													<li class="i-header vcenter">
+														<div class="vcenter-child">
+															<p>个人</p>
+														</div>
 													</li>
 													<li class="i-content">食品</li>
 													<li class="i-operate clearfix">
@@ -230,9 +238,11 @@
 											<li class="invoice-item">
 												<ul class="item-info clearfix">
 													<li class="i-type">普通发票</li>
-													<li class="i-header">
-														<p>公司</p>
-														<p>上海印克电子商务股份有限公司</p>
+													<li class="i-header vcenter">
+														<div class="vcenter-child">
+															<p>公司</p>
+															<p>上海印克电子商务股份有限公司</p>
+														</div>
 													</li>
 													<li class="i-content">蛋糕</li>
 													<li class="i-operate clearfix">
@@ -244,8 +254,10 @@
 											<li class="invoice-item">
 												<ul class="item-info clearfix">
 													<li class="i-type">普通发票</li>
-													<li class="i-header">
-														<p>个人</p>
+													<li class="i-header vcenter">
+														<div class="vcenter-child">
+															<p>个人</p>
+														</div>
 													</li>
 													<li class="i-content">食品</li>
 													<li class="i-operate clearfix">
@@ -255,25 +267,59 @@
 												</ul>
 											</li>
 										</ul>
+										<div class="navigator clearfix">
+											<a href="javascript:;" class="prev"><</a>
+											<a href="javascript::" class="page1 active">1</a>
+											<a href="javascript::" class="page2">2</a>
+											<a href="javascript::" class="page3">3</a>
+											<a href="javascript::" class="page4">4</a>
+											<a href="javascript::" class="page5">5</a>
+											<span>...</span>
+											<a href="javascript::" class="page30">30</a>
+											<a href="javascript:;" class="next">></a>
+										</div>
 									</div>
 									<!-- invoice end -->
 								</div>
-								<div class="footer">
-									<ul class="pagination">
-										<li><a href="javascript:;" class="btn-last">&lt;</a></li>
-										<li><a href="JavaScript:;">1</a></li>
-										<li><a href="JavaScript:;">2</a></li>
-										<li><a href="JavaScript:;">3</a></li>
-										<li><a href="JavaScript:;">4</a></li>
-										<li><a href="JavaScript:;">5</a></li>
-										<li>...</li>
-										<li><a href="JavaScript:;">30</a></li>
-										<li><a href="javascript:;" class="btn-next">&gt;</a></li>
-									</ul>
-								</div>
 							</div>
 							<!-- invoice wrap end -->
-
+							
+							<!-- mask begin -->
+							<div id="mask">
+								<div class="popup-content">
+									<div class="popup-invoice">
+										<p class="popup-title clearfix">
+											<span>新增发票</span>
+											<a href="javascript:;" class="btn-close"></a>
+										</p>
+										<ul class="popup-info">
+											<li class="clearfix">
+												<p class="name">发票类型</p>
+												<select>
+													<option value="1">个人</option>
+													<option value="2">公司</option>
+												</select>
+											</li>
+											<li class="company-name">
+												<input type="text" />
+											</li>
+											<li class="clearfix">
+												<p class="name">发票内容</p>
+												<select>
+													<option value="1">蛋糕</option>
+													<option value="2">食品</option>
+												</select>
+											</li>
+										</ul>
+										<p class="popup-btns">
+											<a href="javascript:;" id="btn-cancel">取消</a>
+											<a href="javascript:;" id="btn-confirm">确认</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<!-- mask end -->
+							
 						</div>
 						<!-- ucenter container end -->
 
