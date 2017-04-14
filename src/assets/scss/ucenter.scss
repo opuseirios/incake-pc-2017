@@ -504,6 +504,158 @@
     }
 }
 
+
+/* mycomment page */
+
+.mycomment-wrap {
+    > .header {
+        p {
+            line-height: 80px;
+            color: #45515e;
+        }
+        .states {
+            padding-bottom: 20px;
+            li {
+                float: left;
+                display: inline-block;
+                padding: 0 20px;
+                line-height: 20px;
+                font-size: 16px;
+                border-right: 1px solid #45515e;
+                &.last {
+                    border-right: none;
+                }
+                a {
+                    display: inline-block;
+                    color: #45515e;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+                &.active a {
+                    color: #e9546b;
+                }
+            }
+        }
+    }
+    > .body {
+        padding-top: 20px;
+        font-size: 12px;
+        color: #4f4f4f;
+        .comment-title {
+            width: 100%;
+            line-height: 30px;
+            color: #fff;
+            background-color: #f2b4be;
+            span {
+                float: left;
+                display: inline-block;
+                text-indent: 20px;
+                &.h-no {
+                    width: 125px;
+                }
+                &.h-name {
+                    width: 203px;
+                }
+                &.h-level {
+                    width: 125px;
+                }
+                &.h-content {
+                    width: 240px;
+                }
+                &.h-time,
+                &.h-operate {
+                    width: 167px;
+                }
+            }
+        }
+        .comment-list {
+            width: 100%;
+            padding-bottom: 20px;
+            li {
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+                > div {
+                    float: left;
+                    height: 80px;
+                    padding: 10px 0;
+                    border-right: 1px solid #f0f0f0;
+                    overflow: hidden;
+                    p {
+                        line-height: 20px;
+                    }
+                    &.c-no {
+                        width: 124px;
+                    }
+                    &.c-name {
+                        width: 202px;
+                        .img {
+                            float: left;
+                            display: block;
+                            width: 78px;
+                            height: 78px;
+                            margin-left: 9px;
+                            border: 1px solid #f0f0f0;
+                            overflow: hidden;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        .text {
+                            float: right;
+                            width: 106px;
+                            height: 80px;
+                            p {
+                                line-height: 20px;
+                                text-align: left;
+                            }
+                        }
+                    }
+                    &.c-level {
+                        width: 124px;
+                        span {
+                            display: inline-block;
+                            width: 14px;
+                            height: 14px;
+                            margin: 0 2px;
+                            background: {
+                                image: url('../imgs/icons/icon_comment_star.png');
+                                repeat: no-repeat;
+                                size: cover;
+                                position: center center;
+                            }
+                            &.active {
+                                background-image: url('../imgs/icons/icon_comment_star_active.png');
+                            }
+                        }
+                    }
+                    &.c-content {
+                        width: 239px;
+                    }
+                    &.c-time,
+                    &.c-operate {
+                        width: 166px;
+                        border-right: none;
+                        a {
+                            display: inline-block;
+                            width: 68px;
+                            height: 24px;
+                            line-height: 24px;
+                            text-align: center;
+                            border: 1px solid #45515e;
+                            border-radius: 2px;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 /* invoice page */
 
 .invoice-wrap {
@@ -517,7 +669,7 @@
                 display: inline-block;
                 margin-right: 4px;
                 font-size: 18px;
-                color: #e9546b;   
+                color: #e9546b;
             }
         }
         .btn-add {
@@ -587,7 +739,7 @@
                 }
                 >li.i-header {
                     width: 349px;
-                    p{
+                    p {
                         line-height: 24px;
                         text-align: left;
                         text-indent: 24px;
@@ -598,7 +750,7 @@
                 }
                 >li.i-operate {
                     width: 316px;
-                    border:0;
+                    border: 0;
                     text-align: right;
                     a {
                         display: inline-block;
@@ -622,6 +774,7 @@
     }
 }
 
+
 /* mask */
 
 #mask {
@@ -631,12 +784,12 @@
     display: none;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     z-index: 999;
     .popup-content {
-        position: absolute; 
-        top: 50%; 
-        left: 0; 
+        position: absolute;
+        top: 50%;
+        left: 0;
         right: 0;
         width: 440px;
         height: 360px;
@@ -655,7 +808,7 @@
                 color: #e9546b;
                 span {
                     float: left;
-                    display: inline-block;   
+                    display: inline-block;
                 }
                 a.btn-close {
                     float: right;
@@ -712,7 +865,7 @@
                             &:hover {
                                 background-color: #f8f8f8;
                             }
-                        }                        
+                        }
                     }
                     &:after {
                         position: absolute;
