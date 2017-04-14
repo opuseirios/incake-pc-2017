@@ -79,6 +79,7 @@
 	// 添加&修改发票信息
 	function fnEditInvoice(){
 		var $oInvoiceWrap = $('.invoice-wrap'),
+			$oListWrap = $oInvoiceWrap.find('.list-wrap'),
 			$oBtnAdd = $oInvoiceWrap.find('.btn-add'),
 			$oNumber = $oInvoiceWrap.find('.number'),
 			$aInvoiceItem = $oInvoiceWrap.find('.invoice-item'),
@@ -111,7 +112,7 @@
 				$(this).closest('.invoice-item').remove();
 				$oNumber.text($oNumber.text()-1);
 				if($('.invoice-item').length==0){
-					$oListWarp.hide();
+					$oListWrap.hide();
 				}
 			});
 			
