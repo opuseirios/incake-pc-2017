@@ -160,7 +160,7 @@
 							<!-- invoice wrap begin -->
 							<div class="container-wrap invoice-wrap">
 								<div class="header">
-									<p class="tips">已有 <span class="number">20</span>个发票信息</p>
+									<p class="tips">已有 <span class="number">0</span>个发票信息</p>
 									<a href="javascript:;" class="btn-add">添加发票信息</a>
 								</div>
 								<div class="body list-wrap">
@@ -173,7 +173,7 @@
 											<span class="t-operate"></span>
 										</p>
 										<ul class="invoice-list">
-											<li class="invoice-item">
+											<!--<li class="invoice-item">
 												<ul class="item-info clearfix">
 													<li class="i-type">普通发票</li>
 													<li class="i-header vcenter">
@@ -265,8 +265,30 @@
 														<a href="javascript:;" class="btn-delete">删除</a>
 													</li>
 												</ul>
-											</li>
+											</li>-->
 										</ul>
+										<script id="tplInvoiceList" type="text/html">
+											{{if list.length > 0}}
+											{{each list as item i}}
+											<li class="invoice-item">
+												<ul class="item-info clearfix">
+													<li class="i-type">普通发票</li>
+													<li class="i-header vcenter">
+														<div class="vcenter-child">
+															<p class="hType">{{item.header.hType}}</p>
+															<p class="hName">{{item.header.hName}}</p>
+														</div>
+													</li>
+													<li class="i-content">{{item.content}}</li>
+													<li class="i-operate">
+														<a href="javascript:;" class="btn-update">修改</a>
+														<a href="javascript:;" class="btn-delete">删除</a>
+													</li>
+												</ul>
+											</li>
+											{{/each}}
+											{{/if}}
+										</script>
 										<div class="navigator clearfix">
 											<a href="javascript:;" class="prev"><</a>
 											<a href="javascript::" class="page1 active">1</a>
@@ -295,7 +317,7 @@
 										<ul class="popup-info">
 											<li class="clearfix">
 												<p class="name">发票类型</p>
-												<input type="text" class="invoice-type" value="公司" readonly/>
+												<input type="text" class="p-select invoice-type" value="公司" readonly/>
 												<div class="select">
 													<p>个人</p>
 													<p>公司</p>
@@ -307,7 +329,7 @@
 											</li>
 											<li class="clearfix">
 												<p class="name">发票内容</p>
-												<input type="text" class="invoice-info" value="蛋糕" readonly/>
+												<input type="text" class="p-select invoice-info" value="蛋糕" readonly/>
 												<div class="select">
 													<p>蛋糕</p>
 													<p>食品</p>
@@ -390,7 +412,7 @@
 		.script('/assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('/assets/plugins/artTemplate/template.js').wait()
 		.script('/assets/js/layout.js').wait()
-		.script('/assets/js/ucenter.js');
+		.script('/assets/js/invoice.js');
 	</script>
 	<!-- javascript end -->
 </body>
