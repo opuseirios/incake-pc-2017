@@ -295,23 +295,26 @@
 										<ul class="popup-info">
 											<li class="clearfix">
 												<p class="name">发票类型</p>
-												<select>
-													<option value="1">个人</option>
-													<option value="2">公司</option>
-												</select>
+												<input type="text" class="invoice-type" value="公司" readonly/>
+												<div class="select">
+													<p>个人</p>
+													<p>公司</p>
+												</div>
 											</li>
-											<li class="company-name">
-												<input type="text" />
+											<li class="company-name clearfix">
+												<p class="name">&nbsp;</p>
+												<input type="text" class="invoice-name" />
 											</li>
 											<li class="clearfix">
 												<p class="name">发票内容</p>
-												<select>
-													<option value="1">蛋糕</option>
-													<option value="2">食品</option>
-												</select>
+												<input type="text" class="invoice-info" value="蛋糕" readonly/>
+												<div class="select">
+													<p>蛋糕</p>
+													<p>食品</p>
+												</div>
 											</li>
 										</ul>
-										<p class="popup-btns">
+										<p class="popup-btns clearfix">
 											<a href="javascript:;" id="btn-cancel">取消</a>
 											<a href="javascript:;" id="btn-confirm">确认</a>
 										</p>
