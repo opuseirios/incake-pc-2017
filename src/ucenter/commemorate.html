@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>INCAKE | 纪念日管理</title>
+	<link rel="stylesheet" href="/assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="/assets/css/layout.css">
+	<link rel="stylesheet" href="/assets/css/ucenter.css">
+	<link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body>
+	<!-- layout begin -->
+	<div class="layout">
+
+		<!-- layout header begin -->
+		<div class="layout-header" id="layoutHeader">
+			<div class="header-body">
+				<!-- hotline begin -->
+				<div class="hotline">
+					<p>客服热线</p>
+					<p class="tel">400 921 5757</p>
+				</div>
+				<!-- hotline end -->
+				<!-- logo begin -->
+				<a href="index.html" class="logo"></a>
+				<!-- logo end -->
+				<!-- nav begin -->
+				<div class="nav clearfix">
+					<span class="indicator"></span>
+					<a href="/index.html" class="active">首页</a>
+					<a href="/list.html">蛋糕馆</a>
+					<a href="/dessert.html">甜品</a>
+					<a href="/drink.html">饮品</a>
+					<a href="/flower.html">鲜花</a>
+					<a href="/cartoon.html">阿狸</a>
+				</div>
+				<!-- nav end -->
+				<!-- portal begin -->
+				<div class="portal clearfix">
+					<div class="unlogin active">
+						<a href="javascript:;" class="login">登录</a>
+						<a href="javascript:;" class="register">注册</a>
+					</div>
+					<div class="logined">
+						<a href="javascript:;" class="uname">你猜猜我是谁吧...</a>
+						<span>|</span>
+						<a href="javascript:;" class="logout">退出</a>
+					</div>
+				</div>
+				<!-- portal end -->
+				<!-- basket begin -->
+				<div class="basket">
+					<a href="javascript:;" class="view"><span>10</span></a>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<ul class="list basket-list"></ul>
+						<script id="tplBasketList" type="text/html">
+							{{if list.length > 0}}
+							{{each list as item i}}
+							<li class="clearfix">
+								<a href="{{item.link}}" class="img">
+									<img src="{{item.thumbUrl}}" alt="">
+								</a>
+								<div class="text">
+									<p class="first-row clearfix">
+										<span class="name">{{item.name}}</span>
+										<span class="price">￥{{item.price}}</span>
+									</p>
+									<p class="second-row clearfix">
+										<span class="pound">{{item.pound}}磅</span>
+										<span class="num">x{{item.num}}</span>
+									</p>
+								</div>
+								<a href="javascript:;" class="remove"></a>
+							</li>
+							{{/each}}
+							{{/if}}
+						</script>
+						<a href="javascript:;" class="view-basket">查看购物篮 >></a>
+					</div>
+				</div>
+				<!-- basket end -->
+				<!-- locator begin -->
+				<div class="locator">
+					<span class="arrow"></span>
+					<p>上海</p>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<p>请选择您要配送的城市：</p>
+						<ul class="clearfix">
+							<li class="active">上海</li>
+							<li>福州</li>
+							<li>苏州</li>
+							<li>昆山</li>
+							<li>厦门</li>
+							<li>北京</li>
+							<li>南京</li>
+							<li>杭州</li>
+							<li>青岛</li>
+							<li>扬州</li>
+						</ul>
+					</div>
+				</div>
+				<!-- locator end -->
+			</div>
+		</div>
+		<!-- layout header end -->
+
+		<!-- layout container begin -->
+		<div class="layout-container">
+			
+			<!-- ucenter page begin -->
+			<div class="page ucenter-page" id="ucenterPage">
+				<div class="page-container">
+					
+					<!-- ucenter wrap begin -->
+					<div class="ucenter-wrap clearfix">
+						
+						<!-- ucenter menu begin -->
+						<div class="uc-menu">
+							<p class="title">我的INCAKE</p>
+							<div class="section section-trade">
+								<p>交易管理</p>
+								<ul>
+									<li><a href="javascript:;">最近的订单</a></li>
+									<li><a href="javascript:;">我的订单</a></li>
+								</ul>
+							</div>
+							<div class="section section-account">
+								<p>我的账户</p>
+								<ul>
+									<li><a href="javascript:;">我的积分</a></li>
+									<li><a href="javascript:;">我的奖品</a></li>
+									<li><a href="javascript:;">我的优惠券</a></li>
+									<li><a href="javascript:;">积分兑换优惠券</a></li>
+									<li><a href="javascript:;">我喜欢的</a></li>
+									<li><a href="javascript:;">我的评论</a></li>
+								</ul>
+							</div>
+							<div class="section section-personal">
+								<p>个人信息管理</p>
+								<ul>
+									<li><a href="javascript:;">个人信息</a></li>
+									<li class="active"><a href="javascript:;">纪念日管理</a></li>
+									<li><a href="javascript:;">修改密码</a></li>
+									<li><a href="javascript:;">收货地址</a></li>
+									<li><a href="javascript:;">发票管理</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- ucenter menu end -->
+
+						<!-- ucenter container begin -->
+						<div class="uc-container">
+							
+							<!-- commemorate wrap begin -->
+							<div class="container-wrap commemorate-wrap">
+								<div class="header">
+									<p class="tips">已有 <span class="number">0</span>个纪念日</p>
+									<a href="javascript:;" class="btn-add">添加纪念日</a>
+								</div>
+								<div class="body list-wrap">
+									<!-- commemorate begin -->
+									<div class="commemorate">
+										<p class="title clearfix">
+											<span class="t-name">名称</span>
+											<span class="t-date">日期</span>
+											<span class="t-operate">&nbsp;</span>
+										</p>
+										<ul class="commemorate-list"></ul>
+										<script id="tplCommemorateList" type="text/html">
+											{{if list.length > 0}}
+											{{each list as item i}}
+											<li class="commemorate-item">
+												<ul class="item-info clearfix">
+													<li class="i-name">{{item.iName}}</li>
+													<li class="i-date">{{item.date}}</li>
+													<li class="i-operate">
+														<a href="javascript:;" class="btn-update">修改</a>
+														<a href="javascript:;" class="btn-delete">删除</a>
+													</li>
+												</ul>
+											</li>
+											{{/each}}
+											{{/if}}
+										</script>
+										<div class="navigator clearfix">
+											<a href="javascript:;" class="prev"><</a>
+											<a href="javascript::" class="page1 active">1</a>
+											<a href="javascript::" class="page2">2</a>
+											<a href="javascript::" class="page3">3</a>
+											<a href="javascript::" class="page4">4</a>
+											<a href="javascript::" class="page5">5</a>
+											<span>...</span>
+											<a href="javascript::" class="page30">30</a>
+											<a href="javascript:;" class="next">></a>
+										</div>
+									</div>
+									<!-- commemorate end -->
+								</div>
+							</div>
+							<!-- commemorate wrap end -->
+							
+							<!-- mask begin -->
+							<div id="mask">
+								<div class="popup-content p-commemorate">
+									<div class="popup-commemorate">
+										<p class="popup-title clearfix">
+											<span>添加纪念日</span>
+											<a href="javascript:;" class="btn-close"></a>
+										</p>
+										<ul class="popup-info">
+											<li class="clearfix">
+												<p class="name">时间</p>
+												<div class="p-select">
+													<input type="text" class="commemorate-month" value="01" readonly/>
+													<div class="select">
+														<p>01</p>
+														<p>02</p>
+														<p>03</p>
+														<p>04</p>
+														<p>05</p>
+														<p>06</p>
+														<p>07</p>
+														<p>08</p>
+														<p>09</p>
+														<p>10</p>
+														<p>11</p>
+														<p>12</p>
+													</div>
+												</div>
+												<span>月</span>
+												<div class="p-select">
+													<input type="text" class="commemorate-day" value="01" readonly/>
+													<div class="select">
+														<p>01</p>
+														<p>02</p>
+														<p>03</p>
+														<p>04</p>
+														<p>05</p>
+														<p>06</p>
+														<p>07</p>
+														<p>08</p>
+														<p>09</p>
+														<p>10</p>
+													</div>
+												</div>
+												<span>日</span>	
+												</span>
+											</li>
+											<li class="clearfix">
+												<p class="name">名称</p>
+												<input type="text" class="commemorate-name" />
+											</li>
+										</ul>
+										<p class="popup-btns clearfix">
+											<a href="javascript:;" id="btn-cancel">取消</a>
+											<a href="javascript:;" id="btn-confirm">确认</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<!-- mask end -->
+							
+						</div>
+						<!-- ucenter container end -->
+
+					</div>
+					<!-- ucenter wrap end -->
+
+				</div>
+			</div>
+			<!-- ucenter page end -->
+
+		</div>
+		<!-- layout container end -->
+
+		<!-- layout footer begin -->
+		<div class="layout-footer">
+			<div class="footer-body">
+				<div class="container">
+					<div class="logo"></div>
+					<div class="content">
+						<p class="nav clearfix">
+							<a href="javascript:;">配送范围</a><span>|</span>
+							<a href="javascript:;">帮助中心</a><span>|</span>
+							<a href="javascript:;">品牌故事</a><span>|</span>
+							<a href="javascript:;">关于我们</a><span>|</span>
+							<a href="javascript:;">招贤纳士</a>
+						</p>
+						<p class="hotline clearfix">
+							<span>客服热线：</span>
+							<span class="tel">400-921-5757</span>
+						</p>
+						<div class="third-party clearfix">
+							<a class="wechat" href="javascript:;"></a>
+							<a class="sina" href="javascript:;"></a>
+							<a class="qq" href="javascript:;"></a>
+							<a class="dianping" href="javascript:;"></a>
+						</div>
+					</div>
+					<div class="qrcode">
+						<div class="img"></div>
+						<p class="text">微信订购更方便</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					<p>
+						<span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+						<span>沪ICP备12045835</span>
+						<span>沪公网安备31010802001150</span>
+					</p>
+				</div>				
+			</div>
+		</div>
+		<!-- layout footer end -->
+
+	</div>
+	<!-- layout end -->
+
+	<!-- javscript begin -->
+	<script src="/assets/plugins/LABjs/LAB.min.js"></script>
+	<script>
+		$LAB
+		.script('/assets/plugins/polyfill/polyfill.min.js').wait()
+		.script('/assets/plugins/jquery/jquery-1.12.4.min.js').wait()
+		.script('/assets/plugins/tweenmax/TweenMax.min.js').wait()
+		.script('/assets/plugins/artTemplate/template.js').wait()
+		.script('/assets/js/layout.js').wait()
+		.script('/assets/js/commemorate.js');
+	</script>
+	<!-- javascript end -->
+</body>
+</html>

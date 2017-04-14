@@ -775,7 +775,6 @@
     }
 }
 
-
 /* mask */
 
 #mask {
@@ -796,30 +795,31 @@
         height: 360px;
         background-color: #fff;
         border-radius: 5px;
-        margin: -220px auto 0;
+        margin: -180px auto 0;
         overflow: hidden;
+        .popup-title {
+            height: 40px;
+            border-bottom: 1px solid #c6c6c6;
+            font-size: 20px;
+            line-height: 40px;
+            color: #e9546b;
+            span {
+                float: left;
+                display: inline-block;
+            }
+            a.btn-close {
+                float: right;
+                display: inline-block;
+                width: 17px;
+                height: 16px;
+                background: url(../imgs/ucenter/icon_close.png) no-repeat;
+                margin-top: 12px;
+            }
+        }
+        // invoice mask
         .popup-invoice {
             width: 362px;
             margin: 28px auto 0;
-            .popup-title {
-                height: 40px;
-                border-bottom: 1px solid #c6c6c6;
-                font-size: 20px;
-                line-height: 40px;
-                color: #e9546b;
-                span {
-                    float: left;
-                    display: inline-block;
-                }
-                a.btn-close {
-                    float: right;
-                    display: inline-block;
-                    width: 17px;
-                    height: 16px;
-                    background: url(../imgs/ucenter/icon_close.png) no-repeat;
-                    margin-top: 12px;
-                }
-            }
             .popup-info {
                 li {
                     position: relative;
@@ -908,5 +908,202 @@
                 }
             }
         }
+        
+        // commemorate mask
+        .popup-commemorate {
+            width: 362px;
+            margin: 28px auto 0;
+            .popup-info {
+                li {
+                    height: 40px;
+                    margin-top: 20px;
+                    line-height: 40px;
+                    .name {
+                        float: left;
+                        width: 40px;
+                        color: #969696;
+                    }
+                    .p-select {
+                        float: left;
+                        input {
+                            width: 130px;
+                            height: 40px;
+                            background-color: #f5f5f5;
+                            border: 0;
+                            border-radius: 2px;
+                            text-align: center;
+                            cursor: pointer;
+                        }
+                        .select {
+                            position: absolute;
+                            top: 40px;
+                            left: 56px;
+                            display: none;
+                            width: 132px;
+                            background-color: #fff;
+                            border: 1px solid #dfdede;
+                            z-index: 999;
+                            p {
+                                height: 30px;
+                                line-height: 30px;
+                                text-align: center;
+                                cursor: pointer;
+                                &:hover {
+                                    background-color: #f8f8f8;
+                                }
+                            }
+                        }
+                    }
+                    span {
+                        float: left;
+                        display: block;
+                        width: 30px;
+                        text-align: center;
+                    }
+                    .commemorate-name {
+                        float: left;
+                        width: 280px;
+                        height: 40px;
+                        padding: 0 20px;
+                        background-color: #f5f5f5;
+                        border: 0;
+                        border-radius: 2px;
+                    }
+                }
+            }
+            .popup-btns {
+                margin-top: 30px;
+                a {
+                    float: left;
+                    display: block;
+                    width: 94px;
+                    height: 40px;
+                    background-color: #e9546b;
+                    border-radius: 2px;
+                    line-height: 40px;
+                    text-align: center;
+                    color: #fff;
+                    &#btn-cancel {
+                        margin: 0 12px 0 40px;
+                        background-color: #f2b4be;
+                    }
+                }
+            }
+        }
+    }
+    .p-commemorate { 
+        height: 310px;
+        margin: -155px auto 0;
     }
 }
+
+/* commemorate page */
+
+.commemorate-wrap {
+    .header {
+        border: 0 !important;
+        .tips {
+            height: 70px;
+            line-height: 70px;
+            color: #45515e;
+            .number {
+                display: inline-block;
+                margin-right: 4px;
+                font-size: 18px;
+                color: #e9546b;
+            }
+        }
+        .btn-add {
+            position: relative;
+            display: block;
+            width: 190px;
+            height: 40px;
+            background-color: #e9546b;
+            border-radius: 2px;
+            line-height: 40px;
+            color: #fff;
+            text-indent: 60px;
+            &:after {
+                position: absolute;
+                top: 10px;
+                left: 20px;
+                display: block;
+                width: 20px;
+                height: 20px;
+                content: '';
+                background: url("../imgs/ucenter/icon_add.png") no-repeat center;
+            }
+        }
+    }
+    .body {
+        display: none;
+        margin-top: 20px;
+        .title {
+            height: 30px;
+            background-color: #f2b4be;
+            font-size: 12px;
+            line-height: 30px;
+            color: #fff;
+            span {
+                float: left;
+                display: block;
+                text-align: center;
+            }
+            span.t-name {
+                width: 440px;
+                text-align: left;
+                text-indent: 24px;
+            }
+            span.t-date {
+                width: 100px;
+            }
+            span.t-operate {
+                width: 320px;
+            }
+        }
+        .commemorate-list {
+            .item-info {
+                height: 99px;
+                border-bottom: 1px solid #f0f0f0;
+                >li {
+                    float: left;
+                    height: 99px;
+                    border-right: 1px solid #f0f0f0;
+                    font-size: 12px;
+                    line-height: 100px;
+                    text-align: center;
+                }
+                >li.i-name {
+                    width: 439px;
+                    text-align: left;
+                    text-indent: 24px;
+                }
+                >li.i-date {
+                    width: 99px;
+                }
+                >li.i-operate {
+                    width: 320px;
+                    border: 0;
+                    text-align: right;
+                    a {
+                        display: inline-block;
+                        width: 68px;
+                        height: 24px;
+                        border: 1px solid #45515e;
+                        border-radius: 2px;
+                        line-height: 24px;
+                        text-align: center;
+                        color: #45515e;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                        &.btn-update {
+                            margin-right: 6px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
