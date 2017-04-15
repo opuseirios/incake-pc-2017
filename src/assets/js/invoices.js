@@ -88,6 +88,7 @@
 			$aBtnUpdate = $aInvoiceItem.find('.btn-update'),
 			$aBtnDelete = $aInvoiceItem.find('.btn-delete');
 			$oMask = $('#mask'),
+			$oMaskTitle = $oMask.find('.popup-title').find('span'),
 			$oBtnClose = $oMask.find('.btn-close'),
 			$oCompanyName = $oMask.find('.company-name'),
 			$oBtnCancel = $oMask.find('#btn-cancel');
@@ -96,6 +97,7 @@
 		$oBtnAdd.on('click', function(){
 			// 格式化弹窗内容
 			fnClearInvoice();
+			$oMaskTitle.html('添加发票信息');
 			$oCompanyName.hide();
 			$oMask.fadeIn();
 		});
@@ -123,6 +125,8 @@
 				content = $item.find('.i-content').text(),
 				$select2Type = $('#invoice_type').select2(),
 				$select2Content = $('#invoice_content').select2();
+
+			$oMaskTitle.html('修改发票信息');
 			
 			$select2Type.val(type).trigger('change');
 			$select2Content.val(content).trigger('change');

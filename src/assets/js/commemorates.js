@@ -88,6 +88,7 @@
 			$aBtnUpdate = $aComItem.find('.btn-update'),
 			$aBtnDelete = $aComItem.find('.btn-delete');
 			$oMask = $('#mask'),
+			$oMaskTitle = $oMask.find('.popup-title').find('span'),
 			$oBtnClose = $oMask.find('.btn-close'),
 			$oBtnCancel = $oMask.find('#btn-cancel');
 		
@@ -95,6 +96,7 @@
 		$oBtnAdd.on('click', function(){
 			// 格式化弹窗内容
 			fnClearCommemorate();
+			$oMaskTitle.html('添加纪念日');
 			$oMask.fadeIn();
 		});
 		
@@ -123,6 +125,8 @@
 				day = $item.attr('data-day'),
 				$select2Month = $('#select_month').select2(),
 				$select2Day = $('#select_day').select2();
+
+			$oMaskTitle.html('修改纪念日');
 
 			$select2Month.val(month).trigger('change');
 			$select2Day.val(day).trigger('change');
