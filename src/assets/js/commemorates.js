@@ -5,7 +5,16 @@
 		// 初始化列表
 		fnInitList();
 		
+		// 初始化下拉框
+		fnInitSelect();
 	});
+
+	// 初始化select
+	function fnInitSelect() {
+		$('.select2').select2({
+			minimumResultsForSearch: Infinity // hide search box
+		});
+	}
 	
 	// 初始化列表
 	function fnInitList(){
@@ -13,12 +22,12 @@
 		// 绑定纪念日列表数据
 		fnBindList();
 		
-		// 修改&删除发票信息
+		// 修改&删除纪念日信息
 		fnEditCommemorate();
 		
 	}
 
-	// 绑定发票列表数据
+	// 绑定纪念日列表数据
 	function fnBindList() {
 		var $oComWrap = $('.commemorate-wrap'),
 			$oNumber = $oComWrap.find('.number'),
@@ -26,23 +35,41 @@
 			$oCommemorateList = $oComWrap.find('.commemorate-list');
 		var _data = {
 			list: [{
-				iName: '12月22日爸爸妈妈第十个结婚纪念日啦',
-				date: '12月22日'
+				iName: '结婚纪念日',
+				date: {
+					month: '02',
+					day: '13'
+				}
+			}, {
+				iName: '结婚三周年',
+				date: {
+					month: '01',
+					day: '29'
+				}
+			}, {
+				iName: '公司上市',
+				date: {
+					month: '12',
+					day: '13'
+				}
 			}, {
 				iName: '12月22日爸爸妈妈第十个结婚纪念日啦',
-				date: '12月22日'
+				date: {
+					month: '02',
+					day: '13'
+				}
 			}, {
-				iName: '12月22日爸爸妈妈第十个结婚纪念日啦',
-				date: '12月22日'
+				iName: '外公生日',
+				date: {
+					month: '06',
+					day: '29'
+				}
 			}, {
-				iName: '12月22日爸爸妈妈第十个结婚纪念日啦',
-				date: '12月22日'
-			}, {
-				iName: '12月22日爸爸妈妈第十个结婚纪念日啦',
-				date: '12月22日'
-			}, {
-				iName: '12月22日爸爸妈妈第十个结婚纪念日啦',
-				date: '12月22日'
+				iName: '爸爸出国',
+				date: {
+					month: '02',
+					day: '19'
+				}
 			}]
 		};
 		
@@ -58,7 +85,7 @@
 		
 	}
 	
-	// 添加&修改发票信息
+	// 添加&修改纪念日信息
 	function fnEditCommemorate(){
 		var $oComWrap = $('.commemorate-wrap'),
 			$oListWrap = $oComWrap.find('.list-wrap'),
@@ -71,7 +98,7 @@
 			$oBtnClose = $oMask.find('.btn-close'),
 			$oBtnCancel = $oMask.find('#btn-cancel');
 		
-		// 新增发票
+		// 新增纪念日
 		$oBtnAdd.on('click', function(){
 			// 格式化弹窗内容
 			fnClearCommemorate();
@@ -83,7 +110,7 @@
 			$oMask.fadeOut();
 		});
 		
-		// 删除发票信息
+		// 删除纪念日信息
 		$aBtnDelete.on('click', function(){
 			$(this).closest('.commemorate-item').slideUp(function(){
 				$(this).closest('.commemorate-item').remove();
@@ -95,19 +122,18 @@
 			
 		});
 		
-		// 修改发票信息
+		// 修改纪念日信息
 		$aBtnUpdate.on('click', function(){
-			var $oIname = $(this).closest('.commemorate-item').find('.i-name').text(),
-				$oIdate = $(this).closest('.commemorate-item').find('.i-date').text(),
-				month = $oIdate.substring(0,2),
-				day = $oIdate.substring(3,5);
-			
-			// 格式化弹窗内容
-			fnClearCommemorate();
-			
-			$('.commemorate-month').val(''+month);
-			$('.commemorate-day').val(''+day);
-			$('.commemorate-name').val($oIname);
+			var $item = $(this).closest('.commemorate-item'),
+				name = $item.find('.i-name').text(),
+				month = $item.attr('data-month'),
+				day = $item.attr('data-day'),
+				$select2Month = $('#select_month').select2(),
+				$select2Day = $('#select_day').select2();
+
+			$select2Month.val(month).trigger('change');
+			$select2Day.val(day).trigger('change');
+			$oMask.find('.commemorate-name').val(name);
 			
 			$oMask.fadeIn();
 			
@@ -122,11 +148,13 @@
 	
 	// 格式化弹窗内容
 	function fnClearCommemorate(){
-		var $oMask = $('#mask');
-		
-		$oMask.find('.commemorate-month').val('01');
-		$oMask.find('.commemorate-day').val('01');
-		$oMask.find('.commemorate-date').val('');
+		var $oMask = $('#mask'),
+			$select2Month = $('#select_month').select2(),
+			$select2Day = $('#select_day').select2();
+
+		$select2Month.val('01').trigger('change');
+		$select2Day.val('01').trigger('change');
+		$oMask.find('.commemorate-name').val('');
 	}
 	
 })(window, jQuery);

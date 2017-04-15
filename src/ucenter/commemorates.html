@@ -8,6 +8,7 @@
     <meta name="author" content="">
 	<title>INCAKE | 纪念日管理</title>
 	<link rel="stylesheet" href="/assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
 	<link rel="stylesheet" href="/assets/css/layout.css">
 	<link rel="stylesheet" href="/assets/css/ucenter.css">
 	<link rel="shortcut icon" href="/favicon.ico" />
@@ -175,10 +176,10 @@
 										<script id="tplCommemorateList" type="text/html">
 											{{if list.length > 0}}
 											{{each list as item i}}
-											<li class="commemorate-item">
+											<li class="commemorate-item" data-month="{{item.date.month}}" data-day="{{item.date.day}}">
 												<ul class="item-info clearfix">
 													<li class="i-name">{{item.iName}}</li>
-													<li class="i-date">{{item.date}}</li>
+													<li class="i-date">{{item.date.month}}月{{item.date.day}}日</li>
 													<li class="i-operate">
 														<a href="javascript:;" class="btn-update">修改</a>
 														<a href="javascript:;" class="btn-delete">删除</a>
@@ -216,45 +217,59 @@
 										<ul class="popup-info">
 											<li class="clearfix">
 												<p class="name">时间</p>
-												<div class="p-select">
-													<input type="text" class="commemorate-month" value="01" readonly/>
-													<div class="select">
-														<p>01</p>
-														<p>02</p>
-														<p>03</p>
-														<p>04</p>
-														<p>05</p>
-														<p>06</p>
-														<p>07</p>
-														<p>08</p>
-														<p>09</p>
-														<p>10</p>
-														<p>11</p>
-														<p>12</p>
-													</div>
-												</div>
+												<select class="select2" id="select_month">
+													<option value="01">01</p>
+													<option value="02">02</p>
+													<option value="03">03</p>
+													<option value="04">04</p>
+													<option value="05">05</p>
+													<option value="06">06</p>
+													<option value="07">07</p>
+													<option value="08">08</p>
+													<option value="09">09</p>
+													<option value="10">10</p>
+													<option value="11">11</p>
+													<option value="12">12</p>
+												</select>
 												<span>月</span>
-												<div class="p-select">
-													<input type="text" class="commemorate-day" value="01" readonly/>
-													<div class="select">
-														<p>01</p>
-														<p>02</p>
-														<p>03</p>
-														<p>04</p>
-														<p>05</p>
-														<p>06</p>
-														<p>07</p>
-														<p>08</p>
-														<p>09</p>
-														<p>10</p>
-													</div>
-												</div>
-												<span>日</span>	
-												</span>
+												<select class="select2" id="select_day">
+													<option value="01">01</p>
+													<option value="02">02</p>
+													<option value="03">03</p>
+													<option value="04">04</p>
+													<option value="05">05</p>
+													<option value="06">06</p>
+													<option value="07">07</p>
+													<option value="08">08</p>
+													<option value="09">09</p>
+													<option value="10">10</p>
+													<option value="11">11</p>
+													<option value="12">12</p>
+													<option value="13">13</p>
+													<option value="14">14</p>
+													<option value="15">15</p>
+													<option value="16">16</p>
+													<option value="17">17</p>
+													<option value="18">18</p>
+													<option value="19">19</p>
+													<option value="20">20</p>
+													<option value="21">21</p>
+													<option value="22">22</p>
+													<option value="23">23</p>
+													<option value="24">24</p>
+													<option value="25">25</p>
+													<option value="26">26</p>
+													<option value="27">27</p>
+													<option value="28">28</p>
+													<option value="29">29</p>
+													<option value="30">30</p>
+													<option value="31">31</p>
+												</select>
+												<span>日</span>
 											</li>
 											<li class="clearfix">
 												<p class="name">名称</p>
-												<input type="text" class="commemorate-name" />
+												<input type="text" class="commemorate-name" placeholder="请输入纪念日名称" />
 											</li>
 										</ul>
 										<p class="popup-btns clearfix">
@@ -332,8 +347,9 @@
 		.script('/assets/plugins/jquery/jquery-1.12.4.min.js').wait()
 		.script('/assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('/assets/plugins/artTemplate/template.js').wait()
+		.script('/assets/plugins/select2/js/select2.min.js').wait()
 		.script('/assets/js/layout.js').wait()
-		.script('/assets/js/commemorate.js');
+		.script('/assets/js/commemorates.js');
 	</script>
 	<!-- javascript end -->
 </body>
