@@ -6,10 +6,11 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	<title>INCAKE | 纪念日管理</title>
+	<title>INCAKE | 修改密码</title>
 	<link rel="stylesheet" href="/assets/plugins/normalize/normalize.css">
 	<link rel="stylesheet" href="/assets/css/layout.css">
 	<link rel="stylesheet" href="/assets/css/ucenter.css">
+		<link rel="stylesheet" href="/assets/css/ucenter.css">
 	<link rel="shortcut icon" href="/favicon.ico" />
 </head>
 <body>
@@ -126,8 +127,8 @@
 							<div class="section section-trade">
 								<p>交易管理</p>
 								<ul>
-									<li><a href="javascript:;">最近的订单</a></li>
-									<li><a href="javascript:;">我的订单</a></li>
+									<li><a href="/ucenter/latestorders.html">最近的订单</a></li>
+									<li><a href="/ucenter/orders.html">我的订单</a></li>
 								</ul>
 							</div>
 							<div class="section section-account">
@@ -138,17 +139,17 @@
 									<li><a href="javascript:;">我的优惠券</a></li>
 									<li><a href="javascript:;">积分兑换优惠券</a></li>
 									<li><a href="javascript:;">我喜欢的</a></li>
-									<li><a href="javascript:;">我的评论</a></li>
+									<li><a href="/ucenter/comments.html">我的评论</a></li>
 								</ul>
 							</div>
 							<div class="section section-personal">
 								<p>个人信息管理</p>
 								<ul>
 									<li><a href="javascript:;">个人信息</a></li>
-									<li class="active"><a href="javascript:;">纪念日管理</a></li>
-									<li><a href="javascript:;">修改密码</a></li>
-									<li><a href="javascript:;">收货地址</a></li>
-									<li><a href="javascript:;">发票管理</a></li>
+									<li><a href="/ucenter/commemorates.html">纪念日管理</a></li>
+									<li class="active"><a href="javascript:;">修改密码</a></li>
+									<li><a href="/ucenter/addresses.html">收货地址</a></li>
+									<li><a href="/ucenter/invoices.html">发票管理</a></li>
 								</ul>
 							</div>
 						</div>
@@ -157,115 +158,33 @@
 						<!-- ucenter container begin -->
 						<div class="uc-container">
 							
-							<!-- commemorate wrap begin -->
-							<div class="container-wrap commemorate-wrap">
-								<div class="header">
-									<p class="tips">已有 <span class="number">0</span>个纪念日</p>
-									<a href="javascript:;" class="btn-add">添加纪念日</a>
-								</div>
-								<div class="body list-wrap">
-									<!-- commemorate begin -->
-									<div class="commemorate">
-										<p class="title clearfix">
-											<span class="t-name">名称</span>
-											<span class="t-date">日期</span>
-											<span class="t-operate">&nbsp;</span>
-										</p>
-										<ul class="commemorate-list"></ul>
-										<script id="tplCommemorateList" type="text/html">
-											{{if list.length > 0}}
-											{{each list as item i}}
-											<li class="commemorate-item">
-												<ul class="item-info clearfix">
-													<li class="i-name">{{item.iName}}</li>
-													<li class="i-date">{{item.date}}</li>
-													<li class="i-operate">
-														<a href="javascript:;" class="btn-update">修改</a>
-														<a href="javascript:;" class="btn-delete">删除</a>
-													</li>
-												</ul>
-											</li>
-											{{/each}}
-											{{/if}}
-										</script>
-										<div class="navigator clearfix">
-											<a href="javascript:;" class="prev"><</a>
-											<a href="javascript::" class="page1 active">1</a>
-											<a href="javascript::" class="page2">2</a>
-											<a href="javascript::" class="page3">3</a>
-											<a href="javascript::" class="page4">4</a>
-											<a href="javascript::" class="page5">5</a>
-											<span>...</span>
-											<a href="javascript::" class="page30">30</a>
-											<a href="javascript:;" class="next">></a>
+							<!-- pwd wrap begin -->
+							<div class="container-wrap pwd-wrap">
+								<div class="body">
+									<!-- pwd reset begin -->
+										<div class="pwd-reset">
+											<p class="friendly-tips">请尽量使用高强度密码！</p>
+											<ul class="reset-list">
+												<li class="clearfix">
+													<span>旧密码</span>
+													<input type="password" class="pwd-old" />
+												</li>
+												<li class="clearfix">
+													<span>新密码</span>
+													<input type="password" class="pwd-new" />
+												</li>
+												<li class="clearfix">
+													<span>确认密码</span>
+													<input type="password" class="pwd-confirm" />
+												</li>
+											</ul>
+											<a href="javascript:;" class="btn-submit">确认提交</a>
 										</div>
-									</div>
-									<!-- commemorate end -->
+									<!-- pwd reset end -->
 								</div>
 							</div>
-							<!-- commemorate wrap end -->
-							
-							<!-- mask begin -->
-							<div id="mask">
-								<div class="popup-content p-commemorate">
-									<div class="popup-commemorate">
-										<p class="popup-title clearfix">
-											<span>添加纪念日</span>
-											<a href="javascript:;" class="btn-close"></a>
-										</p>
-										<ul class="popup-info">
-											<li class="clearfix">
-												<p class="name">时间</p>
-												<div class="p-select">
-													<input type="text" class="commemorate-month" value="01" readonly/>
-													<div class="select">
-														<p>01</p>
-														<p>02</p>
-														<p>03</p>
-														<p>04</p>
-														<p>05</p>
-														<p>06</p>
-														<p>07</p>
-														<p>08</p>
-														<p>09</p>
-														<p>10</p>
-														<p>11</p>
-														<p>12</p>
-													</div>
-												</div>
-												<span>月</span>
-												<div class="p-select">
-													<input type="text" class="commemorate-day" value="01" readonly/>
-													<div class="select">
-														<p>01</p>
-														<p>02</p>
-														<p>03</p>
-														<p>04</p>
-														<p>05</p>
-														<p>06</p>
-														<p>07</p>
-														<p>08</p>
-														<p>09</p>
-														<p>10</p>
-													</div>
-												</div>
-												<span>日</span>	
-												</span>
-											</li>
-											<li class="clearfix">
-												<p class="name">名称</p>
-												<input type="text" class="commemorate-name" />
-											</li>
-										</ul>
-										<p class="popup-btns clearfix">
-											<a href="javascript:;" id="btn-cancel">取消</a>
-											<a href="javascript:;" id="btn-confirm">确认</a>
-										</p>
-									</div>
-								</div>
-							</div>
-							<!-- mask end -->
-							
+							<!-- pwd wrap end -->
+
 						</div>
 						<!-- ucenter container end -->
 
@@ -333,7 +252,7 @@
 		.script('/assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('/assets/plugins/artTemplate/template.js').wait()
 		.script('/assets/js/layout.js').wait()
-		.script('/assets/js/commemorate.js');
+		.script('/assets/js/ucenter.js');
 	</script>
 	<!-- javascript end -->
 </body>
