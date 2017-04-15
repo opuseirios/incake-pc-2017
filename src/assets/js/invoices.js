@@ -4,6 +4,9 @@
 		
 		// 初始化列表
 		fnInitList();
+
+		// 初始化下拉框
+		$('.select2').select2();
 		
 	});
 	
@@ -40,7 +43,7 @@
 			}, {
 				header: {
 					hType: '公司',
-					hName: '上海印克电子商务股份有限公司'
+					hName: '杭州阿里巴巴股份有限公司'
 				},
 				content: '蛋糕'
 			}, {
@@ -72,8 +75,7 @@
 		}else {
 			$oNumber.text(0);
 			$oListWrap.hide();
-		}
-		
+		}		
 	}
 	
 	// 添加&修改发票信息
@@ -88,9 +90,6 @@
 			$oMask = $('#mask'),
 			$oBtnClose = $oMask.find('.btn-close'),
 			$oCompanyName = $oMask.find('.company-name'),
-			$aPselect = $oMask.find('.p-select'),
-			$aSelect = $oMask.find('.select'),
-			$aSelectItem = $aSelect.find('p'),
 			$oBtnCancel = $oMask.find('#btn-cancel');
 		
 		// 新增发票
@@ -114,32 +113,28 @@
 				if($('.invoice-item').length==0){
 					$oListWrap.hide();
 				}
-			});
-			
+			});		
 		});
 		
 		// 修改发票信息
 		$aBtnUpdate.on('click', function(){
-			var $oHtype = $(this).closest('.invoice-item').find('.hType').text(),
-				$oHContent = $(this).closest('.invoice-item').find('.i-content').text();
+			var $item = $(this).closest('.invoice-item'),
+				type = $item.find('.hType').text(),
+				content = $item.find('.i-content').text(),
+				$select2Type = $('#invoice_type').select2(),
+				$select2Content = $('#invoice_content').select2();
 			
-			// 格式化弹窗内容
-			fnClearInvoice();
+			$select2Type.val(type).trigger('change');
+			$select2Content.val(content).trigger('change');
 			
-			$('.invoice-type').val($oHtype);
-			$('.invoice-info').val($oHContent);
-			
-			if($oHtype=='个人'){
-				//$('.invoice-name').val('');
+			if(type=='个人'){
 				$oCompanyName.hide();
 			}else{
-				var $oHname = $(this).closest('.invoice-item').find('.hName').text();
-				$('.invoice-name').val($oHname);
+				var name = $item.find('.hName').text();
+				$('.invoice-name').val(name);
 				$oCompanyName.show();
 			}
-			//alert($oHtype+'---'+$oHContent+'---'+$oHname);
-			$oMask.fadeIn();
-			
+			$oMask.fadeIn();			
 		});
 		
 		// 取消操作
@@ -147,46 +142,25 @@
 			$oMask.fadeOut();
 		});
 		
-		// 选择框
-		$aPselect.on('click', function(){
-			if(!$(this).hasClass('item-open')){
-				$aPselect.removeClass('item-open');
-				$aSelect.slideUp();
-				$(this).addClass('item-open');
-				$(this).siblings('.select').slideDown();
-			}else{
-				$(this).removeClass('item-open');
-				$(this).siblings('.select').slideUp();
+		// 切换发票抬头
+		$('#invoice_type').on('select2:select', function(e) {
+			if(e.params.data.text == '公司') {
+				$oCompanyName.css('display', 'block');
+			} else {
+				$oCompanyName.css('display', 'none');
 			}
-			
-		});
-		
-		// 关闭选择框
-		$aSelectItem.on('click', function(){
-			if($(this).text() == '个人'){
-				$oCompanyName.slideUp();
-			}else if($(this).text() == '公司'){
-				$oCompanyName.slideDown();
-			}
-			$(this).closest('.select').siblings('input').removeClass('item-open');
-			$(this).closest('.select').siblings('input').val($(this).text());
-			$(this).closest('.select').slideUp();
-		});
-		
-		$aSelect.mouseleave(function(){
-			$(this).siblings('input').removeClass('item-open');
-			$(this).slideUp();
-		});
-		
+		});		
 	}
 	
 	// 格式化弹窗内容
 	function fnClearInvoice(){
-		var $oMask = $('#mask');
+		var $oMask = $('#mask'),
+			$select2Type = $('#invoice_type').select2(),
+			$select2Content = $('#invoice_content').select2();
 		
-		$oMask.find('.invoice-type').val('个人');
+		$select2Type.val('个人').trigger('change');
+		$select2Content.val('蛋糕').trigger('change');
 		$oMask.find('.invoice-name').val('');
-		$oMask.find('.invoice-info').val('蛋糕');
 	}
 	
 })(window, jQuery);

@@ -8,6 +8,7 @@
     <meta name="author" content="">
 	<title>INCAKE | 发票管理</title>
 	<link rel="stylesheet" href="/assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
 	<link rel="stylesheet" href="/assets/css/layout.css">
 	<link rel="stylesheet" href="/assets/css/ucenter.css">
 	<link rel="shortcut icon" href="/favicon.ico" />
@@ -172,101 +173,7 @@
 											<span class="t-content">发票内容</span>
 											<span class="t-operate"></span>
 										</p>
-										<ul class="invoice-list">
-											<!--<li class="invoice-item">
-												<ul class="item-info clearfix">
-													<li class="i-type">普通发票</li>
-													<li class="i-header vcenter">
-														<div class="vcenter-child">
-															<p>公司</p>
-															<p>上海印克电子商务股份有限公司</p>
-														</div>
-													</li>
-													<li class="i-content">蛋糕</li>
-													<li class="i-operate">
-														<a href="javascript:;" class="btn-update">修改</a>
-														<a href="javascript:;" class="btn-delete">删除</a>
-													</li>
-												</ul>
-											</li>
-											<li class="invoice-item">
-												<ul class="item-info clearfix">
-													<li class="i-type">普通发票</li>
-													<li class="i-header vcenter">
-														<div class="vcenter-child">
-															<p>个人</p>
-														</div>
-													</li>
-													<li class="i-content">食品</li>
-													<li class="i-operate clearfix">
-														<a href="javascript:;" class="btn-update">修改</a>
-														<a href="javascript:;" class="btn-delete">删除</a>
-													</li>
-												</ul>
-											</li>
-											<li class="invoice-item">
-												<ul class="item-info clearfix">
-													<li class="i-type">普通发票</li>
-													<li class="i-header vcenter">
-														<div class="vcenter-child">
-															<p>公司</p>
-															<p>上海印克电子商务股份有限公司</p>
-														</div>
-													</li>
-													<li class="i-content">蛋糕</li>
-													<li class="i-operate clearfix">
-														<a href="javascript:;" class="btn-update">修改</a>
-														<a href="javascript:;" class="btn-delete">删除</a>
-													</li>
-												</ul>
-											</li>
-											<li class="invoice-item">
-												<ul class="item-info clearfix">
-													<li class="i-type">普通发票</li>
-													<li class="i-header vcenter">
-														<div class="vcenter-child">
-															<p>个人</p>
-														</div>
-													</li>
-													<li class="i-content">食品</li>
-													<li class="i-operate clearfix">
-														<a href="javascript:;" class="btn-update">修改</a>
-														<a href="javascript:;" class="btn-delete">删除</a>
-													</li>
-												</ul>
-											</li>
-											<li class="invoice-item">
-												<ul class="item-info clearfix">
-													<li class="i-type">普通发票</li>
-													<li class="i-header vcenter">
-														<div class="vcenter-child">
-															<p>公司</p>
-															<p>上海印克电子商务股份有限公司</p>
-														</div>
-													</li>
-													<li class="i-content">蛋糕</li>
-													<li class="i-operate clearfix">
-														<a href="javascript:;" class="btn-update">修改</a>
-														<a href="javascript:;" class="btn-delete">删除</a>
-													</li>
-												</ul>
-											</li>
-											<li class="invoice-item">
-												<ul class="item-info clearfix">
-													<li class="i-type">普通发票</li>
-													<li class="i-header vcenter">
-														<div class="vcenter-child">
-															<p>个人</p>
-														</div>
-													</li>
-													<li class="i-content">食品</li>
-													<li class="i-operate clearfix">
-														<a href="javascript:;" class="btn-update">修改</a>
-														<a href="javascript:;" class="btn-delete">删除</a>
-													</li>
-												</ul>
-											</li>-->
-										</ul>
+										<ul class="invoice-list"></ul>
 										<script id="tplInvoiceList" type="text/html">
 											{{if list.length > 0}}
 											{{each list as item i}}
@@ -317,23 +224,21 @@
 										<ul class="popup-info">
 											<li class="clearfix">
 												<p class="name">发票类型</p>
-												<input type="text" class="p-select invoice-type" value="公司" readonly/>
-												<div class="select">
-													<p>个人</p>
-													<p>公司</p>
-												</div>
+												<select class="select2" id="invoice_type">
+													<option value="个人">个人</option>
+													<option value="公司">公司</option>
+												</select>
 											</li>
 											<li class="company-name clearfix">
 												<p class="name">&nbsp;</p>
-												<input type="text" class="invoice-name" />
+												<input type="text" class="invoice-name" placeholder="请输入公司名称" />
 											</li>
 											<li class="clearfix">
 												<p class="name">发票内容</p>
-												<input type="text" class="p-select invoice-info" value="蛋糕" readonly/>
-												<div class="select">
-													<p>蛋糕</p>
-													<p>食品</p>
-												</div>
+												<select class="select2" id="invoice_content">
+													<option value="蛋糕">蛋糕</option>
+													<option value="食品">食品</option>
+												</select>
 											</li>
 										</ul>
 										<p class="popup-btns clearfix">
@@ -411,6 +316,7 @@
 		.script('/assets/plugins/jquery/jquery-1.12.4.min.js').wait()
 		.script('/assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('/assets/plugins/artTemplate/template.js').wait()
+		.script('/assets/plugins/select2/js/select2.min.js').wait()
 		.script('/assets/js/layout.js').wait()
 		.script('/assets/js/invoices.js');
 	</script>

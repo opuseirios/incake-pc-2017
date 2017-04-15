@@ -6,15 +6,8 @@
 		fnInitList();
 		
 		// 初始化下拉框
-		fnInitSelect();
+		$('.select2').select2();
 	});
-
-	// 初始化select
-	function fnInitSelect() {
-		$('.select2').select2({
-			minimumResultsForSearch: Infinity // hide search box
-		});
-	}
 	
 	// 初始化列表
 	function fnInitList(){
