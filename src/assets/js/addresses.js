@@ -36,7 +36,8 @@
                     ext: '外环线以内',
                     street: '广中西路777弄99号江裕大厦506室'
                 },
-                mobile: '13615211254'
+                mobile: '13615211254',
+                isDefault: 'false'
             }, {
                 iName: '李四',
                 addr: {
@@ -45,7 +46,8 @@
                     ext: '外环线以内',
                     street: '上海马戏城地铁站'
                 },
-                mobile: '15800110202'
+                mobile: '15800110202',
+                isDefault: 'false'
             }, {
                 iName: '王五',
                 addr: {
@@ -54,7 +56,8 @@
                     ext: '外环线以外',
                     street: '雪松路458弄桃浦七村263号602室'
                 },
-                tel: '021-89283321'
+                tel: '021-89283321',
+                isDefault: 'true'
             }, {
                 iName: '张三',
                 addr: {
@@ -63,7 +66,8 @@
                     ext: '外环线以内',
                     street: '广中西路777弄99号江裕大厦506室'
                 },
-                mobile: '13615211254'
+                mobile: '13615211254',
+                isDefault: 'false'
             }, {
                 iName: '张三',
                 addr: {
@@ -72,7 +76,8 @@
                     ext: '外环线以内',
                     street: '广中西路777弄99号江裕大厦506室'
                 },
-                mobile: '13615211254'
+                mobile: '13615211254',
+                isDefault: 'false'
             }, {
                 iName: '张三',
                 addr: {
@@ -81,7 +86,8 @@
                     ext: '外环线以内',
                     street: '广中西路777弄99号江裕大厦506室'
                 },
-                mobile: '13615211254'
+                mobile: '13615211254',
+                isDefault: 'false'
             }]
         };
 
@@ -146,6 +152,7 @@
                 area = $item.attr('data-area'),
                 ext = $item.attr('data-ext'),
                 street = $item.attr('data-street'),
+                isDefault = $item.attr('data-default'),
                 $select2City = $('#select_city'),
                 $select2Area = $('#select_area'),
                 $select2Ext = $('#select_ext');
@@ -160,6 +167,12 @@
             $oMask.find('.mobile').val(mobile);
             $oMask.find('.tel').val(tel);
 
+            if(isDefault == 'true') {
+        		$oMask.find('.set-default').find('i').addClass('checked');
+            } else {
+            	$oMask.find('.set-default').find('i').removeClass('checked');
+            }
+
             $oMask.fadeIn();
 
         });
@@ -169,6 +182,10 @@
             $oMask.fadeOut();
         });
 
+        // 设置默认地址切换
+        $oMask.find('.set-default').on('click', 'i', function() {
+        	$(this).toggleClass('checked');
+        });
     }
 
     // 格式化弹窗内容

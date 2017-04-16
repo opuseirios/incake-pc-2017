@@ -177,7 +177,7 @@
 										<script id="tplAddressList" type="text/html">
 											{{if list.length > 0}}
 											{{each list as item i}}
-											<li class="address-item" data-name="{{item.iName}}" data-city="{{item.addr.city}}" data-area="{{item.addr.area}}" data-ext="{{item.addr.ext}}" data-street="{{item.addr.street}}" data-mobile="{{item.mobile}}" data-tel="{{item.tel}}">
+											<li class="address-item" data-name="{{item.iName}}" data-city="{{item.addr.city}}" data-area="{{item.addr.area}}" data-ext="{{item.addr.ext}}" data-street="{{item.addr.street}}" data-mobile="{{item.mobile}}" data-tel="{{item.tel}}" data-default="{{item.isDefault}}">
 												<ul class="item-info clearfix">
 													<li class="i-name">{{item.iName}}</li>
 													<li class="i-addr">{{item.addr.city}}{{item.addr.area}}{{item.addr.street}}</li>
@@ -275,6 +275,7 @@
 										<p class="popup-btns clearfix">
 											<a href="javascript:;" id="btn-cancel">取消</a>
 											<a href="javascript:;" id="btn-confirm">确认</a>
+											<span class="set-default clearfix"><i></i>设为默认地址</span>
 										</p>
 									</div>
 								</div>

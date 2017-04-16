@@ -1034,6 +1034,31 @@
                         background-color: #f2b4be;
                     }
                 }
+                .set-default {
+                    display: inline-block;
+                    float: right;
+                    line-height: 40px;
+                    color: #787878;
+
+                    i {
+                        display: inline-block;
+                        float: left;
+                        width: 30px;
+                        height: 40px;
+                        font-style: normal;
+                        cursor: pointer;
+                        background: {
+                            image: url('../imgs/icons/icon_radio_rect.png');
+                            repeat: no-repeat;
+                            size: 22px 22px;
+                            position: center center;
+                        }
+
+                        &.checked {
+                            background-image: url('../imgs/icons/icon_radio_rect_checked.png');
+                        }
+                    }
+                }
             }
         }
     }
