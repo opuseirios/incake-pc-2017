@@ -8,6 +8,7 @@
     <meta name="author" content="">
 	<title>INCAKE | 收货地址</title>
 	<link rel="stylesheet" href="/assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
 	<link rel="stylesheet" href="/assets/css/layout.css">
 	<link rel="stylesheet" href="/assets/css/ucenter.css">
 	<link rel="shortcut icon" href="/favicon.ico" />
@@ -176,11 +177,11 @@
 										<script id="tplAddressList" type="text/html">
 											{{if list.length > 0}}
 											{{each list as item i}}
-											<li class="address-item">
+											<li class="address-item" data-name="{{item.iName}}" data-city="{{item.addr.city}}" data-area="{{item.addr.area}}" data-ext="{{item.addr.ext}}" data-street="{{item.addr.street}}" data-mobile="{{item.mobile}}" data-tel="{{item.tel}}">
 												<ul class="item-info clearfix">
 													<li class="i-name">{{item.iName}}</li>
-													<li class="i-addr">{{item.addr}}</li>
-													<li class="i-mobile">{{item.mobile}}</li>
+													<li class="i-addr">{{item.addr.city}}{{item.addr.area}}{{item.addr.street}}</li>
+													<li class="i-mobile i-tel">{{item.mobile}}{{item.tel}}</li>
 													<li class="i-operate">
 														<a href="javascript:;" class="btn-update">修改</a>
 														<a href="javascript:;" class="btn-delete">删除</a>
@@ -212,51 +213,63 @@
 								<div class="popup-content p-address">
 									<div class="popup-address">
 										<p class="popup-title clearfix">
-											<span>添加纪念日</span>
+											<span>添加收货地址</span>
 											<a href="javascript:;" class="btn-close"></a>
 										</p>
 										<ul class="popup-info">
-											<li class="clearfix">
-												<p class="name">时间</p>
-												<div class="p-select">
-													<input type="text" class="address-month" value="01" readonly/>
-													<div class="select">
-														<p>01</p>
-														<p>02</p>
-														<p>03</p>
-														<p>04</p>
-														<p>05</p>
-														<p>06</p>
-														<p>07</p>
-														<p>08</p>
-														<p>09</p>
-														<p>10</p>
-														<p>11</p>
-														<p>12</p>
-													</div>
-												</div>
-												<span>月</span>
-												<div class="p-select">
-													<input type="text" class="address-day" value="01" readonly/>
-													<div class="select">
-														<p>01</p>
-														<p>02</p>
-														<p>03</p>
-														<p>04</p>
-														<p>05</p>
-														<p>06</p>
-														<p>07</p>
-														<p>08</p>
-														<p>09</p>
-														<p>10</p>
-													</div>
-												</div>
-												<span>日</span>	
-												</span>
+											<li class="require clearfix">
+												<p class="name">收货人</p>
+												<input type="text" class="receiver-name" placeholder="请输入收货人姓名">
 											</li>
 											<li class="clearfix">
-												<p class="name">名称</p>
-												<input type="text" class="address-name" />
+												<p class="name">送货地址</p>
+												<label class="sel-city">
+													<select id="select_city" class="select2">
+														<option value="0">请选择</option>
+														<option value="上海市">上海市</option>
+													</select>
+												</label>
+												<label class="sel-area">
+													<select id="select_area" class="select2">
+														<option value="0">请选择</option>
+														<option value="宝山区">宝山区</option>
+														<option value="长宁区">长宁区</option>
+														<option value="奉贤区">奉贤区</option>
+														<option value="虹口区">虹口区</option>
+														<option value="黄浦区">黄浦区</option>
+														<option value="嘉定区">嘉定区</option>
+														<option value="金山区">金山区</option>
+														<option value="静安区">静安区</option>
+														<option value="闵行区">闵行区</option>
+														<option value="浦东新区">浦东新区</option>
+														<option value="普陀区">普陀区</option>
+														<option value="青浦区">青浦区</option>
+														<option value="松江区">松江区</option>
+														<option value="徐汇区">徐汇区</option>
+														<option value="杨浦区">杨浦区</option>
+														<option value="闸北区">闸北区</option>
+													</select>
+												</label>
+											</li>
+											<li class="clearfix">
+												<p class="name">&nbsp;</p>
+												<label class="sel-ext">
+													<select id="select_ext" class="select2">
+														<option value="0">请选择</option>
+														<option value="外环线以内">外环线以内</option>
+														<option value="外环线以外">外环线以外</option>
+													</select>
+												</label>
+											</li>
+											<li class="require clearfix">
+												<p class="name">&nbsp;</p>
+												<input type="text" class="address-street" placeholder="请输入街道名称／小区名称">
+											</li>
+											<li class="require clearfix">
+												<p class="name">手机</p>
+												<input type="text" class="mobile" placeholder="请输入手机号码">
+												<p class="name name-l">或固定电话</p>
+												<input type="text" class="tel" placeholder="请输入固定电话">
 											</li>
 										</ul>
 										<p class="popup-btns clearfix">
@@ -334,6 +347,7 @@
 		.script('/assets/plugins/jquery/jquery-1.12.4.min.js').wait()
 		.script('/assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('/assets/plugins/artTemplate/template.js').wait()
+		.script('/assets/plugins/select2/js/select2.min.js').wait()
 		.script('/assets/js/layout.js').wait()
 		.script('/assets/js/addresses.js');
 	</script>
