@@ -6,9 +6,10 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	<title>INCAKE | 纪念日管理</title>
+	<title>INCAKE | 个人信息</title>
 	<link rel="stylesheet" href="/assets/plugins/normalize/normalize.css">
 	<link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="/assets/plugins/pikaday/css/pikaday.css">
 	<link rel="stylesheet" href="/assets/css/layout.css">
 	<link rel="stylesheet" href="/assets/css/ucenter.css">
 	<link rel="shortcut icon" href="/favicon.ico" />
@@ -145,8 +146,8 @@
 							<div class="section section-personal">
 								<p>个人信息管理</p>
 								<ul>
-									<li><a href="/ucenter/profile.html">个人信息</a></li>
-									<li class="active"><a href="javascript:;">纪念日管理</a></li>
+									<li class="active"><a href="javascript:;">个人信息</a></li>
+									<li><a href="/ucenter/commemorates.html">纪念日管理</a></li>
 									<li><a href="/ucenter/pwdreset.html">修改密码</a></li>
 									<li><a href="/ucenter/addresses.html">收货地址</a></li>
 									<li><a href="/ucenter/invoices.html">发票管理</a></li>
@@ -158,129 +159,110 @@
 						<!-- ucenter container begin -->
 						<div class="uc-container">
 							
-							<!-- commemorate wrap begin -->
-							<div class="container-wrap commemorate-wrap">
-								<div class="header">
-									<p class="tips">已有 <span class="number">0</span>个纪念日</p>
-									<a href="javascript:;" class="btn-add">添加纪念日</a>
-								</div>
-								<div class="body list-wrap">
-									<!-- commemorate begin -->
-									<div class="commemorate">
-										<p class="title clearfix">
-											<span class="t-name">名称</span>
-											<span class="t-date">日期</span>
-											<span class="t-operate">&nbsp;</span>
-										</p>
-										<ul class="commemorate-list"></ul>
-										<script id="tplCommemorateList" type="text/html">
-											{{if list.length > 0}}
-											{{each list as item i}}
-											<li class="commemorate-item" data-month="{{item.date.month}}" data-day="{{item.date.day}}">
-												<ul class="item-info clearfix">
-													<li class="i-name">{{item.iName}}</li>
-													<li class="i-date">{{item.date.month}}月{{item.date.day}}日</li>
-													<li class="i-operate">
-														<a href="javascript:;" class="btn-update">修改</a>
-														<a href="javascript:;" class="btn-delete">删除</a>
-													</li>
-												</ul>
-											</li>
-											{{/each}}
-											{{/if}}
-										</script>
-										<div class="navigator clearfix">
-											<a href="javascript:;" class="prev"><</a>
-											<a href="javascript::" class="page1 active">1</a>
-											<a href="javascript::" class="page2">2</a>
-											<a href="javascript::" class="page3">3</a>
-											<a href="javascript::" class="page4">4</a>
-											<a href="javascript::" class="page5">5</a>
-											<span>...</span>
-											<a href="javascript::" class="page30">30</a>
-											<a href="javascript:;" class="next">></a>
-										</div>
-									</div>
-									<!-- commemorate end -->
-								</div>
-							</div>
-							<!-- commemorate wrap end -->
-							
-							<!-- mask begin -->
-							<div id="mask">
-								<div class="popup-content p-commemorate">
-									<div class="popup-commemorate">
-										<p class="popup-title clearfix">
-											<span>添加纪念日</span>
-											<a href="javascript:;" class="btn-close"></a>
-										</p>
-										<ul class="popup-info">
+							<!-- profile wrap begin -->
+							<div class="container-wrap profile-wrap">
+								<div class="body">
+									<!-- profile begin -->
+									<div class="profile">
+										<p class="title">请尽量完善您的个人信息，方便我们同您取得联系！</p>
+										<ul class="form">
 											<li class="clearfix">
-												<p class="name">时间</p>
-												<select class="select2" id="select_month">
-													<option value="01">01</p>
-													<option value="02">02</p>
-													<option value="03">03</p>
-													<option value="04">04</p>
-													<option value="05">05</p>
-													<option value="06">06</p>
-													<option value="07">07</p>
-													<option value="08">08</p>
-													<option value="09">09</p>
-													<option value="10">10</p>
-													<option value="11">11</p>
-													<option value="12">12</p>
-												</select>
-												<span>月</span>
-												<select class="select2" id="select_day">
-													<option value="01">01</p>
-													<option value="02">02</p>
-													<option value="03">03</p>
-													<option value="04">04</p>
-													<option value="05">05</p>
-													<option value="06">06</p>
-													<option value="07">07</p>
-													<option value="08">08</p>
-													<option value="09">09</p>
-													<option value="10">10</p>
-													<option value="11">11</p>
-													<option value="12">12</p>
-													<option value="13">13</p>
-													<option value="14">14</p>
-													<option value="15">15</p>
-													<option value="16">16</p>
-													<option value="17">17</p>
-													<option value="18">18</p>
-													<option value="19">19</p>
-													<option value="20">20</p>
-													<option value="21">21</p>
-													<option value="22">22</p>
-													<option value="23">23</p>
-													<option value="24">24</p>
-													<option value="25">25</p>
-													<option value="26">26</p>
-													<option value="27">27</p>
-													<option value="28">28</p>
-													<option value="29">29</p>
-													<option value="30">30</p>
-													<option value="31">31</p>
-												</select>
-												<span>日</span>
+												<p class="name">姓名</p>
+												<div class="content">
+													<input type="text" class="txt-name" placeholder="请输入您的姓名">
+												</div>
 											</li>
 											<li class="clearfix">
-												<p class="name">名称</p>
-												<input type="text" class="commemorate-name" placeholder="请输入纪念日名称" />
+												<p class="name">性别</p>
+												<div class="content">
+													<p class="gender clearfix">
+														<span class="male checked">男</span>
+														<span class="femal">女</span>
+													</p>
+												</div>
+											</li>
+											<li class="clearfix">
+												<p class="name">出生日期</p>
+												<div class="content datepicker">
+													<input type="text" id="birthpicker">
+													<input type="hidden" id="txtBirth">
+												</div>
+											</li>
+											<li class="clearfix">
+												<p class="name">所在地</p>
+												<div class="content clearfix">
+													<label class="sel-province">
+														<select id="txt_province" class="select2">
+															<option value="0">请选择</option>
+															<option value="上海">上海</option>
+														</select>
+													</label>
+													<label class="sel-city">
+														<select id="txt_city" class="select2">
+															<option value="0">请选择</option>
+															<option value="上海市">上海市</option>
+														</select>
+													</label>
+													<label class="sel-area">
+														<select id="txt_area" class="select2">
+															<option value="0">请选择</option>
+															<option value="宝山区">宝山区</option>
+															<option value="长宁区">长宁区</option>
+															<option value="奉贤区">奉贤区</option>
+															<option value="虹口区">虹口区</option>
+															<option value="黄浦区">黄浦区</option>
+															<option value="嘉定区">嘉定区</option>
+															<option value="金山区">金山区</option>
+															<option value="静安区">静安区</option>
+															<option value="闵行区">闵行区</option>
+															<option value="浦东新区">浦东新区</option>
+															<option value="普陀区">普陀区</option>
+															<option value="青浦区">青浦区</option>
+															<option value="松江区">松江区</option>
+															<option value="徐汇区">徐汇区</option>
+															<option value="杨浦区">杨浦区</option>
+															<option value="闸北区">闸北区</option>
+														</select>
+													</label>
+												</div>
+											</li>
+											<li class="clearfix">
+												<p class="name">&nbsp;</p>
+												<div class="content">
+													<input type="text" class="txt-street" placeholder="请注明街道、门牌号信息">
+												</div>
+											</li>
+											<li class="clearfix">
+												<p class="name">固定电话</p>
+												<div class="content">
+													<input type="text" class="txt-tel" placeholder="请输入您的固定电话（区号-电话号码）">
+												</div>
+											</li>
+											<li class="clearfix">
+												<p class="name">手机号码</p>
+												<div class="content">
+													<input type="text" class="txt-mobile" placeholder="请输入您的手机号码">
+												</div>
+											</li>
+											<li class="clearfix">
+												<p class="name">邮箱</p>
+												<div class="content">
+													<input type="text" class="txt-email" placeholder="请输入您的邮箱">
+												</div>
+											</li>
+											<li class="btn clearfix">
+												<p class="name">&nbsp;</p>
+												<div class="content">
+													<a href="javascript:;" class="btn-confirm">确认提交</a>
+												</div>
 											</li>
 										</ul>
-										<p class="popup-btns clearfix">
-											<a href="javascript:;" id="btn-cancel">取消</a>
-											<a href="javascript:;" id="btn-confirm">确认</a>
-										</p>
 									</div>
+									<!-- profile end -->
 								</div>
 							</div>
-							<!-- mask end -->
-							
+							<!-- profile wrap end -->
+
 						</div>
 						<!-- ucenter container end -->
 
@@ -348,8 +330,10 @@
 		.script('/assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('/assets/plugins/artTemplate/template.js').wait()
 		.script('/assets/plugins/select2/js/select2.min.js').wait()
+		.script('/assets/plugins/pikaday/js/moment.min.js').wait()
+		.script('/assets/plugins/pikaday/js/pikaday.js').wait()
 		.script('/assets/js/layout.js').wait()
-		.script('/assets/js/commemorates.js');
+		.script('/assets/js/profile.js');
 	</script>
 	<!-- javascript end -->
 </body>
