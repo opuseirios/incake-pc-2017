@@ -72,9 +72,9 @@
 
         // 手机扫码
         $scan.hover(function(e) {
-        	$(this).find('.qrcode').fadeIn();
+            $(this).find('.qrcode').fadeIn();
         }, function(e) {
-        	$(this).find('.qrcode').fadeOut();
+            $(this).find('.qrcode').fadeOut();
         });
     }
 

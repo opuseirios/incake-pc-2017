@@ -10,7 +10,7 @@
 .product-intro {
     width: 1200px;
     margin: 40px auto 0;
-    padding-bottom: 90px;
+    padding-bottom: 60px;
     .preview-wrap {
         float: left;
         width: 540px;
@@ -349,9 +349,9 @@
                     margin: 0 auto;
                     border: 1px solid #45515e;
                     .txt-amount {
-                    	border: none;
-                    	outline: none;
-                    	-webkit-appearance: none;
+                        border: none;
+                        outline: none;
+                        -webkit-appearance: none;
                         width: 138px;
                         height: 33px;
                         line-height: 33px;
@@ -374,94 +374,99 @@
                 .btn-sub {
                     left: 10px;
                     background-image: url('../imgs/icons/icon_sub_enabled.png');
-
                     &.disabled {
-                    	background-image: url('../imgs/icons/icon_sub_disabled.png');
+                        background-image: url('../imgs/icons/icon_sub_disabled.png');
                     }
                 }
                 .btn-add {
                     right: 10px;
                     background-image: url('../imgs/icons/icon_add_enabled.png');
-
                     &.disabled {
-                    	background-image: url('../imgs/icons/icon_add_disabled.png');
+                        background-image: url('../imgs/icons/icon_add_disabled.png');
                     }
                 }
             }
         }
         .operates {
-        	width: 100%;
-        	.btn {
-        		display: block;
-        		float: left;
-        		width: 230px;
-        		height: 50px;
-        		line-height: 50px;
-        		text-align: center;
-        		border-radius: 2px;
-        		font-size: 18px;
-        		color: #fff;
-        		&:hover {
-        			text-decoration: underline;
-        		}
-        	}
-        	.add-basket {
-        		margin-left: 50px;
-				background-color: #f2b4be;
-        	}
-        	.buy-immediate {
-        		margin-left: 20px;
-        		background-color: #e9546b;
-        	}
+            width: 100%;
+            .btn {
+                display: block;
+                float: left;
+                width: 230px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                border-radius: 2px;
+                font-size: 18px;
+                color: #fff;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            .add-basket {
+                margin-left: 50px;
+                background-color: #f2b4be;
+            }
+            .buy-immediate {
+                margin-left: 20px;
+                background-color: #e9546b;
+            }
         }
         .qrcode-scan {
-        	position: absolute;
-        	top: 0;
-        	right: 10px;
-        	z-index: 999;
-        	width: 150px;
-        	height: 40px;
-
-        	&:after {
-        		display: block;
-        		position: absolute;
-        		top: 50%;
-        		left: 14px;
-        		width: 20px;
-        		height: 20px;
-        		margin-top: -10px;
-        		content: '';
-        		background: {
-        			image: url('../imgs/icons/icon_qrcode_scan.png');
-        			repeat: no-repeat;
-        			size: cover;
-        			position: center center;
-        		}
-        	}
-
-        	p {
-        		padding-left: 40px;
-        		line-height: 40px;
-        		color: #505050;
-        	}
-
-        	&:hover {
-        		background-color: #f0f0f0;
-        	}
-
-        	.qrcode {
-        		display: none;
-        		position: absolute;
-        		bottom: -150px;
-        		left: 0;
-        		width: 148px;
-        		height: 148px;
-        		border: 1px solid #f0f0f0;
-
-        		img {
-        			width: 100%;
-        		}
-        	}
+            position: absolute;
+            top: 0;
+            right: 10px;
+            z-index: 999;
+            width: 150px;
+            height: 40px;
+            &:after {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 14px;
+                width: 20px;
+                height: 20px;
+                margin-top: -10px;
+                content: '';
+                background: {
+                    image: url('../imgs/icons/icon_qrcode_scan.png');
+                    repeat: no-repeat;
+                    size: cover;
+                    position: center center;
+                }
+            }
+            p {
+                padding-left: 40px;
+                line-height: 40px;
+                color: #505050;
+            }
+            &:hover {
+                background-color: #f0f0f0;
+            }
+            .qrcode {
+                display: none;
+                position: absolute;
+                bottom: -150px;
+                left: 0;
+                width: 148px;
+                height: 148px;
+                border: 1px solid #f0f0f0;
+                img {
+                    width: 100%;
+                }
+            }
         }
+    }
+}
+
+.surprised-intro {
+    width: 1200px;
+    height: 363px;
+    margin: 0 auto 60px;
+    background: {
+        image: url('../imgs/detail/surprised_intro.jpg');
+        repeat: no-repeat;
+        size: cover;
+        position: center center;
     }
 }
