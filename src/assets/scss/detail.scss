@@ -414,5 +414,54 @@
         		background-color: #e9546b;
         	}
         }
+        .qrcode-scan {
+        	position: absolute;
+        	top: 0;
+        	right: 10px;
+        	z-index: 999;
+        	width: 150px;
+        	height: 40px;
+
+        	&:after {
+        		display: block;
+        		position: absolute;
+        		top: 50%;
+        		left: 14px;
+        		width: 20px;
+        		height: 20px;
+        		margin-top: -10px;
+        		content: '';
+        		background: {
+        			image: url('../imgs/icons/icon_qrcode_scan.png');
+        			repeat: no-repeat;
+        			size: cover;
+        			position: center center;
+        		}
+        	}
+
+        	p {
+        		padding-left: 40px;
+        		line-height: 40px;
+        		color: #505050;
+        	}
+
+        	&:hover {
+        		background-color: #f0f0f0;
+        	}
+
+        	.qrcode {
+        		display: none;
+        		position: absolute;
+        		bottom: -150px;
+        		left: 0;
+        		width: 148px;
+        		height: 148px;
+        		border: 1px solid #f0f0f0;
+
+        		img {
+        			width: 100%;
+        		}
+        	}
+        }
     }
 }

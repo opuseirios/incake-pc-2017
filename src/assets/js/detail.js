@@ -15,7 +15,8 @@
             $specifics = $info.find('.specifics'),
             $types = $info.find('.types'),
             $addons = $info.find('.addons'),
-            $amount = $info.find('.amount');
+            $amount = $info.find('.amount'),
+            $scan = $info.find('.qrcode-scan');
 
         // 规格切换
         $specifics.on('click', '.spec', function(e) {
@@ -40,7 +41,6 @@
 
         // 数量切换
         (function($wrap) {
-
             var $input = $wrap.find('.txt-amount'),
                 amount = 0;
 
@@ -68,8 +68,14 @@
                 }
                 $input.val(amount);
             });
-
         })($amount);
+
+        // 手机扫码
+        $scan.hover(function(e) {
+        	$(this).find('.qrcode').fadeIn();
+        }, function(e) {
+        	$(this).find('.qrcode').fadeOut();
+        });
     }
 
     // 初始化图片预览功能模块
