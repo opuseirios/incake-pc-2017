@@ -228,6 +228,7 @@
                                 width: 100%;
                                 line-height: 20px;
                                 text-align: center;
+                                border-radius: 2px;
                             }
                             a {
                                 color: #3c78c8;
@@ -249,7 +250,13 @@
                                     display: inline-block;
                                     width: auto;
                                     padding: 3px 15px;
+                                    margin: 6px 0;
                                     border: 1px solid #3c78c8;
+
+                                    &.del {
+                                        color: #999;
+                                        border-color: #999;
+                                    }
                                 }
                             }
                             .vcenter-position {
