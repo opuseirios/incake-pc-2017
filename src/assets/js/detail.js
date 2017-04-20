@@ -7,7 +7,32 @@
 
         // 初始化商品信息
         fnInitIntroInfo();
+
+        // 切换商品详情和评价选项卡
+        fnSwitchDetail();
     });
+
+    // 切换商品详情和评价
+    function fnSwitchDetail() {
+        var $detail = $('#productDetail'),
+            $header = $detail.find('>.header'),
+            $container = $detail.find('>.container');
+
+        // switch tabs
+        $header.on('click', 'a', function(e) {
+            $(this)
+                .addClass('active')
+                .siblings()
+                .removeClass('active');
+            var idx = $(this).index();
+            $container
+                .find('.c-wrap')
+                .eq(idx)
+                .addClass('active')
+                .siblings()
+                .removeClass('active');
+        });
+    }
 
     // 初始化商品信息
     function fnInitIntroInfo() {
