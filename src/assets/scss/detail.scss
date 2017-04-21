@@ -230,6 +230,7 @@
         .tips {
             width: 100%;
             padding: 10px 0;
+            border-bottom: 1px dotted #b3a3a3;
             li {
                 position: relative;
                 float: left;
@@ -260,7 +261,12 @@
             }
         }
         .addons {
+            position: relative;
             width: 100%;
+            margin-bottom: 55px;
+            ul {
+                width: 100%;
+            }
             li {
                 position: relative;
                 width: 100%;
@@ -323,8 +329,40 @@
                         background-image: url('../imgs/icons/icon_radio_rect_checked.png');
                     }
                 }
-                &.last {
-                    border-bottom: none;
+            }
+            .switcher {
+                position: absolute;
+                left: 50%;
+                bottom: -12px;
+                width: 160px;
+                height: 22px;
+                margin-left: -80px;
+                background-color: #fff;
+                .btn-switch {
+                    display: block;
+                    width: 150px;
+                    height: 20px;
+                    margin: 0 auto;
+                    border: 1px solid #c8c8c8;
+                    line-height: 20px;
+                    color: #c8c8c8;
+                    text-align: center;
+                    border-radius: 11px;
+                    span {
+                        display: inline-block;
+                        width: 9px;
+                        height: 12px;
+                        margin-left: 10px;
+                        background: {
+                            image: url('../imgs/icons/icon_db_arrow_down.png');
+                            repeat: no-repeat;
+                            size: cover;
+                            position: center center;
+                        }
+                    }
+                    &.expanded span {
+                        background-image: url('../imgs/icons/icon_db_arrow_up.png');
+                    }
                 }
             }
         }
@@ -403,8 +441,38 @@
                     text-decoration: underline;
                 }
             }
+            .favor {
+                width: 40px;
+                margin-left: 10px;
+                .img {
+                    display: block;
+                    width: 40px;
+                    height: 34px;
+                    background: {
+                        image: url('../imgs/icons/icon_detail_favor.png');
+                        repeat: no-repeat;
+                        size: 34px 31px;
+                        position: center center;
+                    }
+                }
+                .txt {
+                    display: block;
+                    width: 100%;
+                    line-height: 16px;
+                    color: #c8c8c8;
+                    font-size: 14px;
+                }
+                &.selected {
+                    .img {
+                        background-image: url('../imgs/icons/icon_detail_favor_selected.png');
+                    }
+                    .txt {
+                        color: #e9546b;
+                    }
+                }
+            }
             .add-basket {
-                margin-left: 50px;
+                margin-left: 20px;
                 background-color: #f2b4be;
             }
             .buy-immediate {

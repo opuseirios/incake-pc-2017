@@ -41,6 +41,7 @@
             $types = $info.find('.types'),
             $addons = $info.find('.addons'),
             $amount = $info.find('.amount'),
+            $operates = $info.find('.operates'),
             $scan = $info.find('.qrcode-scan');
 
         // 规格切换
@@ -59,10 +60,36 @@
                 .removeClass('checked');
         });
 
-        // 推荐切换
-        $addons.on('click', 'li', function(e) {
-            $(this).toggleClass('checked');
-        });
+        // 搭配套餐
+        (function($wrap) {
+            var $li = $wrap.find('li'),
+                idx = 1;
+
+            if($li.length <= 2) {
+                $wrap.find('.switcher').hide();
+            }
+
+            // 初始化时设置索引大于1的li都隐藏
+            $li.eq(idx).nextAll().hide();
+
+            // 推荐切换
+            $wrap.on('click', 'li', function(e) {
+                $(this).toggleClass('checked');
+            });
+
+            // 展开／收缩
+            $wrap.on('click', '.btn-switch', function(e) {
+                var isExpand = $(this).hasClass('expanded');
+
+                if(isExpand) { // 展开状态
+                    $(this).removeClass('expanded');
+                    $li.eq(idx).nextAll().slideUp();
+                } else { // 非展开状态
+                    $(this).addClass('expanded');
+                    $li.eq(idx).nextAll().slideDown();
+                }
+            });
+        })($addons);
 
         // 数量切换
         (function($wrap) {
@@ -94,6 +121,24 @@
                 $input.val(amount);
             });
         })($amount);
+
+        // 喜欢及加入购物车
+        (function($wrap) {
+
+            // 喜欢／取消喜欢
+            $wrap.on('click', '.favor', function(e) {
+                var isFavored = $(this).hasClass('selected');
+                if (isFavored) {
+                    $(this).removeClass('selected');
+
+                    // TODO 执行取消喜欢逻辑
+                } else {
+                    $(this).addClass('selected');
+
+                    // TODO 执行设置喜欢逻辑
+                }
+            });
+        })($operates);
 
         // 手机扫码
         $scan.hover(function(e) {
