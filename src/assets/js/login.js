@@ -46,6 +46,7 @@
 	
 	function fnRegCode(){
 		var $oLoginPage	= $("#loginPage"),
+			$oAutoLogin = $oLoginPage.find('.automatic-logon'),
 			$oBtnReg = $oLoginPage.find(".btn-reg"),
 			$oModePhone = $oBtnReg.closest(".mode-phone"),
 			$oUphone = $oModePhone.find(".uPhone"),
@@ -54,7 +55,11 @@
 			count = 0,
 			_interval = '',
 			time = 58;
-			
+		
+		$oAutoLogin.on("click", function(){
+			$(this).toggleClass('active');
+		});
+		
 		$oBtnReg.on("click", function(){
 			if($oUphone.val() == ""){
 				$aRegTip.text("请输入手机号码！");

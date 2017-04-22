@@ -52,18 +52,53 @@
                     border-color: #e9546a;
                 }
                 
-                .forget-pwd {
-                    display: block;
-                    height: 44px;
-                    margin-right: 10px;
-                    font-size: 14px;
-                    line-height: 44px;
-                    text-align: right;
-                    color: #1478be;
-                }
-                
-                .forget-pwd:hover {
-                    text-decoration: underline;
+                &.other-option {
+                    margin-left: 10px;
+                    a {
+                        display: inline-block;
+                        height: 44px;
+                        font-size: 14px;
+                        line-height: 44px;
+                    }
+                    
+                    .automatic-logon {
+                        position: relative;
+                        float: left;
+                        padding-left: 24px;
+                    }
+                    
+                    .automatic-logon:after {
+                        position: absolute;
+                        top: 14px;
+                        left: 0;
+                        display: block;
+                        width: 16px;
+                        height: 16px;
+                        content: '';
+                        background: url(../imgs/icons/icon_radio_rect.png) no-repeat;
+                        background-size: contain;
+                    }
+                    
+                    .automatic-logon.active:after {
+                        background: url(../imgs/icons/icon_radio_rect_checked.png) no-repeat;
+                        background-size: contain;
+                    }
+                    
+                    .forget-pwd {
+                        float: right;
+                        margin-right: 10px;
+                        text-align: right;
+                        color: #1478be;
+                    }
+                    
+                    .btn-reg-voice {
+                        color: #1478be;
+                    }
+                    
+                    .forget-pwd:hover,.btn-reg-voice:hover {
+                        text-decoration: underline;
+                    }
+                    
                 }
                 
                 .btn-login {
@@ -120,7 +155,7 @@
                     background-color: #929eab;
                     border-radius: 4px;
                     margin-top: 18px;
-                    font-size: 14px;
+                    font-size: 16px;
                     line-height: 52px;
                     color: #fff;
                     text-align: center;
@@ -138,6 +173,7 @@
             right: 14px;
             
             span {
+                float: left;
                 display: inline-block;
                 width: 105px;
                 height: 30px;
@@ -148,10 +184,31 @@
             }
             
             a {
+                float: right;
                 display: inline-block;
                 width: 76px;
                 height: 76px;
                 margin-left: 5px;
+                
+                &.btn-mode-phone {
+                    background: url(../imgs/login/mode-phone-icon.png) no-repeat;
+                    background-size: contain;
+                }
+                
+                &.btn-mode-number {
+                    background: url(../imgs/login/mode-number-icon.png) no-repeat;
+                    background-size: contain;
+                }
+                
+                &.btn-mode-phone:hover {
+                    background: url(../imgs/login/mode-phone-icon2.png) no-repeat;
+                    background-size: contain;
+                }
+                
+                &.btn-mode-number:hover {
+                    background: url(../imgs/login/mode-number-icon2.png) no-repeat;
+                    background-size: contain;
+                }
             }
             
         }
