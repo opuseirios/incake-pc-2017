@@ -164,6 +164,11 @@ input {
                 text-align: center;
                 font-size: 14px;
                 color: #fff;
+                &.active {
+                    color: #e9546b;
+                    background-color: #fff;
+                    border-radius: 5px;
+                }
             }
             .indicator {
                 display: block;

@@ -2,7 +2,7 @@
 
 	$(function() {
 		// 导航栏
-		fnInitHeaderNav();
+		// fnInitHeaderNav();
 		// 城市切换
 		fnInitCitySwitch();
 		// 购物篮
