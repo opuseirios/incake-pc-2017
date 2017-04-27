@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>INCAKE | 购物篮</title>
+	<link rel="stylesheet" href="/assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="/assets/plugins/swiper/css/idangerous.swiper.css">
+	<link rel="stylesheet" href="/assets/css/layout.css">
+	<link rel="stylesheet" href="/assets/css/basket.css">
+	<link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body>
+	<!-- layout begin -->
+	<div class="layout">
+
+		<!-- layout header begin -->
+		<div class="layout-header" id="layoutHeader">
+			<div class="header-body">
+				<!-- hotline begin -->
+				<div class="hotline">
+					<p>客服热线</p>
+					<p class="tel">400 921 5757</p>
+				</div>
+				<!-- hotline end -->
+				<!-- logo begin -->
+				<a href="index.html" class="logo"></a>
+				<!-- logo end -->
+				<!-- nav begin -->
+				<div class="nav clearfix">
+					<a href="/index.html">首页</a>
+					<a href="/list.html">蛋糕馆</a>
+					<a href="/dessert.html">甜品</a>
+					<a href="/drink.html">饮品</a>
+					<a href="/flower.html">鲜花</a>
+					<a href="/cartoon.html">阿狸</a>
+				</div>
+				<!-- nav end -->
+				<!-- portal begin -->
+				<div class="portal clearfix">
+					<div class="unlogin active">
+						<a href="javascript:;" class="login">登录</a>
+						<a href="javascript:;" class="register">注册</a>
+					</div>
+					<div class="logined">
+						<a href="javascript:;" class="uname">你猜猜我是谁吧...</a>
+						<span>|</span>
+						<a href="javascript:;" class="logout">退出</a>
+					</div>
+				</div>
+				<!-- portal end -->
+				<!-- basket begin -->
+				<div class="basket">
+					<a href="javascript:;" class="view"><span>10</span></a>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<ul class="list basket-list"></ul>
+						<script id="tplBasketList" type="text/html">
+							{{if list.length > 0}}
+							{{each list as item i}}
+							<li class="clearfix">
+								<a href="{{item.link}}" class="img">
+									<img src="{{item.thumbUrl}}" alt="">
+								</a>
+								<div class="text">
+									<p class="first-row clearfix">
+										<span class="name">{{item.name}}</span>
+										<span class="price">￥{{item.price}}</span>
+									</p>
+									<p class="second-row clearfix">
+										<span class="pound">{{item.pound}}磅</span>
+										<span class="num">x{{item.num}}</span>
+									</p>
+								</div>
+								<a href="javascript:;" class="remove"></a>
+							</li>
+							{{/each}}
+							{{/if}}
+						</script>
+						<a href="javascript:;" class="view-basket">查看购物篮 >></a>
+					</div>
+				</div>
+				<!-- basket end -->
+				<!-- locator begin -->
+				<div class="locator">
+					<span class="arrow"></span>
+					<p>上海</p>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<p>请选择您要配送的城市：</p>
+						<ul class="clearfix">
+							<li class="active">上海</li>
+							<li>福州</li>
+							<li>苏州</li>
+							<li>昆山</li>
+							<li>厦门</li>
+							<li>北京</li>
+							<li>南京</li>
+							<li>杭州</li>
+							<li>青岛</li>
+							<li>扬州</li>
+						</ul>
+					</div>
+				</div>
+				<!-- locator end -->
+			</div>
+		</div>
+		<!-- layout header end -->
+
+		<!-- layout container begin -->
+		<div class="layout-container">
+			
+			<!-- basket page begin -->
+			<div class="page basket-page" id="basketPage">
+				<div class="page-container">
+					
+					<!-- basket header begin -->
+					<div class="basket-header">
+						<div class="title">
+							<h2>SHOPPING BASKET</h2>
+							<p><span>购物篮</span></p>
+						</div>
+						<div class="process clearfix">
+							<div class="step step1 active">
+								<p>我的购物篮</p>
+							</div>
+							<div class="step step2">
+								<p>填写和提交订单信息</p>
+							</div>
+							<div class="step step3">
+								<p>成功提交订单</p>
+							</div>
+							<div class="line line1 active"></div>
+							<div class="line line2"></div>
+						</div>
+					</div>
+					<!-- basket header end -->
+
+					<!-- basket container begin -->
+					<div class="basket-container"></div>
+					<!-- basket container end -->
+
+					<!-- basket footer begin -->
+					<div class="basket-footer"></div>
+					<!-- basket footer end -->
+
+				</div>
+			</div>
+			<!-- basket page end -->
+
+		</div>
+		<!-- layout container end -->
+
+		<!-- layout footer begin -->
+		<div class="layout-footer">
+			<div class="footer-body">
+				<div class="container">
+					<div class="logo"></div>
+					<div class="content">
+						<p class="nav clearfix">
+							<a href="javascript:;">配送范围</a><span>|</span>
+							<a href="javascript:;">帮助中心</a><span>|</span>
+							<a href="javascript:;">品牌故事</a><span>|</span>
+							<a href="javascript:;">关于我们</a><span>|</span>
+							<a href="javascript:;">招贤纳士</a>
+						</p>
+						<p class="hotline clearfix">
+							<span>客服热线：</span>
+							<span class="tel">400-921-5757</span>
+						</p>
+						<div class="third-party clearfix">
+							<a class="wechat" href="javascript:;"></a>
+							<a class="sina" href="javascript:;"></a>
+							<a class="qq" href="javascript:;"></a>
+							<a class="dianping" href="javascript:;"></a>
+						</div>
+					</div>
+					<div class="qrcode">
+						<div class="img"></div>
+						<p class="text">微信订购更方便</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					<p>
+						<span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+						<span>沪ICP备12045835</span>
+						<span>沪公网安备31010802001150</span>
+					</p>
+				</div>				
+			</div>
+		</div>
+		<!-- layout footer end -->
+
+	</div>
+	<!-- layout end -->
+
+	<!-- javscript begin -->
+	<script src="/assets/plugins/LABjs/LAB.min.js"></script>
+	<script>
+		$LAB
+		.script('/assets/plugins/polyfill/polyfill.min.js').wait()
+		.script('/assets/plugins/jquery/jquery-1.12.4.min.js').wait()
+		.script('/assets/plugins/swiper/js/idangerous.swiper.min.js').wait()
+		.script('/assets/plugins/tweenmax/TweenMax.min.js').wait()
+		.script('/assets/plugins/artTemplate/template.js').wait()
+		.script('/assets/js/layout.js').wait()
+		.script('/assets/js/basket.js');
+	</script>
+	<!-- javascript end -->
+</body>
+</html>
