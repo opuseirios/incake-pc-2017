@@ -241,6 +241,24 @@
                         img {
                             width: 100%;
                         }
+                        &.soldout {
+                            position: relative;
+                            &:after {
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                content: '';
+                                width: 120px;
+                                height: 120px;
+                                background: {
+                                    image: url('../imgs/basket/img_soldout.png');
+                                    repeat: no-repeat;
+                                    size: cover;
+                                    position: center center;
+                                }
+                            }
+                        }
                     }
                     .text {
                         float: right;
@@ -324,6 +342,171 @@
                 }
                 .c-privilege {
                     width: 140px;
+                    .view-privilege {
+                        position: relative;
+                        width: 104px;
+                        height: 38px;
+                        margin: 0 auto;
+                        > p {
+                            position: relative;
+                            display: block;
+                            width: 100px;
+                            height: 34px;
+                            line-height: 34px;
+                            text-align: center;
+                            color: #e9546b;
+                            background-color: #fff;
+                            border: 2px solid #e9546b;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                            &:after {
+                                display: block;
+                                position: absolute;
+                                top: 50%;
+                                right: 7px;
+                                content: '';
+                                width: 10px;
+                                height: 8px;
+                                margin-top: -4px;
+                                background: {
+                                    image: url('../imgs/icons/icon_red_single_arrow_down.png');
+                                    repeat: no-repeat;
+                                    size: cover;
+                                    position: center center;
+                                }
+                            }
+                            &.active:after {
+                                background-image: url('../imgs/icons/icon_red_single_arrow_up.png');
+                            }
+                        }
+                    }
+                    .privilege-wrap {
+                    	display: none;
+                        position: absolute;
+                        top: 48px;
+                        right: -15px;
+                        z-index: 999;
+                        width: 520px;
+                        padding: 10px 40px 10px 10px;
+                        background-color: #fff;
+                        border: 1px solid #e9546b;
+                        border-radius: 3px;
+                        &:after {
+                            display: block;
+                            position: absolute;
+                            top: -6px;
+                            right: 42px;
+                            width: 17px;
+                            height: 6px;
+                            content: '';
+                            background: {
+                                image: url('../imgs/basket/icon_basket_red_tip_arrow.jpg');
+                                repeat: no-repeat;
+                                size: cover;
+                                position: center center;
+                            }
+                        }
+                    }
+                    .close-privilege-wrap {
+                    	display: block;
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        background: {
+                            image: url('../imgs/icons/icon_close_32.png');
+                            repeat: no-repeat;
+                            size: cover;
+                            position: center center;
+                        }
+                    }
+                    .privilege-list {
+                        width: 100%;
+                        li {
+                            width: 100%;
+                            height: 70px;
+                            padding: 15px 0;
+                            border-bottom: 1px dotted #b3a3a3;
+                            &:last-of-type {
+                                border-bottom: none;
+                            }
+                            > div {
+                                float: left;
+                                height: 70px;
+                            }
+                        }
+                        .p-ckbox {
+                            position: relative;
+                            width: 50px;
+                            .btn-ckbox-p {
+                                display: block;
+                                position: absolute;
+                                top: 50%;
+                                left: 4px;
+                                width: 32px;
+                                height: 32px;
+                                margin-top: -16px;
+                                border-radius: 50%;
+                                background: {
+                                    image: url('../imgs/icons/icon_basket_ckbox.png');
+                                    repeat: no-repeat;
+                                    size: cover;
+                                    position: center center;
+                                }
+                                &.checked {
+                                    background-image: url('../imgs/icons/icon_basket_ckbox_checked.png');
+                                }
+                            }
+                        }
+                        .p-img {
+                            display: block;
+                            float: left;
+                            width: 70px;
+                            height: 70px;
+                            overflow: hidden;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        .p-text {
+                            width: 135px;
+                            height: 100%;
+                            margin-left: 15px;
+                            p {
+                                text-align: left;
+                                &.cn {
+                                    line-height: 24px;
+                                }
+                                &.en {
+                                    font-size: 12px;
+                                    line-height: 18px;
+                                }
+                            }
+                        }
+                        .p-unit {
+                            width: 90px;
+                        }
+                        .p-price {
+                            width: 90px;
+                            p {
+                                color: #e9546b;
+                            }
+                        }
+                        .p-operate {
+                            width: 70px;
+                            .btn-del-p {
+                                color: #4682be;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
                 }
                 .c-operate {
                     width: 90px;
@@ -633,27 +816,27 @@
                 }
             }
             .preview-box {
-            	position: absolute;
-            	top: 140px;
-            	left: 365px;
-            	line-height: 30px;
-            	span {
-            		display: inline-block;
-            		float: left;
-					color: #b4b4b4;
-            	}
-            	.btn-preview {
-            		display: inline-block;
-            		float: left;
-            		margin-left: 5px;
-            		color: #4682be;
-            		&:hover {
-            			text-decoration: underline;
-            		}
-            	}
+                position: absolute;
+                top: 140px;
+                left: 365px;
+                line-height: 30px;
+                span {
+                    display: inline-block;
+                    float: left;
+                    color: #b4b4b4;
+                }
+                .btn-preview {
+                    display: inline-block;
+                    float: left;
+                    margin-left: 5px;
+                    color: #4682be;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
             .upload-wrapper {
-            	display: none;
+                display: none;
                 width: 950px;
                 padding: 30px 0;
                 margin-left: auto;
