@@ -7,6 +7,9 @@
 
         // init surprise operate
         fnInitSurpriseOperate();
+
+        // init regular operate
+        fnInitRegularOperate();
     });
 
     // func of init global operate
@@ -61,9 +64,15 @@
 
         // 删除商品
         $basketContainer.on('click', '.btn-del', function(e) {
-        	var $item = $(this).closest('.item');
+        	var $item = $(this).closest('.item'),
+        		$list = $item.parent('ul');
 
         	// TODO 删除提示
+
+        	// 删除之前，当前列表只剩一个商品，当前列表也删除
+        	if($list.find('.item').length == 1) {
+        		$list.remove();
+        	}
 
         	$item.remove();
         });
@@ -116,6 +125,24 @@
     	$surprise.find('.txt-summary').maxlength({
     		max: 100,
     		feedbackText: '还可输入{r}字'
+    	});
+    }
+
+    // func of init regular operate
+    function fnInitRegularOperate() {
+    	var $page = $('#basketPage'),
+    		$regular = $page.find('.regular-list');
+
+    	// upload image
+    	$regular.on('click', '.upload-img', function(e) {
+    		var isActive = $(this).hasClass('active');
+    		if(!isActive) {
+    			$(this).addClass('active');
+    			$(this).next('.upload-wrapper').slideDown();
+    		} else {
+    			$(this).removeClass('active');
+    			$(this).next('.upload-wrapper').slideUp();
+    		}
     	});
     }
 
