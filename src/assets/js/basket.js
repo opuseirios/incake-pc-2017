@@ -31,7 +31,7 @@
         (function($wrap) {
 
             // 增加数量
-            $wrap.on('click', '.btn-add', function(e) {
+            $wrap.find('.item').not('.soldout').on('click', '.btn-add', function(e) {
                 var $input = $(this)
                     .prev('.amount-wrap')
                     .find('.txt-amount'),
@@ -46,7 +46,7 @@
             });
 
             // 减少数量
-            $wrap.on('click', '.btn-sub', function(e) {
+            $wrap.find('.item').not('.soldout').on('click', '.btn-sub', function(e) {
                 if ($(this).hasClass('disabled')) {
                     return false;
                 }
@@ -63,7 +63,7 @@
         })($basketContainer);
 
         // 删除商品
-        $basketContainer.on('click', '.btn-del', function(e) {
+        $basketContainer.on('click', '.btn-del-item', function(e) {
             var $item = $(this).closest('.item'),
                 $list = $item.parent('ul');
 
