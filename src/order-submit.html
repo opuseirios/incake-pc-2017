@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>INCAKE | 订单提交</title>
+	<link rel="stylesheet" href="/assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="/assets/plugins/maxlength/jquery.maxlength.css">
+	<link rel="stylesheet" href="/assets/css/layout.css">
+	<link rel="stylesheet" href="/assets/css/order-submit.css">
+	<link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body>
+	<!-- layout begin -->
+	<div class="layout">
+
+		<!-- layout header begin -->
+		<div class="layout-header" id="layoutHeader">
+			<div class="header-body">
+				<!-- hotline begin -->
+				<div class="hotline">
+					<p>客服热线</p>
+					<p class="tel">400 921 5757</p>
+				</div>
+				<!-- hotline end -->
+				<!-- logo begin -->
+				<a href="index.html" class="logo"></a>
+				<!-- logo end -->
+				<!-- nav begin -->
+				<div class="nav clearfix">
+					<a href="/index.html">首页</a>
+					<a href="/list.html">蛋糕馆</a>
+					<a href="javascript:;">三小时送</a>
+					<a href="javascript:;">MINI CAKE</a>
+					<a href="javascript:;">惊喜定制</a>
+					<a href="javascript:;">企业试吃申请</a>
+					<a href="javascript:;">卡券兑换</a>
+				</div>
+				<!-- nav end -->
+				<!-- portal begin -->
+				<div class="portal clearfix">
+					<div class="unlogin active">
+						<a href="javascript:;" class="login">登录</a>
+						<a href="javascript:;" class="register">注册</a>
+					</div>
+					<div class="logined">
+						<a href="javascript:;" class="uname">你猜猜我是谁吧...</a>
+						<span>|</span>
+						<a href="javascript:;" class="logout">退出</a>
+					</div>
+				</div>
+				<!-- portal end -->
+				<!-- settlement begin -->
+				<div class="settlement">
+					<a href="javascript:;" class="view"><span>10</span></a>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<ul class="list settlement-list"></ul>
+						<script id="tplBasketList" type="text/html">
+							{{if list.length > 0}}
+							{{each list as item i}}
+							<li class="clearfix">
+								<a href="{{item.link}}" class="img">
+									<img src="{{item.thumbUrl}}" alt="">
+								</a>
+								<div class="text">
+									<p class="first-row clearfix">
+										<span class="name">{{item.name}}</span>
+										<span class="price">￥{{item.price}}</span>
+									</p>
+									<p class="second-row clearfix">
+										<span class="pound">{{item.pound}}磅</span>
+										<span class="num">x{{item.num}}</span>
+									</p>
+								</div>
+								<a href="javascript:;" class="remove"></a>
+							</li>
+							{{/each}}
+							{{/if}}
+						</script>
+						<a href="javascript:;" class="view-settlement">查看购物篮 >></a>
+					</div>
+				</div>
+				<!-- settlement end -->
+				<!-- locator begin -->
+				<div class="locator">
+					<span class="arrow"></span>
+					<p>上海</p>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<p>请选择您要配送的城市：</p>
+						<ul class="clearfix">
+							<li class="active">上海</li>
+							<li>福州</li>
+							<li>苏州</li>
+							<li>昆山</li>
+							<li>厦门</li>
+							<li>北京</li>
+							<li>南京</li>
+							<li>杭州</li>
+							<li>青岛</li>
+							<li>扬州</li>
+						</ul>
+					</div>
+				</div>
+				<!-- locator end -->
+			</div>
+		</div>
+		<!-- layout header end -->
+
+		<!-- layout container begin -->
+		<div class="layout-container">
+			
+			<!-- settlement page begin -->
+			<div class="page settlement-page" id="settlementPage">
+				<div class="page-container">
+					
+					<!-- settlement header begin -->
+					<div class="settlement-header">
+						<div class="title">
+							<h2>ORDER SETTLEMENT</h2>
+							<p><span>订单结算</span></p>
+						</div>
+						<div class="process clearfix">
+							<div class="step step1 passed">
+								<p>我的购物篮</p>
+							</div>
+							<div class="step step2 active">
+								<p>填写和提交订单信息</p>
+							</div>
+							<div class="step step3">
+								<p>成功提交订单</p>
+							</div>
+							<div class="line line1 passed"></div>
+							<div class="line line2 active"></div>
+						</div>
+					</div>
+					<!-- settlement header end -->
+
+					<!-- settlement container begin -->
+					<div class="settlement-container">
+						<div class="list-wrapper">
+							
+							<!-- commodityInfo begin -->
+							<div class="list-box">
+								<h3>商品信息</h3>
+								<p class="list-header clearfix">
+									<span class="h-product">商品</span>
+									<span class="h-attr">属性</span>
+									<span class="h-amount">数量</span>
+									<span class="h-privilege">优惠购</span>
+									<span class="h-price">小计</span>
+									<span class="h-activity">优惠</span>
+									<span class="h-check">查看</span>
+								</p>
+								<div class="list-container">
+									<!-- surprise list begin -->
+									<ul class="surprise-list">
+										<li class="item">
+											<div class="item-content clearfix">
+												<div class="c-product clearfix">
+													<a href="javascript:;" class="img">
+														<img src="assets/imgs/basket/thumb_cake.jpg" alt="">
+													</a>
+													<div class="text vcenter">
+														<div class="vcenter-child">
+															<p class="cn">芒果拿破仑</p>
+															<p class="en">Mango Napoleon</p>
+														</div>
+													</div>
+												</div>
+												<div class="c-attr vcenter">
+													<div class="vcenter-child">
+														<p>¥189 / 1.5磅</p>
+														<p>附送餐具5套</p>
+													</div>
+												</div>
+												<div class="c-amount vcenter">
+													<div class="vcenter-child">
+														<p>1</p>
+													</div>
+												</div>
+												<div class="c-privilege vcenter">
+													<div class="vcenter-child">
+														<p>夏日甜心 / ¥30</p>
+													</div>
+												</div>
+												<div class="c-price vcenter">
+													<div class="vcenter-child">
+														<p>¥219</p>
+													</div>
+												</div>
+												<div class="c-activity vcenter">
+													<div class="vcenter-child">
+														<a href="javascript:;" class="btn-option btn-act">母亲节活动</a>
+													</div>
+												</div>
+												<div class="c-operate vcenter">
+													<div class="vcenter-child">
+														<a href="javascript:;" class="btn-option btn-surprise">惊喜</a>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li class="item">
+											<div class="item-content clearfix">
+												<div class="c-product clearfix">
+													<a href="javascript:;" class="img">
+														<img src="assets/imgs/basket/thumb_cake.jpg" alt="">
+													</a>
+													<div class="text vcenter">
+														<div class="vcenter-child">
+															<p class="cn">芒果拿破仑</p>
+															<p class="en">Mango Napoleon</p>
+														</div>
+													</div>
+												</div>
+												<div class="c-attr vcenter">
+													<div class="vcenter-child">
+														<p>¥189 / 1.5磅</p>
+														<p>附送餐具5套</p>
+													</div>
+												</div>
+												<div class="c-amount vcenter">
+													<div class="vcenter-child">
+														<p>1</p>
+													</div>
+												</div>
+												<div class="c-privilege vcenter">
+													<div class="vcenter-child">
+														<p>夏日甜心 / ¥30</p>
+													</div>
+												</div>
+												<div class="c-price vcenter">
+													<div class="vcenter-child">
+														<p>¥219</p>
+													</div>
+												</div>
+												<div class="c-activity vcenter">
+													<div class="vcenter-child">
+														<!--<a href="javascript:;" class="btn-option"></a>-->
+													</div>
+												</div>
+												<div class="c-operate vcenter">
+													<div class="vcenter-child">
+														<a href="javascript:;" class="btn-option btn-surprise">惊喜</a>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+									<!-- surprise list end -->
+									<!-- regular list begin -->
+									<ul class="regular-list">
+										<li class="item">
+											<div class="item-content clearfix">
+												<div class="c-product clearfix">
+													<a href="javascript:;" class="img">
+														<img src="assets/imgs/basket/thumb_cake.jpg" alt="">
+													</a>
+													<div class="text vcenter">
+														<div class="vcenter-child">
+															<p class="cn">芒果拿破仑</p>
+															<p class="en">Mango Napoleon</p>
+														</div>
+													</div>
+												</div>
+												<div class="c-attr vcenter">
+													<div class="vcenter-child">
+														<p>¥189 / 1.5磅</p>
+														<p>附送餐具5套</p>
+													</div>
+												</div>
+												<div class="c-amount vcenter">
+													<div class="vcenter-child">
+														<p>1</p>
+													</div>
+												</div>
+												<div class="c-privilege vcenter">
+													<div class="vcenter-child">
+														<p>夏日甜心 / ¥30</p>
+													</div>
+												</div>
+												<div class="c-price vcenter">
+													<div class="vcenter-child">
+														<p>¥219</p>
+													</div>
+												</div>
+												<div class="c-activity vcenter">
+													<div class="vcenter-child">
+														<a href="javascript:;" class="btn-option btn-act">母亲节活动</a>
+													</div>
+												</div>
+												<div class="c-operate vcenter">
+													<div class="vcenter-child">
+														<!--<a href="javascript:;" class="btn-surprise">none</a>-->
+													</div>
+												</div>
+											</div>
+										</li>
+										<li class="item">
+											<div class="item-content clearfix">
+												<div class="c-product clearfix">
+													<a href="javascript:;" class="img">
+														<img src="assets/imgs/basket/thumb_cake.jpg" alt="">
+													</a>
+													<div class="text vcenter">
+														<div class="vcenter-child">
+															<p class="cn">芒果拿破仑</p>
+															<p class="en">Mango Napoleon</p>
+														</div>
+													</div>
+												</div>
+												<div class="c-attr vcenter">
+													<div class="vcenter-child">
+														<p>¥189 / 1.5磅</p>
+														<p>附送餐具5套</p>
+													</div>
+												</div>
+												<div class="c-amount vcenter">
+													<div class="vcenter-child">
+														<p>1</p>
+													</div>
+												</div>
+												<div class="c-privilege vcenter">
+													<div class="vcenter-child">
+														<p>夏日甜心 / ¥30</p>
+													</div>
+												</div>
+												<div class="c-price vcenter">
+													<div class="vcenter-child">
+														<p>¥219</p>
+													</div>
+												</div>
+												<div class="c-activity vcenter">
+													<div class="vcenter-child">
+														<!--<a href="javascript:;" class="btn-act">none</a>-->
+													</div>
+												</div>
+												<div class="c-operate vcenter">
+													<div class="vcenter-child">
+														<a href="javascript:;" class="btn-option btn-surprise">画影</a>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+									<!-- regular list end -->
+									<!-- part list begin -->
+									<ul class="part-list">
+										<li class="item">
+											<div class="item-content clearfix">
+												<div class="c-product clearfix">
+													<a href="javascript:;" class="img">
+														<img src="assets/imgs/basket/thumb_parts.jpg" alt="">
+													</a>
+													<div class="text vcenter">
+														<div class="vcenter-child">
+															<p class="cn">芒果拿破仑</p>
+															<p class="en">Mango Napoleon</p>
+														</div>
+													</div>
+												</div>
+												<div class="c-attr vcenter">
+													<div class="vcenter-child">
+														<p>¥189 / 1.5磅</p>
+														<p>附送餐具5套</p>
+													</div>
+												</div>
+												<div class="c-amount vcenter">
+													<div class="vcenter-child">
+														<p>1</p>
+													</div>
+												</div>
+												<div class="c-privilege vcenter">
+													<div class="vcenter-child">
+														<p>夏日甜心 / ¥30</p>
+													</div>
+												</div>
+												<div class="c-price vcenter">
+													<div class="vcenter-child">
+														<p>¥219</p>
+													</div>
+												</div>
+												<div class="c-activity vcenter">
+													<div class="vcenter-child">
+														<!--<a href="javascript:;" class="btn-act">none</a>-->
+													</div>
+												</div>
+												<div class="c-operate vcenter">
+													<div class="vcenter-child">
+														<!--<a href="javascript:;" class="btn-surprise">none</a>-->
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+									<!-- part list end -->
+								</div>
+								<p class="tips">共<span id="count">5</span>个商品</p>
+							</div>
+							<!-- commodityInfo end -->
+							
+							<!-- addressInfo begin -->
+							<div class="list-box">
+								<h3 class="address-info">配送信息</h3>
+								<div class="address-lock clearfix">
+									<p>配送地址：&nbsp;<span>张三</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span><span class="tip-default">默认地址</span><a href="javascript:;" class="btn-edit">编辑</a></p>
+									<a href="javascript:;" class="btn-add">新增收货地址</a>
+								</div>
+								<ul class="address-list">
+									<li class="active clearfix">
+										<p><span>李四</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span></p>
+										<a href="javascript:;" class="btn-del">删除</a>
+										<a href="javascript:;" class="btn-edit">编辑</a>
+										<a href="javascript:;" class="btn-lock">设为默认地址</a>
+									</li>
+									<li class="clearfix">
+										<p><span>李四</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span></p>
+										<a href="javascript:;" class="btn-del">删除</a>
+										<a href="javascript:;" class="btn-edit">编辑</a>
+										<a href="javascript:;" class="btn-lock">设为默认地址</a>
+									</li>
+									<li class="clearfix">
+										<p><span>李四</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span></p>
+										<a href="javascript:;" class="btn-del">删除</a>
+										<a href="javascript:;" class="btn-edit">编辑</a>
+										<a href="javascript:;" class="btn-lock">设为默认地址</a>
+									</li>
+								</ul>
+							</div>
+							<!-- addressInfo end -->
+							
+						</div>
+					</div>
+					<!-- settlement container end -->
+
+					<!-- settlement footer begin -->
+					<div class="settlement-footer"></div>
+					<!-- settlement footer end -->
+
+				</div>
+			</div>
+			<!-- settlement page end -->
+
+		</div>
+		<!-- layout container end -->
+
+		<!-- layout footer begin -->
+		<div class="layout-footer">
+			<div class="footer-body">
+				<div class="container">
+					<div class="logo"></div>
+					<div class="content">
+						<p class="nav clearfix">
+							<a href="javascript:;">配送范围</a><span>|</span>
+							<a href="javascript:;">帮助中心</a><span>|</span>
+							<a href="javascript:;">品牌故事</a><span>|</span>
+							<a href="javascript:;">关于我们</a><span>|</span>
+							<a href="javascript:;">招贤纳士</a>
+						</p>
+						<p class="hotline clearfix">
+							<span>客服热线：</span>
+							<span class="tel">400-921-5757</span>
+						</p>
+						<div class="third-party clearfix">
+							<a class="wechat" href="javascript:;"></a>
+							<a class="sina" href="javascript:;"></a>
+							<a class="qq" href="javascript:;"></a>
+							<a class="dianping" href="javascript:;"></a>
+						</div>
+					</div>
+					<div class="qrcode">
+						<div class="img"></div>
+						<p class="text">微信订购更方便</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					<p>
+						<span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+						<span>沪ICP备12045835</span>
+						<span>沪公网安备31010802001150</span>
+					</p>
+				</div>				
+			</div>
+		</div>
+		<!-- layout footer end -->
+
+	</div>
+	<!-- layout end -->
+
+	<!-- javscript begin -->
+	<script src="/assets/plugins/LABjs/LAB.min.js"></script>
+	<script>
+		$LAB
+		.script('/assets/plugins/polyfill/polyfill.min.js').wait()
+		.script('/assets/plugins/jquery/jquery-1.12.4.min.js').wait()
+		.script('/assets/plugins/tweenmax/TweenMax.min.js').wait()
+		.script('/assets/plugins/artTemplate/template.js').wait()
+		.script('/assets/plugins/maxlength/jquery.plugin.min.js').wait()
+		.script('/assets/plugins/maxlength/jquery.maxlength.min.js').wait()
+		.script('/assets/js/layout.js').wait()
+		.script('/assets/js/order-submit.js');
+	</script>
+	<!-- javascript end -->
+</body>
+</html>
