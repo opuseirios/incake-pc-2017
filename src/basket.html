@@ -9,6 +9,7 @@
 	<title>INCAKE | 购物篮</title>
 	<link rel="stylesheet" href="/assets/plugins/normalize/normalize.css">
 	<link rel="stylesheet" href="/assets/plugins/swiper/css/idangerous.swiper.css">
+	<link rel="stylesheet" href="/assets/plugins/maxlength/jquery.maxlength.css">
 	<link rel="stylesheet" href="/assets/css/layout.css">
 	<link rel="stylesheet" href="/assets/css/basket.css">
 	<link rel="shortcut icon" href="/favicon.ico" />
@@ -206,7 +207,7 @@
 												</div>
 											</div>
 										</div>
-										<a href="javascript:;" class="view-surprise active">想要的惊喜在这里</a>
+										<a href="javascript:;" class="view-surprise">想要的惊喜在这里</a>
 										<div class="surprise-wrapper">
 											<div class="surprise-container">
 												<div class="sec clearfix">
@@ -269,9 +270,8 @@
 												<div class="sec-summary">
 													<p class="title">亲，如您选择了多款惊喜系列蛋糕，并且需要不同惊喜，请备注一下，小IN客服会在第一时间与您沟通。</p>
 													<div class="content clearfix">
-														<div class="summary-wrap">
-															<textarea class="txt-summary" noresize placeholder="请写下您想要的惊喜，我们为您达成！"></textarea>
-															<p>还可输入100字</p>
+														<div class="summary-wrap clearfix">
+															<textarea class="txt-summary" placeholder="请写下您想要的惊喜，我们为您达成！"></textarea>
 														</div>
 														<div class="upload-wrap clearfix">
 															<div class="img">
@@ -341,7 +341,7 @@
 												</div>
 											</div>
 										</div>
-										<a href="javascript:;" class="view-surprise active">想要的惊喜在这里</a>
+										<a href="javascript:;" class="view-surprise">想要的惊喜在这里</a>
 										<div class="surprise-wrapper">
 											<div class="surprise-container">
 												<div class="sec clearfix">
@@ -404,9 +404,8 @@
 												<div class="sec-summary">
 													<p class="title">亲，如您选择了多款惊喜系列蛋糕，并且需要不同惊喜，请备注一下，小IN客服会在第一时间与您沟通。</p>
 													<div class="content clearfix">
-														<div class="summary-wrap">
-															<textarea class="txt-summary" noresize placeholder="请写下您想要的惊喜，我们为您达成！"></textarea>
-															<p>还可输入100字</p>
+														<div class="summary-wrap clearfix">
+															<textarea class="txt-summary" placeholder="请写下您想要的惊喜，我们为您达成！"></textarea>
 														</div>
 														<div class="upload-wrap clearfix">
 															<div class="img uploaded">
@@ -505,6 +504,8 @@
 		.script('/assets/plugins/swiper/js/idangerous.swiper.min.js').wait()
 		.script('/assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('/assets/plugins/artTemplate/template.js').wait()
+		.script('/assets/plugins/maxlength/jquery.plugin.min.js').wait()
+		.script('/assets/plugins/maxlength/jquery.maxlength.min.js').wait()
 		.script('/assets/js/layout.js').wait()
 		.script('/assets/js/basket.js');
 	</script>

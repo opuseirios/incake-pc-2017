@@ -385,6 +385,7 @@
                 }
             }
             .surprise-wrapper {
+            	display: none;
                 width: 950px;
                 padding: 20px 0;
                 margin-left: auto;
@@ -483,8 +484,8 @@
 	                    		resize: none;
 	                    		line-height: 20px;
 	                    	}
-	                    	p {
-	                    		text-align: right;
+	                    	.maxlength-feedback {
+	                    		float: right;
 	                    		line-height: 34px;
 	                    		color: #b4b4b4;
 	                    	}

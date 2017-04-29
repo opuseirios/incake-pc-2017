@@ -1,0 +1,122 @@
+(function(window, document, $, undefined) {
+
+    $(function() {
+
+        // init global operate
+        fnInitGlobalOperate();
+
+        // init surprise operate
+        fnInitSurpriseOperate();
+    });
+
+    // func of init global operate
+    function fnInitGlobalOperate() {
+        var $page = $('#basketPage'),
+            $basketContainer = $page.find('.basket-container');
+
+        // check on/off basket items
+        $basketContainer.on('click', '.btn-ckbox', function(e) {
+            var isChecked = $(this).hasClass('checked');
+            if (!isChecked) {
+                $(this).addClass('checked');
+            } else {
+                $(this).removeClass('checked');
+            }
+        });
+
+        // 数量切换
+        (function($wrap) {
+
+            // 增加数量
+            $wrap.on('click', '.btn-add', function(e) {
+                var $input = $(this)
+                    .prev('.amount-wrap')
+                    .find('.txt-amount'),
+                    amount = parseInt($input.val());
+                amount++;
+                if (amount > 1) {
+                    $(this)
+                        .siblings('.btn-sub')
+                        .removeClass('disabled');
+                }
+                $input.val(amount);
+            });
+
+            // 减少数量
+            $wrap.on('click', '.btn-sub', function(e) {
+                if ($(this).hasClass('disabled')) {
+                    return false;
+                }
+                var $input = $(this)
+                    .next('.amount-wrap')
+                    .find('.txt-amount'),
+                    amount = parseInt($input.val());
+                amount--;
+                if (amount <= 1) {
+                    $(this).addClass('disabled');
+                }
+                $input.val(amount);
+            });
+        })($basketContainer);
+
+        // 删除商品
+        $basketContainer.on('click', '.btn-del', function(e) {
+        	var $item = $(this).closest('.item');
+
+        	// TODO 删除提示
+
+        	$item.remove();
+        });
+    }
+
+    // func of init surprise operate
+    function fnInitSurpriseOperate() {
+    	var $page = $('#basketPage'),
+    		$surprise = $page.find('.surprise-list');
+
+    	// view surprise
+    	$surprise.on('click', '.view-surprise', function(e) {
+    		var isActive = $(this).hasClass('active');
+    		if(!isActive) {
+    			$(this).addClass('active');
+    			$(this).next('.surprise-wrapper').slideDown();
+    		} else {
+    			$(this).removeClass('active');
+    			$(this).next('.surprise-wrapper').slideUp();
+    		}
+    	});
+
+    	// check on/off radio-box
+    	$surprise.on('click', '.radio-box p', function(e) {
+    		$(this)
+    			.addClass('checked')
+    			.parent('.radio-box')
+    			.siblings('.radio-box')
+    			.children('p')
+    			.removeClass('checked');
+
+    		// set the input focus if this item be other-box
+    		if($(this).parent('.radio-box').hasClass('other-box')) {
+    			$(this).next('.txt-other').focus();
+    		}
+    	});
+
+    	// focus other input
+    	$surprise.on('focus', '.txt-other', function(e) {
+    		$(this)
+    			.prev('p')
+    			.addClass('checked')
+    			.parent('.radio-box')
+    			.siblings('.radio-box')
+    			.children('p')
+    			.removeClass('checked');
+    	});
+
+    	// maxlength setting about summary
+    	$surprise.find('.txt-summary').maxlength({
+    		max: 100,
+    		feedbackText: '还可输入{r}字'
+    	});
+    }
+
+})(window, document, jQuery);
