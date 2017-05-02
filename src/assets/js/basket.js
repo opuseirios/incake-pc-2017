@@ -4,20 +4,20 @@
 
         // 顺序执行异步代码
         async.waterfall([
-        	function(next) {
-        		fnInitSurprise();
-        		next(null);
-        	},
-        	function(next) {
-        		fnInitRegular();
-        		next(null);
-        	},
-        	function(next) {
-        		fnInitPart();
-        		next(null);
-        	}  
+            function(next) {
+                fnInitSurprise();
+                next(null);
+            },
+            function(next) {
+                fnInitRegular();
+                next(null);
+            },
+            function(next) {
+                fnInitPart();
+                next(null);
+            }
         ], function(err, result) {
-        	fnInitGlobalOperate();
+            fnInitGlobalOperate();
             fnInitImageCropper();
         });
 
@@ -30,6 +30,7 @@
 
         var _data = {
             list: [{
+                uniqueId: _.uniqueId('inputImage_'),
                 link: '/detail.html',
                 thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
                 name: {
@@ -43,6 +44,7 @@
                 privilege: '',
                 operate: '<a href="javascript:;" class="btn-del-item">删除</a>'
             }, {
+                uniqueId: _.uniqueId('inputImage_'),
                 link: '/detail.html',
                 thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
                 name: {
@@ -56,6 +58,7 @@
                 privilege: '',
                 operate: '<a href="javascript:;" class="btn-del-item">删除</a>'
             }, {
+                uniqueId: _.uniqueId('inputImage_'),
                 link: '/detail.html',
                 thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
                 name: {
@@ -376,7 +379,10 @@
             $body = $imgCropper.find('.container-body'),
             $image = $body.find('.image'),
             $footer = $imgCropper.find('.container-footer'),
-            $inputImage;
+            $imgPreview = $('#imgPreview'),
+            $previewBody = $imgPreview.find('.container-body'),
+            $previewFooter = $imgPreview.find('.container-footer'),
+            $inputImage, $inputPreview;
 
         var options = {
             aspectRatio: 1 / 1,
@@ -385,20 +391,19 @@
 
         // init cropper
         $image.cropper(options);
-
         // Methods
         $footer.on('click', '.zoom-in', function(e) {
-
             // Zoom in
             $image.cropper("zoom", 0.1);
         }).on('click', '.zoom-out', function(e) {
-
             // Zoom out
             $image.cropper("zoom", -0.1);
         }).on('click', '.btn-cut', function(e) {
-
             // Get cropped image
-            var img = $image.cropper('getCroppedCanvas').toDataURL('image/jpeg');
+            var img = $image.cropper('getCroppedCanvas', {
+                width: 600,
+                height: 600
+            }).toDataURL('image/jpeg');
             var thumbImg = $image.cropper('getCroppedCanvas', {
                 width: 90,
                 height: 90
@@ -406,18 +411,19 @@
 
             if (!!$inputImage) {
                 var imgType = $inputImage.attr('data-imgtype');
+                var uid = _.uniqueId('reuploadImage_');
                 if (imgType == 'surprise') {
                     var _html = '';
                     _html += '<div class="img uploaded">';
                     _html += '<img src="' + thumbImg + '" data-image="' + img + '">';
-                    _html += '<a href="javascript:;" class="btn-preview"></a>';
+                    _html += '<a href="javascript:;" class="btn-preview" data-imgtype="surprise"></a>';
                     _html += '</div>';
                     _html += '<div class="text">';
                     _html += '<p>有照片有惊喜！(非必填)</p>';
                     _html += '<div class="btns clearfix">';
-                    _html += '<label for="reuploadImage" class="btn btn-reupload">';
+                    _html += '<label for="' + uid + '" class="btn btn-reupload">';
                     _html += '<span>重新上传</span>';
-                    _html += '<input type="file" class="sr-only reupload-image" data-imgtype="surprise" id="reuploadImage" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">';
+                    _html += '<input type="file" class="sr-only reupload-image" data-imgtype="surprise" id="' + uid + '" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">';
                     _html += '</label>';
                     _html += '<a href="javascript:;" class="btn-del-image">删除</a>';
                     _html += '</div></div>';
@@ -467,7 +473,25 @@
             }
         });
 
-        // Close cropper
+        // delete uploaded image
+        $page.on('click', '.btn-del-image', function(e) {
+        	var $uploadWrap = $(this).closest('.upload-wrap');
+        	var uid = _.uniqueId('inputImage_');
+        	var _html = '';
+			_html += '<div class="img">';
+			_html += '<img src="assets/imgs/basket/img_default.jpg" alt="">';
+			_html += '</div>';
+			_html += '<div class="text">';
+			_html += '<p>有照片有惊喜！(非必填)</p>';
+			_html += '<div class="btns clearfix">';
+			_html += '<label for="'+uid+'" class="btn btn-upload">';
+			_html += '<span>上传定制照片</span>';
+			_html += '<input type="file" class="sr-only import-image" data-imgtype="surprise" id="'+uid+'" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">';
+			_html += '</label></div></div>';
+			$uploadWrap.html(_html);
+        });
+
+        // Close mask image cropper
         $imgCropper.on('click', '.close-imgcropper', function(e) {
             $imgCropper.hide();
         });
@@ -505,6 +529,70 @@
                 });
             }
         })($image);
+
+        /* ====================================
+         * Preview Image
+         * ====================================
+         */
+
+        // preview image
+        $page.on('click', '.btn-preview', function(e) {
+        	var imgtype = $(this).attr('data-imgtype');
+        	if(imgtype == 'surprise') {
+        		var $img = $(this).prev('img');
+        		var imgSrc = $img.attr('data-image');
+        		$inputImage = $(this)
+        			.closest('.img')
+        			.next('.text')
+        			.find('.reupload-image');
+        		//console.log(imgSrc);
+    			$imgPreview.show();
+				$previewBody.find('.image').attr('src', imgSrc);
+        	}
+        });
+
+        // Close mask image preview
+        $previewFooter.on('click', '.close-imgpreview', function(e) {
+        	$imgPreview.hide();
+        });
+
+        // reupload image from mask preview
+        $previewFooter.on('click', '.reload-preview', function(e) {
+        	$inputPreview = $(this);
+            var URL = window.URL || window.webkitURL;
+            var blobURL;
+
+            if (URL) {
+                $inputPreview.change(function() {
+                    var files = this.files;
+                    var file;
+
+                    if (!$image.data('cropper')) {
+                        return;
+                    }
+
+                    if (files && files.length) {
+                        file = files[0];
+
+                        if (/^image\/\w+$/.test(file.type)) {
+                            blobURL = URL.createObjectURL(file);
+                            $image.one('built.cropper', function() {
+
+                                // Revoke when load complete
+                                URL.revokeObjectURL(blobURL);
+                            }).cropper('reset').cropper('replace', blobURL);
+                            $inputPreview.val('');
+                            // hide imgpreview 
+                            $imgPreview.hide();
+                            // show imgcropper container
+                            $imgCropper.show();
+                        } else {
+                            window.alert('Please choose an image file.');
+                        }
+                    }
+                });
+            }
+        });
     }
 
 })(window, document, jQuery);

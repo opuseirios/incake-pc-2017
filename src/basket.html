@@ -291,9 +291,9 @@
 															<div class="text">
 																<p>有照片有惊喜！(非必填)</p>
 																<div class="btns clearfix">
-																	<label for="inputImage" class="btn btn-upload">
+																	<label for="{{item.uniqueId}}" class="btn btn-upload">
 																		<span>上传定制照片</span>
-																		<input type="file" class="sr-only import-image" data-imgtype="surprise" id="inputImage" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+																		<input type="file" class="sr-only import-image" data-imgtype="surprise" id="{{item.uniqueId}}" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
 																	</label>
 																</div>
 															</div>
@@ -867,6 +867,25 @@
 			</div>
 			<!-- mask cropper end -->
 
+			<!-- mask preview image -->
+			<div class="mask-imgpreview" id="imgPreview">
+				<div class="imgpreview-container">
+					<div class="container-body">
+						<img class="image" src="assets/imgs/basket/img_preview.jpg" alt="">
+					</div>
+					<div class="container-footer">
+						<div class="operate-wrap clearfix">
+							<a href="javascript:;" class="close-imgpreview">关闭</a>
+							<label for="reloadImagePreview" class="btn btn-reload">
+								<span>重新上传</span>
+								<input type="file" class="sr-only reload-preview" id="reloadImagePreview" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- mask preview image -->
+
 		</div>
 		<!-- layout container end -->
 
@@ -927,6 +946,7 @@
 		.script('/assets/plugins/maxlength/jquery.maxlength.min.js').wait()
 		.script('/assets/plugins/cropper/cropper.min.js').wait()
 		.script('/assets/plugins/async/async.min.js').wait()
+		.script('/assets/plugins/underscore/underscore-min.js').wait()
 		.script('/assets/js/layout.js').wait()
 		.script('/assets/js/basket.js');
 	</script>

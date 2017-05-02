@@ -1018,7 +1018,7 @@
         width: 880px;
         height: 730px;
         padding: 28px 18px;
-        margin: -390px 0 0 -460px;
+        margin: -395px 0 0 -460px;
         border: 2px solid #e9546b;
         border-radius: 10px;
         background-color: #fff;
@@ -1159,6 +1159,95 @@
         	color: #c8c8c8;
 			line-height: 40px;
 			text-align: right;
+        }
+    }
+}
+
+.mask-imgpreview {
+	display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: {
+        image: url('../imgs/basket/mask_bg.png');
+    }
+    .imgpreview-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 600px;
+        height: 670px;
+        padding: 20px;
+        margin: -322px 0 0 -357px;
+        border: 2px solid #e9546b;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 1px 1px 5px 0 #e9546b;
+    }
+    .container-body {
+        width: 600px;
+        height: 600px;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    .container-footer {
+        position: relative;
+        width: 600px;
+        height: 70px;
+        .operate-wrap {
+            width: 324px;
+            height: 46px;
+            margin: 24px auto 0;
+            .close-imgpreview {
+                display: block;
+                float: left;
+                width: 152px;
+                height: 46px;
+                line-height: 46px;
+                font-size: 16px;
+                color: #fff;
+                text-align: center;
+                background-color: #e9546b;
+                border-radius: 2px;
+            }
+            .btn {
+                display: block;
+                position: relative;
+                height: 46px;
+                cursor: pointer;
+                span {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    line-height: 44px;
+                    text-align: center;
+                    color: #e9546b;
+                }
+            }
+            .btn-reload {
+            	float: right;
+                width: 150px;
+                height: 44px;
+                border: 1px solid #e9546b;
+                border-radius: 2px;
+            }
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                border: 0;
+            }
         }
     }
 }
