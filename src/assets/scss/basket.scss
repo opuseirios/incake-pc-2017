@@ -749,7 +749,7 @@
                                         text-align: center;
                                         color: #e9546b;
                                         &:hover {
-                                        	text-decoration: underline;
+                                            text-decoration: underline;
                                         }
                                     }
                                 }
@@ -759,7 +759,7 @@
                                     border-radius: 2px;
                                 }
                                 .btn-reupload {
-                                	float: left;
+                                    float: left;
                                     width: 80px;
                                     border: 1px solid #e9546b;
                                     color: #e9546b;
@@ -931,15 +931,45 @@
                     a:hover {
                         text-decoration: underline;
                     }
+                    .btn {
+                        display: block;
+                        position: relative;
+                        height: 30px;
+                        cursor: pointer;
+                        span {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            display: block;
+                            width: 100%;
+                            line-height: 30px;
+                            text-align: center;
+                            color: #e9546b;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
                     .btn-upload {
                         width: 100px;
                         border: 1px solid #e9546b;
+                        border-radius: 2px;
                         color: #e9546b;
                     }
                     .btn-reupload {
                         width: 80px;
                         border: 1px solid #e9546b;
                         color: #e9546b;
+                    }
+                    .sr-only {
+                        position: absolute;
+                        width: 1px;
+                        height: 1px;
+                        padding: 0;
+                        margin: -1px;
+                        overflow: hidden;
+                        clip: rect(0, 0, 0, 0);
+                        border: 0;
                     }
                 }
             }
@@ -1001,7 +1031,7 @@
 }
 
 .mask-imgcropper {
-	display: none;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -1025,20 +1055,20 @@
         box-shadow: 1px 1px 5px 0 #e9546b;
     }
     .close-imgcropper {
-    	display: block;
-    	position: absolute;
-    	top: 0;
-    	right: 0;
-    	width: 54px;
-    	height: 54px;
-    	margin: -27px -27px 0 0;
-    	border-radius: 50%;
-    	background: {
-    		image: url('../imgs/icons/icon_close_54.png');
-    		repeat: no-repeat;
-    		size: cover;
-    		position: center center;
-    	}
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 54px;
+        height: 54px;
+        margin: -27px -27px 0 0;
+        border-radius: 50%;
+        background: {
+            image: url('../imgs/icons/icon_close_54.png');
+            repeat: no-repeat;
+            size: cover;
+            position: center center;
+        }
     }
     .container-body {
         width: 880px;
@@ -1136,7 +1166,7 @@
                 }
             }
             .btn-reload {
-            	float: right;
+                float: right;
                 width: 100px;
                 height: 44px;
                 border: 1px solid #e9546b;
@@ -1154,17 +1184,17 @@
             }
         }
         .tip {
-        	width: 100%;
-        	font-size: 14px;
-        	color: #c8c8c8;
-			line-height: 40px;
-			text-align: right;
+            width: 100%;
+            font-size: 14px;
+            color: #c8c8c8;
+            line-height: 40px;
+            text-align: right;
         }
     }
 }
 
 .mask-imgpreview {
-	display: none;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -1232,7 +1262,7 @@
                 }
             }
             .btn-reload {
-            	float: right;
+                float: right;
                 width: 150px;
                 height: 44px;
                 border: 1px solid #e9546b;

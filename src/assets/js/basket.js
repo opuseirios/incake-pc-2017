@@ -152,6 +152,22 @@
                 privilege: '',
                 operate: '<a href="javascript:;" class="btn-del-item">删除</a>'
             }, {
+                uniqueId: _.uniqueId('inputImage_'),
+                link: '/detail.html',
+                thumbImg: '/assets/imgs/basket/thumb_image_cake.jpg',
+                name: {
+                    cn: '画影',
+                    en: 'Image Cake'
+                },
+                attr: ['附送餐具5套'],
+                amount: 1,
+                spec: '1.5磅',
+                price: 189,
+                privilege: '',
+                operate: '<a href="javascript:;" class="btn-del-item">删除</a>',
+                isImageCake: true
+            }, {
+                uniqueId: _.uniqueId('inputImage_'),
                 link: '/detail.html',
                 thumbImg: '/assets/imgs/basket/thumb_image_cake.jpg',
                 name: {
@@ -430,6 +446,31 @@
                     $inputImage
                         .closest('.upload-wrap')
                         .html(_html);
+                } else if(imgType == 'imagecake') {
+                	var _html = '';
+					_html += '<div class="img uploaded">';
+					_html += '<img src="'+thumbImg+'" data-image="'+img+'">';
+					_html += '<a href="javascript:;" class="btn-preview" data-imgtype="imagecake"></a>';
+					_html += '</div>';
+					_html += '<div class="text">';
+					_html += '<p>请上传一张照片，我们会美美的安放在画影上哦～</p>';
+                    _html += '<label for="' + uid + '" class="btn btn-reupload">';
+                    _html += '<span>重新上传</span>';
+                    _html += '<input type="file" class="sr-only reupload-image" data-imgtype="imagecake" id="' + uid + '" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">';
+                    _html += '</label>';
+					_html += '</div>';
+
+					var _beforeHtml = '';
+					_beforeHtml += '<p class="preview-box clearfix">';
+					_beforeHtml += '<span>已上传1张照片</span></p>';
+
+					$inputImage
+						.closest('.upload-container')
+						.html(_html)
+						.closest('.upload-wrapper')
+						.prev('.upload-img')
+						.html('重新上传')
+						.before(_beforeHtml);
                 }
             }
 
@@ -531,7 +572,7 @@
         })($image);
 
         /* ====================================
-         * Preview Image
+         * Preview Images
          * ====================================
          */
 
@@ -545,9 +586,17 @@
         			.closest('.img')
         			.next('.text')
         			.find('.reupload-image');
-        		//console.log(imgSrc);
     			$imgPreview.show();
 				$previewBody.find('.image').attr('src', imgSrc);
+        	} else if(imgtype == 'imagecake') {
+        		var $img = $(this).prev('img');
+        		var imgSrc = $img.attr('data-image');
+        		$inputImage = $(this)
+        			.closest('.img')
+        			.next('.text')
+        			.find('.reupload-image');
+        		$imgPreview.show();
+        		$previewBody.find('.image').attr('src', imgSrc);
         	}
         });
 
@@ -593,6 +642,7 @@
                 });
             }
         });
+        
     }
 
 })(window, document, jQuery);

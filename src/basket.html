@@ -382,7 +382,10 @@
 												</div>
 												<div class="text">
 													<p>请上传一张照片，我们会美美的安放在画影上哦～</p>
-													<a href="javascript:;" class="btn-upload">上传定制照片</a>
+													<label for="{{item.uniqueId}}" class="btn btn-upload">
+														<span>上传定制照片</span>
+														<input type="file" class="sr-only import-image" data-imgtype="imagecake" id="{{item.uniqueId}}" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+													</label>
 												</div>
 											</div>
 										</div>
