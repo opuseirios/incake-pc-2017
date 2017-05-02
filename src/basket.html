@@ -154,54 +154,67 @@
 								<span class="h-operate">操作</span>
 							</p>
 							<div class="list-container">
+								<script type="text/html" id="tplSurpriseList">
+								{{if list.length != 0}}
 								<!-- surprise list begin -->
 								<ul class="surprise-list">
+									{{each list as item i}}
+									{{if item.isSoldout}}
+									<li class="item soldout">
+									{{else}}
 									<li class="item">
+									{{/if}}
 										<div class="item-content clearfix">
 											<div class="c-ckbox">
 												<a href="javascript:;" class="btn-ckbox"></a>
 											</div>
 											<div class="c-product clearfix">
-												<a href="javascript:;" class="img">
-													<img src="assets/imgs/basket/thumb_cake.jpg" alt="">
+												<a href="{{item.link}}" class="img">
+													<img src="{{item.thumbImg}}" alt="">
 												</a>
 												<div class="text vcenter">
 													<div class="vcenter-child">
-														<p class="cn">芒果拿破仑</p>
-														<p class="en">Mango Napoleon</p>
+														<p class="cn">{{item.name.cn}}</p>
+														<p class="en">{{item.name.en}}</p>
 													</div>
 												</div>
 											</div>
 											<div class="c-attr vcenter">
 												<div class="vcenter-child">
-													<p>附送餐具5套</p>
+													{{each item.attr as attr}}
+													<p>{{attr}}</p>
+													{{/each}}
 												</div>
 											</div>
 											<div class="c-amount">
 												<div class="content clearfix">
+													{{if item.amount == 1}}
 													<a href="javascript:;" class="btn btn-sub disabled"></a>
+													{{else}}
+													<a href="javascript:;" class="btn btn-sub"></a>
+													{{/if}}
 													<div class="amount-wrap">
-														<input type="text" class="txt-amount" value="1">
+														<input type="text" class="txt-amount" value="{{item.amount}}">
 													</div>
 													<a href="javascript:;" class="btn btn-add"></a>
 												</div>
 											</div>
 											<div class="c-spec vcenter">
 												<div class="vcenter-child">
-													<p>1.5磅</p>
+													<p>{{item.spec}}</p>
 												</div>
 											</div>
 											<div class="c-price vcenter">
 												<div class="vcenter-child">
-													<p>¥189</p>
+													<p>¥{{item.price}}</p>
 												</div>
 											</div>
 											<div class="c-privilege vcenter">
-												<div class="vcenter-child"></div>
+												<div class="vcenter-child">{{item.privilege}}</div>
 											</div>
 											<div class="c-operate vcenter">
 												<div class="vcenter-child">
-													<a href="javascript:;" class="btn-del-item">删除</a>
+													{{#item.operate}}
 												</div>
 											</div>
 										</div>
@@ -291,10 +304,97 @@
 											</div>
 										</div>
 									</li>
+									{{/each}}
 								</ul>
 								<!-- surprise list end -->
+								{{/if}}
+								</script>
+								<script type="text/html" id="tplRegularList">
+								{{if list.length != 0}}
 								<!-- regular list begin -->
 								<ul class="regular-list">
+									{{each list as item i}}
+									{{if item.isSoldout}}
+									<li class="item soldout">
+									{{else}}
+									<li class="item">
+									{{/if}}
+										<div class="item-content clearfix">
+											<div class="c-ckbox">
+												<a href="javascript:;" class="btn-ckbox"></a>
+											</div>
+											<div class="c-product clearfix">
+												<a href="{{item.link}}" class="img">
+													<img src="{{item.thumbImg}}" alt="">
+												</a>
+												<div class="text vcenter">
+													<div class="vcenter-child">
+														<p class="cn">{{item.name.cn}}</p>
+														<p class="en">{{item.name.en}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="c-attr vcenter">
+												<div class="vcenter-child">
+													{{each item.attr as attr}}
+													<p>{{attr}}</p>
+													{{/each}}
+												</div>
+											</div>
+											<div class="c-amount">
+												<div class="content clearfix">
+													{{if item.amount == 1}}
+													<a href="javascript:;" class="btn btn-sub disabled"></a>
+													{{else}}
+													<a href="javascript:;" class="btn btn-sub"></a>
+													{{/if}}
+													<div class="amount-wrap">
+														<input type="text" class="txt-amount" value="{{item.amount}}">
+													</div>
+													<a href="javascript:;" class="btn btn-add"></a>
+												</div>
+											</div>
+											<div class="c-spec vcenter">
+												<div class="vcenter-child">
+													<p>{{item.spec}}</p>
+												</div>
+											</div>
+											<div class="c-price vcenter">
+												<div class="vcenter-child">
+													<p>¥{{item.price}}</p>
+												</div>
+											</div>
+											<div class="c-privilege vcenter">
+												<div class="vcenter-child">{{item.privilege}}</div>
+											</div>
+											<div class="c-operate vcenter">
+												<div class="vcenter-child">
+													{{#item.operate}}
+												</div>
+											</div>
+										</div>
+										{{if item.isImageCake}}
+										<a href="javascript:;" class="upload-img">上传照片</a>
+										<div class="upload-wrapper">
+											<div class="upload-container clearfix">
+												<div class="img">
+													<img src="assets/imgs/basket/img_default.jpg" alt="">	
+												</div>
+												<div class="text">
+													<p>请上传一张照片，我们会美美的安放在画影上哦～</p>
+													<a href="javascript:;" class="btn-upload">上传定制照片</a>
+												</div>
+											</div>
+										</div>
+										{{/if}}
+									</li>
+									{{/each}}
+								</ul>
+								<!-- regular list end -->
+								{{/if}}
+								</script>
+								<!-- regular list begin -->
+								<!-- <ul class="regular-list">
 									<li class="item">
 										<div class="item-content clearfix">
 											<div class="c-ckbox">
@@ -641,112 +741,78 @@
 											</div>
 										</div>
 									</li>
-								</ul>
+								</ul> -->
 								<!-- regular list end -->
+								<script type="text/html" id="tplPartList">
+								{{if list.length != 0}}
 								<!-- part list begin -->
 								<ul class="part-list">
+									{{each list as item i}}
+									{{if item.isSoldout}}
+									<li class="item soldout">
+									{{else}}
 									<li class="item">
+									{{/if}}
 										<div class="item-content clearfix">
 											<div class="c-ckbox">
 												<a href="javascript:;" class="btn-ckbox"></a>
 											</div>
 											<div class="c-product clearfix">
-												<a href="javascript:;" class="img">
-													<img src="assets/imgs/basket/thumb_cake.jpg" alt="">
+												<a href="{{item.link}}" class="img">
+													<img src="{{item.thumbImg}}" alt="">
 												</a>
 												<div class="text vcenter">
 													<div class="vcenter-child">
-														<p class="cn">芒果拿破仑</p>
-														<p class="en">Mango Napoleon</p>
+														<p class="cn">{{item.name.cn}}</p>
+														<p class="en">{{item.name.en}}</p>
 													</div>
 												</div>
 											</div>
 											<div class="c-attr vcenter">
 												<div class="vcenter-child">
-													<p>-</p>
+													{{each item.attr as attr}}
+													<p>{{attr}}</p>
+													{{/each}}
 												</div>
 											</div>
 											<div class="c-amount">
 												<div class="content clearfix">
+													{{if item.amount == 1}}
 													<a href="javascript:;" class="btn btn-sub disabled"></a>
+													{{else}}
+													<a href="javascript:;" class="btn btn-sub"></a>
+													{{/if}}
 													<div class="amount-wrap">
-														<input type="text" class="txt-amount" value="1">
+														<input type="text" class="txt-amount" value="{{item.amount}}">
 													</div>
 													<a href="javascript:;" class="btn btn-add"></a>
 												</div>
 											</div>
 											<div class="c-spec vcenter">
 												<div class="vcenter-child">
-													<p>4只装</p>
+													<p>{{item.spec}}</p>
 												</div>
 											</div>
 											<div class="c-price vcenter">
 												<div class="vcenter-child">
-													<p>¥189</p>
+													<p>¥{{item.price}}</p>
 												</div>
 											</div>
 											<div class="c-privilege vcenter">
-												<div class="vcenter-child"></div>
+												<div class="vcenter-child">{{item.privilege}}</div>
 											</div>
 											<div class="c-operate vcenter">
 												<div class="vcenter-child">
-													<a href="javascript:;" class="btn-del-item">删除</a>
+													{{#item.operate}}
 												</div>
 											</div>
 										</div>
 									</li>
-									<li class="item">
-										<div class="item-content clearfix">
-											<div class="c-ckbox">
-												<a href="javascript:;" class="btn-ckbox"></a>
-											</div>
-											<div class="c-product clearfix">
-												<a href="javascript:;" class="img">
-													<img src="assets/imgs/basket/thumb_cake.jpg" alt="">
-												</a>
-												<div class="text vcenter">
-													<div class="vcenter-child">
-														<p class="cn">芒果拿破仑</p>
-														<p class="en">Mango Napoleon</p>
-													</div>
-												</div>
-											</div>
-											<div class="c-attr vcenter">
-												<div class="vcenter-child">
-													<p>-</p>
-												</div>
-											</div>
-											<div class="c-amount">
-												<div class="content clearfix">
-													<a href="javascript:;" class="btn btn-sub disabled"></a>
-													<div class="amount-wrap">
-														<input type="text" class="txt-amount" value="1">
-													</div>
-													<a href="javascript:;" class="btn btn-add"></a>
-												</div>
-											</div>
-											<div class="c-spec vcenter">
-												<div class="vcenter-child">
-													<p>4只装</p>
-												</div>
-											</div>
-											<div class="c-price vcenter">
-												<div class="vcenter-child">
-													<p>¥189</p>
-												</div>
-											</div>
-											<div class="c-privilege vcenter">
-												<div class="vcenter-child"></div>
-											</div>
-											<div class="c-operate vcenter">
-												<div class="vcenter-child">
-													<a href="javascript:;" class="btn-del-item">删除</a>
-												</div>
-											</div>
-										</div>
-									</li>
+									{{/each}}
 								</ul>
 								<!-- part list end -->
+								{{/if}}
+								</script>
 							</div>
 							<div class="list-footer clearfix">
 								<div class="footer-container clearfix">
@@ -860,6 +926,7 @@
 		.script('/assets/plugins/maxlength/jquery.plugin.min.js').wait()
 		.script('/assets/plugins/maxlength/jquery.maxlength.min.js').wait()
 		.script('/assets/plugins/cropper/cropper.min.js').wait()
+		.script('/assets/plugins/async/async.min.js').wait()
 		.script('/assets/js/layout.js').wait()
 		.script('/assets/js/basket.js');
 	</script>

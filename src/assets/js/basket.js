@@ -2,18 +2,251 @@
 
     $(function() {
 
-        // init global operate
-        fnInitGlobalOperate();
+        // 顺序执行异步代码
+        async.waterfall([
+        	function(next) {
+        		fnInitSurprise();
+        		next(null);
+        	},
+        	function(next) {
+        		fnInitRegular();
+        		next(null);
+        	},
+        	function(next) {
+        		fnInitPart();
+        		next(null);
+        	}  
+        ], function(err, result) {
+        	fnInitGlobalOperate();
+            fnInitImageCropper();
+        });
+
+    });
+
+    // init surprise data
+    function fnInitSurprise() {
+        var $page = $('#basketPage'),
+            $listContainer = $page.find('.list-container');
+
+        var _data = {
+            list: [{
+                link: '/detail.html',
+                thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+                name: {
+                    cn: '芒果拿破仑',
+                    en: 'Mango Napoleon'
+                },
+                attr: ['附送餐具5套'],
+                amount: 1,
+                spec: '1.5磅',
+                price: 189,
+                privilege: '',
+                operate: '<a href="javascript:;" class="btn-del-item">删除</a>'
+            }, {
+                link: '/detail.html',
+                thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+                name: {
+                    cn: '芒果拿破仑',
+                    en: 'Mango Napoleon'
+                },
+                attr: ['附送餐具5套'],
+                amount: 1,
+                spec: '1.5磅',
+                price: 189,
+                privilege: '',
+                operate: '<a href="javascript:;" class="btn-del-item">删除</a>'
+            }, {
+                link: '/detail.html',
+                thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+                name: {
+                    cn: '芒果拿破仑',
+                    en: 'Mango Napoleon'
+                },
+                attr: ['附送餐具5套'],
+                amount: 1,
+                spec: '1.5磅',
+                price: 189,
+                privilege: '',
+                operate: '<a href="javascript:;" class="btn-del-item">删除</a>',
+                isSoldout: true
+            }]
+        };
+
+        var _html = template('tplSurpriseList', _data);
+        $listContainer.prepend(_html);
 
         // init surprise operate
         fnInitSurpriseOperate();
+    }
+
+    // func of init surprise operate
+    function fnInitSurpriseOperate() {
+        var $page = $('#basketPage'),
+            $surprise = $page.find('.surprise-list');
+
+        // view surprise
+        $surprise.on('click', '.view-surprise', function(e) {
+            var isActive = $(this).hasClass('active');
+            if (!isActive) {
+                $(this).addClass('active');
+                $(this).next('.surprise-wrapper').slideDown();
+            } else {
+                $(this).removeClass('active');
+                $(this).next('.surprise-wrapper').slideUp();
+            }
+        });
+
+        // check on/off radio-box
+        $surprise.on('click', '.radio-box p', function(e) {
+            $(this)
+                .addClass('checked')
+                .parent('.radio-box')
+                .siblings('.radio-box')
+                .children('p')
+                .removeClass('checked');
+
+            // set the input focus if this item be other-box
+            if ($(this).parent('.radio-box').hasClass('other-box')) {
+                $(this).next('.txt-other').focus();
+            }
+        });
+
+        // focus other input
+        $surprise.on('focus', '.txt-other', function(e) {
+            $(this)
+                .prev('p')
+                .addClass('checked')
+                .parent('.radio-box')
+                .siblings('.radio-box')
+                .children('p')
+                .removeClass('checked');
+        });
+
+        // maxlength setting about summary
+        $surprise.find('.txt-summary').maxlength({
+            max: 100,
+            feedbackText: '还可输入{r}字'
+        });
+    }
+
+    // init surprise data
+    function fnInitRegular() {
+        var $page = $('#basketPage'),
+            $listContainer = $page.find('.list-container');
+
+        var _data = {
+            list: [{
+                link: '/detail.html',
+                thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+                name: {
+                    cn: '芒果拿破仑',
+                    en: 'Mango Napoleon'
+                },
+                attr: ['附送餐具5套'],
+                amount: 1,
+                spec: '1.5磅',
+                price: 189,
+                privilege: '',
+                operate: '<a href="javascript:;" class="btn-del-item">删除</a>'
+            }, {
+                link: '/detail.html',
+                thumbImg: '/assets/imgs/basket/thumb_image_cake.jpg',
+                name: {
+                    cn: '画影',
+                    en: 'Image Cake'
+                },
+                attr: ['附送餐具5套'],
+                amount: 1,
+                spec: '1.5磅',
+                price: 189,
+                privilege: '',
+                operate: '<a href="javascript:;" class="btn-del-item">删除</a>',
+                isImageCake: true
+            }, {
+                link: '/detail.html',
+                thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+                name: {
+                    cn: '芒果拿破仑',
+                    en: 'Mango Napoleon'
+                },
+                attr: ['附送餐具5套'],
+                amount: 1,
+                spec: '1.5磅',
+                price: 189,
+                privilege: '',
+                operate: '<a href="javascript:;" class="btn-del-item">删除</a>',
+                isSoldout: true
+            }]
+        };
+
+        var _html = template('tplRegularList', _data);
+        if ($listContainer.children('.surprise-list').length > 0) {
+            $(_html).insertAfter($listContainer.children('.surprise-list'));
+        } else {
+            $listContainer.prepend(_html);
+        }
 
         // init regular operate
         fnInitRegularOperate();
+    }
 
-        // init image cropper
-        fnInitImageCropper();
-    });
+    // func of init regular operate
+    function fnInitRegularOperate() {
+        var $page = $('#basketPage'),
+            $regular = $page.find('.regular-list');
+
+        // upload image
+        $regular.on('click', '.upload-img', function(e) {
+            var isActive = $(this).hasClass('active');
+            if (!isActive) {
+                $(this).addClass('active');
+                $(this).next('.upload-wrapper').slideDown();
+            } else {
+                $(this).removeClass('active');
+                $(this).next('.upload-wrapper').slideUp();
+            }
+        });
+    }
+
+    // init part data
+    function fnInitPart() {
+        var $page = $('#basketPage'),
+            $listContainer = $page.find('.list-container');
+
+        var _data = {
+            list: [{
+                link: '/detail.html',
+                thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+                name: {
+                    cn: '芒果拿破仑',
+                    en: 'Mango Napoleon'
+                },
+                attr: ['-'],
+                amount: 1,
+                spec: '4只装',
+                price: 189,
+                privilege: '',
+                operate: '<a href="javascript:;" class="btn-del-item">删除</a>'
+            }, {
+                link: '/detail.html',
+                thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+                name: {
+                    cn: '芒果拿破仑',
+                    en: 'Mango Napoleon'
+                },
+                attr: ['附送餐具5套'],
+                amount: 1,
+                spec: '1.5磅',
+                price: 189,
+                privilege: '',
+                operate: '<a href="javascript:;" class="btn-del-item">删除</a>',
+                isSoldout: true
+            }]
+        };
+
+        var _html = template('tplPartList', _data);
+        $listContainer.append(_html);
+    }
 
     // func of init global operate
     function fnInitGlobalOperate() {
@@ -136,74 +369,6 @@
         })($basketContainer);
     }
 
-    // func of init surprise operate
-    function fnInitSurpriseOperate() {
-        var $page = $('#basketPage'),
-            $surprise = $page.find('.surprise-list');
-
-        // view surprise
-        $surprise.on('click', '.view-surprise', function(e) {
-            var isActive = $(this).hasClass('active');
-            if (!isActive) {
-                $(this).addClass('active');
-                $(this).next('.surprise-wrapper').slideDown();
-            } else {
-                $(this).removeClass('active');
-                $(this).next('.surprise-wrapper').slideUp();
-            }
-        });
-
-        // check on/off radio-box
-        $surprise.on('click', '.radio-box p', function(e) {
-            $(this)
-                .addClass('checked')
-                .parent('.radio-box')
-                .siblings('.radio-box')
-                .children('p')
-                .removeClass('checked');
-
-            // set the input focus if this item be other-box
-            if ($(this).parent('.radio-box').hasClass('other-box')) {
-                $(this).next('.txt-other').focus();
-            }
-        });
-
-        // focus other input
-        $surprise.on('focus', '.txt-other', function(e) {
-            $(this)
-                .prev('p')
-                .addClass('checked')
-                .parent('.radio-box')
-                .siblings('.radio-box')
-                .children('p')
-                .removeClass('checked');
-        });
-
-        // maxlength setting about summary
-        $surprise.find('.txt-summary').maxlength({
-            max: 100,
-            feedbackText: '还可输入{r}字'
-        });
-    }
-
-    // func of init regular operate
-    function fnInitRegularOperate() {
-        var $page = $('#basketPage'),
-            $regular = $page.find('.regular-list');
-
-        // upload image
-        $regular.on('click', '.upload-img', function(e) {
-            var isActive = $(this).hasClass('active');
-            if (!isActive) {
-                $(this).addClass('active');
-                $(this).next('.upload-wrapper').slideDown();
-            } else {
-                $(this).removeClass('active');
-                $(this).next('.upload-wrapper').slideUp();
-            }
-        });
-    }
-
     // handle for image cropper
     function fnInitImageCropper() {
         var $page = $('#basketPage'),
@@ -219,29 +384,7 @@
         };
 
         // init cropper
-        $image.on({
-            'build.cropper': function(e) {
-                console.log(e.type);
-            },
-            'built.cropper': function(e) {
-                console.log(e.type);
-            },
-            'cropstart.cropper': function(e) {
-                console.log(e.type, e.action);
-            },
-            'cropmove.cropper': function(e) {
-                console.log(e.type, e.action);
-            },
-            'cropend.cropper': function(e) {
-                console.log(e.type, e.action);
-            },
-            'crop.cropper': function(e) {
-                console.log(e.type, e.x, e.y, e.width, e.height, e.rotate, e.scaleX, e.scaleY);
-            },
-            'zoom.cropper': function(e) {
-                console.log(e.type, e.ratio);
-            }
-        }).cropper(options);
+        $image.cropper(options);
 
         // Methods
         $footer.on('click', '.zoom-in', function(e) {
