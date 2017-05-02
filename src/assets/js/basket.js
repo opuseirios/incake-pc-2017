@@ -10,6 +10,9 @@
 
         // init regular operate
         fnInitRegularOperate();
+
+        // init image cropper
+        fnInitImageCropper();
     });
 
     // func of init global operate
@@ -199,6 +202,166 @@
                 $(this).next('.upload-wrapper').slideUp();
             }
         });
+    }
+
+    // handle for image cropper
+    function fnInitImageCropper() {
+        var $page = $('#basketPage'),
+            $imgCropper = $('#imgCropper'),
+            $body = $imgCropper.find('.container-body'),
+            $image = $body.find('.image'),
+            $footer = $imgCropper.find('.container-footer'),
+            $inputImage;
+
+        var options = {
+            aspectRatio: 1 / 1,
+            preview: '.img-preview'
+        };
+
+        // init cropper
+        $image.on({
+            'build.cropper': function(e) {
+                console.log(e.type);
+            },
+            'built.cropper': function(e) {
+                console.log(e.type);
+            },
+            'cropstart.cropper': function(e) {
+                console.log(e.type, e.action);
+            },
+            'cropmove.cropper': function(e) {
+                console.log(e.type, e.action);
+            },
+            'cropend.cropper': function(e) {
+                console.log(e.type, e.action);
+            },
+            'crop.cropper': function(e) {
+                console.log(e.type, e.x, e.y, e.width, e.height, e.rotate, e.scaleX, e.scaleY);
+            },
+            'zoom.cropper': function(e) {
+                console.log(e.type, e.ratio);
+            }
+        }).cropper(options);
+
+        // Methods
+        $footer.on('click', '.zoom-in', function(e) {
+
+            // Zoom in
+            $image.cropper("zoom", 0.1);
+        }).on('click', '.zoom-out', function(e) {
+
+            // Zoom out
+            $image.cropper("zoom", -0.1);
+        }).on('click', '.btn-cut', function(e) {
+
+            // Get cropped image
+            var img = $image.cropper('getCroppedCanvas').toDataURL('image/jpeg');
+            var thumbImg = $image.cropper('getCroppedCanvas', {
+                width: 90,
+                height: 90
+            }).toDataURL('image/jpeg');
+
+            if (!!$inputImage) {
+                var imgType = $inputImage.attr('data-imgtype');
+                if (imgType == 'surprise') {
+                    var _html = '';
+                    _html += '<div class="img uploaded">';
+                    _html += '<img src="' + thumbImg + '" data-image="' + img + '">';
+                    _html += '<a href="javascript:;" class="btn-preview"></a>';
+                    _html += '</div>';
+                    _html += '<div class="text">';
+                    _html += '<p>有照片有惊喜！(非必填)</p>';
+                    _html += '<div class="btns clearfix">';
+                    _html += '<label for="reuploadImage" class="btn btn-reupload">';
+                    _html += '<span>重新上传</span>';
+                    _html += '<input type="file" class="sr-only reupload-image" data-imgtype="surprise" id="reuploadImage" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">';
+                    _html += '</label>';
+                    _html += '<a href="javascript:;" class="btn-del-image">删除</a>';
+                    _html += '</div></div>';
+                    $inputImage
+                        .closest('.upload-wrap')
+                        .html(_html);
+                }
+            }
+
+            // hide image cropper
+            $imgCropper.hide();
+        });
+
+        // Import/Reupload image
+        $page.on('click', '.import-image, .reupload-image', function(e) {
+            $inputImage = $(this);
+            var URL = window.URL || window.webkitURL;
+            var blobURL;
+
+            if (URL) {
+                $inputImage.change(function() {
+                    var files = this.files;
+                    var file;
+
+                    if (!$image.data('cropper')) {
+                        return;
+                    }
+
+                    if (files && files.length) {
+                        file = files[0];
+
+                        if (/^image\/\w+$/.test(file.type)) {
+                            blobURL = URL.createObjectURL(file);
+                            $image.one('built.cropper', function() {
+
+                                // Revoke when load complete
+                                URL.revokeObjectURL(blobURL);
+                            }).cropper('reset').cropper('replace', blobURL);
+                            $inputImage.val('');
+                            // show imgcropper container
+                            $imgCropper.show();
+                        } else {
+                            window.alert('Please choose an image file.');
+                        }
+                    }
+                });
+            }
+        });
+
+        // Close cropper
+        $imgCropper.on('click', '.close-imgcropper', function(e) {
+            $imgCropper.hide();
+        });
+
+        // Reload image
+        (function($image) {
+            var $reloadImage = $('#reloadImage');
+            var URL = window.URL || window.webkitURL;
+            var blobURL;
+
+            if (URL) {
+                $reloadImage.change(function() {
+                    var files = this.files;
+                    var file;
+
+                    if (!$image.data('cropper')) {
+                        return;
+                    }
+
+                    if (files && files.length) {
+                        file = files[0];
+
+                        if (/^image\/\w+$/.test(file.type)) {
+                            blobURL = URL.createObjectURL(file);
+                            $image.one('built.cropper', function() {
+
+                                // Revoke when load complete
+                                URL.revokeObjectURL(blobURL);
+                            }).cropper('reset').cropper('replace', blobURL);
+                            $reloadImage.val('');
+                        } else {
+                            window.alert('Please choose an image file.');
+                        }
+                    }
+                });
+            }
+        })($image);
     }
 
 })(window, document, jQuery);
