@@ -408,44 +408,190 @@
 							<div class="list-box">
 								<h3 class="address-info">配送信息</h3>
 								<div class="address-lock clearfix">
-									<p>配送地址：&nbsp;<span>张三</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span><span class="tip-default">默认地址</span><a href="javascript:;" class="btn-edit">编辑</a></p>
+									<p><span class="lock-addr">配送地址：</span><span class="lock-name">张三</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span><span class="tip-default">默认地址</span><a href="javascript:;" class="btn-edit">编辑</a></p>
 									<a href="javascript:;" class="btn-add">新增收货地址</a>
 								</div>
 								<ul class="address-list">
 									<li class="active clearfix">
-										<p><span>李四</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span></p>
-										<a href="javascript:;" class="btn-del">删除</a>
-										<a href="javascript:;" class="btn-edit">编辑</a>
+										<p><span class="i-name">李四</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span></p>
 										<a href="javascript:;" class="btn-lock">设为默认地址</a>
+										<a href="javascript:;" class="btn-edit">编辑</a>
+										<a href="javascript:;" class="btn-del">删除</a>
 									</li>
 									<li class="clearfix">
-										<p><span>李四</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span></p>
-										<a href="javascript:;" class="btn-del">删除</a>
-										<a href="javascript:;" class="btn-edit">编辑</a>
+										<p><span class="i-name">李四</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span></p>
 										<a href="javascript:;" class="btn-lock">设为默认地址</a>
+										<a href="javascript:;" class="btn-edit">编辑</a>
+										<a href="javascript:;" class="btn-del">删除</a>
 									</li>
 									<li class="clearfix">
-										<p><span>李四</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span></p>
-										<a href="javascript:;" class="btn-del">删除</a>
-										<a href="javascript:;" class="btn-edit">编辑</a>
+										<p><span class="i-name">李四</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span></p>
 										<a href="javascript:;" class="btn-lock">设为默认地址</a>
+										<a href="javascript:;" class="btn-edit">编辑</a>
+										<a href="javascript:;" class="btn-del">删除</a>
 									</li>
 								</ul>
+								<div class="delivery-time clearfix">
+									<p>配送时间：</p>
+									<a href="javascript:;" class="btn-date">2017-04-28</a>
+									<a href="javascript:;" class="btn-time">9:30-10:30</a>
+								</div>
 							</div>
 							<!-- addressInfo end -->
 							
+							<!-- payment method begin -->
+							<div class="list-box">
+								<h3 class="payment-info">支付方式</h3>
+								<ul class="payment-list clearfix">
+									<li><a href="javascript:;" class="btn-online active">在线支付</a></li>
+									<li><a href="javascript:;" class="btn-COD">货到付款</a></li>
+									<li><a href="javascript:;" class="btn-card">兑换卡支付</a></li>
+								</ul>
+								<div class="payment-content">
+									<ul class="online-type clearfix">
+										<li><a href="javascript:;" class="active"><img src="assets/imgs/basket/pay_type_Alipay.jpg"/></a></li>
+										<li><a href="javascript:;"><img src="assets/imgs/basket/pay_type_kq.jpg"/></a></li>
+										<li><a href="javascript:;"><img src="assets/imgs/basket/pay_type_jj.jpg"/></a></li>
+										<li><a href="javascript:;"><img src="assets/imgs/basket/pay_type_zs.jpg"/></a></li>
+										<li><a href="javascript:;"><img src="assets/imgs/basket/pay_type_Alipay.jpg"/></a></li>
+										<li><a href="javascript:;"><img src="assets/imgs/basket/pay_type_kq.jpg"/></a></li>
+										<li><a href="javascript:;"><img src="assets/imgs/basket/pay_type_jj.jpg"/></a></li>
+									</ul>
+									<div class="COD-type clearfix">
+										<p>请输入蛋糕卡ID的后五位：<input type="text" class="card-number"/></p>
+										<p>蛋糕卡密码：<input type="password" class="card-pwd"/></p>
+										<a href="javascript:;" class="btn-exchange">兑&nbsp;换</a>
+									</div>
+								</div>
+							</div>
+							<!-- payment method end -->
+							
+							<!-- coupon begin -->
+							<div class="list-box">
+								<h3 class="coupon-info">我的优惠券/码</h3>
+								<p class="coupon-title clearfix">
+									<a href="javascript:;" class="t-coupon active">优惠券</a>
+									<a href="javascript:;" class="t-code">优惠码</a>
+									<a href="javascript:;" class="t-cash">代金券</a>
+								</p>
+								<div class="coupon-content">
+									<ul class="coupon-list clearfix">
+										<li class="active">
+											<p>蛋糕<span>30</span>元优惠券</p>
+											<a href="javascript:;" class="btn-use">立即使用</a>
+										</li>
+										<li>
+											<p>蛋糕<span>50</span>元优惠券</p>
+											<a href="javascript:;" class="btn-use">立即使用</a>
+										</li>
+										<li>
+											<p>蛋糕<span>80</span>元优惠券</p>
+											<a href="javascript:;" class="btn-use">立即使用</a>
+										</li>
+										<li>
+											<p>蛋糕<span>30</span>元优惠券</p>
+											<a href="javascript:;" class="btn-use">立即使用</a>
+										</li>
+										<li>
+											<p>蛋糕<span>30</span>元优惠券</p>
+											<a href="javascript:;" class="btn-use">立即使用</a>
+										</li>
+										<li>
+											<p>蛋糕<span>30</span>元优惠券</p>
+											<a href="javascript:;" class="btn-use">立即使用</a>
+										</li>
+										<li>
+											<p>蛋糕<span>30</span>元优惠券</p>
+											<a href="javascript:;" class="btn-use">立即使用</a>
+										</li>
+									</ul>
+									<div class="code-info">
+										<p class="clearfix">
+											<span>请输入您的优惠码&nbsp;/&nbsp;团购券编号&nbsp;/&nbsp;建行热购卡会员号：</span>
+											<input type="text" class="code-number"/>
+											<a href="javascript:;" class="btn-reg">点击验证</a>
+										</p>
+									</div>
+									<div class="cash-info">
+										<ul class="cash-list clearfix">
+											<li class="active">
+												<p>¥<span>10</span></p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li class="active">
+												<p>¥<span>20</span></p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li>
+												<p>¥<span>30</span></p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li>
+												<p>¥<span>50</span></p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li class="active">
+												<p>¥<span>50</span></p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li>
+												<p>¥<span>50</span></p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li>
+												<p>¥<span>100</span></p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li>
+												<p>¥<span>100</span></p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- coupon end -->
+							
+							<!-- more info begin -->
+							<div class="list-box">
+								<h3 class="more-info">更多信息</h3>
+								<div class="invoice-content">
+									<p class="invoice-add clearfix">
+										<span class="i-label">发票：</span>
+										<a href="javascript:;" class="btn-add">添加发票</a>
+									</p>
+									<p class="invoice-other clearfix">
+										<span class="i-label">生日牌：</span>
+										<a href="javascript:;" class="btn-birthday">不需要</a>
+										<span class="i-label">贺卡：</span>
+										<a href="javascript:;" class="btn-card">不需要</a>
+									</p>
+								</div>
+							</div>
+							<!-- more info end -->
+							
+							<!-- remarks begin -->
+							<div class="list-box">
+								<h3 class="remarks-info">订单备注</h3>
+								<div class="remarks-content">
+									<textarea class="txt-remarks is-maxlength" placeholder="如您有其他的要求请注明"></textarea>
+									<span class="maxlength-feedback">还可输入100字</span>
+								</div>
+							</div>
+							<!-- remarks end -->
+							
+							<!-- summary info begin -->
+							<div class="summary-info">
+								<p class="s-info">商品总金额：¥<span class="s-total">288</span>&nbsp;，优惠券：¥<span class="s-coupon">30.00</span>&nbsp;，蛋糕卡：¥<span class="s-card">0.00</span>&nbsp;，促销：¥<span class="s-sales">0.00</span>&nbsp;，补差价：¥<span class="s-difference">0.00</span>&nbsp;，运费：¥<span class="s-freight">0.00</span></p>
+								<p class="s-price clearfix"><a href="javascript:;" class="btn-payment">去付款</a><span class="s-symbol">.00</span><span class="s-money">189</span><span class="s-symbol">¥</span><span class="s-label">您需要支付：</span></p>
+							</div>
+							<!-- summary info end -->
 						</div>
 					</div>
 					<!-- settlement container end -->
-
-					<!-- settlement footer begin -->
-					<div class="settlement-footer"></div>
-					<!-- settlement footer end -->
-
 				</div>
 			</div>
 			<!-- settlement page end -->
-
 		</div>
 		<!-- layout container end -->
 
