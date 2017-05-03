@@ -270,7 +270,8 @@
     // func of init global operate
     function fnInitGlobalOperate() {
         var $page = $('#basketPage'),
-            $basketContainer = $page.find('.basket-container');
+            $basketContainer = $page.find('.basket-container'),
+            $tipmsg = $('#tipMsg');
 
         // check on/off basket items
         $basketContainer.on('click', '.btn-ckbox', function(e) {
@@ -386,6 +387,42 @@
                 $item.remove();
             });
         })($basketContainer);
+
+
+        // handle for submit order
+        $basketContainer.on('click', '.btn-settle', function(e) {
+
+            // TODO 验证惊喜表单合法性
+            var isSurprisePassed = true,
+                isImageCakePassed = false;
+
+            var _htmlBody = '',
+                _htmlFooter = '';
+
+            _htmlBody += '<p>小IN想对您说：</p>';
+
+            if(!isSurprisePassed) {
+                _htmlBody += '<p>您挑选的是惊喜款蛋糕，但是还没有添加惊喜哟，快去打包惊喜吧！</p>';
+                _htmlFooter += '<a href="javascript:;">现在去填写惊喜</a>';
+            } else if(!isImageCakePassed) {
+                _htmlBody += '<p>您挑选的画影蛋糕还没设置照片哦，现在就去上传照片吧！</p>';
+                _htmlFooter += '<a href="javascript:;">现在去上传照片</a>';
+            }
+
+            $tipmsg
+                .show()
+                .find('.container-body')
+                .children('.vcenter-child')
+                .html(_htmlBody)
+                .end()
+                .next()
+                .html(_htmlFooter);
+        });
+
+        // Close tipmsg
+        $tipmsg.on('click', '.container-footer a', function(e) {
+            $tipmsg.hide();
+        });
     }
 
     // handle for image cropper
@@ -464,13 +501,25 @@
 					_beforeHtml += '<p class="preview-box clearfix">';
 					_beforeHtml += '<span>已上传1张照片</span></p>';
 
-					$inputImage
-						.closest('.upload-container')
-						.html(_html)
-						.closest('.upload-wrapper')
-						.prev('.upload-img')
-						.html('重新上传')
-						.before(_beforeHtml);
+                    var $uploadImg = $inputImage
+                        .closest('.upload-wrapper')
+                        .prev();
+
+                    if($uploadImg.prev('.preview-box').length != 0) {
+                        $uploadImg
+                            .prev('.preview-box')
+                            .remove()
+                            .end()
+                            .before(_beforeHtml);
+                    } else {
+                        $uploadImg
+                            .html('重新上传')
+                            .before(_beforeHtml);
+                    }
+
+                    $inputImage
+                        .closest('.upload-container')
+                        .html(_html);
                 }
             }
 
