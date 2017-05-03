@@ -836,7 +836,45 @@
 					<!-- basket container end -->
 
 					<!-- basket footer begin -->
-					<div class="basket-footer"></div>
+					<div class="basket-footer">
+						<div class="parts-wrapper" id="partsWrapper">
+							<div class="parts-header">
+								<ul class="categories-nav clearfix">
+									<li class="active" data-target="candles">数字蜡烛</li>
+									<li data-target="plates">餐盘</li>
+								</ul>
+							</div>
+							<div class="parts-container">
+								<div class="categories-body">
+									<a href="javascript:;" class="btn btn-prev"></a>
+									<a href="javascript:;" class="btn btn-next"></a>
+									<div class="list-wrap">
+										<ul class="list-parts clearfix"></ul>
+										<script type="text/html" id="tplListParts">
+										{{each list as item i}}
+										<li>
+											<a href="{{item.link}}" class="img">
+												<img src="{{item.img}}" alt="">
+											</a>
+											<div class="text">
+												<p class="name">
+													<span class="cn">{{item.name.cn}}</span>
+													<span class="en">{{item.name.en}}</span>
+												</p>
+												<p class="attr">
+													<span class="price">￥{{item.price}}</span>
+													<span class="pound">/{{item.spec}}</span>
+												</p>
+												<a href="javascript:;" class="join-basket"></a>
+											</div>
+										</li>
+										{{/each}}
+										</script>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 					<!-- basket footer end -->
 
 				</div>
