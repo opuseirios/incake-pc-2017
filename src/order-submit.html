@@ -8,7 +8,9 @@
     <meta name="author" content="">
 	<title>INCAKE | 订单提交</title>
 	<link rel="stylesheet" href="/assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="/assets/plugins/pikaday/css/pikaday.css">
 	<link rel="stylesheet" href="/assets/plugins/maxlength/jquery.maxlength.css">
+	<link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
 	<link rel="stylesheet" href="/assets/css/layout.css">
 	<link rel="stylesheet" href="/assets/css/order-submit.css">
 	<link rel="shortcut icon" href="/favicon.ico" />
@@ -31,13 +33,13 @@
 				<!-- logo end -->
 				<!-- nav begin -->
 				<div class="nav clearfix">
+					<!-- <span class="indicator"></span> -->
 					<a href="/index.html">首页</a>
 					<a href="/list.html">蛋糕馆</a>
-					<a href="javascript:;">三小时送</a>
-					<a href="javascript:;">MINI CAKE</a>
-					<a href="javascript:;">惊喜定制</a>
-					<a href="javascript:;">企业试吃申请</a>
-					<a href="javascript:;">卡券兑换</a>
+					<a href="/dessert.html">甜品</a>
+					<a href="/drink.html">饮品</a>
+					<a href="/flower.html">鲜花</a>
+					<a href="/cartoon.html">阿狸</a>
 				</div>
 				<!-- nav end -->
 				<!-- portal begin -->
@@ -53,12 +55,12 @@
 					</div>
 				</div>
 				<!-- portal end -->
-				<!-- settlement begin -->
-				<div class="settlement">
+				<!-- basket begin -->
+				<div class="basket">
 					<a href="javascript:;" class="view"><span>10</span></a>
 					<div class="content">
 						<span class="arrow-up"></span>
-						<ul class="list settlement-list"></ul>
+						<ul class="list basket-list"></ul>
 						<script id="tplBasketList" type="text/html">
 							{{if list.length > 0}}
 							{{each list as item i}}
@@ -81,10 +83,10 @@
 							{{/each}}
 							{{/if}}
 						</script>
-						<a href="javascript:;" class="view-settlement">查看购物篮 >></a>
+						<a href="javascript:;" class="view-basket">查看购物篮 >></a>
 					</div>
 				</div>
-				<!-- settlement end -->
+				<!-- basket end -->
 				<!-- locator begin -->
 				<div class="locator">
 					<span class="arrow"></span>
@@ -110,6 +112,7 @@
 			</div>
 		</div>
 		<!-- layout header end -->
+
 
 		<!-- layout container begin -->
 		<div class="layout-container">
@@ -145,7 +148,7 @@
 						<div class="list-wrapper">
 							
 							<!-- commodityInfo begin -->
-							<div class="list-box">
+							<div class="list-box no-line">
 								<h3>商品信息</h3>
 								<p class="list-header clearfix">
 									<span class="h-product">商品</span>
@@ -197,10 +200,29 @@
 													<div class="vcenter-child">
 														<a href="javascript:;" class="btn-option btn-act">母亲节活动</a>
 													</div>
+													<div class="popup-act">
+														<textarea class="txt-popups is-maxlength" placeholder="母亲节写上送给妈妈的话吧！"></textarea>
+														<p class="maxlength-feedback">还可输入50个字</p>
+													</div>
 												</div>
 												<div class="c-operate vcenter">
 													<div class="vcenter-child">
 														<a href="javascript:;" class="btn-option btn-surprise">惊喜</a>
+													</div>
+													<div class="popup-surprise">
+														<ul>
+															<li class="s-target">想要给惊喜（<span>朋友</span>）</li>
+															<li class="s-scene">想在（<span>生日/祝寿</span>）场景下给Ta惊喜</li>
+															<li class="s-remark clearfix">
+																<p class="s-label">备注：</p>
+																<p class="remark-text">非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容</p>
+															</li>
+															<li class="s-photo clearfix">
+																<p class="s-label">照片：</p>
+																<a href="javascript:;" class="btn-preview"><img src="assets/imgs/basket/img_preview_thumb.jpg"/></a>
+																<a href="javascript:;" class="btn-sure">确&nbsp;定</a>
+															</li>
+														</ul>
 													</div>
 												</div>
 											</div>
@@ -248,6 +270,21 @@
 													<div class="vcenter-child">
 														<a href="javascript:;" class="btn-option btn-surprise">惊喜</a>
 													</div>
+													<div class="popup-surprise">
+														<ul>
+															<li class="s-target">想要给惊喜（<span>朋友</span>）</li>
+															<li class="s-scene">想在（<span>生日/祝寿</span>）场景下给Ta惊喜</li>
+															<li class="s-remark clearfix">
+																<p class="s-label">备注：</p>
+																<p class="remark-text">非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容</p>
+															</li>
+															<li class="s-photo clearfix">
+																<p class="s-label">照片：</p>
+																<a href="javascript:;" class="btn-preview"><img src="assets/imgs/basket/img_preview_thumb.jpg"/></a>
+																<a href="javascript:;" class="btn-sure">确&nbsp;定</a>
+															</li>
+														</ul>
+													</div>
 												</div>
 											</div>
 										</li>
@@ -292,6 +329,10 @@
 												<div class="c-activity vcenter">
 													<div class="vcenter-child">
 														<a href="javascript:;" class="btn-option btn-act">母亲节活动</a>
+													</div>
+													<div class="popup-act">
+														<textarea class="txt-popups is-maxlength" placeholder="母亲节写上送给妈妈的话吧！"></textarea>
+														<p class="maxlength-feedback">还可输入50个字</p>
 													</div>
 												</div>
 												<div class="c-operate vcenter">
@@ -343,6 +384,21 @@
 												<div class="c-operate vcenter">
 													<div class="vcenter-child">
 														<a href="javascript:;" class="btn-option btn-surprise">画影</a>
+													</div>
+													<div class="popup-surprise">
+														<ul>
+															<li class="s-target">想要给惊喜（<span>朋友</span>）</li>
+															<li class="s-scene">想在（<span>生日/祝寿</span>）场景下给Ta惊喜</li>
+															<li class="s-remark clearfix">
+																<p class="s-label">备注：</p>
+																<p class="remark-text">非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容</p>
+															</li>
+															<li class="s-photo clearfix">
+																<p class="s-label">照片：</p>
+																<a href="javascript:;" class="btn-preview"><img src="assets/imgs/basket/img_preview_thumb.jpg"/></a>
+																<a href="javascript:;" class="btn-sure">确&nbsp;定</a>
+															</li>
+														</ul>
 													</div>
 												</div>
 											</div>
@@ -401,6 +457,7 @@
 									<!-- part list end -->
 								</div>
 								<p class="tips">共<span id="count">5</span>个商品</p>
+								<p class="btns line-blue"><a href="javascript:;" class="btn-fold">收起</a></p>
 							</div>
 							<!-- commodityInfo end -->
 							
@@ -431,10 +488,20 @@
 										<a href="javascript:;" class="btn-del">删除</a>
 									</li>
 								</ul>
+								<p class="btns"><a href="javascript:;" class="btn-fold">收起</a></p>
 								<div class="delivery-time clearfix">
 									<p>配送时间：</p>
-									<a href="javascript:;" class="btn-date">2017-04-28</a>
+									<a href="javascript:;" class="btn-date"  id="datepicker" aria-label="Use the arrow keys to pick a date">2017-05-20</a>
+									<input type="hidden" id="txtDate" value="2017-05-20">
 									<a href="javascript:;" class="btn-time">9:30-10:30</a>
+									<div class="popup-time">
+										<ul>
+											<li class="active">9:30-10:30</li>
+											<li>10:30-11:30</li>
+											<li>11:30-12:30</li>
+											<li class="last">12:30-13:30</li>
+										</ul>
+									</div>
 								</div>
 							</div>
 							<!-- addressInfo end -->
@@ -555,17 +622,48 @@
 							<!-- more info begin -->
 							<div class="list-box">
 								<h3 class="more-info">更多信息</h3>
-								<div class="invoice-content">
-									<p class="invoice-add clearfix">
-										<span class="i-label">发票：</span>
-										<a href="javascript:;" class="btn-add">添加发票</a>
-									</p>
-									<p class="invoice-other clearfix">
-										<span class="i-label">生日牌：</span>
-										<a href="javascript:;" class="btn-birthday">不需要</a>
-										<span class="i-label">贺卡：</span>
-										<a href="javascript:;" class="btn-card">不需要</a>
-									</p>
+								<div class="invoice-lock clearfix">
+									<p><span class="lock-label">发票：</span><span class="lock-type">普通发票</span><span class="lock-name">上海印克电子商务股份有限公司</span><span class="lock-content">蛋糕</span><span class="tip-default">默认发票</span><a href="javascript:;" class="btn-edit">编辑</a></p>
+									<a href="javascript:;" class="btn-add">新增发票</a>
+								</div>
+								<ul class="invoice-list">
+									<li class="active clearfix">
+										<p><span class="lock-type">普通发票</span><span class="lock-name">上海印克电子商务股份有限公司福州分公司</span><span class="lock-content">食品</span></p>
+										<a href="javascript:;" class="btn-lock">设为默认发票</a>
+										<a href="javascript:;" class="btn-edit">编辑</a>
+										<a href="javascript:;" class="btn-del">删除</a>
+									</li>
+									<li class="clearfix">
+										<p><span class="lock-type">普通发票</span><span class="lock-name">上海印克电子商务股份有限公司厦门分公司</span><span class="lock-content">食品</span></p>
+										<a href="javascript:;" class="btn-lock">设为默认地址</a>
+										<a href="javascript:;" class="btn-edit">编辑</a>
+										<a href="javascript:;" class="btn-del">删除</a>
+									</li>
+									<li class="clearfix">
+										<p><span class="lock-type">普通发票</span><span class="lock-name">上海印克电子商务股份有限公司青岛分公司</span><span class="lock-content">食品</span></p>
+										<a href="javascript:;" class="btn-lock">设为默认地址</a>
+										<a href="javascript:;" class="btn-edit">编辑</a>
+										<a href="javascript:;" class="btn-del">删除</a>
+									</li>
+								</ul>
+								<p class="btns"><a href="javascript:;" class="btn-fold">收起</a></p>
+								<div class="invoice-other clearfix">
+									<span class="i-label">生日牌：</span>
+									<a href="javascript:;" class="btn-birth">不需要</a>
+									<span class="i-label">贺卡：</span>
+									<a href="javascript:;" class="btn-card">不需要</a>
+									<div class="popup-birth">
+										<ul>
+											<li class="active">不需要</li>
+											<li class="last">需要</li>
+										</ul>
+									</div>
+									<div class="popup-card">
+										<ul>
+											<li class="active">不需要</li>
+											<li class="last">需要</li>
+										</ul>
+									</div>
 								</div>
 							</div>
 							<!-- more info end -->
@@ -590,6 +688,109 @@
 					</div>
 					<!-- settlement container end -->
 				</div>
+				<!-- mask  begin-->
+				<div id="mask-list">
+					<div class="popup-preview">
+						<img src="assets/imgs/basket/img_preview.jpg" class="pre-photo" />
+						<a href="javascript:;" class="btn-close">关闭</a>
+					</div>
+					<div class="popup-invoice">
+						<p class="popup-title">新增发票</p>
+						<ul class="popup-info">
+							<li class="clearfix">
+								<p class="label">发票类型：</p>
+								<p class="invoice-type">普通发票</p>
+							</li>
+							<li class="clearfix i-must">
+								<p class="label">发票抬头：</p>
+								<select class="select2" id="invoice_type">
+									<option value="个人">个人</option>
+									<option value="公司">公司</option>
+								</select>
+							</li>
+							<li class="company-name i-must clearfix">
+								<p class="label">公司名称：</p>
+								<input type="text" class="invoice-name" placeholder="请输入公司名称" />
+							</li>
+							<li class="clearfix i-must">
+								<p class="label">发票内容：</p>
+								<select class="select2" id="invoice_content">
+									<option value="蛋糕">蛋糕</option>
+									<option value="食品">食品</option>
+								</select>
+							</li>
+						</ul>
+						<p class="popup-btns clearfix">
+							<a href="javascript:;" id="btn-cancel">取消</a>
+							<a href="javascript:;" id="btn-confirm">确认</a>
+						</p>
+					</div>
+					<div class="popup-address">
+						<p class="popup-title">新增收货地址</p>
+						<ul class="popup-info">
+							<li class="clearfix">
+								<p class="label">收货人：</p>
+								<input type="text" class="receiver-name" placeholder="请输入收货人姓名">
+							</li>
+							<li class="clearfix">
+								<p class="label">送货地址：</p>
+								<label class="sel-city">
+									<select id="select_city" class="select2">
+										<option value="0">请选择</option>
+										<option value="上海市">上海市</option>
+									</select>
+								</label>
+								<label class="sel-area">
+									<select id="select_area" class="select2">
+										<option value="0">请选择</option>
+										<option value="宝山区">宝山区</option>
+										<option value="长宁区">长宁区</option>
+										<option value="奉贤区">奉贤区</option>
+										<option value="虹口区">虹口区</option>
+										<option value="黄浦区">黄浦区</option>
+										<option value="嘉定区">嘉定区</option>
+										<option value="金山区">金山区</option>
+										<option value="静安区">静安区</option>
+										<option value="闵行区">闵行区</option>
+										<option value="浦东新区">浦东新区</option>
+										<option value="普陀区">普陀区</option>
+										<option value="青浦区">青浦区</option>
+										<option value="松江区">松江区</option>
+										<option value="徐汇区">徐汇区</option>
+										<option value="杨浦区">杨浦区</option>
+										<option value="闸北区">闸北区</option>
+									</select>
+								</label>
+								<label class="sel-ext">
+									<select id="select_ext" class="select2">
+										<option value="0">请选择</option>
+										<option value="外环线以内">外环线以内</option>
+										<option value="外环线以外">外环线以外</option>
+									</select>
+								</label>
+							</li>
+							<li class="company-name clearfix">
+								<p class="label">&nbsp;</p>
+								<input type="text" class="address-street" placeholder="请注明街道、门牌号信息">
+							</li>
+							<li class="clearfix">
+								<p class="label">手机：</p>
+								<input type="text" class="mobile" placeholder="请输入手机号码">
+							</li>
+							<li class="clearfix">
+								<p class="label">固定电话：</p>
+								<input type="text" class="mobile" placeholder="区号 - 电话号码">
+							</li>
+						</ul>
+						<p class="reg-tip">请输入正确的手机号码</p>
+						<p class="popup-btns clearfix">
+							<a href="javascript:;" id="btn-cancel">取消</a>
+							<a href="javascript:;" id="btn-confirm">确认</a>
+							<a href="javascript:;" id="btn-logistics">查看配送详情</a>
+						</p>
+					</div>
+				</div>
+				<!-- mask end -->
 			</div>
 			<!-- settlement page end -->
 		</div>
@@ -650,6 +851,8 @@
 		.script('/assets/plugins/artTemplate/template.js').wait()
 		.script('/assets/plugins/maxlength/jquery.plugin.min.js').wait()
 		.script('/assets/plugins/maxlength/jquery.maxlength.min.js').wait()
+		.script('/assets/plugins/pikaday/js/pikaday.js').wait()
+		.script('/assets/plugins/select2/js/select2.min.js').wait()
 		.script('/assets/js/layout.js').wait()
 		.script('/assets/js/order-submit.js');
 	</script>

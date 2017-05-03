@@ -1,149 +1,35 @@
 (function(window, document, $, undefined) {
 
     $(function() {
-
-        // init global operate
+    	
+        // init order list
+        fnBindOrderList();
+        
+        // func of init global operate
         fnInitGlobalOperate();
-
-        // init surprise operate
-        fnInitSurpriseOperate();
-
-        // init regular operate
-        fnInitRegularOperate();
+        
     });
 
     // func of init global operate
-    function fnInitGlobalOperate() {
-        var $page = $('#basketPage'),
-            $basketContainer = $page.find('.basket-container');
-
-        // check on/off basket items
-        $basketContainer.on('click', '.btn-ckbox', function(e) {
-            var isChecked = $(this).hasClass('checked');
-            if (!isChecked) {
-                $(this).addClass('checked');
-            } else {
-                $(this).removeClass('checked');
-            }
-        });
-
-        // 数量切换
-        (function($wrap) {
-
-            // 增加数量
-            $wrap.on('click', '.btn-add', function(e) {
-                var $input = $(this)
-                    .prev('.amount-wrap')
-                    .find('.txt-amount'),
-                    amount = parseInt($input.val());
-                amount++;
-                if (amount > 1) {
-                    $(this)
-                        .siblings('.btn-sub')
-                        .removeClass('disabled');
-                }
-                $input.val(amount);
-            });
-
-            // 减少数量
-            $wrap.on('click', '.btn-sub', function(e) {
-                if ($(this).hasClass('disabled')) {
-                    return false;
-                }
-                var $input = $(this)
-                    .next('.amount-wrap')
-                    .find('.txt-amount'),
-                    amount = parseInt($input.val());
-                amount--;
-                if (amount <= 1) {
-                    $(this).addClass('disabled');
-                }
-                $input.val(amount);
-            });
-        })($basketContainer);
-
-        // 删除商品
-        $basketContainer.on('click', '.btn-del', function(e) {
-        	var $item = $(this).closest('.item'),
-        		$list = $item.parent('ul');
-
-        	// TODO 删除提示
-
-        	// 删除之前，当前列表只剩一个商品，当前列表也删除
-        	if($list.find('.item').length == 1) {
-        		$list.remove();
-        	}
-
-        	$item.remove();
-        });
-    }
-
-    // func of init surprise operate
-    function fnInitSurpriseOperate() {
-    	var $page = $('#basketPage'),
-    		$surprise = $page.find('.surprise-list');
-
-    	// view surprise
-    	$surprise.on('click', '.view-surprise', function(e) {
-    		var isActive = $(this).hasClass('active');
-    		if(!isActive) {
-    			$(this).addClass('active');
-    			$(this).next('.surprise-wrapper').slideDown();
-    		} else {
-    			$(this).removeClass('active');
-    			$(this).next('.surprise-wrapper').slideUp();
-    		}
-    	});
-
-    	// check on/off radio-box
-    	$surprise.on('click', '.radio-box p', function(e) {
-    		$(this)
-    			.addClass('checked')
-    			.parent('.radio-box')
-    			.siblings('.radio-box')
-    			.children('p')
-    			.removeClass('checked');
-
-    		// set the input focus if this item be other-box
-    		if($(this).parent('.radio-box').hasClass('other-box')) {
-    			$(this).next('.txt-other').focus();
-    		}
-    	});
-
-    	// focus other input
-    	$surprise.on('focus', '.txt-other', function(e) {
-    		$(this)
-    			.prev('p')
-    			.addClass('checked')
-    			.parent('.radio-box')
-    			.siblings('.radio-box')
-    			.children('p')
-    			.removeClass('checked');
-    	});
-
-    	// maxlength setting about summary
-    	$surprise.find('.txt-summary').maxlength({
+    function fnInitGlobalOperate(){
+    	
+    	// init global select
+		$('.select2').select2();
+    	
+    	// maxlength setting about remark
+    	$('.txt-remarks').maxlength({
     		max: 100,
     		feedbackText: '还可输入{r}字'
     	});
     }
+    
+    // func of init order list
+    function fnBindOrderList() {
+        var $page = $('#settlementPage'),
+            $orderContainer = $page.find('.settlement-container');
 
-    // func of init regular operate
-    function fnInitRegularOperate() {
-    	var $page = $('#basketPage'),
-    		$regular = $page.find('.regular-list');
 
-    	// upload image
-    	$regular.on('click', '.upload-img', function(e) {
-    		var isActive = $(this).hasClass('active');
-    		if(!isActive) {
-    			$(this).addClass('active');
-    			$(this).next('.upload-wrapper').slideDown();
-    		} else {
-    			$(this).removeClass('active');
-    			$(this).next('.upload-wrapper').slideUp();
-    		}
-    	});
     }
+
 
 })(window, document, jQuery);
