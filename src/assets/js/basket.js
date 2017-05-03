@@ -401,10 +401,10 @@
 
             _htmlBody += '<p>小IN想对您说：</p>';
 
-            if(!isSurprisePassed) {
+            if (!isSurprisePassed) {
                 _htmlBody += '<p>您挑选的是惊喜款蛋糕，但是还没有添加惊喜哟，快去打包惊喜吧！</p>';
                 _htmlFooter += '<a href="javascript:;">现在去填写惊喜</a>';
-            } else if(!isImageCakePassed) {
+            } else if (!isImageCakePassed) {
                 _htmlBody += '<p>您挑选的画影蛋糕还没设置照片哦，现在就去上传照片吧！</p>';
                 _htmlFooter += '<a href="javascript:;">现在去上传照片</a>';
             }
@@ -483,29 +483,29 @@
                     $inputImage
                         .closest('.upload-wrap')
                         .html(_html);
-                } else if(imgType == 'imagecake') {
-                	var _html = '';
-					_html += '<div class="img uploaded">';
-					_html += '<img src="'+thumbImg+'" data-image="'+img+'">';
-					_html += '<a href="javascript:;" class="btn-preview" data-imgtype="imagecake"></a>';
-					_html += '</div>';
-					_html += '<div class="text">';
-					_html += '<p>请上传一张照片，我们会美美的安放在画影上哦～</p>';
+                } else if (imgType == 'imagecake') {
+                    var _html = '';
+                    _html += '<div class="img uploaded">';
+                    _html += '<img src="' + thumbImg + '" data-image="' + img + '">';
+                    _html += '<a href="javascript:;" class="btn-preview" data-imgtype="imagecake"></a>';
+                    _html += '</div>';
+                    _html += '<div class="text">';
+                    _html += '<p>请上传一张照片，我们会美美的安放在画影上哦～</p>';
                     _html += '<label for="' + uid + '" class="btn btn-reupload">';
                     _html += '<span>重新上传</span>';
                     _html += '<input type="file" class="sr-only reupload-image" data-imgtype="imagecake" id="' + uid + '" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">';
                     _html += '</label>';
-					_html += '</div>';
+                    _html += '</div>';
 
-					var _beforeHtml = '';
-					_beforeHtml += '<p class="preview-box clearfix">';
-					_beforeHtml += '<span>已上传1张照片</span></p>';
+                    var _beforeHtml = '';
+                    _beforeHtml += '<p class="preview-box clearfix">';
+                    _beforeHtml += '<span>已上传1张照片</span></p>';
 
                     var $uploadImg = $inputImage
                         .closest('.upload-wrapper')
                         .prev();
 
-                    if($uploadImg.prev('.preview-box').length != 0) {
+                    if ($uploadImg.prev('.preview-box').length != 0) {
                         $uploadImg
                             .prev('.preview-box')
                             .remove()
@@ -565,20 +565,20 @@
 
         // delete uploaded image
         $page.on('click', '.btn-del-image', function(e) {
-        	var $uploadWrap = $(this).closest('.upload-wrap');
-        	var uid = _.uniqueId('inputImage_');
-        	var _html = '';
-			_html += '<div class="img">';
-			_html += '<img src="assets/imgs/basket/img_default.jpg" alt="">';
-			_html += '</div>';
-			_html += '<div class="text">';
-			_html += '<p>有照片有惊喜！(非必填)</p>';
-			_html += '<div class="btns clearfix">';
-			_html += '<label for="'+uid+'" class="btn btn-upload">';
-			_html += '<span>上传定制照片</span>';
-			_html += '<input type="file" class="sr-only import-image" data-imgtype="surprise" id="'+uid+'" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">';
-			_html += '</label></div></div>';
-			$uploadWrap.html(_html);
+            var $uploadWrap = $(this).closest('.upload-wrap');
+            var uid = _.uniqueId('inputImage_');
+            var _html = '';
+            _html += '<div class="img">';
+            _html += '<img src="assets/imgs/basket/img_default.jpg" alt="">';
+            _html += '</div>';
+            _html += '<div class="text">';
+            _html += '<p>有照片有惊喜！(非必填)</p>';
+            _html += '<div class="btns clearfix">';
+            _html += '<label for="' + uid + '" class="btn btn-upload">';
+            _html += '<span>上传定制照片</span>';
+            _html += '<input type="file" class="sr-only import-image" data-imgtype="surprise" id="' + uid + '" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">';
+            _html += '</label></div></div>';
+            $uploadWrap.html(_html);
         });
 
         // Close mask image cropper
@@ -627,36 +627,35 @@
 
         // preview image
         $page.on('click', '.btn-preview', function(e) {
-        	var imgtype = $(this).attr('data-imgtype');
-        	if(imgtype == 'surprise') {
-        		var $img = $(this).prev('img');
-        		var imgSrc = $img.attr('data-image');
-        		$inputImage = $(this)
-        			.closest('.img')
-        			.next('.text')
-        			.find('.reupload-image');
-    			$imgPreview.show();
-				$previewBody.find('.image').attr('src', imgSrc);
-        	} else if(imgtype == 'imagecake') {
-        		var $img = $(this).prev('img');
-        		var imgSrc = $img.attr('data-image');
-        		$inputImage = $(this)
-        			.closest('.img')
-        			.next('.text')
-        			.find('.reupload-image');
-        		$imgPreview.show();
-        		$previewBody.find('.image').attr('src', imgSrc);
-        	}
+            var imgtype = $(this).attr('data-imgtype');
+            var _html = '';
+            var $img = $(this).prev('img');
+            var imgSrc = $img.attr('data-image');
+            $inputImage = $(this)
+                .closest('.img')
+                .next('.text')
+                .find('.reupload-image');
+
+            if (imgtype == 'surprise') {
+                _html += '<img class="image" src="' + imgSrc + '" alt="">';
+            } else if (imgtype == 'imagecake') {
+                _html += '<div class="imagecake-wrapper">';
+                _html += '<img class="image" src="' + imgSrc + '" alt="">';
+                _html += '</div>';
+            }
+
+            $imgPreview.show();
+            $previewBody.html(_html);
         });
 
         // Close mask image preview
         $previewFooter.on('click', '.close-imgpreview', function(e) {
-        	$imgPreview.hide();
+            $imgPreview.hide();
         });
 
         // reupload image from mask preview
         $previewFooter.on('click', '.reload-preview', function(e) {
-        	$inputPreview = $(this);
+            $inputPreview = $(this);
             var URL = window.URL || window.webkitURL;
             var blobURL;
 
@@ -691,7 +690,7 @@
                 });
             }
         });
-        
+
     }
 
 })(window, document, jQuery);
