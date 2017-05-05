@@ -148,7 +148,7 @@
 						<div class="list-wrapper">
 							
 							<!-- commodityInfo begin -->
-							<div class="list-box no-line">
+							<div class="list-box commodityInfo">
 								<h3>商品信息</h3>
 								<p class="list-header clearfix">
 									<span class="h-product">商品</span>
@@ -160,66 +160,70 @@
 									<span class="h-check">查看</span>
 								</p>
 								<div class="list-container">
+									<script type="text/html" id="tplSurpriseList">
+									{{if list.length != 0}}
 									<!-- surprise list begin -->
 									<ul class="surprise-list">
+										{{each list as item i}}
 										<li class="item">
 											<div class="item-content clearfix">
 												<div class="c-product clearfix">
-													<a href="javascript:;" class="img">
-														<img src="assets/imgs/basket/thumb_cake.jpg" alt="">
+													<a href="{{item.link}}" class="img">
+														<img src="{{item.thumbImg}}" alt="">
 													</a>
 													<div class="text vcenter">
 														<div class="vcenter-child">
-															<p class="cn">芒果拿破仑</p>
-															<p class="en">Mango Napoleon</p>
+															<p class="cn">{{item.name.cn}}</p>
+															<p class="en">{{item.name.en}}</p>
 														</div>
 													</div>
 												</div>
 												<div class="c-attr vcenter">
 													<div class="vcenter-child">
-														<p>¥189 / 1.5磅</p>
-														<p>附送餐具5套</p>
+														<p>¥{{item.price}}&nbsp;/&nbsp;{{item.spec}}</p>
+														{{each item.attr as attr}}
+														<p>{{attr}}</p>
+														{{/each}}
 													</div>
 												</div>
 												<div class="c-amount vcenter">
 													<div class="vcenter-child">
-														<p>1</p>
+														<p>{{item.amount}}</p>
 													</div>
 												</div>
 												<div class="c-privilege vcenter">
 													<div class="vcenter-child">
-														<p>夏日甜心 / ¥30</p>
+														<p>{{item.privilege.name}}&nbsp;/&nbsp;¥{{item.privilege.price}}</p>
 													</div>
 												</div>
 												<div class="c-price vcenter">
 													<div class="vcenter-child">
-														<p>¥219</p>
+														<p>¥{{item.subtotal}}</p>
 													</div>
 												</div>
 												<div class="c-activity vcenter">
 													<div class="vcenter-child">
-														<a href="javascript:;" class="btn-option btn-act">母亲节活动</a>
+														{{#item.discountInfo}}
 													</div>
-													<div class="popup-act">
-														<textarea class="txt-popups is-maxlength" placeholder="母亲节写上送给妈妈的话吧！"></textarea>
-														<p class="maxlength-feedback">还可输入50个字</p>
+													<div class="popups popup-act">
+														<textarea class="txt-popups" placeholder="母亲节写上送给妈妈的话吧！"></textarea>
 													</div>
 												</div>
 												<div class="c-operate vcenter">
 													<div class="vcenter-child">
-														<a href="javascript:;" class="btn-option btn-surprise">惊喜</a>
+														{{#item.surprise.btns}}
 													</div>
-													<div class="popup-surprise">
+													<div class="popups popup-surprise">
 														<ul>
-															<li class="s-target">想要给惊喜（<span>朋友</span>）</li>
-															<li class="s-scene">想在（<span>生日/祝寿</span>）场景下给Ta惊喜</li>
+															<li class="s-target">想要给惊喜（<span>{{item.surprise.sTarget}}</span>）</li>
+															<li class="s-scene">想在（<span>{{item.surprise.sScene}}</span>）场景下给Ta惊喜</li>
 															<li class="s-remark clearfix">
 																<p class="s-label">备注：</p>
-																<p class="remark-text">非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容</p>
+																<p class="remark-text">{{item.surprise.remark}}</p>
 															</li>
 															<li class="s-photo clearfix">
 																<p class="s-label">照片：</p>
-																<a href="javascript:;" class="btn-preview"><img src="assets/imgs/basket/img_preview_thumb.jpg"/></a>
+																<a href="javascript:;" class="btn-preview"><img src="{{item.surprise.sPhoto}}"/><i></i></a>
 																<a href="javascript:;" class="btn-sure">确&nbsp;定</a>
 															</li>
 														</ul>
@@ -227,175 +231,136 @@
 												</div>
 											</div>
 										</li>
-										<li class="item">
-											<div class="item-content clearfix">
-												<div class="c-product clearfix">
-													<a href="javascript:;" class="img">
-														<img src="assets/imgs/basket/thumb_cake.jpg" alt="">
-													</a>
-													<div class="text vcenter">
-														<div class="vcenter-child">
-															<p class="cn">芒果拿破仑</p>
-															<p class="en">Mango Napoleon</p>
-														</div>
-													</div>
-												</div>
-												<div class="c-attr vcenter">
-													<div class="vcenter-child">
-														<p>¥189 / 1.5磅</p>
-														<p>附送餐具5套</p>
-													</div>
-												</div>
-												<div class="c-amount vcenter">
-													<div class="vcenter-child">
-														<p>1</p>
-													</div>
-												</div>
-												<div class="c-privilege vcenter">
-													<div class="vcenter-child">
-														<p>夏日甜心 / ¥30</p>
-													</div>
-												</div>
-												<div class="c-price vcenter">
-													<div class="vcenter-child">
-														<p>¥219</p>
-													</div>
-												</div>
-												<div class="c-activity vcenter">
-													<div class="vcenter-child">
-														<!--<a href="javascript:;" class="btn-option"></a>-->
-													</div>
-												</div>
-												<div class="c-operate vcenter">
-													<div class="vcenter-child">
-														<a href="javascript:;" class="btn-option btn-surprise">惊喜</a>
-													</div>
-													<div class="popup-surprise">
-														<ul>
-															<li class="s-target">想要给惊喜（<span>朋友</span>）</li>
-															<li class="s-scene">想在（<span>生日/祝寿</span>）场景下给Ta惊喜</li>
-															<li class="s-remark clearfix">
-																<p class="s-label">备注：</p>
-																<p class="remark-text">非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容</p>
-															</li>
-															<li class="s-photo clearfix">
-																<p class="s-label">照片：</p>
-																<a href="javascript:;" class="btn-preview"><img src="assets/imgs/basket/img_preview_thumb.jpg"/></a>
-																<a href="javascript:;" class="btn-sure">确&nbsp;定</a>
-															</li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</li>
+										{{/each}}
 									</ul>
 									<!-- surprise list end -->
-									<!-- regular list begin -->
+									{{/if}}
+									</script>
+									<script type="text/html" id="tplRegularList">
+									{{if list.length != 0}}
+									<!-- surprise list begin -->
 									<ul class="regular-list">
+										{{each list as item i}}
 										<li class="item">
 											<div class="item-content clearfix">
 												<div class="c-product clearfix">
-													<a href="javascript:;" class="img">
-														<img src="assets/imgs/basket/thumb_cake.jpg" alt="">
+													<a href="{{item.link}}" class="img">
+														<img src="{{item.thumbImg}}" alt="">
 													</a>
 													<div class="text vcenter">
 														<div class="vcenter-child">
-															<p class="cn">芒果拿破仑</p>
-															<p class="en">Mango Napoleon</p>
+															<p class="cn">{{item.name.cn}}</p>
+															<p class="en">{{item.name.en}}</p>
 														</div>
 													</div>
 												</div>
 												<div class="c-attr vcenter">
 													<div class="vcenter-child">
-														<p>¥189 / 1.5磅</p>
-														<p>附送餐具5套</p>
+														<p>¥{{item.price}}&nbsp;/&nbsp;{{item.spec}}</p>
+														{{each item.attr as attr}}
+														<p>{{attr}}</p>
+														{{/each}}
 													</div>
 												</div>
 												<div class="c-amount vcenter">
 													<div class="vcenter-child">
-														<p>1</p>
+														<p>{{item.amount}}</p>
 													</div>
 												</div>
 												<div class="c-privilege vcenter">
 													<div class="vcenter-child">
-														<p>夏日甜心 / ¥30</p>
+														<p>{{item.privilege.name}}&nbsp;/&nbsp;¥{{item.privilege.price}}</p>
 													</div>
 												</div>
 												<div class="c-price vcenter">
 													<div class="vcenter-child">
-														<p>¥219</p>
+														<p>¥{{item.subtotal}}</p>
 													</div>
 												</div>
 												<div class="c-activity vcenter">
 													<div class="vcenter-child">
-														<a href="javascript:;" class="btn-option btn-act">母亲节活动</a>
+														{{#item.discountInfo}}
 													</div>
-													<div class="popup-act">
-														<textarea class="txt-popups is-maxlength" placeholder="母亲节写上送给妈妈的话吧！"></textarea>
-														<p class="maxlength-feedback">还可输入50个字</p>
+													<div class="popups popup-act">
+														<textarea class="txt-popups" placeholder="母亲节写上送给妈妈的话吧！"></textarea>
 													</div>
 												</div>
 												<div class="c-operate vcenter">
 													<div class="vcenter-child">
-														<!--<a href="javascript:;" class="btn-surprise">none</a>-->
+														{{#item.imgCake}}
 													</div>
 												</div>
 											</div>
 										</li>
+										{{/each}}
+									</ul>
+									<!-- regular list end -->
+									{{/if}}
+									</script>
+									<script type="text/html" id="tplPartList">
+									{{if list.length != 0}}
+									<!-- surprise list begin -->
+									<ul class="part-list">
+										{{each list as item i}}
 										<li class="item">
 											<div class="item-content clearfix">
 												<div class="c-product clearfix">
-													<a href="javascript:;" class="img">
-														<img src="assets/imgs/basket/thumb_cake.jpg" alt="">
+													<a href="{{item.link}}" class="img">
+														<img src="{{item.thumbImg}}" alt="">
 													</a>
 													<div class="text vcenter">
 														<div class="vcenter-child">
-															<p class="cn">芒果拿破仑</p>
-															<p class="en">Mango Napoleon</p>
+															<p class="cn">{{item.name.cn}}</p>
+															<p class="en">{{item.name.en}}</p>
 														</div>
 													</div>
 												</div>
 												<div class="c-attr vcenter">
 													<div class="vcenter-child">
-														<p>¥189 / 1.5磅</p>
-														<p>附送餐具5套</p>
+														<p>¥{{item.price}}&nbsp;/&nbsp;{{item.spec}}</p>
+														{{each item.attr as attr}}
+														<p>{{attr}}</p>
+														{{/each}}
 													</div>
 												</div>
 												<div class="c-amount vcenter">
 													<div class="vcenter-child">
-														<p>1</p>
+														<p>{{item.amount}}</p>
 													</div>
 												</div>
 												<div class="c-privilege vcenter">
 													<div class="vcenter-child">
-														<p>夏日甜心 / ¥30</p>
+														<p>{{item.privilege.name}}&nbsp;/&nbsp;¥{{item.privilege.price}}</p>
 													</div>
 												</div>
 												<div class="c-price vcenter">
 													<div class="vcenter-child">
-														<p>¥219</p>
+														<p>¥{{item.subtotal}}</p>
 													</div>
 												</div>
 												<div class="c-activity vcenter">
 													<div class="vcenter-child">
-														<!--<a href="javascript:;" class="btn-act">none</a>-->
+														{{#item.discountInfo}}
+													</div>
+													<div class="popups popup-act">
+														<textarea class="txt-popups" placeholder="母亲节写上送给妈妈的话吧！"></textarea>
 													</div>
 												</div>
 												<div class="c-operate vcenter">
 													<div class="vcenter-child">
-														<a href="javascript:;" class="btn-option btn-surprise">画影</a>
+														{{#item.surprise.btns}}
 													</div>
-													<div class="popup-surprise">
+													<div class="popups popup-surprise">
 														<ul>
-															<li class="s-target">想要给惊喜（<span>朋友</span>）</li>
-															<li class="s-scene">想在（<span>生日/祝寿</span>）场景下给Ta惊喜</li>
+															<li class="s-target">想要给惊喜（<span>{{item.surprise.sTarget}}</span>）</li>
+															<li class="s-scene">想在（<span>{{item.surprise.sScene}}</span>）场景下给Ta惊喜</li>
 															<li class="s-remark clearfix">
 																<p class="s-label">备注：</p>
-																<p class="remark-text">非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容</p>
+																<p class="remark-text">{{item.surprise.remark}}</p>
 															</li>
 															<li class="s-photo clearfix">
 																<p class="s-label">照片：</p>
-																<a href="javascript:;" class="btn-preview"><img src="assets/imgs/basket/img_preview_thumb.jpg"/></a>
+																<a href="javascript:;" class="btn-preview"><img src="{{item.surprise.sPhoto}}"/></a>
 																<a href="javascript:;" class="btn-sure">确&nbsp;定</a>
 															</li>
 														</ul>
@@ -403,92 +368,59 @@
 												</div>
 											</div>
 										</li>
-									</ul>
-									<!-- regular list end -->
-									<!-- part list begin -->
-									<ul class="part-list">
-										<li class="item">
-											<div class="item-content clearfix">
-												<div class="c-product clearfix">
-													<a href="javascript:;" class="img">
-														<img src="assets/imgs/basket/thumb_parts.jpg" alt="">
-													</a>
-													<div class="text vcenter">
-														<div class="vcenter-child">
-															<p class="cn">芒果拿破仑</p>
-															<p class="en">Mango Napoleon</p>
-														</div>
-													</div>
-												</div>
-												<div class="c-attr vcenter">
-													<div class="vcenter-child">
-														<p>¥189 / 1.5磅</p>
-														<p>附送餐具5套</p>
-													</div>
-												</div>
-												<div class="c-amount vcenter">
-													<div class="vcenter-child">
-														<p>1</p>
-													</div>
-												</div>
-												<div class="c-privilege vcenter">
-													<div class="vcenter-child">
-														<p>夏日甜心 / ¥30</p>
-													</div>
-												</div>
-												<div class="c-price vcenter">
-													<div class="vcenter-child">
-														<p>¥219</p>
-													</div>
-												</div>
-												<div class="c-activity vcenter">
-													<div class="vcenter-child">
-														<!--<a href="javascript:;" class="btn-act">none</a>-->
-													</div>
-												</div>
-												<div class="c-operate vcenter">
-													<div class="vcenter-child">
-														<!--<a href="javascript:;" class="btn-surprise">none</a>-->
-													</div>
-												</div>
-											</div>
-										</li>
+										{{/each}}
 									</ul>
 									<!-- part list end -->
+									{{/if}}
+									</script>
 								</div>
-								<p class="tips">共<span id="count">5</span>个商品</p>
-								<p class="btns line-blue"><a href="javascript:;" class="btn-fold">收起</a></p>
+								<p class="tips">共<span id="count">0</span>个商品</p>
+								<p class="btns"><a href="javascript:;" class="btn-fold">收起</a></p>
 							</div>
 							<!-- commodityInfo end -->
 							
 							<!-- addressInfo begin -->
-							<div class="list-box">
+							<div class="list-box addressInfo">
 								<h3 class="address-info">配送信息</h3>
-								<div class="address-lock clearfix">
-									<p><span class="lock-addr">配送地址：</span><span class="lock-name">张三</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span><span class="tip-default">默认地址</span><a href="javascript:;" class="btn-edit">编辑</a></p>
-									<a href="javascript:;" class="btn-add">新增收货地址</a>
+								<div class="address-container">
+									<script type="text/html" id="tplAddressList">
+									{{if list.length > 0}}
+										{{if list.length != 1}}
+											{{each list as item i}}
+												{{if item.isDefault == 'true'}}
+												<div class="address-lock clearfix">
+													<p class="lock-label">配送地址：</p>
+													<p class="lock-info"><span class="i-name">{{item.iName}}</span><span class="i-province">{{item.iProvince}}</span><span class="i-city">{{item.iCity}}</span><span class="i-area">{{item.iArea}}</span><span class="i-street">{{item.iStreet}}</span><span class="i-phone">{{item.iPhone}}</span><span class="i-tel">{{item.iTel}}</span><span class="tip-default">默认地址</span></p>
+													<a href="javascript:;" class="btn-lock">设为默认地址</a>
+													<a href="javascript:;" class="btn-edit">编辑</a>
+													<a href="javascript:;" class="btn-add">新增收货地址</a>
+												</div>
+												<ul class="address-list">
+												{{else}}
+												<li>
+													<p class="item-info"><span class="i-name">{{item.iName}}</span><span class="i-province">{{item.iProvince}}</span><span class="i-city">{{item.iCity}}</span><span class="i-area">{{item.iArea}}</span><span class="i-street">{{item.iStreet}}</span><span class="i-phone">{{item.iPhone}}</span><span class="i-tel">{{item.iTel}}</span></p>
+												</li>
+												{{/if}}
+											{{/each}}
+											</ul>
+										{{else}}
+										<div class="address-lock clearfix">
+											<p class="lock-label">配送地址：</p>
+											<p class="lock-info"><span class="i-name">{{list[0].iName}}</span><span class="i-province">{{list[0].iProvince}}</span><span class="i-city">{{list[0].iCity}}</span><span class="i-area">{{list[0].iArea}}</span><span class="i-street">{{list[0].iStreet}}</span><span class="i-phone">{{list[0].iPhone}}</span><span class="i-tel">{{list[0].iTel}}</span><span class="tip-default">默认地址</span></p>
+											<a href="javascript:;" class="btn-lock">设为默认地址</a>
+											<a href="javascript:;" class="btn-edit">编辑</a>
+											<a href="javascript:;" class="btn-add">新增收货地址</a>
+										</div>
+										{{/if}}
+									{{else}}
+									<div class="address-lock clearfix">
+										<p class="lock-addr">配送地址：</p>
+										<a href="javascript:;" class="btn-add">新增收货地址</a>
+									</div>
+									{{/if}}
+									</script>
 								</div>
-								<ul class="address-list">
-									<li class="active clearfix">
-										<p><span class="i-name">李四</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span></p>
-										<a href="javascript:;" class="btn-lock">设为默认地址</a>
-										<a href="javascript:;" class="btn-edit">编辑</a>
-										<a href="javascript:;" class="btn-del">删除</a>
-									</li>
-									<li class="clearfix">
-										<p><span class="i-name">李四</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span></p>
-										<a href="javascript:;" class="btn-lock">设为默认地址</a>
-										<a href="javascript:;" class="btn-edit">编辑</a>
-										<a href="javascript:;" class="btn-del">删除</a>
-									</li>
-									<li class="clearfix">
-										<p><span class="i-name">李四</span><span>上海</span><span>闸北区</span><span>城区</span><span>广中西路777弄99号江裕大厦506室</span><span>13711111111</span></p>
-										<a href="javascript:;" class="btn-lock">设为默认地址</a>
-										<a href="javascript:;" class="btn-edit">编辑</a>
-										<a href="javascript:;" class="btn-del">删除</a>
-									</li>
-								</ul>
-								<p class="btns"><a href="javascript:;" class="btn-fold">收起</a></p>
+								<p class="btns"><a href="javascript:;" class="btn-fold active">更多</a></p>
 								<div class="delivery-time clearfix">
 									<p>配送时间：</p>
 									<a href="javascript:;" class="btn-date"  id="datepicker" aria-label="Use the arrow keys to pick a date">2017-05-20</a>
@@ -672,8 +604,7 @@
 							<div class="list-box">
 								<h3 class="remarks-info">订单备注</h3>
 								<div class="remarks-content">
-									<textarea class="txt-remarks is-maxlength" placeholder="如您有其他的要求请注明"></textarea>
-									<span class="maxlength-feedback">还可输入100字</span>
+									<textarea class="txt-remarks" placeholder="如您有其他的要求请注明"></textarea>
 								</div>
 							</div>
 							<!-- remarks end -->
@@ -691,7 +622,9 @@
 				<!-- mask  begin-->
 				<div id="mask-list">
 					<div class="popup-preview">
-						<img src="assets/imgs/basket/img_preview.jpg" class="pre-photo" />
+						<p class="img-wrapper">
+							<img src="assets/imgs/basket/img_preview.jpg" />
+						</p>
 						<a href="javascript:;" class="btn-close">关闭</a>
 					</div>
 					<div class="popup-invoice">
@@ -728,11 +661,11 @@
 					<div class="popup-address">
 						<p class="popup-title">新增收货地址</p>
 						<ul class="popup-info">
-							<li class="clearfix">
+							<li class="clearfix i-must">
 								<p class="label">收货人：</p>
 								<input type="text" class="receiver-name" placeholder="请输入收货人姓名">
 							</li>
-							<li class="clearfix">
+							<li class="clearfix i-must">
 								<p class="label">送货地址：</p>
 								<label class="sel-city">
 									<select id="select_city" class="select2">
@@ -773,7 +706,7 @@
 								<p class="label">&nbsp;</p>
 								<input type="text" class="address-street" placeholder="请注明街道、门牌号信息">
 							</li>
-							<li class="clearfix">
+							<li class="clearfix i-must">
 								<p class="label">手机：</p>
 								<input type="text" class="mobile" placeholder="请输入手机号码">
 							</li>
@@ -788,6 +721,7 @@
 							<a href="javascript:;" id="btn-confirm">确认</a>
 							<a href="javascript:;" id="btn-logistics">查看配送详情</a>
 						</p>
+						<input type="hidden" id="option" value="" />
 					</div>
 				</div>
 				<!-- mask end -->
@@ -849,10 +783,11 @@
 		.script('/assets/plugins/jquery/jquery-1.12.4.min.js').wait()
 		.script('/assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('/assets/plugins/artTemplate/template.js').wait()
-		.script('/assets/plugins/maxlength/jquery.plugin.min.js').wait()
-		.script('/assets/plugins/maxlength/jquery.maxlength.min.js').wait()
+		.script('/assets/plugins/async/async.min.js').wait()
 		.script('/assets/plugins/pikaday/js/pikaday.js').wait()
 		.script('/assets/plugins/select2/js/select2.min.js').wait()
+		.script('/assets/plugins/maxlength/jquery.plugin.min.js').wait()
+		.script('/assets/plugins/maxlength/jquery.maxlength.min.js').wait()
 		.script('/assets/js/layout.js').wait()
 		.script('/assets/js/order-submit.js');
 	</script>
