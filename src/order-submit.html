@@ -553,39 +553,53 @@
 							</div>
 							<!-- couponInfo end -->
 							
-							<!-- more info begin -->
-							<div class="list-box">
+							<!-- moreInfo begin -->
+							<div class="list-box moreInfo">
 								<h3 class="more-info">更多信息</h3>
-								<div class="invoice-lock clearfix">
-									<p><span class="lock-label">发票：</span><span class="lock-type">普通发票</span><span class="lock-name">上海印克电子商务股份有限公司</span><span class="lock-content">蛋糕</span><span class="tip-default">默认发票</span><a href="javascript:;" class="btn-edit">编辑</a></p>
-									<a href="javascript:;" class="btn-add">新增发票</a>
+								<div class="moreInfo-container">
+									<script type="text/html" id="tplMoreInfoList">
+									{{if list.length > 0}}
+										{{if list.length != 1}}
+											{{each list as item i}}
+												{{if item.isDefault == 'true'}}
+												<div class="invoice-lock clearfix">
+													<p class="lock-label">发票：</p>
+													<p class="lock-info"><span class="i-type">{{item.iType}}</span><span class="i-name">{{item.iName}}</span><span class="i-content">{{item.iContent}}</span><span class="tip-default">默认发票</span></p>
+													<a href="javascript:;" class="btn-lock">设为默认发票</a>
+													<a href="javascript:;" class="btn-edit">编辑</a>
+													<a href="javascript:;" class="btn-add">新增发票</a>
+												</div>
+												<ul class="invoice-list">
+												{{else}}
+												<li>
+													<p class="item-info"><span class="i-type">{{item.iType}}</span><span class="i-name">{{item.iName}}</span><span class="i-content">{{item.iContent}}</span></p>
+												</li>
+												{{/if}}
+											{{/each}}
+											</ul>
+										{{else}}
+										<div class="invoice-lock clearfix">
+											<p class="lock-label">发票：</p>
+											<p class="lock-info"><span class="i-type">{{list[0].iType}}</span><span class="i-name">{{list[0].iName}}</span><span class="i-content">{{list[0].iContent}}</span><span class="tip-default">默认发票</span></p>
+											<a href="javascript:;" class="btn-lock">设为默认发票</a>
+											<a href="javascript:;" class="btn-edit">编辑</a>
+											<a href="javascript:;" class="btn-add">新增发票</a>
+										</div>
+										{{/if}}
+									{{else}}
+									<div class="invoice-lock clearfix">
+										<p class="lock-label">配送地址：</p>
+										<a href="javascript:;" class="btn-add">新增收货地址</a>
+									</div>
+									{{/if}}	
+									</script>
 								</div>
-								<ul class="invoice-list">
-									<li class="active clearfix">
-										<p><span class="lock-type">普通发票</span><span class="lock-name">上海印克电子商务股份有限公司福州分公司</span><span class="lock-content">食品</span></p>
-										<a href="javascript:;" class="btn-lock">设为默认发票</a>
-										<a href="javascript:;" class="btn-edit">编辑</a>
-										<a href="javascript:;" class="btn-del">删除</a>
-									</li>
-									<li class="clearfix">
-										<p><span class="lock-type">普通发票</span><span class="lock-name">上海印克电子商务股份有限公司厦门分公司</span><span class="lock-content">食品</span></p>
-										<a href="javascript:;" class="btn-lock">设为默认地址</a>
-										<a href="javascript:;" class="btn-edit">编辑</a>
-										<a href="javascript:;" class="btn-del">删除</a>
-									</li>
-									<li class="clearfix">
-										<p><span class="lock-type">普通发票</span><span class="lock-name">上海印克电子商务股份有限公司青岛分公司</span><span class="lock-content">食品</span></p>
-										<a href="javascript:;" class="btn-lock">设为默认地址</a>
-										<a href="javascript:;" class="btn-edit">编辑</a>
-										<a href="javascript:;" class="btn-del">删除</a>
-									</li>
-								</ul>
-								<p class="btns"><a href="javascript:;" class="btn-fold">收起</a></p>
-								<div class="invoice-other clearfix">
-									<span class="i-label">生日牌：</span>
-									<a href="javascript:;" class="btn-birth">不需要</a>
-									<span class="i-label">贺卡：</span>
-									<a href="javascript:;" class="btn-card">不需要</a>
+								<p class="btns"><a href="javascript:;" class="btn-fold active">更多</a></p>
+								<div class="info-other clearfix">
+									<p class="i-label">生日牌：</p>
+									<input class="btn-birth" value="不需要" readonly="readonly" />
+									<p class="i-label label-r">贺卡：</p>
+									<input class="btn-card" value="不需要" readonly="readonly" />
 									<div class="popup-birth">
 										<ul>
 											<li class="active">不需要</li>
@@ -600,16 +614,16 @@
 									</div>
 								</div>
 							</div>
-							<!-- more info end -->
+							<!-- moreInfo end -->
 							
-							<!-- remarks begin -->
-							<div class="list-box">
+							<!-- remarksInfo begin -->
+							<div class="list-box remarksInfo">
 								<h3 class="remarks-info">订单备注</h3>
 								<div class="remarks-content">
 									<textarea class="txt-remarks" placeholder="如您有其他的要求请注明"></textarea>
 								</div>
 							</div>
-							<!-- remarks end -->
+							<!-- remarksInfo end -->
 							
 							<!-- summary info begin -->
 							<div class="summary-info">
@@ -656,9 +670,10 @@
 							</li>
 						</ul>
 						<p class="popup-btns clearfix">
-							<a href="javascript:;" id="btn-cancel">取消</a>
-							<a href="javascript:;" id="btn-confirm">确认</a>
+							<a href="javascript:;" class="btn-cancel">取消</a>
+							<a href="javascript:;" class="btn-confirm">确认</a>
 						</p>
+						<input type="hidden" class="option" value="" />
 					</div>
 					<div class="popup-address">
 						<p class="popup-title">新增收货地址</p>

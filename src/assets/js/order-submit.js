@@ -19,6 +19,10 @@
             function(next) {
                 fnInitAddress();
                 next(null);
+            },
+            function(next) {
+                fnInitMoreInfo();
+                next(null);
             }
         ], function(err, result) {
             fnInitGlobalOperate();
@@ -26,6 +30,8 @@
             fnAddressInfo();
             fnPaymentMethod();
             fnCouponInfo();
+            fnMoreInfo();
+            fnRemarksInfo();
         });
 
     });
@@ -194,7 +200,7 @@
     // func of init list-container operate
     function fnInitListOperate(_list){
     	
-    	// maxlength setting about summary
+    	// maxlength setting about message
     	_list.find('.txt-popups').maxlength({
             max: 50,
             feedbackText: '还可输入{r}字'
@@ -350,6 +356,52 @@
     	var $page = $('#settlementPage'),
     		$addressInfo = $page.find('.addressInfo'),
     		$listContainer = $addressInfo.find('.address-container');
+    	
+    }
+    
+    // init moreInfo data
+    function fnInitMoreInfo() {
+        var $page = $('#settlementPage'),
+        	$moreInfo = $page.find('.moreInfo'),
+            $listContainer = $moreInfo.find('.moreInfo-container');
+
+        var _data = {
+    		list: [{
+    			isDefault: 'true',
+                iType: '普通发票',
+    			iName: '上海印克电子商务股份有限公司',
+                iContent: '蛋糕'
+               
+            }, {
+            	isDefault: 'false',
+                iType: '普通发票',
+    			iName: '上海印克电子商务股份有限公司福州分公司',
+                iContent: '食品'
+            }, {
+            	isDefault: 'false',
+                iType: '普通发票',
+    			iName: '上海印克电子商务股份有限公司厦门分公司',
+                iContent: '蛋糕'
+            }, {
+            	isDefault: 'false',
+                iType: '普通发票',
+    			iName: '上海印克电子商务股份有限公司青岛分公司',
+                iContent: '食品'
+            }]
+        };
+
+        var _html = template('tplMoreInfoList', _data);
+        $listContainer.prepend(_html);
+
+        // init address operate
+        //fnInitMoreInfoContOperate();
+    }
+    
+    // func of init moreInfo-container operate
+    function fnInitMoreInfoContOperate(){
+    	var $page = $('#settlementPage'),
+    		$moreInfo = $page.find('.moreInfo'),
+    		$listContainer = $moreInfo.find('.moreInfo-container');
     	
     }
     
@@ -596,7 +648,6 @@
 	    	}
 	    });
         
-        
         // online-type item operate
         $onLineItem.on('click', function(){
         	$onLineItem.removeClass('active');
@@ -653,6 +704,157 @@
 	    $cashItem.on('click', function(){
     		$(this).addClass('active');
 	    });
+    }
+    
+    // func of MoreInfo operate
+    function fnMoreInfo(){
+    	var $page = $('#settlementPage'),
+	    	$moreInfo = $page.find('.moreInfo'),
+	        $listCont = $moreInfo.find('.moreInfo-container'),
+	        $invoiceLock = $listCont.find('.invoice-lock'),
+	        $invoiceList = $listCont.find('.invoice-list'),
+	        $invoiceListItem = $invoiceList.find('li'),
+	        $itemInfo = $invoiceListItem.find('.item-info'),
+	        $btnLock = $listCont.find('.btn-lock'),
+	        $btnEdit = $listCont.find('.btn-edit'),
+	        $btnAdd = $invoiceLock.find('.btn-add'),
+	        $btns = $moreInfo.find('.btns'),
+	        $btnFold = $btns.find('.btn-fold'),
+	        $infoOther = $moreInfo.find('.info-other'),
+	        $iLabel = $infoOther.find('.i-label'),
+	        $btnBirth = $infoOther.find('.btn-birth'),
+	        $btnCard = $infoOther.find('.btn-card'),
+	        $popupBirth = $infoOther.find('.popup-birth'),
+	        $popupBirthItem = $popupBirth.find('li'),
+	        $popupCard = $infoOther.find('.popup-card'),
+	        $popupCardItem = $popupCard.find('li'),
+	        $mask =  $('#mask-list'),
+			$popInvoice = $mask.find('.popup-invoice'),
+			$btnCancel = $popInvoice.find('.btn-cancel'),
+			$btnConfirm = $popInvoice.find('.btn-confirm'),
+			$option = $popInvoice.find('.option');
+	    
+	    // set button of fold status
+    	if($invoiceList.length > 0){
+    		$invoiceLock.addClass('line-none');
+    		$btns.show();
+    	}
+    	
+	    // button of fold operate
+    	$btnFold.on('click', function(){
+	    	var isActive = $(this).hasClass('active');
+	    	if(!isActive){
+	    		$invoiceList.slideUp(function(){
+	    			$invoiceLock.addClass('line-none');
+	    		});
+	        	$(this).addClass('active').text('更多');
+	    	}else{
+	    		$invoiceLock.removeClass('line-none');
+	    		$invoiceList.slideDown();
+	    		$(this).removeClass('active').text('收起');
+	    	}
+	    	
+	    });
+	
+    	// button of add operate
+    	$btnAdd.on('click', function(){
+    		$mask.fadeIn(200, function(){
+    			$popInvoice.fadeIn();
+    			$option.val('add');
+    		});
+    	});
+	    
+    	// button of edit operate
+    	$btnEdit.on('click', function(){
+    		$mask.fadeIn(200, function(){
+    			$popInvoice.fadeIn();
+    			$option.val('edit');
+    		});
+    	});
+    	
+    	// button of Lock operate
+    	$btnLock.on('click', function(){
+    		
+    	});
+    	
+    	// button of cancel operate
+    	$btnCancel.on('click', function(){
+    		$popInvoice.fadeOut();
+    		$mask.fadeOut();
+    	});
+    	
+    	// button of confirm operate
+    	$btnConfirm.on('click', function(){
+    		$popInvoice.fadeOut();
+    		$mask.fadeOut();
+    		alert('perform action：'+$option.val());
+    	});
+    	
+    	// button of birth operate
+    	$btnBirth.on('click', function(){
+    		if($iLabel.eq(1).hasClass('active')){
+    			$iLabel.eq(1).removeClass('active');
+        		$popupCard.slideUp();
+    		}
+    		
+    		var isActive = $iLabel.eq(0).hasClass('active');
+    		if(!isActive){
+	    		$iLabel.eq(0).addClass('active');
+	    		$popupBirth.slideDown();
+	    	}else{
+	    		$iLabel.eq(0).removeClass('active');
+	    		$popupBirth.slideUp();
+	    	}
+    	});
+    	
+    	// button of card operate
+    	$btnCard.on('click', function(){
+    		if($iLabel.eq(0).hasClass('active')){
+    			$iLabel.eq(0).removeClass('active');
+        		$popupBirth.slideUp();
+    		}
+    		
+    		var isActive = $iLabel.eq(1).hasClass('active');
+    		if(!isActive){
+	    		$iLabel.eq(1).addClass('active');
+	    		$popupCard.slideDown();
+	    	}else{
+	    		$iLabel.eq(1).removeClass('active');
+	    		$popupCard.slideUp();
+	    	}
+    	});
+    	
+    	// popup-card item operate
+    	$popupCardItem.on('click', function(){
+    		$popupCardItem.removeClass('active');
+    		$(this).addClass('active');
+    		$btnCard.val($(this).html());
+    		$iLabel.eq(1).removeClass('active');
+    		$popupCard.slideUp();
+    	});	
+    	
+    	// popup-birth item operate
+    	$popupBirthItem.on('click', function(){
+    		$popupBirthItem.removeClass('active');
+    		$(this).addClass('active');
+    		$btnBirth.val($(this).html());
+    		$iLabel.eq(0).removeClass('active');
+    		$popupBirth.slideUp();
+    	});	
+    	
+    }
+    
+    // func of remarksInfo operate
+    function fnRemarksInfo(){
+    	var $page = $('#settlementPage'),
+	        $remarksInfo = $page.find('.remarksInfo'),
+	        $remarksCont = $remarksInfo.find('.remarks-content');
+	        
+	    // maxlength setting about remarks
+    	$remarksCont.find('.txt-remarks').maxlength({
+            max: 100,
+            feedbackText: '还可输入{r}字'
+        });
     }
 
 })(window, document, jQuery);
