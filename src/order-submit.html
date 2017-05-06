@@ -423,9 +423,8 @@
 								<p class="btns"><a href="javascript:;" class="btn-fold active">更多</a></p>
 								<div class="delivery-time clearfix">
 									<p>配送时间：</p>
-									<a href="javascript:;" class="btn-date"  id="datepicker" aria-label="Use the arrow keys to pick a date">2017-05-20</a>
-									<input type="hidden" id="txtDate" value="2017-05-20">
-									<a href="javascript:;" class="btn-time">9:30-10:30</a>
+									<input class="btn-date" id="datepicker" readonly="readonly"/>
+									<input class="btn-time" value="9:30-10:30" readonly="readonly"/>
 									<div class="popup-time">
 										<ul>
 											<li class="active">9:30-10:30</li>
@@ -439,7 +438,7 @@
 							<!-- addressInfo end -->
 							
 							<!-- payment method begin -->
-							<div class="list-box">
+							<div class="list-box paymentMethod">
 								<h3 class="payment-info">支付方式</h3>
 								<ul class="payment-list clearfix">
 									<li><a href="javascript:;" class="btn-online active">在线支付</a></li>
@@ -456,7 +455,7 @@
 										<li><a href="javascript:;"><img src="assets/imgs/basket/pay_type_kq.jpg"/></a></li>
 										<li><a href="javascript:;"><img src="assets/imgs/basket/pay_type_jj.jpg"/></a></li>
 									</ul>
-									<div class="COD-type clearfix">
+									<div class="card-type clearfix">
 										<p>请输入蛋糕卡ID的后五位：<input type="text" class="card-number"/></p>
 										<p>蛋糕卡密码：<input type="password" class="card-pwd"/></p>
 										<a href="javascript:;" class="btn-exchange">兑&nbsp;换</a>
@@ -465,45 +464,48 @@
 							</div>
 							<!-- payment method end -->
 							
-							<!-- coupon begin -->
-							<div class="list-box">
+							<!-- couponInfo begin -->
+							<div class="list-box couponInfo">
 								<h3 class="coupon-info">我的优惠券/码</h3>
 								<p class="coupon-title clearfix">
-									<a href="javascript:;" class="t-coupon active">优惠券</a>
-									<a href="javascript:;" class="t-code">优惠码</a>
-									<a href="javascript:;" class="t-cash">代金券</a>
+									<a href="javascript:;" class="btn-coupon active">优惠券</a>
+									<a href="javascript:;" class="btn-code">优惠码</a>
+									<a href="javascript:;" class="btn-cash">代金券</a>
+									<i>&nbsp;</i>
 								</p>
 								<div class="coupon-content">
-									<ul class="coupon-list clearfix">
-										<li class="active">
-											<p>蛋糕<span>30</span>元优惠券</p>
-											<a href="javascript:;" class="btn-use">立即使用</a>
-										</li>
-										<li>
-											<p>蛋糕<span>50</span>元优惠券</p>
-											<a href="javascript:;" class="btn-use">立即使用</a>
-										</li>
-										<li>
-											<p>蛋糕<span>80</span>元优惠券</p>
-											<a href="javascript:;" class="btn-use">立即使用</a>
-										</li>
-										<li>
-											<p>蛋糕<span>30</span>元优惠券</p>
-											<a href="javascript:;" class="btn-use">立即使用</a>
-										</li>
-										<li>
-											<p>蛋糕<span>30</span>元优惠券</p>
-											<a href="javascript:;" class="btn-use">立即使用</a>
-										</li>
-										<li>
-											<p>蛋糕<span>30</span>元优惠券</p>
-											<a href="javascript:;" class="btn-use">立即使用</a>
-										</li>
-										<li>
-											<p>蛋糕<span>30</span>元优惠券</p>
-											<a href="javascript:;" class="btn-use">立即使用</a>
-										</li>
-									</ul>
+									<div class="active">
+										<ul class="coupon-list clearfix">
+											<li class="active">
+												<p>蛋糕<span>30</span>元优惠券</p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li>
+												<p>蛋糕<span>50</span>元优惠券</p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li>
+												<p>蛋糕<span>80</span>元优惠券</p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li>
+												<p>蛋糕<span>30</span>元优惠券</p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li>
+												<p>蛋糕<span>30</span>元优惠券</p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li>
+												<p>蛋糕<span>30</span>元优惠券</p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+											<li>
+												<p>蛋糕<span>30</span>元优惠券</p>
+												<a href="javascript:;" class="btn-use">立即使用</a>
+											</li>
+										</ul>
+									</div>
 									<div class="code-info">
 										<p class="clearfix">
 											<span>请输入您的优惠码&nbsp;/&nbsp;团购券编号&nbsp;/&nbsp;建行热购卡会员号：</span>
@@ -549,7 +551,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- coupon end -->
+							<!-- couponInfo end -->
 							
 							<!-- more info begin -->
 							<div class="list-box">

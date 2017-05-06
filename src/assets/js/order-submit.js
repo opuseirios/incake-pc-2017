@@ -24,6 +24,8 @@
             fnInitGlobalOperate();
             fnCommodityInfo();
             fnAddressInfo();
+            fnPaymentMethod();
+            fnCouponInfo();
         });
 
     });
@@ -357,6 +359,42 @@
     	
     	// init select
 		$('.select2').select2();
+		
+		// init datePicker
+		fnInitDatePicker();
+		
+    }
+    
+	 // init datePicker
+    function fnInitDatePicker() {
+        var picker = new Pikaday({
+            i18n: {
+                previousMonth: '上一月',
+                nextMonth: '下一月',
+                months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                weekdays: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+                weekdaysShort: ['日', '一', '二', '三', '四', '五', '六']
+            },
+            field: document.getElementById('datepicker'),
+            firstDay: 1,
+            minDate: new Date(1900, 0, 1),
+            maxDate: new Date(2020, 12, 31),
+            yearRange: [1900, 2020],
+            onSelect: function() {
+            	var today = new Date(),
+            		_today = today.getTime(),
+            		date = new Date(this),
+            		_date = date.getTime(),
+            		trueDate = '';
+        		
+            	if(_today - _date >= 0) {
+            		trueDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + (today.getDate()+1);
+            	} else {
+            		trueDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+            	}
+            	$('#datepicker').val(trueDate);
+            }
+        });
     }
     
     // func of fnCommodityInfo operate
@@ -407,7 +445,12 @@
 	        $btnEdit = $listCont.find('.btn-edit'),
 	        $btnAdd = $addrLock.find('.btn-add'),
 	        $btns = $addrInfo.find('.btns'),
-	        $btnFold = $btns.find('.btn-fold')
+	        $btnFold = $btns.find('.btn-fold'),
+	        $deliveryTime = $addrInfo.find('.delivery-time'),
+	        $btnDate = $deliveryTime.find('.btn-date'),
+	        $btnTime = $deliveryTime.find('.btn-time'),
+	        $popupTime = $deliveryTime.find('.popup-time'),
+	        $popupItem = $popupTime.find('li'),
 	        $mask =  $('#mask-list'),
 			$popAddr = $mask.find('.popup-address'),
 			$btnCancel = $popAddr.find('#btn-cancel'),
@@ -470,6 +513,146 @@
     		alert('perform action：'+$option.val());
     	});
     	
+    	// button of date operate
+    	$btnDate.on('click', function(){
+    		$deliveryTime.removeClass('b-time');
+    		$popupTime.slideUp();
+    	});
+    	
+    	// button of time operate
+    	$btnTime.on('click', function(){
+    		var isActive = $deliveryTime.hasClass('b-time');
+	    	if(!isActive){
+	    		$deliveryTime.addClass('b-time');
+	    		$popupTime.slideDown();
+	    	}else{
+	    		$deliveryTime.removeClass('b-time');
+	    		$popupTime.slideUp();
+	    	}
+    	});
+    	
+    	// popup-time item operate
+    	$popupItem.on('click', function(){
+    		$popupItem.removeClass('active');
+    		$(this).addClass('active');
+    		$btnTime.val($(this).html());
+    		$deliveryTime.removeClass('b-time');
+    		$popupTime.slideUp();
+    	});	
+    	
+    }
+    
+    // func of paymentMethod operate
+    function fnPaymentMethod(){
+    	var $page = $('#settlementPage'),
+	        $paymentMethod = $page.find('.paymentMethod'),
+	        $paymentList = $paymentMethod.find('.payment-list'),
+	        $listItem = $paymentList.find('a'),
+	        $btnOnline = $paymentList.find('.btn-online'),
+	        $btnCOD = $paymentList.find('.btn-COD'),
+	        $btnCard = $paymentList.find('.btn-card'); 
+	        $listCont = $paymentMethod.find('.payment-content'),
+	        $onLineType = $listCont.find('.online-type'),
+	        $onLineItem = $onLineType.find('a'),
+	        $cardType = $listCont.find('.card-type'),
+	        $cardNumber = $cardType.find('.card-number'),
+	        $cardPwd = $cardType.find('.card-pwd'),
+	        $btnExchange = $cardType.find('.btn-exchange');
+	        
+	    // button of online operate
+        $btnOnline.on('click', function(){
+	    	var isActive = $(this).hasClass('active');
+	    	if(!isActive){
+	    		$listItem.removeClass('active');
+	    		$(this).addClass('active');
+	    		$cardType.slideUp();
+	    		$onLineItem.removeClass('active').eq(0).addClass('active');
+	    		$onLineType.slideDown();
+	    	}
+	    });
+        
+        // button of COD operate
+        $btnCOD.on('click', function(){
+	    	var isActive = $(this).hasClass('active');
+	    	if(!isActive){
+	    		$listItem.removeClass('active');
+	    		$(this).addClass('active');
+	    		$onLineType.slideUp();
+	    		$cardType.slideUp();
+	    	}
+	    });
+        
+        // button of card operate
+        $btnCard.on('click', function(){
+	    	var isActive = $(this).hasClass('active');
+	    	if(!isActive){
+	    		$listItem.removeClass('active');
+	    		$(this).addClass('active');
+	    		$onLineType.slideUp();
+				$cardType.slideDown();
+				$cardNumber.val('');
+				$cardPwd.val('');
+				$cardNumber.focus();
+	    	}
+	    });
+        
+        
+        // online-type item operate
+        $onLineItem.on('click', function(){
+        	$onLineItem.removeClass('active');
+    		$(this).addClass('active');
+	    });
+        
+    }
+    
+    // func of couponInfo operate
+    function fnCouponInfo(){
+    	var $page = $('#settlementPage'),
+	        $couponInfo = $page.find('.couponInfo'),
+	        $couponTitle = $couponInfo.find('.coupon-title'),
+	        $titleItem = $couponTitle.find('a'),
+	        $btnCoupon = $couponTitle.find('.btn-coupon'),
+	        $btnCode = $couponTitle.find('.btn-code'),
+	        $btnCash = $couponTitle.find('.btn-cash'); 
+	        $listCont = $couponInfo.find('.coupon-content'),
+	        $couponList = $listCont.find('.coupon-list'),
+	        $couponItem = $couponList.find('li'),
+	        $codeInfo = $listCont.find('.code-info'),
+	        $codeNumber = $codeInfo.find('.code-number'),
+	        $btnReg = $codeInfo.find('.btn-reg'),
+	        $cashInfo = $listCont.find('.cash-info'),
+	        $cashlist = $cashInfo.find('.cash-list'),
+	        $cashItem = $cashlist.find('li');
+	        
+	    // button of online operate
+	    $titleItem.on('click', function(){
+	    	var isActive = $(this).hasClass('active')
+	    		index = $(this).index();
+	    	if(!isActive){
+	    		$titleItem.removeClass('active');
+	    		$couponTitle.find('i').animate({ left: index*200+'px'}, 500);
+	    		$(this).addClass('active');
+	    		$listCont.find('div.active').slideUp().removeClass('active');
+	    		$listCont.find('div').eq(index).slideDown().addClass('active');
+	    		if(index == 0 || index == 2 ) {
+	    			$listCont.find('div').eq(index).find('li').removeClass('active').eq(0).addClass('active');
+	    		} else {
+	    			$codeNumber.val('');
+	    			$codeNumber.focus();
+	    		}
+	    	}
+	    });
+        
+	    // coupon-list item operate
+	    $couponItem.on('click', function(){
+	    	$couponItem.removeClass('active');
+    		$(this).addClass('active');
+	    });
+        
+	    // cash-list item operate
+	    $cashItem.on('click', function(){
+    		$(this).addClass('active');
+	    });
     }
 
 })(window, document, jQuery);
