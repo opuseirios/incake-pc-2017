@@ -119,20 +119,6 @@ input {
         width: 1200px;
         height: 100px;
         margin: 0 auto;
-        .hotline {
-            position: absolute;
-            top: 13px;
-            right: 0;
-            width: 147px;
-            p {
-                font-size: 12px;
-                color: #fff;
-                &.tel {
-                    font-size: 15px;
-                    padding-top: 4px;
-                }
-            }
-        }
         .logo {
             display: block;
             position: absolute;
@@ -149,37 +135,117 @@ input {
         }
         .nav {
             position: absolute;
-            bottom: 20px;
-            left: 260px;
-            width: 560px;
-            a {
-                display: block;
+            bottom: 0;
+            left: 240px;
+            width: 700px;
+            height: 24px;
+            padding-bottom: 20px;
+            > li {
                 position: relative;
-                z-index: 9;
-                float: left;
-                width: 75px;
-                height: 24px;
-                margin-right: 5px;
-                line-height: 24px;
-                text-align: center;
-                font-size: 14px;
-                color: #fff;
-                &.active {
-                    color: #e9546b;
-                    background-color: #fff;
-                    border-radius: 5px;
-                }
-            }
-            .indicator {
                 display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 8;
-                width: 73px;
-                height: 22px;
-                border: 1px solid #fff;
-                border-radius: 5px;
+                float: left;
+                width: 90px;
+                height: 44px;
+                margin-right: 5px;
+                > a {
+                    display: block;
+                    width: 88px;
+                    height: 22px;
+                    text-align: center;
+                    line-height: 22px;
+                    color: #fff;
+                    border: 1px solid transparent;
+                    border-radius: 2px;
+                }
+                &.active > a,
+                &:hover > a {
+                    border-color: #fff;
+                }
+                &.sub {
+                    position: relative;
+                    &:after {
+                        display: block;
+                        position: absolute;
+                        top: 9px;
+                        right: 4px;
+                        width: 8px;
+                        height: 4px;
+                        content: '';
+                        background: {
+                            image: url('../imgs/icons/icon_arrow_down.png');
+                            repeat: no-repeat;
+                            size: cover;
+                            position: center center;
+                        }
+                    }
+                    &:hover:after {
+                        background-image: url('../imgs/icons/icon_arrow_up.png');
+                    }
+                }
+                .subnav {
+                    display: none;
+                    position: absolute;
+                    top: 44px;
+                    left: 0;
+                    z-index: 999;
+                    width: 148px;
+                    background-color: #fff;
+                    border: 1px solid #e9546b;
+                    border-top: none;
+                    border-radius: 0 0 2px 2px;
+                    &:after {
+                        display: block;
+                        position: absolute;
+                        top: -5px;
+                        left: 34px;
+                        z-index: 1000;
+                        width: 12px;
+                        height: 6px;
+                        content: '';
+                        background: {
+                            image: url(../imgs/icons/icon_arrow_up_fill.png);
+                            repeat: no-repeat;
+                            size: cover;
+                            position: center center;
+                        }
+                    }
+                    li {
+                        width: 100%;
+                        height: 40px;
+                        border-top: 1px solid #f0f0f0;
+                        color: #505050;
+                        &.active, &:hover {
+                            position: relative;
+                            border-top-color: #fff;
+                            background-color: #ed7689;
+                            color: #fff;
+                            &:after {
+                                display: block;
+                                position: absolute;
+                                top: 15px;
+                                right: 10px;
+                                width: 6px;
+                                height: 11px;
+                                content: '';
+                                background: {
+                                    image: url('../imgs/icons/icon_arrow_right_white.png');
+                                    repeat: no-repeat;
+                                    size: cover;
+                                    position: center center;
+                                }
+                            }
+                        }
+                    }
+                    a {
+                        display: block;
+                        width: 100%;
+                        height: 40px;
+                        line-height: 40px;
+                        font-size: 12px;
+                        text-align: center;
+                        color: inherit;
+                    }
+                }
             }
         }
         .portal {
@@ -230,7 +296,8 @@ input {
                     text-indent: 10px;
                     color: #fff;
                     cursor: pointer;
-                    &:hover,&.active {
+                    &:hover,
+                    &.active {
                         color: #e9546b;
                         background-color: #fff;
                     }

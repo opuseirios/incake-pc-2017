@@ -2,7 +2,7 @@
 
 	$(function() {
 		// 导航栏
-		// fnInitHeaderNav();
+		fnInitHeaderNav();
 		// 城市切换
 		fnInitCitySwitch();
 		// 购物篮
@@ -118,34 +118,18 @@
 	}
 
 	function fnInitHeaderNav() {
-		var $oNav = $('#layoutHeader').find('.nav'),
-			$oIndicator = $oNav.find('.indicator'),
-			$oActive = null,
-			tl = new TimelineMax(),
-			iLeft = 0;
+		var $header = $('#layoutHeader'),
+			$nav = $header.find('.nav');
 
-		$oActive = $oNav.find('.active');
-		$oIndicator.css({
-			left: $oActive.position().left + 'px'
-		});
-
-		$oNav.on('mouseover click', 'a', function() {
-			iLeft = $(this).position().left;
-			tl.clear();
-			tl.to($oIndicator, 0.3, {
-				left: iLeft + 'px',
-				ease: Back.easeOut
-			});
-		}).on('mouseleave', 'a', function() {
-            iLeft = $oActive.position().left;
-			tl.clear();
-			tl.to($oIndicator, 0.3, {
-				left: iLeft + 'px',
-				ease: Back.easeOut
-			}, 0.15);
-		}).on('click', 'a', function() {
-			$oActive = $(this);
-			$(this).addClass('active').siblings('a').removeClass('active');
+		$nav.find('.sub').hover(function(e) {
+			$(this)
+				.find('.subnav')
+				.fadeIn();
+		}, function(e) {
+			$(this)
+				.find('.subnav')
+				.stop()
+				.fadeOut();
 		});
 	}
 
