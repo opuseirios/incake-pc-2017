@@ -474,37 +474,26 @@
 									<i>&nbsp;</i>
 								</p>
 								<div class="coupon-content">
-									<div class="active">
+									<div class="coupon-infos active">
+									<script type="text/html" id="tplCouponList">
+										{{if list.length != 0}}
 										<ul class="coupon-list clearfix">
-											<li class="active">
-												<p>蛋糕<span>30</span>元优惠券</p>
-												<a href="javascript:;" class="btn-use">立即使用</a>
-											</li>
+											{{each list as item i}}
+											{{if i<4}}
 											<li>
-												<p>蛋糕<span>50</span>元优惠券</p>
+												<p>{{item.iName}}</p>
 												<a href="javascript:;" class="btn-use">立即使用</a>
 											</li>
-											<li>
-												<p>蛋糕<span>80</span>元优惠券</p>
+											{{else}}
+											<li class="hide">
+												<p>{{item.iName}}</p>
 												<a href="javascript:;" class="btn-use">立即使用</a>
 											</li>
-											<li>
-												<p>蛋糕<span>30</span>元优惠券</p>
-												<a href="javascript:;" class="btn-use">立即使用</a>
-											</li>
-											<li>
-												<p>蛋糕<span>30</span>元优惠券</p>
-												<a href="javascript:;" class="btn-use">立即使用</a>
-											</li>
-											<li>
-												<p>蛋糕<span>30</span>元优惠券</p>
-												<a href="javascript:;" class="btn-use">立即使用</a>
-											</li>
-											<li>
-												<p>蛋糕<span>30</span>元优惠券</p>
-												<a href="javascript:;" class="btn-use">立即使用</a>
-											</li>
+											{{/if}}
+											{{/each}}
 										</ul>
+										{{/if}}
+									</script>
 									</div>
 									<div class="code-info">
 										<p class="clearfix">
@@ -514,42 +503,28 @@
 										</p>
 									</div>
 									<div class="cash-info">
+									<script type="text/html" id="tplCashList">
+										{{if list.length != 0}}
 										<ul class="cash-list clearfix">
-											<li class="active">
-												<p>¥<span>10</span></p>
-												<a href="javascript:;" class="btn-use">立即使用</a>
-											</li>
-											<li class="active">
-												<p>¥<span>20</span></p>
-												<a href="javascript:;" class="btn-use">立即使用</a>
-											</li>
+											{{each list as item i}}
+											{{if i<4}}
 											<li>
-												<p>¥<span>30</span></p>
+												<p>¥<span>{{item.iPrice}}</span></p>
 												<a href="javascript:;" class="btn-use">立即使用</a>
 											</li>
-											<li>
-												<p>¥<span>50</span></p>
+											{{else}}
+											<li class="hide">
+												<p>¥<span>{{item.iPrice}}</span></p>
 												<a href="javascript:;" class="btn-use">立即使用</a>
 											</li>
-											<li class="active">
-												<p>¥<span>50</span></p>
-												<a href="javascript:;" class="btn-use">立即使用</a>
-											</li>
-											<li>
-												<p>¥<span>50</span></p>
-												<a href="javascript:;" class="btn-use">立即使用</a>
-											</li>
-											<li>
-												<p>¥<span>100</span></p>
-												<a href="javascript:;" class="btn-use">立即使用</a>
-											</li>
-											<li>
-												<p>¥<span>100</span></p>
-												<a href="javascript:;" class="btn-use">立即使用</a>
-											</li>
+											{{/if}}
+											{{/each}}
 										</ul>
+										{{/if}}
+									</script>	
 									</div>
 								</div>
+								<p class="btns"><a href="javascript:;" class="btn-fold active">更多</a></p>
 							</div>
 							<!-- couponInfo end -->
 							

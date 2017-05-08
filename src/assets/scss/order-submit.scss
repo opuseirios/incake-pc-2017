@@ -248,6 +248,13 @@
                     }
                 }
             }
+            &.couponInfo.line-none {
+                border: none;
+                .btns {
+                    display: block;
+                    border-color: #45515e;
+                }
+            }
         }
     }
     
@@ -571,7 +578,7 @@
             }
             &.btn-lock {
                 display: none;
-                margin-right: 10px;
+                margin: 27px 10px 0 16px;
             }
         }
         .address-lock {
@@ -827,6 +834,9 @@
                         background: url(../imgs/icons/icon_check.png) no-repeat;
                     }
                 }
+                &.hide {
+                    display: none;
+                }
                 p {
                     height: 70px;
                     padding-top: 10px;
@@ -834,6 +844,7 @@
                     line-height: 70px;
                     text-align: center;
                     color: #fff;
+                    cursor: pointer;
                 }
                 a.btn-use {
                     position: relative;
@@ -925,6 +936,9 @@
                         background: url(../imgs/icons/icon_check.png) no-repeat;
                     }
                 }
+                &.hide {
+                    display: none;
+                }
                 p {
                     height: 70px;
                     padding-top: 10px;
@@ -932,6 +946,7 @@
                     line-height: 70px;
                     text-align: center;
                     color: #fff;
+                    cursor: pointer;
                     span {
                         font-size: 34px;
                     }

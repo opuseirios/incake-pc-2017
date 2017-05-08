@@ -21,6 +21,10 @@
                 next(null);
             },
             function(next) {
+                fnInitCoupon();
+                next(null);
+            },
+            function(next) {
                 fnInitMoreInfo();
                 next(null);
             }
@@ -318,45 +322,89 @@
             	isDefault: 'false',
                 iName: '李四',
                 iProvince: '上海',
-                iCity: '闸北区',
+                iCity: '虹口区',
                 iArea: '城区',
-                iStreet: '广中西路777弄99号江裕大厦506室',
-                iPhone: '13711111111',
+                iStreet: '中山北路888号虹口足球场88号',
+                iPhone: '13788888888',
                 iTel: '0532-2869888'
             }, {
             	isDefault: 'false',
-                iName: '李四',
-                iProvince: '上海',
-                iCity: '闸北区',
+                iName: '王五',
+                iProvince: '北京',
+                iCity: '朝阳区',
                 iArea: '城区',
-                iStreet: '广中西路777弄99号江裕大厦506室',
-                iPhone: '13711111111',
+                iStreet: '朝阳路666号朝阳大厦666室',
+                iPhone: '13766666666',
                 iTel: ''
             }, {
             	isDefault: 'false',
-                iName: '李四',
-                iProvince: '上海',
-                iCity: '闸北区',
+                iName: '赵六',
+                iProvince: '吉林省',
+                iCity: '六里屯区',
                 iArea: '城区',
-                iStreet: '广中西路777弄99号江裕大厦506室',
-                iPhone: '13711111111',
-                iTel: ''
+                iStreet: '六里屯路222号',
+                iPhone: '13722222222',
+                iTel: '2222-2222222'
             }]
         };
 
         var _html = template('tplAddressList', _data);
         $listContainer.prepend(_html);
 
-        // init address operate
-        //fnInitAddrContOperate();
     }
     
-    // func of init address-container operate
-    function fnInitAddrContOperate(){
-    	var $page = $('#settlementPage'),
-    		$addressInfo = $page.find('.addressInfo'),
-    		$listContainer = $addressInfo.find('.address-container');
-    	
+    // init couponInfo data
+    function fnInitCoupon() {
+        var $page = $('#settlementPage'),
+        	$couponInfoBox = $page.find('.couponInfo'),
+            $couponInfo = $couponInfoBox.find('.coupon-infos'),
+            $cashInfo = $couponInfoBox.find('.cash-info');
+        
+        // coupon list info
+        var _data = {
+    		list: [{
+    			iName: '蛋糕30元优惠券'
+            }, {
+            	iName: '蛋糕50元优惠券'
+            }, {
+            	iName: '蛋糕80元优惠券'
+            }, {
+            	iName: '蛋糕50元优惠券'
+            }, {
+            	iName: '蛋糕50元优惠券'
+            }, {
+            	iName: '蛋糕80元优惠券'
+            }, {
+            	iName: '蛋糕30元优惠券'
+            }]
+        };
+
+        var _html = template('tplCouponList', _data);
+        $couponInfo.prepend(_html);
+
+        // cash list info
+        var _data2 = {
+    		list: [{
+    			iPrice: '10'
+            }, {
+            	iPrice: '20'
+            }, {
+            	iPrice: '30'
+            }, {
+            	iPrice: '50'
+            }, {
+            	iPrice: '80'
+            }, {
+            	iPrice: '100'
+            }, {
+            	iPrice: '100'
+            }, {
+            	iPrice: '100'
+            }]
+        };
+        var _html2 = template('tplCashList', _data2);
+        $cashInfo.prepend(_html2);
+
     }
     
     // init moreInfo data
@@ -393,16 +441,6 @@
         var _html = template('tplMoreInfoList', _data);
         $listContainer.prepend(_html);
 
-        // init address operate
-        //fnInitMoreInfoContOperate();
-    }
-    
-    // func of init moreInfo-container operate
-    function fnInitMoreInfoContOperate(){
-    	var $page = $('#settlementPage'),
-    		$moreInfo = $page.find('.moreInfo'),
-    		$listContainer = $moreInfo.find('.moreInfo-container');
-    	
     }
     
 
@@ -490,9 +528,8 @@
 	    	$addrInfo = $page.find('.addressInfo'),
 	        $listCont = $addrInfo.find('.address-container'),
 	        $addrLock = $listCont.find('.address-lock'),
+	        $lockInfo = $addrLock.find('.lock-info'),
 	        $addrList = $listCont.find('.address-list'),
-	        $addrListItem = $addrList.find('li'),
-	        $itemInfo = $addrListItem.find('.item-info'),
 	        $btnLock = $listCont.find('.btn-lock'),
 	        $btnEdit = $listCont.find('.btn-edit'),
 	        $btnAdd = $addrLock.find('.btn-add'),
@@ -530,6 +567,23 @@
 	    	}
 	    	
 	    });
+    	
+    	// item of address list operate
+    	$listCont.on('click','.address-list li',function(){
+    		var lockInfo = $lockInfo.html(),
+    			selectedInfo = $(this).find('.item-info').html(),
+    			isDefault = $(this).find('span').hasClass('tip-default');
+    		
+    		$(this).remove();
+    		$lockInfo.html(selectedInfo);
+    		$addrList.append('<li><p class="item-info">'+lockInfo+'</p></li>');
+    		if(!isDefault) {
+    			$btnLock.show();
+    		} else {
+    			$btnLock.hide();
+    		}
+    		
+    	});
 	
     	// button of add operate
     	$btnAdd.on('click', function(){
@@ -549,7 +603,9 @@
     	
     	// button of Lock operate
     	$btnLock.on('click', function(){
-    		
+    		$lockInfo.append('<span class="tip-default">默认地址</span>');
+    		$addrList.find('.tip-default').remove();
+    		$btnLock.hide();
     	});
     	
     	// button of cancel operate
@@ -673,8 +729,16 @@
 	        $btnReg = $codeInfo.find('.btn-reg'),
 	        $cashInfo = $listCont.find('.cash-info'),
 	        $cashlist = $cashInfo.find('.cash-list'),
-	        $cashItem = $cashlist.find('li');
+	        $cashItem = $cashlist.find('li'),
+	        $btns = $couponInfo.find('.btns'),
+	        $btnFold = $btns.find('.btn-fold');
+	    
 	        
+	     // set button of fold status
+    	if($couponItem.length > 4){
+    		$couponInfo.addClass('line-none');
+    	}    
+	    
 	    // button of online operate
 	    $titleItem.on('click', function(){
 	    	var isActive = $(this).hasClass('active')
@@ -686,8 +750,13 @@
 	    		$listCont.find('div.active').slideUp().removeClass('active');
 	    		$listCont.find('div').eq(index).slideDown().addClass('active');
 	    		if(index == 0 || index == 2 ) {
-	    			$listCont.find('div').eq(index).find('li').removeClass('active').eq(0).addClass('active');
+	    			$listCont.find('div').eq(index).find('li').removeClass('active');
+	    			$couponInfo.addClass('line-none');
+	    			$listCont.find('div.active').find('li.hide').hide();
+	    			$btnFold.addClass('active').text('更多');
 	    		} else {
+	    			$couponInfo.removeClass('line-none');
+	    			$btnFold.removeClass('active').text('收起');
 	    			$codeNumber.val('');
 	    			$codeNumber.focus();
 	    		}
@@ -704,6 +773,21 @@
 	    $cashItem.on('click', function(){
     		$(this).addClass('active');
 	    });
+	    
+	    $btnFold.on('click', function(){
+	    	var isActive = $(this).hasClass('active'),
+	    		$listBox = $listCont.find('div');
+	    	
+		    	if(!isActive){
+		    		$listCont.find('div.active').find('li.hide').slideUp();
+		    		$(this).addClass('active').text('更多');
+		    	}else{
+		    		$listCont.find('div.active').find('li.hide').slideDown();
+		    		$(this).removeClass('active').text('收起');
+		    	}
+	    
+	    
+	    });
     }
     
     // func of MoreInfo operate
@@ -712,9 +796,8 @@
 	    	$moreInfo = $page.find('.moreInfo'),
 	        $listCont = $moreInfo.find('.moreInfo-container'),
 	        $invoiceLock = $listCont.find('.invoice-lock'),
+	        $lockInfo = $invoiceLock.find('.lock-info'),
 	        $invoiceList = $listCont.find('.invoice-list'),
-	        $invoiceListItem = $invoiceList.find('li'),
-	        $itemInfo = $invoiceListItem.find('.item-info'),
 	        $btnLock = $listCont.find('.btn-lock'),
 	        $btnEdit = $listCont.find('.btn-edit'),
 	        $btnAdd = $invoiceLock.find('.btn-add'),
@@ -755,6 +838,23 @@
 	    	}
 	    	
 	    });
+    	
+    	// item of address list operate
+    	$listCont.on('click','.invoice-list li',function(){
+    		var lockInfo = $lockInfo.html(),
+    			selectedInfo = $(this).find('.item-info').html(),
+    			isDefault = $(this).find('span').hasClass('tip-default');
+    		
+    		$(this).remove();
+    		$lockInfo.html(selectedInfo);
+    		$invoiceList.append('<li><p class="item-info">'+lockInfo+'</p></li>');
+    		if(!isDefault) {
+    			$btnLock.show();
+    		} else {
+    			$btnLock.hide();
+    		}
+    		
+    	});
 	
     	// button of add operate
     	$btnAdd.on('click', function(){
@@ -774,7 +874,9 @@
     	
     	// button of Lock operate
     	$btnLock.on('click', function(){
-    		
+    		$lockInfo.append('<span class="tip-default">默认发票</span>');
+    		$invoiceList.find('.tip-default').remove();
+    		$btnLock.hide();
     	});
     	
     	// button of cancel operate
