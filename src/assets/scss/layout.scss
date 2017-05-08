@@ -305,7 +305,7 @@ input {
         }
         .basket {
             position: absolute;
-            right: 290px;
+            right: 108px;
             bottom: 23px;
             width: 80px;
             height: 18px;
@@ -344,7 +344,7 @@ input {
                 display: none;
                 position: absolute;
                 top: 41px;
-                left: 0;
+                left: -120px;
                 z-index: 99999;
                 width: 300px;
                 border: 1px solid #e9546b;
@@ -354,7 +354,7 @@ input {
                     display: block;
                     position: absolute;
                     top: -6px;
-                    left: 35px;
+                    left: 155px;
                     width: 12px;
                     height: 6px;
                     background: {
@@ -451,14 +451,26 @@ input {
         }
         .locator {
             position: absolute;
-            right: 205px;
+            right: 0;
             bottom: 20px;
             width: 62px;
             height: 24px;
+            padding-right: 20px;
+            &:after {
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                width: 1px;
+                height: 18px;
+                content: '';
+                margin-top: -9px;
+                background-color: #fff;
+            }
             > span {
                 position: absolute;
                 top: 10px;
-                right: 0;
+                right: 20px;
                 width: 10px;
                 height: 5px;
                 background: {
@@ -472,7 +484,7 @@ input {
                 }
             }
             > p {
-                width: 100%;
+                width: 62px;
                 height: 24px;
                 line-height: 24px;
                 text-align: center;
@@ -484,7 +496,7 @@ input {
                 display: none;
                 position: absolute;
                 top: 44px;
-                right: -205px;
+                right: 10px;
                 z-index: 99999;
                 width: 288px;
                 border: 1px solid #e9546b;
@@ -496,7 +508,7 @@ input {
                     display: block;
                     position: absolute;
                     top: -6px;
-                    left: 55px;
+                    right: 30px;
                     width: 12px;
                     height: 6px;
                     background: {
