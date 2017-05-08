@@ -7,7 +7,28 @@
 		fnInitCitySwitch();
 		// 购物篮
 		fnInitBasket();
+		// 登录注册
+		fnInitPortal();
 	});
+
+	function fnInitPortal() {
+		var $header = $('#layoutHeader'),
+			$portal = $header.find('.portal');
+
+		$portal.on('click', '.info', function(e) {
+			if(!$(this).hasClass('active')) {
+				$(this)
+					.addClass('active')
+					.next('.plist')
+					.slideDown();
+			} else {
+				$(this)
+					.removeClass('active')
+					.next('.plist')
+					.slideUp();
+			}
+		});
+	}
 
 	function fnInitBasket() {
 
