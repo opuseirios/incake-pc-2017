@@ -32,7 +32,9 @@
 
 	function fnInitBasket() {
 
-		var $oBasket = $('#layoutHeader').find('.basket'),
+		var $oHeader = $('#layoutHeader'),
+			$oBasket = $oHeader.find('.basket'),
+			$oLocator = $oHeader.find('.locator'),
 			$oView = $oBasket.find('.view'),
 			$oArrow = $oBasket.find('.arrow'),
 			$oContent = $oBasket.find('.content'),
@@ -42,9 +44,16 @@
 			if(!isExpand) {
 				$oArrow.addClass('active');
 				$oContent.slideDown();
+				$oBasket.addClass('active');
+
+				// 查看城市定位是否展开
+				if($oLocator.hasClass('active')) {
+					$oLocator.find('>p').trigger('click');
+				}
 			} else {
 				$oArrow.removeClass('active');
 				$oContent.slideUp();
+				$oBasket.removeClass('active');
 			}
 			isExpand = !isExpand;
 		});
@@ -91,7 +100,9 @@
 	}
 
 	function fnInitCitySwitch() {
-		var $oLocator = $('#layoutHeader').find('.locator'),
+		var $oHeader = $('#layoutHeader'),
+			$oBasket = $oHeader.find('.basket'),
+			$oLocator = $oHeader.find('.locator'),
 			$oArrow = $oLocator.find('.arrow'),
 			$oP = $oLocator.find('>p'),
 			$oContent = $oLocator.find('.content'),
@@ -101,9 +112,15 @@
 			if(!isExpand) {
 				$oArrow.addClass('active');
 				$oContent.slideDown();
+				$oLocator.addClass('active');
+
+				if($oBasket.hasClass('active')) {
+					$oBasket.find('.view').trigger('click');
+				}
 			} else {
 				$oArrow.removeClass('active');
 				$oContent.slideUp();
+				$oLocator.removeClass('active');
 			}
 			isExpand = !isExpand;
 		});
