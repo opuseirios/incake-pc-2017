@@ -8,9 +8,8 @@
     <meta name="author" content="">
 	<title>INCAKE | 惊喜中心</title>
 	<link rel="stylesheet" href="assets/plugins/normalize/normalize.css">
-	<link rel="stylesheet" href="assets/plugins/fullpage/jquery.fullpage.min.css">
 	<link rel="stylesheet" href="assets/css/layout.css">
-	<link rel="stylesheet" href="assets/css/scenter.css">
+	<link rel="stylesheet" href="assets/css/scenter2.css">
 	<link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
@@ -50,11 +49,11 @@
 						</ul>
 					</li>
 					<li class="sub">
-						<a href="./scenter.html">惊喜定制</a>
+						<a href="javascript:;">惊喜定制</a>
 						<ul class="subnav">
-							<li><a href="./scenter.html#intro">惊喜蛋糕</a></li>
-							<li><a href="./scenter.html#sugar">翻糖定制</a></li>
-							<li><a href="./scenter.html#scene">场景定制</a></li>
+							<li><a href="javascript:;">惊喜蛋糕</a></li>
+							<li><a href="javascript:;">翻糖定制</a></li>
+							<li><a href="javascript:;">场景定制</a></li>
 						</ul>
 					</li>
 					<li><a href="javascript:;">试吃申请</a></li>
@@ -144,96 +143,117 @@
 			
 			<!-- scenter page begin -->
 			<div class="page scenter-page" id="scenterPage">
-				<div class="section section-intro">
+				<div class="page-container">
+					<div class="section-navigator clearfix">
+						<span class="intro active">SC介绍</span>
+						<span class="sugar">翻糖定制</span>
+						<span class="scene last">场景定制</span>	
+					</div>
 					<div class="section-container">
-						<div class="intro-container"></div>
-					</div>
-				</div>
-				<div class="section section-sugar">
-					<div class="sugar-container">
-						<div class="img">
-							<img src="assets/imgs/scenter/sugar_img.png" alt="">
-						</div>
-						<div class="form-wrap">
-							<ul class="form-body">
-								<li class="clearfix">
-									<div class="title">定制详情：</div>
-									<div class="content">
-										<textarea class="txt-require" placeholder="请写下您的要求！"></textarea>
+						<div class="container-wrapper">
+							<div class="section-wrap active">
+								<div class="section section-intro">
+									<div class="intro-container">
+										<div class="img">
+											<img src="assets/imgs/scenter/intro_img.png" alt="">
+										</div>
 									</div>
-								</li>
-								<li class="clearfix">
-									<div class="title">联系人：</div>
-									<div class="content">
-										<input type="text" class="txt-name" placeholder="请输入姓名">
+								</div>
+							</div>
+							<div class="section-wrap">
+								<div class="section section-sugar">
+									<div class="sugar-container">
+										<div class="img">
+											<img src="assets/imgs/scenter/sugar_img.png" alt="">
+										</div>
+										<div class="form-wrap">
+											<ul class="form-body">
+												<li class="clearfix">
+													<div class="title">定制详情：</div>
+													<div class="content">
+														<textarea class="txt-require" placeholder="请写下您的要求！"></textarea>
+													</div>
+												</li>
+												<li class="clearfix">
+													<div class="title">联系人：</div>
+													<div class="content">
+														<input type="text" class="txt-name" placeholder="请输入姓名">
+													</div>
+												</li>
+												<li class="clearfix">
+													<div class="title">手机号：</div>
+													<div class="content clearfix">
+														<input type="text" class="txt-mobile" placeholder="请输入手机号码">
+														<a href="javascript:;" class="btn-vcode">获取验证码</a>
+													</div>
+												</li>
+												<li class="clearfix">
+													<div class="title">验证码：</div>
+													<div class="content">
+														<input type="text" class="txt-vcode" placeholder="请输入验证码">
+													</div>
+												</li>
+												<li class="operate">
+													<a href="javascript:;" class="btn-submit sugar-submit">提 交</a>
+												</li>
+											</ul>
+											<dl class="form-rule">
+												<dt>定制蛋糕规则：</dt>
+												<dd>1、提交信息后由客服主动联系您确定蛋糕细节；</dd>
+												<dd>2、定制蛋糕细节确认完毕由客服代下单,客户登录账户支付订单费用；</dd>
+												<dd>3、高级翻糖定制1800元起,单层定制需4天，多层定制需7天时间（从订单成功支付后次日起计算）。</dd>
+											</dl>
+										</div>
 									</div>
-								</li>
-								<li class="clearfix">
-									<div class="title">手机号：</div>
-									<div class="content clearfix">
-										<input type="text" class="txt-mobile" placeholder="请输入手机号码">
-										<a href="javascript:;" class="btn-vcode">获取验证码</a>
+								</div>
+							</div>
+							<div class="section-wrap">
+								<div class="section section-scene">
+									<div class="scene-container">
+										<div class="img">
+											<img src="assets/imgs/scenter/scene_img.png" alt="">
+										</div>
+										<div class="form-wrap">
+											<ul class="form-body">
+												<li class="clearfix">
+													<div class="title">定制详情：</div>
+													<div class="content">
+														<textarea class="txt-require" placeholder="请写下您的要求！"></textarea>
+													</div>
+												</li>
+												<li class="clearfix">
+													<div class="title">联系人：</div>
+													<div class="content">
+														<input type="text" class="txt-name" placeholder="请输入姓名">
+													</div>
+												</li>
+												<li class="clearfix">
+													<div class="title">手机号：</div>
+													<div class="content clearfix">
+														<input type="text" class="txt-mobile" placeholder="请输入手机号码">
+														<a href="javascript:;" class="btn-vcode">获取验证码</a>
+													</div>
+												</li>
+												<li class="clearfix">
+													<div class="title">验证码：</div>
+													<div class="content">
+														<input type="text" class="txt-vcode" placeholder="请输入验证码">
+													</div>
+												</li>
+												<li class="operate">
+													<a href="javascript:;" class="btn-submit sugar-submit">提 交</a>
+												</li>
+											</ul>
+											<dl class="form-rule">
+												<dt>定制蛋糕规则：</dt>
+												<dd>1、提交信息后由客服主动联系您确定蛋糕细节；</dd>
+												<dd>2、定制蛋糕细节确认完毕由客服代下单,客户登录账户支付订单费用；</dd>
+												<dd>3、高级翻糖定制1800元起,单层定制需4天，多层定制需7天时间（从订单成功支付后次日起计算）。</dd>
+											</dl>
+										</div>
 									</div>
-								</li>
-								<li class="clearfix">
-									<div class="title">验证码：</div>
-									<div class="content">
-										<input type="text" class="txt-vcode" placeholder="请输入验证码">
-									</div>
-								</li>
-								<li class="operate">
-									<a href="javascript:;" class="btn-submit sugar-submit">提 交</a>
-								</li>
-							</ul>
-							<dl class="form-rule">
-								<dt>翻糖定制蛋糕规则：</dt>
-								<dd>1、提交信息后由客服主动联系您确定蛋糕细节；</dd>
-								<dd>2、定制蛋糕细节确认完毕由客服代下单,客户登录账户支付订单费用；</dd>
-								<dd>3、高级翻糖定制1800元起,单层定制需4天，多层定制需7天时间（从订单成功支付后次日起计算）。</dd>
-							</dl>
-						</div>
-					</div>
-				</div>
-				<div class="section section-scene">
-					<div class="scene-container">
-						<div class="img">
-							<img src="assets/imgs/scenter/scene_img.png" alt="">
-						</div>
-						<div class="form-wrap">
-							<ul class="form-body">
-								<li class="clearfix">
-									<div class="title">定制详情：</div>
-									<div class="content">
-										<textarea class="txt-require" placeholder="请写下您的要求！"></textarea>
-									</div>
-								</li>
-								<li class="clearfix">
-									<div class="title">联系人：</div>
-									<div class="content">
-										<input type="text" class="txt-name" placeholder="请输入姓名">
-									</div>
-								</li>
-								<li class="clearfix">
-									<div class="title">手机号：</div>
-									<div class="content clearfix">
-										<input type="text" class="txt-mobile" placeholder="请输入手机号码">
-										<a href="javascript:;" class="btn-vcode">获取验证码</a>
-									</div>
-								</li>
-								<li class="clearfix">
-									<div class="title">验证码：</div>
-									<div class="content">
-										<input type="text" class="txt-vcode" placeholder="请输入验证码">
-									</div>
-								</li>
-								<li class="operate">
-									<a href="javascript:;" class="btn-submit scene-submit">提 交</a>
-								</li>
-							</ul>
-							<dl class="form-rule">
-								<dt>场景定制：</dt>
-								<dd>请详细填写个人信息，小IN客服稍后会与您联系以确定定制细节。</dd>
-							</dl>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -296,9 +316,8 @@
 		.script('assets/plugins/jquery/jquery-1.12.4.min.js').wait()
 		.script('assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('assets/plugins/artTemplate/template.js').wait()
-		.script('assets/plugins/fullpage/jquery.fullpage.min.js').wait()
 		.script('assets/js/layout.js').wait()
-		.script('assets/js/scenter.js');
+		.script('assets/js/scenter2.js');
 	</script>
 	<!-- javascript end -->
 </body>
