@@ -1,38 +1,38 @@
 (function(window, document, $, undefined) {
 
 	$(function() {
-		// init page switch
-		fnInitSwitchPage();
+		// 初始化scenter
+		fnInitScenter();
 	});
 
-	function fnInitSwitchPage() {
-		var $page = $('#scenterPage'),
-			$navigator = $page.find('.section-navigator'),
-			$container = $page.find('.section-container'),
-			$wrap = $container.find('.container-wrapper'),
-			tl = new TimelineLite(),
-			iSecH = 870;
+	function fnInitScenter() {
+		var $header = $('.layout-header'),
+			$footer = $('.layout-footer'),
+			$scenter = $('#scenterPage');
 
-		// switch page
-		$navigator.on('click', 'span', function(e) {
-			var idx = $(this).index();
-
-			$(this)
-				.siblings('span')
-				.removeClass('active')
-				.animate({
-					width: 80 + 'px'
-				})
-				.end()
-				.addClass('active')
-				.animate({
-					width: 110 + 'px'
-				});
-
-			tl.clear();
-			tl.to($wrap, 0.8, {
-				top: - (idx * iSecH) + 'px'
-			});
+		// init fullpage
+		$scenter.fullpage({
+			anchors: ['intro', 'sugar', 'scene'],
+			navigation: true,
+			navigationTooltips: ['惊喜蛋糕', '翻糖定制', '场景定制'],
+			showActiveTooltip: true,
+			css3: true,
+			fixedElements: '.layout-header',
+			verticalCentered: true,
+			onLeave: function(index, nextIndex, direction){
+				if(index == 1) {
+					$header
+						.fadeOut()
+						.removeClass('fixed-header');
+				}
+			},
+			afterLoad: function(anchorLink, index) {
+				if(anchorLink == 'intro' && index == 1) {
+					$header
+						.addClass('fixed-header')
+						.fadeIn();
+				}
+			}
 		});
 	}
 
