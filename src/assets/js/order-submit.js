@@ -212,6 +212,9 @@
     	
     	// view activity
     	_list.on('click', '.btn-act', function(e) {
+    		// stop propagation
+    		event.stopPropagation();
+    		
             var isActive = $(this).hasClass('active');
             if (!isActive) {
             	// close other popup
@@ -228,6 +231,9 @@
         
         // view surprise
     	_list.on('click', '.btn-surprise', function(e) {
+    		// stop propagation
+    		event.stopPropagation();
+    		
             var isActive = $(this).hasClass('active');
             if (!isActive) {
             	// close other popup
@@ -446,6 +452,34 @@
 
     // func of init global operate
     function fnInitGlobalOperate() {
+    	var $listCont = $('.list-container'),
+			$btnOption = $listCont.find('.btn-option'),
+			$popups =  $listCont.find('.popups'),
+			$addressInfo = $('.addressInfo'),
+			$deliveryTime = $addressInfo.find('.delivery-time'),
+			$popupTime = $deliveryTime.find('.popups'),
+			$moreInfo = $('.moreInfo'),
+			$iLabel = $moreInfo.find('.i-label'),
+			$popupsOther = $moreInfo.find('.popups');
+    	
+    	$(document).click(function(e){
+    		var isPopups = $(e.target).closest('div').hasClass('popups');
+    		if(!isPopups){
+    			// close other popup
+        		$btnOption.removeClass('active');
+        		$popups.slideUp();
+        		if($deliveryTime.hasClass('b-time')){
+        			$deliveryTime.removeClass('b-time');
+            		$popupTime.slideUp();
+        		}
+        		if($iLabel.hasClass('active')){
+        			$iLabel.removeClass('active');
+        			$popupsOther.slideUp();
+        			
+        		}
+    		}
+    		
+    	});
     	
     	// init select
 		$('.select2').select2();
@@ -629,6 +663,9 @@
     	
     	// button of time operate
     	$btnTime.on('click', function(){
+    		// stop propagation
+    		event.stopPropagation();
+    		
     		var isActive = $deliveryTime.hasClass('b-time');
 	    	if(!isActive){
 	    		$deliveryTime.addClass('b-time');
@@ -894,6 +931,9 @@
     	
     	// button of birth operate
     	$btnBirth.on('click', function(){
+    		// stop propagation
+    		event.stopPropagation();
+    		
     		if($iLabel.eq(1).hasClass('active')){
     			$iLabel.eq(1).removeClass('active');
         		$popupCard.slideUp();
@@ -911,6 +951,9 @@
     	
     	// button of card operate
     	$btnCard.on('click', function(){
+    		// stop propagation
+    		event.stopPropagation();
+    		
     		if($iLabel.eq(0).hasClass('active')){
     			$iLabel.eq(0).removeClass('active');
         		$popupBirth.slideUp();
