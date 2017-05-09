@@ -6,10 +6,10 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	<title>INCAKE | 登录</title>
+	<title>INCAKE | 惊喜中心</title>
 	<link rel="stylesheet" href="assets/plugins/normalize/normalize.css">
 	<link rel="stylesheet" href="assets/css/layout.css">
-	<link rel="stylesheet" href="assets/css/login.css">
+	<link rel="stylesheet" href="assets/css/card-upgrade.css">
 	<link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
@@ -141,53 +141,13 @@
 		<!-- layout container begin -->
 		<div class="layout-container">
 			
-			<!-- login page begin -->
-			<div class="page login-page" id="loginPage">
-				<div class="page-container clearfix">
-					<div class="login-slogan"></div>
-					<div class="login-mode">
-						<ul class="mode-number">
-							<li class="login-title">LOGIN</li>
-							<li>
-								<input type="text" class="uName" placeholder="请输入用户名/手机号码" />
-							</li>
-							<li>
-								<input type="password" class="uPwd" placeholder="请输入密码" />
-							</li>
-							<li class="other-option clearfix">
-								<a href="javascript:;" class="automatic-logon">下回自动登录</p>
-								<a href="javascript:;" class="forget-pwd">忘记密码</a>
-							</li>
-							<li><a href="javascript:;" class="btn-login">登&nbsp;录</a></li>
-							<li>
-								<p class="reg-tip"></p>
-								<p class="mode-change">还不是会员？<a href="javascript:;" class="btn-register">手机号注册登录</a></p>
-							</li>
-						</ul>
-						<ul class="mode-phone">
-							<li class="login-title">LOGIN</li>
-							<li>
-								<input type="text" class="uPhone" placeholder="请输入手机号码" />
-							</li>
-							<li class="clearfix">
-								<input type="text" class="uReg" placeholder="请输入动态码" />
-								<a href="javascript:;" class="btn-reg">获取动态密码</a>
-							</li>
-							<li class="other-option">
-								<p>收不到手机验证码？试试使用&nbsp;<a href="javascript:;" class="btn-reg-voice">语音验证码</a></p>
-							</li>
-							<li><a href="javascript:;" class="btn-login">登&nbsp;录</a></li>
-							<li>
-								<p class="reg-tip"></p>
-								<p class="mode-change">还不是会员？<a href="javascript:;" >手机号注册登录</a></p>
-							</li>
-						</ul>
-						<p class="mode-tip tip-phone clearfix"><span><img src="assets/imgs/login/mode-phone-tip.png"/></span><a href="javascript:;" class="btn-mode-phone"></a></p>
-						<p class="mode-tip tip-number clearfix"><span><img src="assets/imgs/login/mode-number-tip.png"/></span><a href="javascript:;" class="btn-mode-number"></a></p>
-					</div>
+			<!-- card upgrade page begin -->
+			<div class="page upgrade-page" id="upgradePage">
+				<div class="page-container">
+					
 				</div>
 			</div>
-			<!-- login page end -->
+			<!-- card upgrade page end -->
 
 		</div>
 		<!-- layout container end -->
@@ -245,9 +205,8 @@
 		.script('assets/plugins/jquery/jquery-1.12.4.min.js').wait()
 		.script('assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('assets/plugins/artTemplate/template.js').wait()
-		.script('assets/plugins/underscore/underscore-min.js').wait()
 		.script('assets/js/layout.js').wait()
-		.script('assets/js/login.js');
+		.script('assets/js/card-upgrade.js');
 	</script>
 	<!-- javascript end -->
 </body>
