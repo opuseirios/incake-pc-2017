@@ -1,0 +1,285 @@
+.page-container {
+    width: 100%;
+}
+
+.container-wrap {
+    width: 1200px;
+    margin: 0 auto;
+    .content {
+        position: relative;
+        width: 948px;
+        margin: 0 auto;
+        .btn-page {
+            position: absolute;
+            top: 405px;
+            display: block;
+            width: 40px;
+            height: 50px;
+            &.btn-before {
+                left: -80px;
+                background: url(../imgs/icons/icon_prev_btn.jpg) no-repeat;
+                &.active {
+                    background: url(../imgs/icons/icon_prev_btn_hover.jpg) no-repeat;
+                }
+            }
+            &.btn-after {
+                right: -80px;
+                background: url(../imgs/icons/icon_next_btn.jpg) no-repeat;
+                &.active {
+                    background: url(../imgs/icons/icon_next_btn_hover.jpg) no-repeat;
+                }
+            }
+        }
+        .item {
+            position: relative;
+            width: 290px;
+            .item-img {
+                display: block;
+                width: 290px;
+                height: 290px;
+                img {
+                    display: inline-block;
+                    width: 100%;
+                }
+            }
+            .item-name {
+                height: 14px;
+                margin-top: 20px;
+                line-height: 14px;
+                text-align: center;
+                color: #635859;
+                .name-c {
+                    margin-right: 10px;
+                }
+            }
+            .item-price {
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                color: #e9546b;
+                font-weight: bold;
+                .spec {
+                    font-size: 12px;
+                    font-weight: normal;
+                }
+            }
+            .btn-buy {
+                display: block;
+                width: 180px;
+                height: 38px;
+                background-color: #e9546b;
+                border-radius: 2px;
+                margin: 0 auto;
+                color: #fff;
+                line-height: 38px;
+                text-align: center;
+                &.active {
+                    background-color: #f2b4be;
+                }
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            &.active:before {
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: block;
+                width: 52px;
+                height: 52px;
+                content: '';
+                background: url(../imgs/card-exchange/icon_cake_active.png) no-repeat;
+            }
+        }
+        .btn-settlement {
+            display: block;
+            width: 210px;
+            height: 60px;
+            background-color: #e9546b;
+            border-radius: 2px;
+            margin: 40px 0 40px 738px;
+            font-size: 18px;
+            line-height: 60px;
+            color: #fff;
+            text-align: center;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.cakes-wrap {
+    position: relative;
+    width: 900px;
+    height: 924px;
+    padding: 68px 0 34px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    .cakes-list {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        li {
+            float: left;
+            display: block;
+            width: 290px;
+            margin-right: 15px;
+            .item {
+                margin-bottom: 60px;
+            }
+        }
+    }
+}
+.parts-wrap {
+    border-bottom: 1px solid #635859;
+    .parts-title {
+        height: 34px;
+        border-bottom: 1px solid #635859;
+        font-size: 16px;
+        line-height: 34px;
+        color: #45515e;
+        text-align: center;
+    }
+    .parts-list {
+        width: 680px;
+        margin: 40px auto;
+        .item-l {
+            float: left;
+        }
+        .item-r {
+            float: right;
+        }
+    }
+}
+
+#mask-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: url('../imgs/card-exchange/mask_bg.png');
+    z-index: 1000;
+    .popups {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: none;
+        width: 440px;
+        height: 298px;
+        background-color: #fff;
+        border: 2px solid #e9546b;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: -151px 0 0 -222px;
+        box-shadow: 1px 1px 5px 0 #e9546b;
+        .popup-title {
+            width: 100%;
+            height: 100px;
+            font-size: 22px;
+            line-height: 100px;
+            text-align: center;
+            color: #505050;
+        }
+        .popup-content {
+            img {
+                width: 100%;
+            }
+            .popup-info {
+                a {
+                    float: left;
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    margin-top: 3px;
+                    &.btn-minus {
+                        background: url(../imgs/card-exchange/icon_minus_disabled.png) no-repeat;
+                    }
+                    &.btn-minus.active {
+                        background: url(../imgs/card-exchange/icon_minus_enabled.png) no-repeat;
+                    }
+                    &.btn-plus {
+                        background: url(../imgs/card-exchange/icon_add_disabled.png) no-repeat;
+                    }
+                    &.btn-plus.active {
+                        background: url(../imgs/card-exchange/icon_add_enabled.png) no-repeat;
+                    }
+                }
+                .number {
+                    float: left;
+                    width: 148px;
+                    height: 34px;
+                    border: 1px solid #505050;
+                    margin: 0 15px;
+                    font-size: 18px;
+                    line-height: 34px;
+                    text-align: center;
+                }
+            }
+        }
+        .popup-btns {
+            width: 100%;
+            height: 60px;
+            a {
+                float: left;
+                display: block;
+                width: 220px;
+                height: 60px;
+                background-color: #f2b4be;
+                font-size: 18px;
+                line-height: 60px;
+                color: #fff;
+                text-align: center;
+                &.btn-confirm {
+                    background-color: #e9546b;
+                }
+            }
+        }
+        &.popup-plate {
+            .popup-content {
+                width: 240px;
+                height: 36px;
+                margin: 22px auto 80px;
+            }
+        }
+        &.popup-candle {
+            width: 852px;
+            height: 530px;
+            margin: -267px 0 0 -428px;
+            .popup-content {
+                width: 780px;
+                margin: 0 0 14px 66px;
+                li {
+                    float: left;
+                    width: 200px;
+                    height: 55px;
+                    margin: 0 60px 34px 0;
+                    .candle-img {
+                        float: left;
+                        display: block;
+                        width: 53px;
+                        height: 53px;
+                        border: 1px solid #dfdfdf;
+                    }
+                    .popup-info {
+                        float: right;
+                        a {
+                            margin-top: 13px;
+                        }
+                        .number {
+                            width: 52px;
+                            margin: 10px;
+                        }
+                    }
+                }
+            }
+            .popup-btns {
+                a {
+                    width: 426px;
+                }
+            }
+        }
+    }
+}
