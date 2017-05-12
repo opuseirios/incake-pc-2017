@@ -15,7 +15,8 @@
 			$btnUpgrade = $pageCont.find('.btn-upgrate'),
 			$btnPayment = $pageCont.find('.btn-payment'),
 			$mask = $upgradePage.find('#mask'),
-			$popupUpgrade = $mask.find('.popup-upgrade'),
+			$upgradeSuccess = $mask.find('.upgrade-success'),
+			$upgradeFail = $mask.find('.upgrade-fail'),
 			$btnSure = $mask.find('.btn-sure');
 			
 		$btnUpgrade.on("click", function(){
@@ -24,7 +25,8 @@
 		
 		$btnPayment.on("click", function(){
 			var _regId = false,
-				_regPwd = false;
+				_regPwd = false,
+				_state = false;
 			
 			if( $txtId.val() == '' ){
 				$tips.text('蛋糕卡ID不能为空！');
@@ -35,9 +37,15 @@
 			} else if(_regId) {
 				if(_regPwd) {
 					$tips.text('');
-					$mask.fadeIn(200, function(){
-						$popupUpgrade.fadeIn();
-		    		});
+					if(_state) {
+						$mask.fadeIn(200, function(){
+							$upgradeSuccess.fadeIn();
+			    		});
+					}else {
+						$mask.fadeIn(200, function(){
+							$upgradeFail.fadeIn();
+			    		});
+					}
 				} else {
 					$tips.text('蛋糕卡密码输入错误，请重新输入！');
 				}
@@ -48,7 +56,7 @@
 		});
 		
 		$btnSure.on("click", function(){
-			$popupUpgrade.fadeOut();
+			$upgradeFail.fadeOut();
 			$mask.fadeOut();
 		});
 	}

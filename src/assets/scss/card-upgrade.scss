@@ -149,9 +149,10 @@
             background: url(../imgs/card-upgrade/icon_true.png) no-repeat 80px 80px;
             font-size: 22px;
             line-height: 220px;
+            color: #505050;
             text-indent: 190px;
         }
-        .btn-sure {
+        .btn-used, .btn-sure {
             display: block;
             width: 440px;
             height: 60px;
@@ -160,6 +161,23 @@
             line-height: 60px;
             color: #fff;
             text-align: center;
+        }
+        &.upgrade-fail {
+            p {
+                background: url(../imgs/card-upgrade/icon_false.png) no-repeat 80px 80px;
+                span {
+                    display: block;
+                    &.tip {
+                        padding: 84px 0 14px;
+                        line-height: 22px;
+                    }
+                    &.tel {
+                        font-size: 16px;
+                        line-height: 16px;
+                        color: #999;
+                    }
+                } 
+            }
         }
     }
 }
