@@ -6,6 +6,10 @@
              function(next) {
             	 fnInitCakeList();
             	 next(null);
+             },
+             function(next) {
+                 fnInitCandleList();
+                 next(null);
              }
         ], function(err, result){
 			fnInitGlobalOperate();
@@ -15,7 +19,128 @@
 	
 	// init cake list data
 	function fnInitCakeList() {
+		var $page = $('#exchangePage'),
+	    	$listCont = $page.find('.cakes-list');
+	    
+		var _data = {
+				
+	        list: [{
+	             imgSrc: 'assets/imgs/card-exchange/cake_img_01.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '1磅'
+	        }, {
+	        	imgSrc: 'assets/imgs/card-exchange/cake_img_02.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '1.5磅'
+	        }, {
+	        	imgSrc: 'assets/imgs/card-exchange/cake_img_03.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '2磅'
+	        }, {
+	        	imgSrc: 'assets/imgs/card-exchange/cake_img_04.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '1.5磅'
+	        }, {
+	        	imgSrc: 'assets/imgs/card-exchange/cake_img_05.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '1.5磅'
+	        }, {
+	        	imgSrc: 'assets/imgs/card-exchange/cake_img_06.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '1.5磅'
+	        }, {
+	        	imgSrc: 'assets/imgs/card-exchange/cake_img_02.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '5磅'
+	        }, {
+	        	imgSrc: 'assets/imgs/card-exchange/cake_img_03.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '2磅'
+	        }, {
+	        	imgSrc: 'assets/imgs/card-exchange/cake_img_04.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '1磅'
+	        }, {
+	        	imgSrc: 'assets/imgs/card-exchange/cake_img_05.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '1.5磅'
+	        }, {
+	        	imgSrc: 'assets/imgs/card-exchange/cake_img_06.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '1.5磅'
+	        }, {
+	        	imgSrc: 'assets/imgs/card-exchange/cake_img_01.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '1.5磅'
+	        }, {
+	        	imgSrc: 'assets/imgs/card-exchange/cake_img_02.jpg',
+	             nameC: '小鸡派对',
+	             nameE: 'Chick party',
+	             price: '¥198',
+	             spec: '2磅'
+	        }]
+	    };
+	
+	    var _html = template('tplCakeList', _data);
+	    $listCont.prepend(_html);
+	}
+	
+	// init candle list data
+	function fnInitCandleList() {
+		var $page = $('#exchangePage'),
+        	$popupCandle = $page.find('.popup-candle'),
+        	$listCont = $popupCandle.find('.popup-content');
 		
+	    var _data = {
+	        list: [{
+	             imgSrc: 'assets/imgs/card-exchange/icon_candle_1.png'
+	        }, {
+	        	 imgSrc: 'assets/imgs/card-exchange/icon_candle_2.png'
+	        }, {
+	        	 imgSrc: 'assets/imgs/card-exchange/icon_candle_3.png'
+	        }, {
+	        	 imgSrc: 'assets/imgs/card-exchange/icon_candle_4.png'
+	        }, {
+	        	 imgSrc: 'assets/imgs/card-exchange/icon_candle_5.png'
+	        }, {
+	        	 imgSrc: 'assets/imgs/card-exchange/icon_candle_6.png'
+	        }, {
+	        	 imgSrc: 'assets/imgs/card-exchange/icon_candle_7.png'
+	        }, {
+	        	 imgSrc: 'assets/imgs/card-exchange/icon_candle_8.png'
+	        }, {
+	        	 imgSrc: 'assets/imgs/card-exchange/icon_candle_9.png'
+	        }, {
+	        	 imgSrc: 'assets/imgs/card-exchange/icon_candle_0.png'
+	        }]
+	    };
+	
+	    var _html = template('tplCandleList', _data);
+	    $listCont.prepend(_html);
 	}
 	
 	// func of init global operate
@@ -73,9 +198,9 @@
 			
 			if(isActive) {
 				$cakeList.animate({ left: _left+'px'}, 500);
+				$btnAfter.addClass('active');
 				if(_left==0) {
 					$(this).removeClass('active');
-					$btnAfter.addClass('active');
 				}
 			}
 			
@@ -90,9 +215,9 @@
 			
 			if(isActive) {
 				$cakeList.animate({ left: _left+'px'}, 500);
+				$btnBefore.addClass('active');
 				if(_width+_left<900) {
 					$(this).removeClass('active');
-					$btnBefore.addClass('active');
 				}
 			}
 			
