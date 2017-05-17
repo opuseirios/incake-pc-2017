@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>INCAKE | 试吃申请</title>
+	<link rel="stylesheet" href="assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="assets/css/layout.css">
+	<link rel="stylesheet" href="assets/css/foretaste.css">
+	<link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+	<!-- layout begin -->
+	<div class="layout">
+
+		<!-- layout header begin -->
+		<div class="layout-header" id="layoutHeader">
+			<div class="header-body">
+				<!-- logo begin -->
+				<a href="index.html" class="logo"></a>
+				<!-- logo end -->
+				<!-- nav begin -->
+				<ul class="nav clearfix">
+					<li><a href="/index.html">首页</a></li>
+					<li class="sub">
+						<a href="/list.html">蛋糕馆</a>
+						<ul class="subnav">
+							<li><a href="javascript:;">芝士系列</a></li>
+							<li><a href="javascript:;">巧克力系列</a></li>
+							<li><a href="javascript:;">拿破仑系列</a></li>
+							<li><a href="javascript:;">慕斯系列</a></li>
+							<li><a href="javascript:;">乳脂系列</a></li>
+							<li><a href="javascript:;">选拼系列</a></li>
+							<li><a href="javascript:;">星座系列</a></li>
+							<li><a href="javascript:;">阿狸系列</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;">三小时送</a></li>
+					<li class="sub">
+						<a href="javascript:;">INLIFE</a>
+						<ul class="subnav">
+							<li><a href="javascript:;">下午茶</a></li>
+							<li><a href="javascript:;">鲜花</a></li>
+							<li><a href="javascript:;">饮品</a></li>
+							<li><a href="javascript:;">礼品</a></li>
+						</ul>
+					</li>
+					<li class="sub">
+						<a href="javascript:;">惊喜定制</a>
+						<ul class="subnav">
+							<li><a href="javascript:;">惊喜蛋糕</a></li>
+							<li><a href="javascript:;">翻糖定制</a></li>
+							<li><a href="javascript:;">场景定制</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;">试吃申请</a></li>
+					<li><a href="javascript:;">卡券兑换</a></li>
+				</ul>
+				<!-- nav end -->
+				<!-- portal begin -->
+				<div class="portal clearfix">
+					<div class="unlogin clearfix">
+						<a href="login.html" class="login">登录</a>
+						<span>|</span>
+						<a href="register.html" class="register">注册</a>
+					</div>
+					<div class="logined clearfix active">
+						<div class="profile-wrap">
+							<p class="info">13811112222</p>
+							<ul class="plist">
+								<li class="active"><a href="javascript:;">个人中心</a></li>
+								<li><a href="javascript:;">账户设置</a></li>
+								<li><a href="javascript:;">账户优惠券</a></li>
+								<li class="last"><a href="javascript:;">退出账号</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- portal end -->
+				<!-- basket begin -->
+				<div class="basket">
+					<a href="javascript:;" class="view"><span>10</span></a>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<ul class="list basket-list"></ul>
+						<script id="tplBasketList" type="text/html">
+							{{if list.length > 0}}
+							{{each list as item i}}
+							<li class="clearfix">
+								<a href="{{item.link}}" class="img">
+									<img src="{{item.thumbUrl}}" alt="">
+								</a>
+								<div class="text">
+									<p class="first-row clearfix">
+										<span class="name">{{item.name}}</span>
+										<span class="price">￥{{item.price}}</span>
+									</p>
+									<p class="second-row clearfix">
+										<span class="pound">{{item.pound}}磅</span>
+										<span class="num">x{{item.num}}</span>
+									</p>
+								</div>
+								<a href="javascript:;" class="remove"></a>
+							</li>
+							{{/each}}
+							{{/if}}
+						</script>
+						<a href="javascript:;" class="view-basket">查看购物篮 >></a>
+					</div>
+				</div>
+				<!-- basket end -->
+				<!-- locator begin -->
+				<div class="locator">
+					<span class="arrow"></span>
+					<p>上海</p>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<p>请选择您要配送的城市：</p>
+						<ul class="clearfix">
+							<li class="active">上海</li>
+							<li>福州</li>
+							<li>苏州</li>
+							<li>昆山</li>
+							<li>厦门</li>
+							<li>北京</li>
+							<li>南京</li>
+							<li>杭州</li>
+							<li>青岛</li>
+							<li>扬州</li>
+						</ul>
+					</div>
+				</div>
+				<!-- locator end -->
+			</div>
+		</div>
+		<!-- layout header end -->
+
+		<!-- layout container begin -->
+		<div class="layout-container">
+			
+			<!-- card foretaste page begin -->
+			<div class="page foretaste-page" id="foretastePage">
+				<div class="page-container">
+					<div class="container-wrap">
+						<div class="foretaste-header">
+							<img src="assets/imgs/foretaste_bg.jpg" alt="" />
+						</div>
+						<div class="foretaste-content clearfix">
+							<dl class="activity-info">
+								<dt>INCAKE企业免费品尝活动</dt>
+								<dd>申报活动条件：</dd>
+								<dd>1、您的公司确定从未参加过INCAKE举办的任何试吃活动么？</dd>
+								<dd>2、您的公司确定本次参加试吃品尝的人数在10人以上么？</dd>
+								<dd>3、您的公司确定可以提供试吃场所如茶水间、休息室或会议室的多人共聚区域么？</dd>
+								<dd>4、您的公司确定可以协助INCAKE销售人员完整准确地填写会员信息表么？</dd>
+								<dd>5、试吃范围：外环以内（S20以内），嘉定地区可申请活动。</dd>
+							</dl>
+							<dl class="activity-apply">
+								<dt>INCAKE蛋糕试吃申请方式：</dt>
+								<dd>1、在线申请，填写以下信息；</dd>
+								<dd>2、若您的公司有采购、福利、高端礼品等需求，可拨打400-921-5757与客服部联系。</dd>
+								<dd>3、因申请客户众多，我们会尽量在10个工作日内联系您，敬请耐心等待，感谢您的支持。</dd>
+							</dl>
+						</div>
+						<div class="foretaste-form">
+								<h2 class="form-title">请您正确填写下列信息</h2>
+								<div class="form-content">
+									<ul class="info-list clearfix">
+										<li class="info-item clearfix">
+											<span class="item-title">公司名称：</span>
+											<div class="item-content">
+												<input type="text" class="txt-company-name" placeholder="请输入公司的全称" />
+											</div>
+										</li>
+										<li class="info-item clearfix">
+											<span class="item-title">品尝区域：</span>
+											<div class="item-content taste-area">
+												<select class="select2">
+													<option value="请选择">请选择</option>
+													<option value="会议室">会议室</option>
+													<option value="茶水间">茶水间</option>
+												</select>
+											</div>
+										</li>
+										<li class="info-item clearfix">
+											<span class="item-title">公司区域：</span>
+											<div class="item-content clearfix">
+												<div class="addr-area sel-city">
+													<select id="select_city" class="select2">
+														<option value="0">请选择</option>
+														<option value="上海市">上海市</option>
+													</select>
+												</div>
+												<div class="addr-area sel-area">
+													<select id="select_area" class="select2">
+														<option value="0">请选择</option>
+														<option value="宝山区">宝山区</option>
+														<option value="长宁区">长宁区</option>
+														<option value="奉贤区">奉贤区</option>
+														<option value="虹口区">虹口区</option>
+														<option value="黄浦区">黄浦区</option>
+														<option value="嘉定区">嘉定区</option>
+														<option value="金山区">金山区</option>
+														<option value="静安区">静安区</option>
+														<option value="闵行区">闵行区</option>
+														<option value="浦东新区">浦东新区</option>
+														<option value="普陀区">普陀区</option>
+														<option value="青浦区">青浦区</option>
+														<option value="松江区">松江区</option>
+														<option value="徐汇区">徐汇区</option>
+														<option value="杨浦区">杨浦区</option>
+														<option value="闸北区">闸北区</option>
+													</select>
+												</div>
+												<div class="addr-area sel-ext">
+													<select id="select_ext" class="select2">
+														<option value="0">请选择</option>
+														<option value="外环线以内">外环线以内</option>
+														<option value="外环线以外">外环线以外</option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li class="info-item clearfix">
+											<span class="item-title">参与人数：</span>
+											<div class="item-content">
+												<input type="text" class="txt-people-num" placeholder="请输入参与试吃的人员数量" />
+											</div>
+										</li>
+										<li class="info-item clearfix">
+											<span class="item-title">公司地址：</span>
+											<div class="item-content">
+												<input type="text" class="txt-company-address" placeholder="请输入公司的详细地址" />
+											</div>
+										</li>
+										<li class="info-item clearfix">
+											<span class="item-title">申请人：</span>
+											<div class="item-content">
+												<input type="text" class="txt-applyer-name" placeholder="请输入您的姓名" />
+											</div>
+										</li>
+										<li class="info-item clearfix">
+											<span class="item-title">公司人数：</span>
+											<div class="item-content">
+												<input type="text" class="txt-company-people-num" placeholder="请输入公司人员数量" />
+											</div>
+										</li>
+										<li class="info-item clearfix">
+											<span class="item-title">办公电话：</span>
+											<div class="item-content">
+												<input type="text" class="txt-tel-no" placeholder="请输入您的办公电话" />
+											</div>
+										</li>
+										<li class="info-item clearfix">
+											<span class="item-title">公司部门：</span>
+											<div class="item-content">
+												<input type="text" class="txt-company-department" placeholder="请输入公司申请品尝活动的部门" />
+											</div>
+										</li>
+										<li class="info-item clearfix">
+											<span class="item-title">手机：</span>
+											<div class="item-content">
+												<input type="text" class="txt-mobile-no" placeholder="请输入您的手机号码" />
+											</div>
+										</li>
+									</ul>
+									<a href="javascript:;" class="btn-submit-apply">提交申请</a>
+								</div>
+							</div>
+					</div>
+				</div>
+				<!-- mask  begin-->
+				<div id="mask-list">
+					<div class="popups popup-plate">
+						<p class="popup-title">刀叉盘</p>
+						<div class="popup-content">
+							<p class="popup-info clearfix">
+								<a href="javascript:;" class="btns btn-minus"></a>
+								<input type="text" value="0" class="number" readonly="readonly"/>
+								<a href="javascript:;" class="btns btn-plus active"></a>
+							</p>
+						</div>
+						<p class="popup-btns clearfix">
+							<a href="javascript:;" class="btn-cancel">取消</a>
+							<a href="javascript:;" class="btn-confirm">确认</a>
+						</p>
+					</div>
+				</div>
+				<!-- mask end -->
+			</div>
+			<!-- card exchange page end -->
+
+		</div>
+		<!-- layout container end -->
+
+		<!-- layout footer begin -->
+		<div class="layout-footer">
+			<div class="footer-body">
+				<div class="container">
+					<div class="logo"></div>
+					<div class="content">
+						<p class="nav clearfix">
+							<a href="javascript:;">配送范围</a><span>|</span>
+							<a href="javascript:;">帮助中心</a><span>|</span>
+							<a href="javascript:;">品牌故事</a><span>|</span>
+							<a href="javascript:;">关于我们</a><span>|</span>
+							<a href="javascript:;">招贤纳士</a>
+						</p>
+						<p class="hotline clearfix">
+							<span>客服热线：</span>
+							<span class="tel">400-921-5757</span>
+						</p>
+						<div class="third-party clearfix">
+							<a class="wechat" href="javascript:;"></a>
+							<a class="sina" href="javascript:;"></a>
+							<a class="qq" href="javascript:;"></a>
+							<a class="dianping" href="javascript:;"></a>
+						</div>
+					</div>
+					<div class="qrcode">
+						<div class="img"></div>
+						<p class="text">微信订购更方便</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					<p>
+						<span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+						<span>沪ICP备12045835</span>
+						<span>沪公网安备31010802001150</span>
+					</p>
+				</div>				
+			</div>
+		</div>
+		<!-- layout footer end -->
+
+	</div>
+	<!-- layout end -->
+
+	<!-- javscript begin -->
+	<script src="assets/plugins/LABjs/LAB.min.js"></script>
+	<script>
+		$LAB
+		.script('assets/plugins/polyfill/polyfill.min.js').wait()
+		.script('assets/plugins/jquery/jquery-1.12.4.min.js').wait()
+		.script('assets/plugins/tweenmax/TweenMax.min.js').wait()
+		.script('assets/plugins/artTemplate/template.js').wait()
+		.script('assets/plugins/select2/js/select2.min.js').wait()
+		.script('assets/js/layout.js').wait()
+		.script('assets/js/foretaste.js');
+	</script>
+	<!-- javascript end -->
+</body>
+</html>
