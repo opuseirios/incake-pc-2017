@@ -11,7 +11,6 @@
 .helper-menu {
     float: left;
     width: 270px;
-//  border-bottom: 1px solid #e9546b;
     .title {
         width: 100%;
         height: 80px;
@@ -29,9 +28,6 @@
         li {
             width: 100%;
             border-bottom: 1px solid #f0f0f0;
-//          &:last-of-type {
-//              border-bottom: none;
-//          }
             a {
                 display: block;
                 height: 50px;
@@ -149,287 +145,90 @@
     }
 }
 
-/* mask */
-#mask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 999;
-    .popup-content {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        width: 440px;
-        //height: 360px;
-        padding-bottom: 40px;
-        background-color: #fff;
-        border-radius: 5px;
-        margin: 0 auto;
-        transform: translateY(-50%);
-        overflow: hidden;
-        .popup-title {
-            height: 40px;
-            border-bottom: 1px solid #c6c6c6;
-            font-size: 20px;
-            line-height: 40px;
-            color: #e9546b;
-            span {
+/* join us page */
+.ju-wrap {
+    .ju-list {
+        .ju-item { 
+            width: 100%; 
+            padding: 20px 0; 
+            &.last { 
+                padding-bottom: 0;
+            }
+            .apply-job {
+                width: 858px;
+                height: 44px;
+                padding: 12px 0;
+                border: 1px solid #e6e6e6;
+                margin-top: -1px;
+                line-height: 44px;
+                span { 
+                    display: inline-block; 
+                    margin-left: 24px; 
+                }
+            }
+            .btn-apply-job { 
+                float: left; 
+                display: block; 
+                width: 180px; 
+                height: 44px; 
+                background: #e9546b; 
+                border-radius: 2px;
+                margin-left: 46px; 
+                font-size: 16px; 
+                line-height: 44px; 
+                text-align: center; 
+                color: #fff; 
+            }
+        }
+        .inner-list {
+            width: 100%;
+            .inner-item {
+                position: relative;
                 float: left;
-                display: inline-block;
-            }
-            a.btn-close {
-                float: right;
-                display: inline-block;
-                width: 17px;
-                height: 16px;
-                background: url('../imgs/ucenter/icon_close.png') no-repeat;
-                margin-top: 12px;
-            }
-        }
-        // invoice mask
-        .popup-invoice {
-            width: 360px;
-            margin: 28px auto 0;
-            .popup-info {
-                li {
-                    position: relative;
-                    height: 40px;
-                    margin-top: 20px;
-                    line-height: 40px;
-                    .name {
-                        float: left;
-                        width: 56px;
-                        margin-right: 15px;
-                        color: #969696;
-                    }
-                    > select {
-                        width: 132px;
-                        border: none;
-                        background-color: #f5f5f5;
+                width: 858px;
+                border: 1px solid #e6e6e6;
+                margin-top: -1px;
+                .inner-title {
+                    position: absolute;
+                    top: 50%;
+                    width: 98px;
+                    height: 24px;
+                    margin-top: -12px;
+                    line-height: 24px;
+                    p { 
                         text-align: center;
                     }
-                    .invoice-name {
-                        position: relative;
-                        float: left;
-                        width: 280px;
-                        height: 40px;
-                        background-color: #f5f5f5;
-                        border: 0;
-                        border-radius: 2px;
-                        text-indent: 10px;
-                    }
-                    &.company-name:before {
-                        position: absolute;
-                        top: 4px;
-                        right: -4px;
-                        content: '*';
-                        width: 10px;
-                        height: 30px;
-                        background: none;
-                        font-size: 16px;
-                        color: #e9546b;
-                        font-weight: bold;
-                    }
                 }
-            }
-            .popup-btns {
-                margin-top: 30px;
-                a {
-                    float: left;
-                    display: block;
-                    width: 94px;
-                    height: 40px;
-                    background-color: #e9546b;
-                    border-radius: 2px;
-                    line-height: 40px;
-                    text-align: center;
-                    color: #fff;
-                    &#btn-cancel {
-                        margin: 0 12px 0 72px;
-                        background-color: #f2b4be;
-                    }
-                }
-            }
-        }
-        // commemorate mask
-        .popup-commemorate {
-            width: 360px;
-            margin: 28px auto 0;
-            .popup-info {
-                li {
-                    height: 40px;
-                    margin-top: 20px;
-                    line-height: 40px;
-                    color: #969696;
-                    .name {
-                        float: left;
-                        width: 40px;
-                        color: #969696;
-                    }
-                    > p {
-                        float: left;
-                        display: inline-block;
-                    }
-                    > span {
-                        width: 30px;
-                        text-align: center;
-                    }
-                    > select {
-                        width: 130px;
-                        height: 40px;
-                        border: none;
-                        background-color: #f5f5f5;
-                        text-align: center;
-                    }
-                    .commemorate-name {
-                        float: left;
-                        width: 320px;
-                        height: 40px;
-                        background-color: #f5f5f5;
-                        border: 0;
-                        border-radius: 2px;
-                        text-indent: 10px;
-                    }
-                }
-            }
-            .popup-btns {
-                margin-top: 30px;
-                a {
-                    float: left;
-                    display: block;
-                    width: 94px;
-                    height: 40px;
-                    background-color: #e9546b;
-                    border-radius: 2px;
-                    line-height: 40px;
-                    text-align: center;
-                    color: #fff;
-                    &#btn-cancel {
-                        margin: 0 12px 0 40px;
-                        background-color: #f2b4be;
-                    }
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-        }
-        // address mask
-        &.p-address {
-            width: 480px;
-        }
-        .popup-address {
-            width: 390px;
-            margin: 28px auto 0;
-            .popup-info {
-                li {
-                    position: relative;
-                    height: 40px;
-                    margin-top: 20px;
-                    line-height: 40px;
-                    &.require:before {
-                        display: block;
-                        position: absolute;
-                        top: 0;
-                        right: -15px;
-                        content: '*';
-                        width: 15px;
-                        height: 40px;
-                        line-height: 40px;
-                        background: none;
-                        font-size: 16px;
-                        color: #e9546b;
-                        font-weight: bold;
-                        text-align: center;
-                    }
-                    .name {
-                        float: left;
-                        width: 56px;
-                        margin-right: 10px;
-                        color: #969696;
-                        text-align: right;
-                    }
-                    .name-l {
-                        width: 82px;
-                    }
-                    > input {
-                        float: left;
-                        width: 324px;
-                        height: 40px;
-                        background-color: #f5f5f5;
-                        border: 0;
-                        border-radius: 2px;
-                        text-indent: 10px;
-                        &.mobile,
-                        &.tel {
-                            width: 116px;
-                        }
-                    }
-                    > label {
-                        float: left;
-                        display: inline-block;
-                        &.sel-city {
-                            margin-right: 40px;
-                        }
-                    }
-                    select {
-                        width: 142px;
-                        height: 40px;
-                        border: none;
-                        background-color: #f5f5f5;
-                        text-align: center;
-                    }
-                    .sel-ext select {
-                        width: 324px;
-                    }
-                }
-            }
-            .popup-btns {
-                margin-top: 30px;
-                a {
-                    float: left;
-                    display: block;
-                    width: 94px;
-                    height: 40px;
-                    background-color: #e9546b;
-                    border-radius: 2px;
-                    line-height: 40px;
-                    text-align: center;
-                    color: #fff;
-                    &#btn-cancel {
-                        margin: 0 12px 0 66px;
-                        background-color: #f2b4be;
-                    }
-                }
-                .set-default {
-                    display: inline-block;
+                .inner-content {
                     float: right;
-                    line-height: 40px;
-                    color: #787878;
-                    i {
-                        display: inline-block;
-                        float: left;
-                        width: 30px;
-                        height: 40px;
-                        font-style: normal;
-                        cursor: pointer;
-                        background: {
-                            image: url('../imgs/icons/icon_radio_rect.png');
-                            repeat: no-repeat;
-                            size: 22px 22px;
-                            position: center center;
-                        }
-                        &.checked {
-                            background-image: url('../imgs/icons/icon_radio_rect_checked.png');
-                        }
+                    width: 760px;
+                    p { 
+                        padding: 8px 0 8px 20px; 
+                        border-left: 1px solid #e6e6e6; 
+                        margin-left: -1px; 
+                        line-height: 24px;  
+                    }
+                    span { 
+                        display: inline-block; 
+                        width: 100%; 
                     }
                 }
             }
+            .name-item,.date-item,.num-item,.type-item {
+                width: 428px;
+                .inner-content { 
+                    float: right; 
+                    width: 330px; 
+                }
+            }
+            .name-item {
+                .inner-content p {
+                    font-weight: bold; 
+                    color: #000; 
+                } 
+            }
         }
+        
     }
 }
+

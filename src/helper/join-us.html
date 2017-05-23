@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>INCAKE | 招贤纳士</title>
+	<link rel="stylesheet" href="../assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="../assets/css/layout.css">
+	<link rel="stylesheet" href="../assets/css/helper.css">
+	<link rel="shortcut icon" href="../favicon.ico" />
+</head>
+<body>
+	<!-- layout begin -->
+	<div class="layout">
+
+		<!-- layout header begin -->
+		<div class="layout-header" id="layoutHeader">
+			<div class="header-body">
+				<!-- logo begin -->
+				<a href="index.html" class="logo"></a>
+				<!-- logo end -->
+				<!-- nav begin -->
+				<ul class="nav clearfix">
+					<li><a href="/index.html">首页</a></li>
+					<li class="sub">
+						<a href="/list.html">蛋糕馆</a>
+						<ul class="subnav">
+							<li><a href="javascript:;">芝士系列</a></li>
+							<li><a href="javascript:;">巧克力系列</a></li>
+							<li><a href="javascript:;">拿破仑系列</a></li>
+							<li><a href="javascript:;">慕斯系列</a></li>
+							<li><a href="javascript:;">乳脂系列</a></li>
+							<li><a href="javascript:;">选拼系列</a></li>
+							<li><a href="javascript:;">星座系列</a></li>
+							<li><a href="javascript:;">阿狸系列</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;">三小时送</a></li>
+					<li class="sub">
+						<a href="javascript:;">INLIFE</a>
+						<ul class="subnav">
+							<li><a href="javascript:;">下午茶</a></li>
+							<li><a href="javascript:;">鲜花</a></li>
+							<li><a href="javascript:;">饮品</a></li>
+							<li><a href="javascript:;">礼品</a></li>
+						</ul>
+					</li>
+					<li class="sub">
+						<a href="javascript:;">惊喜定制</a>
+						<ul class="subnav">
+							<li><a href="javascript:;">惊喜蛋糕</a></li>
+							<li><a href="javascript:;">翻糖定制</a></li>
+							<li><a href="javascript:;">场景定制</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;">试吃申请</a></li>
+					<li><a href="javascript:;">卡券兑换</a></li>
+				</ul>
+				<!-- nav end -->
+				<!-- portal begin -->
+				<div class="portal clearfix">
+					<div class="unlogin clearfix">
+						<a href="login.html" class="login">登录</a>
+						<span>|</span>
+						<a href="register.html" class="register">注册</a>
+					</div>
+					<div class="logined clearfix active">
+						<div class="profile-wrap">
+							<p class="info">13811112222</p>
+							<ul class="plist">
+								<li class="active"><a href="javascript:;">个人中心</a></li>
+								<li><a href="javascript:;">账户设置</a></li>
+								<li><a href="javascript:;">账户优惠券</a></li>
+								<li class="last"><a href="javascript:;">退出账号</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- portal end -->
+				<!-- basket begin -->
+				<div class="basket">
+					<a href="javascript:;" class="view"><span>10</span></a>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<ul class="list basket-list"></ul>
+						<script id="tplBasketList" type="text/html">
+							{{if list.length > 0}}
+							{{each list as item i}}
+							<li class="clearfix">
+								<a href="{{item.link}}" class="img">
+									<img src="{{item.thumbUrl}}" alt="">
+								</a>
+								<div class="text">
+									<p class="first-row clearfix">
+										<span class="name">{{item.name}}</span>
+										<span class="price">￥{{item.price}}</span>
+									</p>
+									<p class="second-row clearfix">
+										<span class="pound">{{item.pound}}磅</span>
+										<span class="num">x{{item.num}}</span>
+									</p>
+								</div>
+								<a href="javascript:;" class="remove"></a>
+							</li>
+							{{/each}}
+							{{/if}}
+						</script>
+						<a href="javascript:;" class="view-basket">查看购物篮 >></a>
+					</div>
+				</div>
+				<!-- basket end -->
+				<!-- locator begin -->
+				<div class="locator">
+					<span class="arrow"></span>
+					<p>上海</p>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<p>请选择您要配送的城市：</p>
+						<ul class="clearfix">
+							<li class="active">上海</li>
+							<li>福州</li>
+							<li>苏州</li>
+							<li>昆山</li>
+							<li>厦门</li>
+							<li>北京</li>
+							<li>南京</li>
+							<li>杭州</li>
+							<li>青岛</li>
+							<li>扬州</li>
+						</ul>
+					</div>
+				</div>
+				<!-- locator end -->
+			</div>
+		</div>
+		<!-- layout header end -->
+
+		<!-- layout container begin -->
+		<div class="layout-container">
+			
+			<!-- helper page begin -->
+			<div class="page helper-page" id="helperPage">
+				<div class="page-container">
+					
+					<!-- helper wrap begin -->
+					<div class="helper-wrap clearfix">
+						
+						<!-- helper menu begin -->
+						<div class="helper-menu">
+							<p class="title">INCAKE</p>
+							<div class="section section-account">
+								<ul>
+									<li><a href="delivery-range.html">配送范围</a></li>
+									<li><a href="help-center.html">帮助中心</a></li>
+									<li><a href="brand-story.html">品牌故事</a></li>
+									<li><a href="about-us.html">关于我们</a></li>
+									<li class="active"><a href="join-us.html">招贤纳士</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- helper menu end -->
+
+						<!-- helper container begin -->
+						<div class="helper-container">
+							
+							<!-- join us wrap begin -->
+							<div class="container-wrap ju-wrap">
+								<div class="header">
+									<h2>招贤纳士<span>JOIN&nbsp;US</span></h2>
+								</div>
+								<div class="body">
+									<!-- join us begin -->
+									<ul class="ju-list">
+										<li class="ju-item">
+											<ul class="inner-list clearfix">
+												<li class="inner-item name-item clearfix">
+													<div class="inner-title">
+														<p>职位名称</p>
+													</div>
+													<div class="inner-content">
+														<p>Web前端开发工程师（上海）</p>
+													</div>
+												</li>
+												<li class="inner-item date-item clearfix">
+													<div class="inner-title">
+														<p>发布日期</p>
+													</div>
+													<div class="inner-content">
+														<p>2017-04-23</p>
+													</div>
+												</li>
+												<li class="inner-item num-item clearfix">
+													<div class="inner-title">
+														<p>招聘人数</p>
+													</div>
+													<div class="inner-content">
+														<p>不限</p>
+													</div>
+												</li>
+												<li class="inner-item type-item clearfix">
+													<div class="inner-title">
+														<p>工作性质</p>
+													</div>
+													<div class="inner-content">
+														<p>全职</p>
+													</div>
+												</li>
+												<li class="inner-item require-item clearfix">
+													<div class="inner-title">
+														<p>任职要求</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、大学专科以上学历，计算机及其它相关专业；</span>
+															<span>2、至少2年以上Web前端开发经验，对前端开发工作有正确的认识；</span>
+															<span>3、精通HTML/XHTML、DIV+CSS、JavaScript、Ajax，精通JQuery框架，Json，能够编写常用的JS应用；</span>
+															<span>4、根据UI的需求，分析并给出最优的前台技术解决方案；</span>
+															<span>5、深刻理解Web标准, 对可用性、可访问性等相关知识有实际了解和实践经验；</span>
+															<span>6、熟悉页面优化，了解各主流浏览器特性，使页面兼容主流浏览器。</span>
+															<span>7、善于沟通协调，有良好的团队合作精神，工作责任心强；能够承受较强的工作压力；</span>
+															<span>8、具有创新意识，思维活跃，逻辑思维强，对自身技术提升有强烈的学习欲望；</span>
+															<span>9、具有跨平台应用的开发经验，了解各主流浏览器下的JavaScript差异；</span>
+															<span>10、能够提供几件作品或网站供参考；</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item duty-item clearfix">
+													<div class="inner-title">
+														<p>岗位职责</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、缩减页面体积、加快加载速度及优化用户体验；</span> 
+															<span>2、与产品、页面制作人员保持良好沟通，能快速理解、消化各方需求，并落实为具体的开发工作；</span>
+															<span>3、使用Javascript熟练、准确地进行代码构建，实现所需的动画效果以及交互效果；</span> 
+															<span>4、根据需求，分析并给出最优的页面前端结构解决方案；</span>
+															<span>5、配合后台开发人员实现界面和功能；</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item treatment-item clearfix">
+													<div class="inner-title">
+														<p>福利待遇</p>
+													</div>
+													<div class="inner-content">
+														<p>面议</p>
+													</div>
+												</li>
+												<li class="inner-item place-item clearfix">
+													<div class="inner-title">
+														<p>工作地点</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>上海 闸北区广中西路777弄99号506室</span>
+														</p>
+													</div>
+												</li>
+											</ul>
+											<p class="apply-job clearfix">
+												<a href="mailto:hr@incake.net" class="btn-apply-job">申请职位</a> <span>或将简历投至 hr@incake.net</span>
+											</p>
+										</li>
+										<li class="ju-item">
+											<ul class="inner-list clearfix">
+												<li class="inner-item name-item clearfix">
+													<div class="inner-title">
+														<p>
+															职位名称</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															平面设计/美工（上海）</p>
+													</div>
+												</li>
+												<li class="inner-item date-item clearfix">
+													<div class="inner-title">
+														<p>
+															发布日期</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															2017-04-23</p>
+													</div>
+												</li>
+												<li class="inner-item num-item clearfix">
+													<div class="inner-title">
+														<p>
+															招聘人数</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															不限</p>
+													</div>
+												</li>
+												<li class="inner-item type-item clearfix">
+													<div class="inner-title">
+														<p>
+															工作性质</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															全职</p>
+													</div>
+												</li>
+												<li class="inner-item require-item clearfix">
+													<div class="inner-title">
+														<p>
+															任职要求</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、具有很强的设计能力和审美能力，熟练使用Illustrator, Photoshop等常用设计制作软件，2年及以上相关经验；</span> <span>2、有电子商务、淘宝网站店铺设计、装修经验者优先；</span> <span>3、要求您积极，努力。心胸开阔，乐观不抱怨。愿意付出，对工作有激情；</span>
+															<span>4、要求您耐心，细致，有服务意识和团队合作精神；</span> <span>5、面试时带设计作品来，如不方便发邮件，可带U盘；</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item duty-item clearfix">
+													<div class="inner-title">
+														<p>
+															岗位职责</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、公司所有促销活动的相关设计，包括微博，微信等；</span> <span>2、POP等广告物料设计及完稿制作，包括产品手册，单页，平面广告，海报，展架等；</span>
+															<span>3、产品包装设计；</span> <span>4、公司官网，微博，微信包括合作方网店等常规电子渠道设计更新维护；</span> <span>5、了解印刷工艺，对印刷品可以给出建设性意见，并对供应商印刷品进行颜色、质量把控；</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item treatment-item clearfix">
+													<div class="inner-title">
+														<p>
+															福利待遇</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															面议</p>
+													</div>
+												</li>
+												<li class="inner-item place-item clearfix">
+													<div class="inner-title">
+														<p>
+															工作地点</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>上海 闸北区广中西路777弄99号506室</span>
+														</p>
+													</div>
+												</li>
+											</ul>
+											<p class="apply-job clearfix">
+												<a href="mailto:hr@incake.net" class="btn-apply-job">申请职位</a> <span>或将简历投至 hr@incake.net</span>
+											</p>
+										</li>
+										<li class="ju-item">
+											<ul class="inner-list clearfix">
+												<li class="inner-item name-item clearfix">
+													<div class="inner-title">
+														<p>
+															职位名称</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															活动策划（上海）</p>
+													</div>
+												</li>
+												<li class="inner-item date-item clearfix">
+													<div class="inner-title">
+														<p>
+															发布日期</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															2017-04-23</p>
+													</div>
+												</li>
+												<li class="inner-item num-item clearfix">
+													<div class="inner-title">
+														<p>
+															招聘人数</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															不限</p>
+													</div>
+												</li>
+												<li class="inner-item type-item clearfix">
+													<div class="inner-title">
+														<p>
+															工作性质</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															全职</p>
+													</div>
+												</li>
+												<li class="inner-item require-item clearfix">
+													<div class="inner-title">
+														<p>
+															任职要求</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、大专及以上学历，市场营销、广告类专业优先；</span> <span>2、2年以上线上运营工作经验，具有出色的线上活动策划执行能力；</span> <span>3、具有互联网行业工作经历，有丰富的产品活动策划经验优先考虑；</span>
+															<span>4、优秀的线上活动策划的经验及能力，有成功案例；</span> <span>5、有思路，并能承受工作压力；</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item duty-item clearfix">
+													<div class="inner-title">
+														<p>
+															岗位职责</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、负责公司品牌和产品线上活动的策划，与文案和平面设计人员相配合，将线上活动落实到位，对整个活动流程进行把控和总结分析；</span> <span>2、分析客户需求，挖掘产品亮点，提升产品品牌；</span>
+															<span>3、根据市场和行业热点策划事件营销专题和主题活动；</span> <span>4、协助其他部门完成各类市场推广工作；</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item treatment-item clearfix">
+													<div class="inner-title">
+														<p>
+															福利待遇</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															面议</p>
+													</div>
+												</li>
+												<li class="inner-item place-item clearfix">
+													<div class="inner-title">
+														<p>
+															工作地点</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>上海 闸北区广中西路777弄99号506室</span>
+														</p>
+													</div>
+												</li>
+											</ul>
+											<p class="apply-job clearfix">
+												<a href="mailto:hr@incake.net" class="btn-apply-job">申请职位</a> <span>或将简历投至 hr@incake.net</span>
+											</p>
+										</li>
+										<li class="ju-item">
+											<ul class="inner-list clearfix">
+												<li class="inner-item name-item clearfix">
+													<div class="inner-title">
+														<p>
+															职位名称</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															.net程序开发员（上海）</p>
+													</div>
+												</li>
+												<li class="inner-item date-item clearfix">
+													<div class="inner-title">
+														<p>
+															发布日期</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															2017-04-23</p>
+													</div>
+												</li>
+												<li class="inner-item num-item clearfix">
+													<div class="inner-title">
+														<p>
+															招聘人数</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															不限</p>
+													</div>
+												</li>
+												<li class="inner-item type-item clearfix">
+													<div class="inner-title">
+														<p>
+															工作性质</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															全职</p>
+													</div>
+												</li>
+												<li class="inner-item require-item clearfix">
+													<div class="inner-title">
+														<p>
+															任职要求</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、中专及中专以上；</span> <span>2、计算机相关专业，大专以上学历，2年以上.net开发经验；</span> <span>3、精通ASP.net MSSQL程序设计，具备.net项目开发经验；</span>
+															<span>4、熟练应用.net进行大型门户型网站的开发，有成型作品演示；</span> <span>5、精通SQLServer数据库的设计与开发，熟悉存储过程；</span><span>5、熟悉DIV CSS开发模式，具备HTML、XML、JavaScript客户端编写能力；</span><span>6、具备开发大型门户网站的能力和管理经验；</span><span>7、具备有较强的学习创新能力、较强的团队协意识及快速独立解决技术问题的能力；</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item duty-item clearfix">
+													<div class="inner-title">
+														<p>
+															岗位职责</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、负责网站后台控制程序的开发与管理，维护公司网站程序；</span> <span>2、编写网站相关代码，测试开发项目；</span>
+															<span>3、负责网站功能模块的开发与维护；</span> <span>4、上级领导安排的其他任务；</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item treatment-item clearfix">
+													<div class="inner-title">
+														<p>
+															福利待遇</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															面议</p>
+													</div>
+												</li>
+												<li class="inner-item place-item clearfix">
+													<div class="inner-title">
+														<p>
+															工作地点</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>上海 闸北区广中西路777弄99号506室</span>
+														</p>
+													</div>
+												</li>
+											</ul>
+											<p class="apply-job clearfix">
+												<a href="mailto:hr@incake.net" class="btn-apply-job">申请职位</a> <span>或将简历投至 hr@incake.net</span>
+											</p>
+										</li>
+										<li class="ju-item">
+											<ul class="inner-list clearfix">
+												<li class="inner-item name-item clearfix">
+													<div class="inner-title">
+														<p>
+															职位名称</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															销售担当（上海、昆山、苏州）</p>
+													</div>
+												</li>
+												<li class="inner-item date-item clearfix">
+													<div class="inner-title">
+														<p>
+															发布日期</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															2017-04-23</p>
+													</div>
+												</li>
+												<li class="inner-item num-item clearfix">
+													<div class="inner-title">
+														<p>
+															招聘人数</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															不限</p>
+													</div>
+												</li>
+												<li class="inner-item type-item clearfix">
+													<div class="inner-title">
+														<p>
+															工作性质</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															全职</p>
+													</div>
+												</li>
+												<li class="inner-item require-item clearfix">
+													<div class="inner-title">
+														<p>
+															任职要求</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、大专以上学历，年龄20—28岁；</span> <span>2、应届毕业生及有一定销售工作经验者均可；</span> <span>3、有较强逻辑思维能力，语言表达能力强；</span>
+															<span>4、有很好的学习能力，团队意识较强；</span> <span>5、形象好、气质佳 ；</span> <span>6、有挑战自己的意愿及行动能力。</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item duty-item clearfix">
+													<div class="inner-title">
+														<p>
+															岗位职责</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、通过各种渠道及方式开发新客户，宣传公司产品、服务、品牌；</span> <span>2、维护老客户关系，发现客户需求，达成销售任务；</span>
+															<span>3、为客户提供礼品、福利、会议、庆典等用途的蛋糕解决方案；</span> <span>4、收集、反馈市场信息；</span> <span>5、核对清理应收账款；</span>
+															<span>6、参与公司及团队各项活动并保质保量完成；</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item treatment-item clearfix">
+													<div class="inner-title">
+														<p>
+															福利待遇</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															高底薪（3500-6000）+高提成（12%）+社保+年终奖+团队活动</p>
+													</div>
+												</li>
+												<li class="inner-item place-item clearfix">
+													<div class="inner-title">
+														<p>
+															工作地点</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>上海 闸北区广中西路777弄99号506室</span> <span>昆山 人民北路65号</span> <span>苏州 东环路1627号</span>
+														</p>
+													</div>
+												</li>
+											</ul>
+											<p class="apply-job clearfix">
+												<a href="mailto:hr@incake.net" class="btn-apply-job">申请职位</a> <span>或将简历投至 hr@incake.net</span>
+											</p>
+										</li>
+										<li class="ju-item">
+											<ul class="inner-list clearfix">
+												<li class="inner-item name-item clearfix">
+													<div class="inner-title">
+														<p>
+															职位名称</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															客服专员（上海）</p>
+													</div>
+												</li>
+												<li class="inner-item date-item clearfix">
+													<div class="inner-title">
+														<p>
+															发布日期</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															2017-04-23</p>
+													</div>
+												</li>
+												<li class="inner-item num-item clearfix">
+													<div class="inner-title">
+														<p>
+															招聘人数</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															不限</p>
+													</div>
+												</li>
+												<li class="inner-item type-item clearfix">
+													<div class="inner-title">
+														<p>
+															工作性质</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															全职</p>
+													</div>
+												</li>
+												<li class="inner-item require-item clearfix">
+													<div class="inner-title">
+														<p>
+															任职要求</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、中专及中专以上；</span> <span>2、有呼叫中心工作经验者优先；</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item duty-item clearfix">
+													<div class="inner-title">
+														<p>
+															岗位职责</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、接受客户预定咨询，投诉内容，按照相应流程给予客户反馈。在线了解客户的基本信息和需求，促进订单达成；</span> <span>2、及时将客户反馈的信息记录在CRM系统中；</span>
+															<span>3、完成每月的绩效考核，工作效率、通话质量、业务考试等；</span> <span>4、良好的工作执行力，严格按规范及流程进行工作或相关操作；</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item treatment-item clearfix">
+													<div class="inner-title">
+														<p>
+															福利待遇</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															固定薪资+绩效奖金+社保+年终奖+团队活动</p>
+													</div>
+												</li>
+												<li class="inner-item place-item clearfix">
+													<div class="inner-title">
+														<p>
+															工作地点</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>上海 闸北区广中西路777弄99号506室</span>
+														</p>
+													</div>
+												</li>
+											</ul>
+											<p class="apply-job clearfix">
+												<a href="mailto:hr@incake.net" class="btn-apply-job">申请职位</a> <span>或将简历投至 hr@incake.net</span>
+											</p>
+										</li>
+										<li class="ju-item last">
+											<ul class="inner-list clearfix">
+												<li class="inner-item name-item clearfix">
+													<div class="inner-title">
+														<p>
+															职位名称</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															物流配送员（上海、昆山、苏州）</p>
+													</div>
+												</li>
+												<li class="inner-item date-item clearfix">
+													<div class="inner-title">
+														<p>
+															发布日期</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															2017-04-23</p>
+													</div>
+												</li>
+												<li class="inner-item num-item clearfix">
+													<div class="inner-title">
+														<p>
+															招聘人数</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															不限</p>
+													</div>
+												</li>
+												<li class="inner-item type-item clearfix">
+													<div class="inner-title">
+														<p>
+															工作性质</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															全职</p>
+													</div>
+												</li>
+												<li class="inner-item require-item clearfix">
+													<div class="inner-title">
+														<p>
+															任职要求</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、年龄18-35岁，五官端正，普通话标准；</span> <span>2、具有良好的顾客服务意识和与人沟通能力，认真、负责、谨慎，能积极主动地对待工作；</span> <span>3、可承受一定工作压力，持健康证上岗；</span>
+															<span>4、有很好的学习能力，团队意识较强；</span> <span>5、形象好、气质佳 ；</span> <span>6、有挑战自己的意愿及行动能力。</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item duty-item clearfix">
+													<div class="inner-title">
+														<p>
+															岗位职责</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>1、按配送站长的分配进行产品配送；</span> <span>2、骑电动自行车将产品从配送站点直接配送至客户手中；</span>
+															<span>3、进行面对面的顾客服务；</span>
+														</p>
+													</div>
+												</li>
+												<li class="inner-item treatment-item clearfix">
+													<div class="inner-title">
+														<p>
+															福利待遇</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															固定薪资+绩效奖金+社保+年终奖+团队活动</p>
+													</div>
+												</li>
+												<li class="inner-item place-item clearfix">
+													<div class="inner-title">
+														<p>
+															工作地点</p>
+													</div>
+													<div class="inner-content">
+														<p>
+															<span>上海 闸北区广中西路777弄99号506室</span> <span>昆山 人民北路65号</span> <span>苏州 东环路1627号</span>
+														</p>
+													</div>
+												</li>
+											</ul>
+											<p class="apply-job clearfix">
+												<a href="mailto:hr@incake.net" class="btn-apply-job">申请职位</a> <span>或将简历投至 hr@incake.net</span>
+											</p>
+										</li>
+									</ul>
+									<!-- join us end -->
+								</div>
+							</div>
+							<!-- join us wrap end -->
+
+						</div>
+						<!-- helper container end -->
+
+					</div>
+					<!-- helper wrap end -->
+
+				</div>
+			</div>
+			<!-- helper page end -->
+
+		</div>
+		<!-- layout container end -->
+
+		<!-- layout footer begin -->
+		<div class="layout-footer">
+			<div class="footer-body">
+				<div class="container">
+					<div class="logo"></div>
+					<div class="content">
+						<p class="nav clearfix">
+							<a href="javascript:;">配送范围</a><span>|</span>
+							<a href="javascript:;">帮助中心</a><span>|</span>
+							<a href="javascript:;">品牌故事</a><span>|</span>
+							<a href="javascript:;">关于我们</a><span>|</span>
+							<a href="javascript:;">招贤纳士</a>
+						</p>
+						<p class="hotline clearfix">
+							<span>客服热线：</span>
+							<span class="tel">400-921-5757</span>
+						</p>
+						<div class="third-party clearfix">
+							<a class="wechat" href="javascript:;"></a>
+							<a class="sina" href="javascript:;"></a>
+							<a class="qq" href="javascript:;"></a>
+							<a class="dianping" href="javascript:;"></a>
+						</div>
+					</div>
+					<div class="qrcode">
+						<div class="img"></div>
+						<p class="text">微信订购更方便</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					<p>
+						<span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+						<span>沪ICP备12045835</span>
+						<span>沪公网安备31010802001150</span>
+					</p>
+				</div>				
+			</div>
+		</div>
+		<!-- layout footer end -->
+
+	</div>
+	<!-- layout end -->
+
+	<!-- javscript begin -->
+	<script src="../assets/plugins/LABjs/LAB.min.js"></script>
+	<script>
+		$LAB
+		.script('../assets/plugins/polyfill/polyfill.min.js').wait()
+		.script('../assets/plugins/jquery/jquery-1.12.4.min.js').wait()
+		.script('../assets/plugins/tweenmax/TweenMax.min.js').wait()
+		.script('../assets/plugins/artTemplate/template.js').wait()
+		.script('../assets/js/layout.js').wait()
+		.script('../assets/js/helper.js');
+	</script>
+	<!-- javascript end -->
+</body>
+</html>
