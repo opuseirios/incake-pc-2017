@@ -123,7 +123,31 @@
     }
 }
 
-
+/* about us page */
+.au-wrap {
+    .body {
+        padding-top: 16px;
+        .about-us {
+            width: 100%;
+            dt {
+                height: 42px;
+                line-height: 42px;
+                color: #45515e; 
+            }
+            dd {
+                line-height: 24px;
+                color: #a0a0a0;
+                text-align: justify; 
+                text-indent: 28px;
+            }
+        }
+        img {
+            display: inline-block;
+            width: 100%;
+            margin-top: 45px;
+        }
+    }
+}
 
 /* mask */
 #mask {

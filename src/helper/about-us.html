@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>INCAKE | 关于我们</title>
+	<link rel="stylesheet" href="../assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="../assets/css/layout.css">
+	<link rel="stylesheet" href="../assets/css/helper.css">
+	<link rel="shortcut icon" href="../favicon.ico" />
+</head>
+<body>
+	<!-- layout begin -->
+	<div class="layout">
+
+		<!-- layout header begin -->
+		<div class="layout-header" id="layoutHeader">
+			<div class="header-body">
+				<!-- logo begin -->
+				<a href="index.html" class="logo"></a>
+				<!-- logo end -->
+				<!-- nav begin -->
+				<ul class="nav clearfix">
+					<li><a href="/index.html">首页</a></li>
+					<li class="sub">
+						<a href="/list.html">蛋糕馆</a>
+						<ul class="subnav">
+							<li><a href="javascript:;">芝士系列</a></li>
+							<li><a href="javascript:;">巧克力系列</a></li>
+							<li><a href="javascript:;">拿破仑系列</a></li>
+							<li><a href="javascript:;">慕斯系列</a></li>
+							<li><a href="javascript:;">乳脂系列</a></li>
+							<li><a href="javascript:;">选拼系列</a></li>
+							<li><a href="javascript:;">星座系列</a></li>
+							<li><a href="javascript:;">阿狸系列</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;">三小时送</a></li>
+					<li class="sub">
+						<a href="javascript:;">INLIFE</a>
+						<ul class="subnav">
+							<li><a href="javascript:;">下午茶</a></li>
+							<li><a href="javascript:;">鲜花</a></li>
+							<li><a href="javascript:;">饮品</a></li>
+							<li><a href="javascript:;">礼品</a></li>
+						</ul>
+					</li>
+					<li class="sub">
+						<a href="javascript:;">惊喜定制</a>
+						<ul class="subnav">
+							<li><a href="javascript:;">惊喜蛋糕</a></li>
+							<li><a href="javascript:;">翻糖定制</a></li>
+							<li><a href="javascript:;">场景定制</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;">试吃申请</a></li>
+					<li><a href="javascript:;">卡券兑换</a></li>
+				</ul>
+				<!-- nav end -->
+				<!-- portal begin -->
+				<div class="portal clearfix">
+					<div class="unlogin clearfix">
+						<a href="login.html" class="login">登录</a>
+						<span>|</span>
+						<a href="register.html" class="register">注册</a>
+					</div>
+					<div class="logined clearfix active">
+						<div class="profile-wrap">
+							<p class="info">13811112222</p>
+							<ul class="plist">
+								<li class="active"><a href="javascript:;">个人中心</a></li>
+								<li><a href="javascript:;">账户设置</a></li>
+								<li><a href="javascript:;">账户优惠券</a></li>
+								<li class="last"><a href="javascript:;">退出账号</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- portal end -->
+				<!-- basket begin -->
+				<div class="basket">
+					<a href="javascript:;" class="view"><span>10</span></a>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<ul class="list basket-list"></ul>
+						<script id="tplBasketList" type="text/html">
+							{{if list.length > 0}}
+							{{each list as item i}}
+							<li class="clearfix">
+								<a href="{{item.link}}" class="img">
+									<img src="{{item.thumbUrl}}" alt="">
+								</a>
+								<div class="text">
+									<p class="first-row clearfix">
+										<span class="name">{{item.name}}</span>
+										<span class="price">￥{{item.price}}</span>
+									</p>
+									<p class="second-row clearfix">
+										<span class="pound">{{item.pound}}磅</span>
+										<span class="num">x{{item.num}}</span>
+									</p>
+								</div>
+								<a href="javascript:;" class="remove"></a>
+							</li>
+							{{/each}}
+							{{/if}}
+						</script>
+						<a href="javascript:;" class="view-basket">查看购物篮 >></a>
+					</div>
+				</div>
+				<!-- basket end -->
+				<!-- locator begin -->
+				<div class="locator">
+					<span class="arrow"></span>
+					<p>上海</p>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<p>请选择您要配送的城市：</p>
+						<ul class="clearfix">
+							<li class="active">上海</li>
+							<li>福州</li>
+							<li>苏州</li>
+							<li>昆山</li>
+							<li>厦门</li>
+							<li>北京</li>
+							<li>南京</li>
+							<li>杭州</li>
+							<li>青岛</li>
+							<li>扬州</li>
+						</ul>
+					</div>
+				</div>
+				<!-- locator end -->
+			</div>
+		</div>
+		<!-- layout header end -->
+
+		<!-- layout container begin -->
+		<div class="layout-container">
+			
+			<!-- helper page begin -->
+			<div class="page helper-page" id="helperPage">
+				<div class="page-container">
+					
+					<!-- helper wrap begin -->
+					<div class="helper-wrap clearfix">
+						
+						<!-- helper menu begin -->
+						<div class="helper-menu">
+							<p class="title">INCAKE</p>
+							<div class="section section-account">
+								<ul>
+									<li><a href="delivery-range.html">配送范围</a></li>
+									<li><a href="help-center.html">帮助中心</a></li>
+									<li><a href="brand-story.html">品牌故事</a></li>
+									<li class="active"><a href="about-us.html">关于我们</a></li>
+									<li><a href="join-us.html">招贤纳士</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- helper menu end -->
+
+						<!-- helper container begin -->
+						<div class="helper-container">
+							
+							<!-- about us wrap begin -->
+							<div class="container-wrap au-wrap">
+								<div class="header">
+									<h2>关于我们<span>ABOUT&nbsp;US</span></h2>
+								</div>
+								<div class="body">
+									<!-- about us begin -->
+									<dl class="about-us">
+										<dt>INCAKE是一个可以实现个人价值的地方，在这里有着和您同样优秀的伙伴与您共同放飞梦想，实现理想，INCAKE 期待您的加入！</dt>
+										<dd>上海印克电子商务股份有限公司是一家集产品研发、物流配送、客户服务于一体的公司，以经营INCAKE品牌系列蛋糕为主要业务。作为一家朝气蓬勃的互联网企业，公司团队成员大多为85后，为整个公司带来了锐意进取、平等开明的企业文化。目前公司总部位于上海市闸北区中心地带，附近交通便捷，环境优美。</dd>
+									</dl>
+									<img src="../assets/imgs/helper/about_us.jpg"/>
+									<!-- about us end -->
+								</div>
+							</div>
+							<!-- about us wrap end -->
+
+						</div>
+						<!-- helper container end -->
+
+					</div>
+					<!-- helper wrap end -->
+
+				</div>
+			</div>
+			<!-- helper page end -->
+
+		</div>
+		<!-- layout container end -->
+
+		<!-- layout footer begin -->
+		<div class="layout-footer">
+			<div class="footer-body">
+				<div class="container">
+					<div class="logo"></div>
+					<div class="content">
+						<p class="nav clearfix">
+							<a href="javascript:;">配送范围</a><span>|</span>
+							<a href="javascript:;">帮助中心</a><span>|</span>
+							<a href="javascript:;">品牌故事</a><span>|</span>
+							<a href="javascript:;">关于我们</a><span>|</span>
+							<a href="javascript:;">招贤纳士</a>
+						</p>
+						<p class="hotline clearfix">
+							<span>客服热线：</span>
+							<span class="tel">400-921-5757</span>
+						</p>
+						<div class="third-party clearfix">
+							<a class="wechat" href="javascript:;"></a>
+							<a class="sina" href="javascript:;"></a>
+							<a class="qq" href="javascript:;"></a>
+							<a class="dianping" href="javascript:;"></a>
+						</div>
+					</div>
+					<div class="qrcode">
+						<div class="img"></div>
+						<p class="text">微信订购更方便</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					<p>
+						<span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+						<span>沪ICP备12045835</span>
+						<span>沪公网安备31010802001150</span>
+					</p>
+				</div>				
+			</div>
+		</div>
+		<!-- layout footer end -->
+
+	</div>
+	<!-- layout end -->
+
+	<!-- javscript begin -->
+	<script src="../assets/plugins/LABjs/LAB.min.js"></script>
+	<script>
+		$LAB
+		.script('../assets/plugins/polyfill/polyfill.min.js').wait()
+		.script('../assets/plugins/jquery/jquery-1.12.4.min.js').wait()
+		.script('../assets/plugins/tweenmax/TweenMax.min.js').wait()
+		.script('../assets/plugins/artTemplate/template.js').wait()
+		.script('../assets/js/layout.js').wait()
+		.script('../assets/js/helper.js');
+	</script>
+	<!-- javascript end -->
+</body>
+</html>
