@@ -32,6 +32,7 @@
             fnInitGlobalOperate();
             fnCommodityInfo();
             fnAddressInfo();
+            fnCakeCardMethod();
             fnPaymentMethod();
             fnCouponInfo();
             fnMoreInfo();
@@ -685,6 +686,50 @@
     		$popupTime.slideUp();
     	});	
     	
+    }
+    
+    // func of cakeCardMethod operate
+    function fnCakeCardMethod(){
+    	var $page = $('#settlementPage'),
+    		$cakeCardInfo = $page.find('.cakeCardInfo'),
+	        $cakeCardList = $cakeCardInfo.find('.cakeCard-list'),
+	        $listCont = $cakeCardInfo.find('.cakeCard-content'),
+	        $cardType = $listCont.find('.card-type'),
+	        $cardNumber = $cardType.find('.card-number'),
+	        $cardPwd = $cardType.find('.card-pwd'),
+	        $btnExchange = $cardType.find('.btn-exchange'),
+	        $mask =  $('#mask-list'),
+			$popCakeCard = $mask.find('.popup-cakeCard'),
+			$btnSure = $popCakeCard.find('.btn-sure');
+	        
+        // botton of exchange operate
+    	$btnExchange.on('click', function(){
+    		if ($cardNumber.val() == "") {
+    			$cardNumber.focus();
+    		} else if ($cardPwd.val() == '') {
+    			$cardPwd.focus();
+    		} else {
+    			var cardState = false;
+    			if (!cardState) {
+    				$mask.fadeIn(200, function(){
+    	    			$popCakeCard.fadeIn();
+    	    		});
+    			} else {
+    				var _html = '<li><span>'+$cardNumber.val()+'</span><a href="javascript:;" class="btn-remove">×</a></li>';
+    				$cakeCardList.append(_html);
+    			}
+    		}
+	    });
+    	
+    	// cakeCard-list item operate
+    	$cakeCardList.on('click','.btn-remove', function(){
+    		$(this).closest('li').remove();
+	    });
+    	
+    	$btnSure.on('click', function(){
+    		$popCakeCard.fadeOut();
+    		$mask.fadeOut();
+	    });
     }
     
     // func of paymentMethod operate

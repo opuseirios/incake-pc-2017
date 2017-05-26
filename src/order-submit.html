@@ -465,6 +465,27 @@
 							</div>
 							<!-- addressInfo end -->
 							
+							<!-- cake card begin -->
+							<div class="list-box cakeCardInfo">
+								<h3 class="cakeCard-info">蛋糕卡</h3>
+								<ul class="cakeCard-list clearfix">
+									<li><span>12345</span><a href="javascript:;" class="btn-remove">×</a></li>
+									<li><span>66666</span><a href="javascript:;" class="btn-remove">×</a></li>
+									<li><span>88888</span><a href="javascript:;" class="btn-remove">×</a></li>
+									<li><span>12345</span><a href="javascript:;" class="btn-remove">×</a></li>
+									<li><span>66666</span><a href="javascript:;" class="btn-remove">×</a></li>
+									<li><span>88888</span><a href="javascript:;" class="btn-remove">×</a></li>
+								</ul>
+								<div class="cakeCard-content">
+									<div class="card-type clearfix">
+										<p>请输入蛋糕卡ID的后五位：<input type="text" class="card-number"/></p>
+										<p>蛋糕卡密码：<input type="password" class="card-pwd"/></p>
+										<a href="javascript:;" class="btn-exchange">兑&nbsp;换</a>
+									</div>
+								</div>
+							</div>
+							<!-- cake card end -->
+							
 							<!-- payment method begin -->
 							<div class="list-box paymentMethod">
 								<h3 class="payment-info">支付方式</h3>
@@ -640,13 +661,21 @@
 				</div>
 				<!-- mask  begin-->
 				<div id="mask-list">
-					<div class="popup-preview">
+					<div class="popups popup-preview">
 						<p class="img-wrapper">
 							<img src="assets/imgs/basket/img_preview.jpg" />
 						</p>
 						<a href="javascript:;" class="btn-close">关闭</a>
 					</div>
-					<div class="popup-invoice">
+					<div class="popups popup-cakeCard">
+						<ul class="popup-info">
+							<li>小IN想对您说：</li>
+							<li>您的蛋糕卡不可用。</li>
+							<li>如有疑问，请联系客服<span>400&nbsp;921&nbsp;5757</span></li>
+						</ul>
+						<a href="javascript:;" class="btn-sure">确定</a>
+					</div>
+					<div class="popups popup-invoice">
 						<p class="popup-title">新增发票</p>
 						<ul class="popup-info">
 							<li class="clearfix">
@@ -678,7 +707,7 @@
 						</p>
 						<input type="hidden" class="option" value="" />
 					</div>
-					<div class="popup-address">
+					<div class="popups popup-address">
 						<p class="popup-title">新增收货地址</p>
 						<ul class="popup-info">
 							<li class="clearfix i-must">
