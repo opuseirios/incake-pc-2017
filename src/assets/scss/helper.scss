@@ -232,3 +232,24 @@
     }
 }
 
+/* brand story page */
+.bs-wrap {
+    .body {
+        padding-top: 30px;
+        img {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .brand-story {
+            width: 100%;
+            li {
+                margin-bottom: 20px;
+                line-height: 24px;
+                color: #a0a0a0;
+                text-align: justify; 
+                text-indent: 28px;
+            }
+        }
+    }
+}
