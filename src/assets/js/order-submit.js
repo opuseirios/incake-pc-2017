@@ -147,7 +147,7 @@
                 },
                 subtotal: '219',
     			discountInfo: '',
-    			imgCake: '<a href="javascript:;" class="btn-option btn-imgCake">画影</a>' 
+    			imgCake: '<a href="javascript:;" class="btn-option btn-imgCake">画影</a>'
             }]
         };
 
@@ -201,21 +201,21 @@
             $listContainer.prepend(_html);
         }
     }
-    
+
     // func of init list-container operate
     function fnInitListOperate(_list){
-    	
+
     	// maxlength setting about message
     	_list.find('.txt-popups').maxlength({
             max: 50,
             feedbackText: '还可输入{r}字'
         });
-    	
+
     	// view activity
     	_list.on('click', '.btn-act', function(e) {
     		// stop propagation
     		event.stopPropagation();
-    		
+
             var isActive = $(this).hasClass('active');
             if (!isActive) {
             	// close other popup
@@ -229,12 +229,12 @@
                 $(this).closest('.c-activity').find('.popup-act').slideUp();
             }
         });
-        
+
         // view surprise
     	_list.on('click', '.btn-surprise', function(e) {
     		// stop propagation
     		event.stopPropagation();
-    		
+
             var isActive = $(this).hasClass('active');
             if (!isActive) {
             	// close other popup
@@ -248,43 +248,43 @@
                 $(this).closest('.c-operate').find('.popup-surprise').slideUp();
             }
         });
-    	
+
     	// close popup of surprise
     	_list.on('click', '.btn-sure', function(e) {
             $(this).closest('.c-operate').find('.btn-surprise').removeClass('active');
             $(this).closest('.popup-surprise').slideUp();
         });
-    	
+
     	// preview photo
     	_list.on('click', '.btn-preview', function(e) {
     		var $mask =  $('#mask-list'),
     			$popPreview = $mask.find('.popup-preview'),
     			$imgWrapper = $popPreview.find('.img-wrapper'),
     			$btnClose = $popPreview.find('.btn-close');
-    		
+
     		// bind preview photo src
     		//var $photo = $popPreview.find('img');
     		//$photo.attr('src',$(this).find('img').attr('src'));
-    		
+
     		$imgWrapper.removeClass('imgCake');
     		$mask.fadeIn(200, function(){
     			$popPreview.fadeIn();
     		});
-			
+
 			$btnClose.on('click', function(e){
 				$popPreview.fadeOut(function(){
 					$mask.hide();
 				});
 			});
         });
-    	
+
     	//  view image cake
     	_list.on('click', '.btn-imgCake', function(e) {
     		var $mask =  $('#mask-list'),
     			$popPreview = $mask.find('.popup-preview'),
     			$imgWrapper = $popPreview.find('.img-wrapper'),
     			$btnClose = $popPreview.find('.btn-close');
-    			
+
         	// close other popup
         	$('.list-container').find('.btn-option').removeClass('active');
         	$('.list-container').find('.popups').slideUp();
@@ -293,12 +293,12 @@
             // bind preview photo src
     		//var $photo = $popPreview.find('img');
     		//$photo.attr('src',$(this).find('img').attr('src'));
-    		
+
     		$imgWrapper.addClass('imgCake');
     		$mask.fadeIn(200, function(){
     			$popPreview.fadeIn();
     		});
-			
+
 			$btnClose.on('click', function(e){
 				// view current
 	            $('.btn-imgCake').removeClass('active');
@@ -308,7 +308,7 @@
         });
 
     }
-    
+
     // init address data
     function fnInitAddress() {
         var $page = $('#settlementPage'),
@@ -359,14 +359,14 @@
         $listContainer.prepend(_html);
 
     }
-    
+
     // init couponInfo data
     function fnInitCoupon() {
         var $page = $('#settlementPage'),
         	$couponInfoBox = $page.find('.couponInfo'),
             $couponInfo = $couponInfoBox.find('.coupon-infos'),
             $cashInfo = $couponInfoBox.find('.cash-info');
-        
+
         // coupon list info
         var _data = {
     		list: [{
@@ -413,7 +413,7 @@
         $cashInfo.prepend(_html2);
 
     }
-    
+
     // init moreInfo data
     function fnInitMoreInfo() {
         var $page = $('#settlementPage'),
@@ -426,7 +426,7 @@
                 iType: '普通发票',
     			iName: '上海印克电子商务股份有限公司',
                 iContent: '蛋糕'
-               
+
             }, {
             	isDefault: 'false',
                 iType: '普通发票',
@@ -449,7 +449,7 @@
         $listContainer.prepend(_html);
 
     }
-    
+
 
     // func of init global operate
     function fnInitGlobalOperate() {
@@ -462,7 +462,7 @@
 			$moreInfo = $('.moreInfo'),
 			$iLabel = $moreInfo.find('.i-label'),
 			$popupsOther = $moreInfo.find('.popups');
-    	
+
     	$(document).click(function(e){
     		var isPopups = $(e.target).closest('div').hasClass('popups');
     		if(!isPopups){
@@ -476,20 +476,20 @@
         		if($iLabel.hasClass('active')){
         			$iLabel.removeClass('active');
         			$popupsOther.slideUp();
-        			
+
         		}
     		}
-    		
+
     	});
-    	
+
     	// init select
 		$('.select2').select2();
-		
+
 		// init datePicker
 		fnInitDatePicker();
-		
+
     }
-    
+
 	 // init datePicker
     function fnInitDatePicker() {
         var picker = new Pikaday({
@@ -505,13 +505,23 @@
             minDate: new Date(1900, 0, 1),
             maxDate: new Date(2020, 12, 31),
             yearRange: [1900, 2020],
+            disableDayFn: function(date) {
+                // 当前日期加一天
+                var now = moment().add(1, 'days');
+                var nextDate = new Date(now.year(), now.month(), now.date()).getTime();
+
+                // 如果配送时间小于nextDate 禁用选择
+                if(date.getTime() < nextDate) {
+                    return true; // 返回值为true表示禁用选择
+                }
+            },
             onSelect: function() {
             	var today = new Date(),
             		_today = today.getTime(),
             		date = new Date(this),
             		_date = date.getTime(),
             		trueDate = '';
-        		
+
             	if(_today - _date >= 0) {
             		trueDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + (today.getDate()+1);
             	} else {
@@ -521,7 +531,7 @@
             }
         });
     }
-    
+
     // func of fnCommodityInfo operate
     function fnCommodityInfo(){
     	var $page = $('#settlementPage'),
@@ -532,10 +542,10 @@
 	        $btns = $commodityInfo.find('.btns'),
 	        $btnFold = $btns.find('.btn-fold'),
 	        $count = $tips.find('#count');
-	    
+
 	    // bind commodity count
 	    $count.text($item.length);
-	    
+
 	    // set button of fold status
 	    if($item.length > 0){
 	    	$tips.hide();
@@ -553,10 +563,10 @@
 	    		$tips.hide();
 	    		$(this).removeClass('active').text('收起');
 	    	}
-	    	
+
 	    });
     }
-    
+
     // func of fnAddressInfo operate
     function fnAddressInfo(){
     	var $page = $('#settlementPage'),
@@ -580,13 +590,13 @@
 			$btnCancel = $popAddr.find('#btn-cancel'),
 			$btnConfirm = $popAddr.find('#btn-confirm'),
 			$option = $popAddr.find('#option');
-	    
+
 	    // set button of fold status
     	if($addrList.length > 0){
     		$addrLock.addClass('line-none');
     		$btns.show();
     	}
-    	
+
 	    // button of fold operate
     	$btnFold.on('click', function(){
 	    	var isActive = $(this).hasClass('active');
@@ -600,15 +610,15 @@
 	    		$addrList.slideDown();
 	    		$(this).removeClass('active').text('收起');
 	    	}
-	    	
+
 	    });
-    	
+
     	// item of address list operate
     	$listCont.on('click','.address-list li',function(){
     		var lockInfo = $lockInfo.html(),
     			selectedInfo = $(this).find('.item-info').html(),
     			isDefault = $(this).find('span').hasClass('tip-default');
-    		
+
     		$(this).remove();
     		$lockInfo.html(selectedInfo);
     		$addrList.append('<li><p class="item-info">'+lockInfo+'</p></li>');
@@ -617,9 +627,9 @@
     		} else {
     			$btnLock.hide();
     		}
-    		
+
     	});
-	
+
     	// button of add operate
     	$btnAdd.on('click', function(){
     		$mask.fadeIn(200, function(){
@@ -627,7 +637,7 @@
     			$option.val('add');
     		});
     	});
-	    
+
     	// button of edit operate
     	$btnEdit.on('click', function(){
     		$mask.fadeIn(200, function(){
@@ -635,38 +645,38 @@
     			$option.val('edit');
     		});
     	});
-    	
+
     	// button of Lock operate
     	$btnLock.on('click', function(){
     		$lockInfo.append('<span class="tip-default">默认地址</span>');
     		$addrList.find('.tip-default').remove();
     		$btnLock.hide();
     	});
-    	
+
     	// button of cancel operate
     	$btnCancel.on('click', function(){
     		$popAddr.fadeOut();
     		$mask.fadeOut();
     	});
-    	
+
     	// button of confirm operate
     	$btnConfirm.on('click', function(){
     		$popAddr.fadeOut();
     		$mask.fadeOut();
     		alert('perform action：'+$option.val());
     	});
-    	
+
     	// button of date operate
     	$btnDate.on('click', function(){
     		$deliveryTime.removeClass('b-time');
     		$popupTime.slideUp();
     	});
-    	
+
     	// button of time operate
     	$btnTime.on('click', function(){
     		// stop propagation
     		event.stopPropagation();
-    		
+
     		var isActive = $deliveryTime.hasClass('b-time');
 	    	if(!isActive){
 	    		$deliveryTime.addClass('b-time');
@@ -676,7 +686,7 @@
 	    		$popupTime.slideUp();
 	    	}
     	});
-    	
+
     	// popup-time item operate
     	$popupItem.on('click', function(){
     		$popupItem.removeClass('active');
@@ -684,10 +694,10 @@
     		$btnTime.val($(this).html());
     		$deliveryTime.removeClass('b-time');
     		$popupTime.slideUp();
-    	});	
-    	
+    	});
+
     }
-    
+
     // func of cakeCardMethod operate
     function fnCakeCardMethod(){
     	var $page = $('#settlementPage'),
@@ -701,7 +711,7 @@
 	        $mask =  $('#mask-list'),
 			$popCakeCard = $mask.find('.popup-cakeCard'),
 			$btnSure = $popCakeCard.find('.btn-sure');
-	        
+
         // botton of exchange operate
     	$btnExchange.on('click', function(){
     		if ($cardNumber.val() == "") {
@@ -720,18 +730,18 @@
     			}
     		}
 	    });
-    	
+
     	// cakeCard-list item operate
     	$cakeCardList.on('click','.btn-remove', function(){
     		$(this).closest('li').remove();
 	    });
-    	
+
     	$btnSure.on('click', function(){
     		$popCakeCard.fadeOut();
     		$mask.fadeOut();
 	    });
     }
-    
+
     // func of paymentMethod operate
     function fnPaymentMethod(){
     	var $page = $('#settlementPage'),
@@ -740,7 +750,7 @@
 	        $listItem = $paymentList.find('a'),
 	        $btnOnline = $paymentList.find('.btn-online'),
 	        $btnCOD = $paymentList.find('.btn-COD'),
-	        $btnCard = $paymentList.find('.btn-card'); 
+	        $btnCard = $paymentList.find('.btn-card');
 	        $listCont = $paymentMethod.find('.payment-content'),
 	        $onLineType = $listCont.find('.online-type'),
 	        $onLineItem = $onLineType.find('a'),
@@ -748,7 +758,7 @@
 	        $cardNumber = $cardType.find('.card-number'),
 	        $cardPwd = $cardType.find('.card-pwd'),
 	        $btnExchange = $cardType.find('.btn-exchange');
-	        
+
 	    // button of online operate
         $btnOnline.on('click', function(){
 	    	var isActive = $(this).hasClass('active');
@@ -760,7 +770,7 @@
 	    		$onLineType.slideDown();
 	    	}
 	    });
-        
+
         // button of COD operate
         $btnCOD.on('click', function(){
 	    	var isActive = $(this).hasClass('active');
@@ -771,7 +781,7 @@
 	    		$cardType.slideUp();
 	    	}
 	    });
-        
+
         // button of card operate
         $btnCard.on('click', function(){
 	    	var isActive = $(this).hasClass('active');
@@ -785,15 +795,15 @@
 				$cardNumber.focus();
 	    	}
 	    });
-        
+
         // online-type item operate
         $onLineItem.on('click', function(){
         	$onLineItem.removeClass('active');
     		$(this).addClass('active');
 	    });
-        
+
     }
-    
+
     // func of couponInfo operate
     function fnCouponInfo(){
     	var $page = $('#settlementPage'),
@@ -802,7 +812,7 @@
 	        $titleItem = $couponTitle.find('a'),
 	        $btnCoupon = $couponTitle.find('.btn-coupon'),
 	        $btnCode = $couponTitle.find('.btn-code'),
-	        $btnCash = $couponTitle.find('.btn-cash'); 
+	        $btnCash = $couponTitle.find('.btn-cash');
 	        $listCont = $couponInfo.find('.coupon-content'),
 	        $couponList = $listCont.find('.coupon-list'),
 	        $couponItem = $couponList.find('li'),
@@ -814,13 +824,13 @@
 	        $cashItem = $cashlist.find('li'),
 	        $btns = $couponInfo.find('.btns'),
 	        $btnFold = $btns.find('.btn-fold');
-	    
-	        
+
+
 	     // set button of fold status
     	if($couponItem.length > 4){
     		$couponInfo.addClass('line-none');
-    	}    
-	    
+    	}
+
 	    // button of online operate
 	    $titleItem.on('click', function(){
 	    	var isActive = $(this).hasClass('active')
@@ -844,22 +854,22 @@
 	    		}
 	    	}
 	    });
-        
+
 	    // coupon-list item operate
 	    $couponItem.on('click', function(){
 	    	$couponItem.removeClass('active');
     		$(this).addClass('active');
 	    });
-        
+
 	    // cash-list item operate
 	    $cashItem.on('click', function(){
     		$(this).addClass('active');
 	    });
-	    
+
 	    $btnFold.on('click', function(){
 	    	var isActive = $(this).hasClass('active'),
 	    		$listBox = $listCont.find('div');
-	    	
+
 		    	if(!isActive){
 		    		$listCont.find('div.active').find('li.hide').slideUp();
 		    		$(this).addClass('active').text('更多');
@@ -867,11 +877,11 @@
 		    		$listCont.find('div.active').find('li.hide').slideDown();
 		    		$(this).removeClass('active').text('收起');
 		    	}
-	    
-	    
+
+
 	    });
     }
-    
+
     // func of MoreInfo operate
     function fnMoreInfo(){
     	var $page = $('#settlementPage'),
@@ -898,13 +908,13 @@
 			$btnCancel = $popInvoice.find('.btn-cancel'),
 			$btnConfirm = $popInvoice.find('.btn-confirm'),
 			$option = $popInvoice.find('.option');
-	    
+
 	    // set button of fold status
     	if($invoiceList.length > 0){
     		$invoiceLock.addClass('line-none');
     		$btns.show();
     	}
-    	
+
 	    // button of fold operate
     	$btnFold.on('click', function(){
 	    	var isActive = $(this).hasClass('active');
@@ -918,15 +928,15 @@
 	    		$invoiceList.slideDown();
 	    		$(this).removeClass('active').text('收起');
 	    	}
-	    	
+
 	    });
-    	
+
     	// item of address list operate
     	$listCont.on('click','.invoice-list li',function(){
     		var lockInfo = $lockInfo.html(),
     			selectedInfo = $(this).find('.item-info').html(),
     			isDefault = $(this).find('span').hasClass('tip-default');
-    		
+
     		$(this).remove();
     		$lockInfo.html(selectedInfo);
     		$invoiceList.append('<li><p class="item-info">'+lockInfo+'</p></li>');
@@ -935,9 +945,9 @@
     		} else {
     			$btnLock.hide();
     		}
-    		
+
     	});
-	
+
     	// button of add operate
     	$btnAdd.on('click', function(){
     		$mask.fadeIn(200, function(){
@@ -945,7 +955,7 @@
     			$option.val('add');
     		});
     	});
-	    
+
     	// button of edit operate
     	$btnEdit.on('click', function(){
     		$mask.fadeIn(200, function(){
@@ -953,37 +963,37 @@
     			$option.val('edit');
     		});
     	});
-    	
+
     	// button of Lock operate
     	$btnLock.on('click', function(){
     		$lockInfo.append('<span class="tip-default">默认发票</span>');
     		$invoiceList.find('.tip-default').remove();
     		$btnLock.hide();
     	});
-    	
+
     	// button of cancel operate
     	$btnCancel.on('click', function(){
     		$popInvoice.fadeOut();
     		$mask.fadeOut();
     	});
-    	
+
     	// button of confirm operate
     	$btnConfirm.on('click', function(){
     		$popInvoice.fadeOut();
     		$mask.fadeOut();
     		alert('perform action：'+$option.val());
     	});
-    	
+
     	// button of birth operate
     	$btnBirth.on('click', function(){
     		// stop propagation
     		event.stopPropagation();
-    		
+
     		if($iLabel.eq(1).hasClass('active')){
     			$iLabel.eq(1).removeClass('active');
         		$popupCard.slideUp();
     		}
-    		
+
     		var isActive = $iLabel.eq(0).hasClass('active');
     		if(!isActive){
 	    		$iLabel.eq(0).addClass('active');
@@ -993,17 +1003,17 @@
 	    		$popupBirth.slideUp();
 	    	}
     	});
-    	
+
     	// button of card operate
     	$btnCard.on('click', function(){
     		// stop propagation
     		event.stopPropagation();
-    		
+
     		if($iLabel.eq(0).hasClass('active')){
     			$iLabel.eq(0).removeClass('active');
         		$popupBirth.slideUp();
     		}
-    		
+
     		var isActive = $iLabel.eq(1).hasClass('active');
     		if(!isActive){
 	    		$iLabel.eq(1).addClass('active');
@@ -1013,7 +1023,7 @@
 	    		$popupCard.slideUp();
 	    	}
     	});
-    	
+
     	// popup-card item operate
     	$popupCardItem.on('click', function(){
     		$popupCardItem.removeClass('active');
@@ -1021,8 +1031,8 @@
     		$btnCard.val($(this).html());
     		$iLabel.eq(1).removeClass('active');
     		$popupCard.slideUp();
-    	});	
-    	
+    	});
+
     	// popup-birth item operate
     	$popupBirthItem.on('click', function(){
     		$popupBirthItem.removeClass('active');
@@ -1030,16 +1040,16 @@
     		$btnBirth.val($(this).html());
     		$iLabel.eq(0).removeClass('active');
     		$popupBirth.slideUp();
-    	});	
-    	
+    	});
+
     }
-    
+
     // func of remarksInfo operate
     function fnRemarksInfo(){
     	var $page = $('#settlementPage'),
 	        $remarksInfo = $page.find('.remarksInfo'),
 	        $remarksCont = $remarksInfo.find('.remarks-content');
-	        
+
 	    // maxlength setting about remarks
     	$remarksCont.find('.txt-remarks').maxlength({
             max: 100,
