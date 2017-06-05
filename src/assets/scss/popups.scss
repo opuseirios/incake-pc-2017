@@ -62,6 +62,21 @@
             text-align: center;
             color: #fff;
         }
+        .popup-close {
+            display: block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 22px;
+            height: 22px;
+            background: {
+                image: url('../imgs/popup_close.png');
+                repeat: no-repeat;
+                size: cover;
+                position: center center;
+            }
+            cursor: pointer;
+        }
     }
     .popup-result {
         .btns {
@@ -69,7 +84,7 @@
                float: left;
                width: 50%;
                &.btn-cancel {
-                   background-color: #f2b4be;
+                   background-color: #fb657d;
                }
             }
         }

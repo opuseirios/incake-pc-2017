@@ -46,6 +46,10 @@
     		$maskList.fadeOut();
 	    });
 
+        $popups.on('click', '.popup-close', function(e) {
+            $popResult.fadeOut();
+    		$maskList.fadeOut();
+        });
     }
 
 })(window, document, jQuery);
