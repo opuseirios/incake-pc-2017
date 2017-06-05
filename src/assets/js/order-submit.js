@@ -485,13 +485,18 @@
     	// init select
 		$('.select2').select2();
 
+        // datepicker options
+        var pickerOptions = {
+            addDays: 3, // 提前下单所需天数
+            unSupportDays: [0, 2, 3, 4, 5] // 不支持下单的日期（每周中的日期） 0:周日，1:周一，2:周二，3:周三，4:周四，5:周五，6:周六
+        };
 		// init datePicker
-		fnInitDatePicker();
+		fnInitDatePicker(pickerOptions);
 
     }
 
 	 // init datePicker
-    function fnInitDatePicker() {
+    function fnInitDatePicker(options) {
         var picker = new Pikaday({
             i18n: {
                 previousMonth: '上一月',
@@ -506,13 +511,25 @@
             maxDate: new Date(2020, 12, 31),
             yearRange: [1900, 2020],
             disableDayFn: function(date) {
-                // 当前日期加一天
-                var now = moment().add(1, 'days');
+                // 当前日期加订单需要提前预定的天数
+                var days2add = options.addDays == undefined ? 1 : options.addDays + 1;
+
+                var now = moment().add(days2add, 'days');
                 var nextDate = new Date(now.year(), now.month(), now.date()).getTime();
 
                 // 如果配送时间小于nextDate 禁用选择
                 if(date.getTime() < nextDate) {
                     return true; // 返回值为true表示禁用选择
+                }
+
+                // 过滤不支持的一周中的日期
+                if(options.unSupportDays != undefined){
+                    var dayOfWeek = date.getDay();
+                    for(var i = 0, len = options.unSupportDays.length; i < len; i++) {
+                        if(options.unSupportDays[i] == dayOfWeek) {
+                            return true;
+                        }
+                    }
                 }
             },
             onSelect: function() {

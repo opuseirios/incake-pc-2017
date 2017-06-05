@@ -163,7 +163,7 @@
             h3 {
                 position: relative;
                 height: 60px;
-                padding-left: 20px;            
+                padding-left: 20px;
                 font-size: 16px;
                 line-height: 60px;
                 color: #45515e;
@@ -239,7 +239,7 @@
                     }
                     &.active:after {
                         background: url(../imgs/icons/icon_gray_arrow_up.png) no-repeat;
-                    }    
+                    }
                 }
             }
             &.commodityInfo {
@@ -260,7 +260,7 @@
             }
         }
     }
-    
+
     .list-container {
         > ul {
             position: relative;
@@ -439,8 +439,8 @@
                     ul {
                         margin: 14px 35px 0 40px;
                         li {
-                            position: relative; 
-                            padding-left: 15px; 
+                            position: relative;
+                            padding-left: 15px;
                             &:before {
                                 position: absolute;
                                 top: 0;
@@ -519,7 +519,7 @@
             }
         }
     }
-    
+
     .address-container {
         p {
             float: left;
@@ -691,10 +691,10 @@
                     &.active,&:hover {
                         background-color: #e9546b;
                         color: #fff;
-                    } 
+                    }
                     &.last {
                         border: none;
-                    }   
+                    }
                 }
             }
         }
@@ -736,7 +736,7 @@
                 float: left;
                 margin: 0 28px 28px 0;
                 a {
-                    display: block; 
+                    display: block;
                     width: 220px;
                     height: 70px;
                     border: 1px solid #c8c8c8;
@@ -770,9 +770,9 @@
                     text-indent: 10px;
                     &.card-number {
                         margin-right: 66px;
-                    }    
+                    }
                 }
-                
+
             }
             a.btn-exchange {
                 float: left;
@@ -838,9 +838,9 @@
                     text-indent: 10px;
                     &.card-number {
                         margin-right: 66px;
-                    }    
+                    }
                 }
-                
+
             }
             a.btn-exchange {
                 float: left;
@@ -969,11 +969,19 @@
                     line-height: 42px;
                     color: #fff;
                 }
+                i {
+                    font-style: normal;
+                    &.remove-code {
+                        margin-left: 20px;
+                        padding: 10px;
+                        cursor: pointer;
+                    }
+                }
             }
         }
         .cash-info {
             position: relative;
-            display: none; 
+            display: none;
             &:after {
                 position: absolute;
                 top: 24px;
@@ -1139,7 +1147,7 @@
             }
         }
     }
-    
+
     .info-other {
         position: relative;
         height: 32px;
@@ -1201,10 +1209,10 @@
                     &.active,&:hover {
                         background-color: #e9546b;
                         color: #fff;
-                    } 
+                    }
                     &.last {
                         border: none;
-                    }   
+                    }
                 }
             }
         }
@@ -1212,7 +1220,7 @@
             left: 310px;
         }
     }
-        
+
     .remarks-content {
         width: 432px;
         padding-bottom: 40px;
@@ -1285,7 +1293,7 @@
                 color: #fff;
             }
         }
-    }       
+    }
 }
 #mask-list {
     position: fixed;
