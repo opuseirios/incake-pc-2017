@@ -533,7 +533,7 @@
                 width: 190px;
                 height: 30px;
                 border-radius: 15px;
-                background-color: #f2b4be;
+                background-color: #e9546b;
                 color: #fff;
                 line-height: 30px;
                 text-align: center;
@@ -571,7 +571,7 @@
                     }
                 }
                 &.active {
-                    background-color: #e9546b;
+                    background-color: #f5778b;
                     &:after {
                         background-image: url('../imgs/icons/icon_surprise_arrow_up.png');
                     }
@@ -1488,6 +1488,21 @@
         background-color: #fff;
         box-shadow: 1px 1px 5px 0 #e9546b;
         overflow: hidden;
+    }
+    .tipmsg-close {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 22px;
+        height: 22px;
+        background: {
+            image: url('../imgs/popup_close.png');
+            repeat: no-repeat;
+            size: cover;
+            position: center center;
+        }
+        cursor: pointer;
     }
     .container-body {
         width: 380px;

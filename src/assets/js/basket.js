@@ -421,6 +421,11 @@
         });
 
         // Close tipmsg
+        $tipmsg.on('click', '.tipmsg-close', function(e) {
+            $tipmsg.hide();
+        });
+
+        // ensure tipmsg
         $tipmsg.on('click', '.container-footer a', function(e) {
             $tipmsg.hide();
         });
@@ -680,7 +685,7 @@
                                 URL.revokeObjectURL(blobURL);
                             }).cropper('reset').cropper('replace', blobURL);
                             $inputPreview.val('');
-                            // hide imgpreview 
+                            // hide imgpreview
                             $imgPreview.hide();
                             // show imgcropper container
                             $imgCropper.show();
