@@ -88,21 +88,21 @@
 		position: relative;
 		z-index: 999;
 		width: 270px;
-		height: 204px;
+		height: 172px;
 		background: {
 			image: url('../imgs/index/section_title_bg.png');
 			repeat: no-repeat;
 			size: cover;
 			position: center center;
 		}
-		
+
 		p {
 			color: #e9546b;
 			text-align: center;
 		}
 		.cn {
 			height: 26px;
-			padding-top: 80px;
+			padding-top: 68px;
 			line-height: 26px;
 			font-size: 26px;
 		}
@@ -129,7 +129,7 @@
 
 	.section-title {
 		position: absolute;
-		top: -27px;
+		top: -29px;
 		left: 50%;
 		margin-left: -135px;
 	}
@@ -148,7 +148,8 @@
 			left: 0;
 		}
 		&.flower {
-			top:257px;
+			height: 223px;
+			top: 197px;
 			left: 50%;
 			margin-left: -135px;
 		}
@@ -188,7 +189,7 @@
 			font-size: 16px;
 			color: #fff;
 			background-color: rgba(233, 84, 107, 0.8);
-		}		
+		}
 
 		&:hover .text {
 			color: #e9546b;
@@ -199,13 +200,13 @@
 
 .ad-container {
 	width: 100%;
-	border-top: 1px solid #eaeaea;
+	border-top: 2px solid #eaeaea;
 	border-bottom: 2px solid #eaeaea;
 
 	.ad-wrapper {
 		position: relative;
 		width: 1200px;
-		height: 560px;
+		height: 460px;
 		margin: 0 auto;
 
 		.ad {
@@ -214,13 +215,13 @@
 			top: 0;
 			left: 50%;
 			width: 1920px;
-			height: 560px;
+			height: 460px;
 			margin-left: -960px;
 			overflow: hidden;
 
 			img {
 				width: 1920px;
-				height: 560px;
+				height: 460px;
 			}
 		}
 	}
