@@ -6,7 +6,7 @@
 	width: 1200px;
 	padding: 80px 0 160px;
 	margin: 0 auto;
-    
+
     .login-slogan {
         float: left;
         width: 572px;
@@ -14,25 +14,25 @@
         background: url(../imgs/login/login-slogan.png) no-repeat;
         margin: 86px 0 0 48px;
     }
-    
+
     .login-mode {
         position: relative;
         float: left;
         width: 579px;
         height: 520px;
         border-left: 1px solid #c8c8c8;
-        
+
         ul {
             width: 392px;
             padding: 54px 0 0 98px;
-            
+
             li.login-title {
                 font-size: 40px;
                 line-height: 32px;
                 color: #d6dce2;
-                text-align: center;  
+                text-align: center;
             }
-            
+
             li{
                 input {
                     width: 390px;
@@ -47,12 +47,13 @@
                     text-indent: 1em;
                     outline:none;
                 }
-                
+
                 input:focus {
                     border-color: #e9546a;
                 }
-                
+
                 &.other-option {
+					height: 44px;
                     margin-left: 10px;
                     a {
                         display: inline-block;
@@ -60,13 +61,13 @@
                         font-size: 14px;
                         line-height: 44px;
                     }
-                    
+
                     .automatic-logon {
                         position: relative;
                         float: left;
                         padding-left: 24px;
                     }
-                    
+
                     .automatic-logon:after {
                         position: absolute;
                         top: 14px;
@@ -78,29 +79,29 @@
                         background: url(../imgs/icons/icon_radio_rect.png) no-repeat;
                         background-size: contain;
                     }
-                    
+
                     .automatic-logon.active:after {
                         background: url(../imgs/icons/icon_radio_rect_checked.png) no-repeat;
                         background-size: contain;
                     }
-                    
+
                     .forget-pwd {
                         float: right;
                         margin-right: 10px;
                         text-align: right;
                         color: #1478be;
                     }
-                    
+
                     .btn-reg-voice {
                         color: #1478be;
                     }
-                    
+
                     .forget-pwd:hover,.btn-reg-voice:hover {
                         text-decoration: underline;
                     }
-                    
+
                 }
-                
+
                 .btn-login {
                     display: block;
                     width: 390px;
@@ -111,24 +112,25 @@
                     margin-bottom: 4px;
                     font-size: 20px;
                     line-height: 52px;
-                    color: #45515e;
+                    color: #fff;
+					background-color: #45515f;
                     text-align: center;
                 }
-                
+
                 .reg-tip,.mode-change {
                     height: 30px;
                     margin-left: 10px;
                     font-size: 14px;
                     line-height: 30px;
                 }
-                
+
                 .reg-tip {
                     color: #e9546b;
                 }
-                
+
                 .mode-change {
                     color: #505050;
-                    
+
                     a{
                         color: #1478be;
                     }
@@ -138,7 +140,7 @@
                 }
             }
         }
-     
+
         ul.mode-phone {
             display: none;
             li{
@@ -166,56 +168,46 @@
                 }
             }
         }
-        
+
         .mode-tip {
             position: absolute;
             top: -26px;
             right: 14px;
-            
+
             span {
                 float: left;
                 display: inline-block;
                 width: 105px;
                 height: 30px;
-                
+
                 img {
                     margin-top: 6px;
                 }
             }
-            
+
             a {
                 float: right;
                 display: inline-block;
                 width: 76px;
                 height: 76px;
                 margin-left: 5px;
-                
+
                 &.btn-mode-phone {
-                    background: url(../imgs/login/mode-phone-icon.png) no-repeat;
-                    background-size: contain;
-                }
-                
-                &.btn-mode-number {
-                    background: url(../imgs/login/mode-number-icon.png) no-repeat;
-                    background-size: contain;
-                }
-                
-                &.btn-mode-phone:hover {
                     background: url(../imgs/login/mode-phone-icon2.png) no-repeat;
                     background-size: contain;
                 }
-                
-                &.btn-mode-number:hover {
+
+                &.btn-mode-number {
                     background: url(../imgs/login/mode-number-icon2.png) no-repeat;
                     background-size: contain;
                 }
             }
-            
+
         }
-        
+
         .mode-tip.tip-number {
             display: none;
         }
     }
-    
+
 }
