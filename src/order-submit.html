@@ -589,7 +589,7 @@
 												{{if item.isDefault == 'true'}}
 												<div class="invoice-lock clearfix">
 													<p class="lock-label">发票：</p>
-													<p class="lock-info"><span class="i-type">{{item.iType}}</span><span class="i-name">{{item.iName}}</span><span class="i-content">{{item.iContent}}</span><span class="tip-default">默认发票</span></p>
+													<p class="lock-info"><span class="i-type">{{item.iType}}</span><span class="i-name">{{item.iName}}</span><span class="i-content">{{item.iContent}}</span><span class="i-code">{{item.iCode}}</span><span class="tip-default">默认发票</span></p>
 													<a href="javascript:;" class="btn-lock">设为默认发票</a>
 													<a href="javascript:;" class="btn-edit">编辑</a>
 													<a href="javascript:;" class="btn-add">新增发票</a>
@@ -597,7 +597,7 @@
 												<ul class="invoice-list">
 												{{else}}
 												<li>
-													<p class="item-info"><span class="i-type">{{item.iType}}</span><span class="i-name">{{item.iName}}</span><span class="i-content">{{item.iContent}}</span></p>
+													<p class="item-info"><span class="i-type">{{item.iType}}</span><span class="i-name">{{item.iName}}</span><span class="i-content">{{item.iContent}}</span><span class="i-code">{{item.iCode}}</span></p>
 												</li>
 												{{/if}}
 											{{/each}}
@@ -605,7 +605,7 @@
 										{{else}}
 										<div class="invoice-lock clearfix">
 											<p class="lock-label">发票：</p>
-											<p class="lock-info"><span class="i-type">{{list[0].iType}}</span><span class="i-name">{{list[0].iName}}</span><span class="i-content">{{list[0].iContent}}</span><span class="tip-default">默认发票</span></p>
+											<p class="lock-info"><span class="i-type">{{list[0].iType}}</span><span class="i-name">{{list[0].iName}}</span><span class="i-content">{{list[0].iContent}}</span><span class="i-code">{{list[0].iCode}}</span><span class="tip-default">默认发票</span></p>
 											<a href="javascript:;" class="btn-lock">设为默认发票</a>
 											<a href="javascript:;" class="btn-edit">编辑</a>
 											<a href="javascript:;" class="btn-add">新增发票</a>
@@ -693,6 +693,10 @@
 							<li class="company-name i-must clearfix">
 								<p class="label">公司名称：</p>
 								<input type="text" class="invoice-name" placeholder="请输入公司名称" />
+							</li>
+							<li class="company-code i-must clearfix">
+								<p class="label">&nbsp;</p>
+								<input type="text" class="invoice-code" placeholder="请输入纳税人识别号" />
 							</li>
 							<li class="clearfix i-must">
 								<p class="label">发票内容：</p>
