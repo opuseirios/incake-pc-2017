@@ -141,14 +141,14 @@
 
 		<!-- layout container begin -->
 		<div class="layout-container">
-			
+
 			<!-- ucenter page begin -->
 			<div class="page ucenter-page" id="ucenterPage">
 				<div class="page-container">
-					
+
 					<!-- ucenter wrap begin -->
 					<div class="ucenter-wrap clearfix">
-						
+
 						<!-- ucenter menu begin -->
 						<div class="uc-menu">
 							<p class="title">我的INCAKE</p>
@@ -185,7 +185,7 @@
 
 						<!-- ucenter container begin -->
 						<div class="uc-container">
-							
+
 							<!-- invoice wrap begin -->
 							<div class="container-wrap invoice-wrap">
 								<div class="header">
@@ -212,6 +212,7 @@
 														<div class="vcenter-child">
 															<p class="hType">{{item.header.hType}}</p>
 															<p class="hName">{{item.header.hName}}</p>
+															<p class="hCode">{{item.header.hCode}}</p>
 														</div>
 													</li>
 													<li class="i-content">{{item.content}}</li>
@@ -240,7 +241,7 @@
 								</div>
 							</div>
 							<!-- invoice wrap end -->
-							
+
 							<!-- mask begin -->
 							<div id="mask">
 								<div class="popup-content">
@@ -261,6 +262,10 @@
 												<p class="name">&nbsp;</p>
 												<input type="text" class="invoice-name" placeholder="请输入公司名称" />
 											</li>
+											<li class="company-code clearfix">
+												<p class="name">&nbsp;</p>
+												<input type="text" class="invoice-code" placeholder="请输入纳税人识别号" />
+											</li>
 											<li class="clearfix">
 												<p class="name">发票内容</p>
 												<select class="select2" id="invoice_content">
@@ -277,7 +282,7 @@
 								</div>
 							</div>
 							<!-- mask end -->
-							
+
 						</div>
 						<!-- ucenter container end -->
 
@@ -328,7 +333,7 @@
 						<span>沪ICP备12045835</span>
 						<span>沪公网安备31010802001150</span>
 					</p>
-				</div>				
+				</div>
 			</div>
 		</div>
 		<!-- layout footer end -->
