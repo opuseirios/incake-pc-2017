@@ -140,7 +140,7 @@
 
 		<!-- layout container begin -->
 		<div class="layout-container">
-			
+
 			<!-- list page begin -->
 			<div class="page list-page" id="listPage">
 				<div class="page-container">
@@ -173,7 +173,7 @@
 					</ul>
 					<ul class="list-contents clearfix" id="cakeList"></ul>
 					<script id="tplCakeList" type="text/html">
-						{{if diy.length > 0}}
+						<!-- {{if diy.length > 0}}
 						{{each diy as item i}}
 							<li class="diy">
 								<div class="img">
@@ -182,10 +182,10 @@
 								<a href="{{item.url}}" class="diy-immediately">立即定制 >></a>
 							</li>
 						{{/each}}
-						{{/if}}
+						{{/if}} -->
 						{{if list.length > 0}}
 							{{each list as item i}}
-							{{if i%4 === 1}}
+							{{if i%4 === 3}}
 							<li class="normal last-col">
 							{{else}}
 							<li class="normal">
@@ -291,7 +291,7 @@
 						<span>沪ICP备12045835</span>
 						<span>沪公网安备31010802001150</span>
 					</p>
-				</div>				
+				</div>
 			</div>
 		</div>
 		<!-- layout footer end -->
