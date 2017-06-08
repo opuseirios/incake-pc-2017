@@ -1456,7 +1456,8 @@
                         right: 4px;
                     }
                 }
-                .invoice-name {
+                .invoice-name,
+                .invoice-code {
                     position: relative;
                     float: left;
                     width: 380px;
@@ -1477,7 +1478,8 @@
                     color: #e9546b;
                     font-weight: bold;
                 }
-                &.company-name:before {
+                &.company-name:before,
+                &.company-code:before {
                     right: -10px;
                 }
             }

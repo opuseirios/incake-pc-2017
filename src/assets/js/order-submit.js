@@ -423,25 +423,28 @@
         var _data = {
     		list: [{
     			isDefault: 'true',
-                iType: '普通发票',
+                iType: '公司',
     			iName: '上海印克电子商务股份有限公司',
-                iContent: '蛋糕'
+                iContent: '蛋糕',
+                iCode: '1234567890'
 
             }, {
             	isDefault: 'false',
-                iType: '普通发票',
+                iType: '公司',
     			iName: '上海印克电子商务股份有限公司福州分公司',
-                iContent: '食品'
+                iContent: '食品',
+                iCode: '0000000000'
             }, {
             	isDefault: 'false',
-                iType: '普通发票',
-    			iName: '上海印克电子商务股份有限公司厦门分公司',
+                iType: '个人',
+    			iName: '',
                 iContent: '蛋糕'
             }, {
             	isDefault: 'false',
-                iType: '普通发票',
+                iType: '公司',
     			iName: '上海印克电子商务股份有限公司青岛分公司',
-                iContent: '食品'
+                iContent: '食品',
+                iCode: '12222222890'
             }]
         };
 
@@ -922,6 +925,9 @@
 	        $popupCardItem = $popupCard.find('li'),
 	        $mask =  $('#mask-list'),
 			$popInvoice = $mask.find('.popup-invoice'),
+			$popTitle = $popInvoice.find('.popup-title'),
+			$companyName = $popInvoice.find('.company-name'),
+			$companyCode = $popInvoice.find('.company-code'), 
 			$btnCancel = $popInvoice.find('.btn-cancel'),
 			$btnConfirm = $popInvoice.find('.btn-confirm'),
 			$option = $popInvoice.find('.option');
@@ -967,6 +973,11 @@
 
     	// button of add operate
     	$btnAdd.on('click', function(){
+    		// 格式化弹窗内容
+			fnClearInvoice();
+    		$popTitle.html('添加发票信息');
+    		$companyName.hide();
+			$companyCode.hide();
     		$mask.fadeIn(200, function(){
     			$popInvoice.fadeIn();
     			$option.val('add');
@@ -975,6 +986,32 @@
 
     	// button of edit operate
     	$btnEdit.on('click', function(){
+    		// 格式化弹窗内容
+			fnClearInvoice();
+			
+    		var $item = $(this).closest('.invoice-lock'),
+				type = $item.find('.i-type').text(),
+				content = $item.find('.i-content').text(),
+				$select2Type = $('#invoice_type').select2(),
+				$select2Content = $('#invoice_content').select2();
+    		
+    		$popTitle.html('修改发票信息');
+	
+			$select2Type.val(type).trigger('change');
+			$select2Content.val(content).trigger('change');
+	
+			if(type=='个人'){
+				$companyName.hide();
+				$companyCode.hide();
+			}else{
+				var name = $item.find('.i-name').text();
+				var code = $item.find('.i-code').text();
+				$('.invoice-name').val(name);
+				$('.invoice-code').val(code);
+				$companyName.show();
+				$companyCode.show();
+			}
+    		
     		$mask.fadeIn(200, function(){
     			$popInvoice.fadeIn();
     			$option.val('edit');
@@ -1000,6 +1037,17 @@
     		$mask.fadeOut();
     		alert('perform action：'+$option.val());
     	});
+    	
+    	// 切换发票抬头
+		$('#invoice_type').on('select2:select', function(e) {
+			if(e.params.data.text == '公司') {
+				$companyName.show();
+				$companyCode.show();
+			} else {
+				$companyName.hide();
+				$companyCode.hide();
+			}
+		});
 
     	// button of birth operate
     	$btnBirth.on('click', function(){
@@ -1060,6 +1108,18 @@
     	});
 
     }
+    
+    // 格式化弹窗内容
+	function fnClearInvoice(){
+		var $popupInvoice = $('.popup-invoice'),
+			$select2Type = $('#invoice_type').select2(),
+			$select2Content = $('#invoice_content').select2();
+
+		$select2Type.val('个人').trigger('change');
+		$select2Content.val('蛋糕').trigger('change');
+		$popupInvoice.find('.invoice-name').val('');
+		$popupInvoice.find('.invoice-code').val('');
+	}
 
     // func of remarksInfo operate
     function fnRemarksInfo(){
