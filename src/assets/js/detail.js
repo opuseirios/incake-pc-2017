@@ -155,7 +155,7 @@
             zoomHeight: 540,
             zoomType: 'reverse',
             lens: true,
-            preloadImages: true,
+            preloadImages: false,
             alwaysOn: false,
             title: false,
             showEffect: 'fadein',
