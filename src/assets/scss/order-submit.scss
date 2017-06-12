@@ -258,6 +258,9 @@
                     border-color: #45515e;
                 }
             }
+            &.moreInfo {
+                padding-bottom: 30px;
+            }
         }
     }
 
@@ -1150,16 +1153,18 @@
 
     .info-other {
         position: relative;
-        height: 32px;
-        padding: 28px 20px 36px;
+        // height: 32px;
+        padding: 30px 20px 0;
         p {
             position: relative;
             float: left;
             height: 32px;
+            width: 60px;
             margin-right: 10px;
             line-height: 32px;
             font-weight: bold;
             color: #45515e;
+            text-align: right;
             &:before {
                 position: absolute;
                 top: 12px;
@@ -1172,9 +1177,6 @@
             }
             &.active:before {
                 background: url(../imgs/icons/icon_arrow_up_gray.png) no-repeat;
-            }
-            &.label-r:before {
-                left: 174px;
             }
         }
         input {
@@ -1190,10 +1192,18 @@
             text-indent: 12px;
             cursor: pointer;
         }
+        input[type=text] {
+            width: 430px;
+            margin-right: 0;
+            cursor: default;
+        }
+        input.txt-birth {
+            display: none;
+        }
         .popup-birth, .popup-card {
             position: absolute;
             top: 59px;
-            left: 86px;
+            left: 90px;
             display: none;
             width: 140px;
             background-color: #fff;
@@ -1216,8 +1226,35 @@
                 }
             }
         }
-        .popup-card {
-            left: 310px;
+        .card-content {
+            display: none;
+            float: left;
+            width: 432px;
+            .txt-card{
+                width: 410px;
+                height: 80px;
+                padding: 10px;
+                outline: none;
+                border: 1px solid #e6e6e6;
+                border-radius: 2px;
+                resize: none;
+                line-height: 20px;
+                &.maxlength-full {
+                    background-color: #fee;
+                }
+            }
+            .maxlength-feedback {
+                display: block;
+                height: 28px;
+                margin-left: 0;
+                font-size: 14px;
+                line-height: 28px;
+                text-align: right;
+                color: #c8c8c8;
+            }
+            .maxlength-full {
+                background-color: transparent;
+            }
         }
     }
 

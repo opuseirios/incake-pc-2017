@@ -927,7 +927,7 @@
 			$popInvoice = $mask.find('.popup-invoice'),
 			$popTitle = $popInvoice.find('.popup-title'),
 			$companyName = $popInvoice.find('.company-name'),
-			$companyCode = $popInvoice.find('.company-code'), 
+			$companyCode = $popInvoice.find('.company-code'),
 			$btnCancel = $popInvoice.find('.btn-cancel'),
 			$btnConfirm = $popInvoice.find('.btn-confirm'),
 			$option = $popInvoice.find('.option');
@@ -988,18 +988,18 @@
     	$btnEdit.on('click', function(){
     		// 格式化弹窗内容
 			fnClearInvoice();
-			
+
     		var $item = $(this).closest('.invoice-lock'),
 				type = $item.find('.i-type').text(),
 				content = $item.find('.i-content').text(),
 				$select2Type = $('#invoice_type').select2(),
 				$select2Content = $('#invoice_content').select2();
-    		
+
     		$popTitle.html('修改发票信息');
-	
+
 			$select2Type.val(type).trigger('change');
 			$select2Content.val(content).trigger('change');
-	
+
 			if(type=='个人'){
 				$companyName.hide();
 				$companyCode.hide();
@@ -1011,7 +1011,7 @@
 				$companyName.show();
 				$companyCode.show();
 			}
-    		
+
     		$mask.fadeIn(200, function(){
     			$popInvoice.fadeIn();
     			$option.val('edit');
@@ -1037,7 +1037,7 @@
     		$mask.fadeOut();
     		alert('perform action：'+$option.val());
     	});
-    	
+
     	// 切换发票抬头
 		$('#invoice_type').on('select2:select', function(e) {
 			if(e.params.data.text == '公司') {
@@ -1069,6 +1069,12 @@
 	    	}
     	});
 
+        // maxlength setting about remarks
+    	$moreInfo.find('.txt-card').maxlength({
+            max: 200,
+            feedbackText: '还可输入{r}字'
+        });
+
     	// button of card operate
     	$btnCard.on('click', function(){
     		// stop propagation
@@ -1096,6 +1102,12 @@
     		$btnCard.val($(this).html());
     		$iLabel.eq(1).removeClass('active');
     		$popupCard.slideUp();
+
+            if($(this).text().trim() == '生日') {
+                $btnCard.siblings('.card-content').show();
+            } else {
+                $btnCard.siblings('.card-content').hide();
+            }
     	});
 
     	// popup-birth item operate
@@ -1105,10 +1117,16 @@
     		$btnBirth.val($(this).html());
     		$iLabel.eq(0).removeClass('active');
     		$popupBirth.slideUp();
+
+            if($(this).text().trim() == '自定义') {
+                $btnBirth.siblings('.txt-birth').show();
+            } else {
+                $btnBirth.siblings('.txt-birth').hide();
+            }
     	});
 
     }
-    
+
     // 格式化弹窗内容
 	function fnClearInvoice(){
 		var $popupInvoice = $('.popup-invoice'),
