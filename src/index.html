@@ -254,30 +254,40 @@
 											<div class="spec">
 												<a href="javascript:;" class="spec-close"></a>
 												<div class="spec-switcher">
+													{{if item.specs.sc.length > 0}}
 													<ul class="clearfix">
 														<li class="active">惊喜款</li>
 														<li>常规款</li>
 													</ul>
+													{{else}}
+													<ul class="clearfix no-sc">
+														<li class="active">常规款</li>
+													</ul>
+													{{/if}}
 												</div>
 												<div class="spec-container">
 													<div class="spec-wrapper clearfix">
+														{{if item.specs.sc.length > 0}}
 														<div class="spec-box">
 															<ul class="pound-list clearfix">
-																<li class="pound-item active" data-comment="14CM*14CM*4.5CM≈6寸，约510g*||*免费赠送5份餐具*||*适合2~3人食用">1.5磅</li>
-																<li class="pound-item" data-comment="17.5CM*17.5CM*4.5CM≈8寸，约1.0kg*||*免费赠送10份餐具*||*适合7~8人食用">2.5磅</li>
-																<li class="pound-item" data-comment="23CM*23CM*4.5CM≈12寸，约1.5kg*||*免费赠送15份餐具*||*适合11~12人食用">3.5磅</li>
-																<li class="pound-item" data-comment="30CM*30CM*4.5CM≈14寸，约2.4kg*||*免费赠送20份餐具*||*适合15~20人食用">5.5磅</li>
+															{{each item.specs.sc as sitem sidx}}
+																{{if sidx === 0}}
+																<li class="pound-item active" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
+																{{else}}
+																<li class="pound-item" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
+																{{/if}}
+															{{/each}}
 															</ul>
 															<ul class="comment-list">
-																<li class="comment-item">14CM*14CM*4.5CM≈6寸，约510g</li>
-																<li class="comment-item">免费赠送5份餐具</li>
-																<li class="comment-item">适合2~3人食用</li>
+															{{each item.specs.sc[0].comment as comment cidx}}
+																<li class="comment-item">{{comment}}</li>
+															{{/each}}
 															</ul>
 															<div class="numbers clearfix">
 																<p class="title">数量：</p>
 																<div class="content clearfix">
 																	<a href="javascript:;" class="num-minus"></a>
-																	<input type="text" class="txt-num" value="1">
+																	<input type="text" class="txt-num" value="1" readonly="readonly">
 																	<a href="javascript:;" class="num-add"></a>
 																</div>
 															</div>
@@ -286,23 +296,28 @@
 																<a href="javascript:;" class="operate operate-join-basket">加入购物车</a>
 															</div>
 														</div>
+														{{/if}}
+														{{if item.specs.regular.length > 0}}
 														<div class="spec-box">
 															<ul class="pound-list clearfix">
-																<li class="pound-item active" data-comment="14CM*14CM*4.5CM≈6寸，约510g*||*免费赠送5份餐具*||*适合2~3人食用">1.5磅</li>
-																<li class="pound-item" data-comment="17.5CM*17.5CM*4.5CM≈8寸，约1.0kg*||*免费赠送10份餐具*||*适合7~8人食用">2.5磅</li>
-																<li class="pound-item" data-comment="23CM*23CM*4.5CM≈12寸，约1.5kg*||*免费赠送15份餐具*||*适合11~12人食用">3.5磅</li>
-																<li class="pound-item" data-comment="30CM*30CM*4.5CM≈14寸，约2.4kg*||*免费赠送20份餐具*||*适合15~20人食用">5.5磅</li>
+															{{each item.specs.regular as ritem ridx}}
+																{{if ridx === 0}}
+																<li class="pound-item active" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
+																{{else}}
+																<li class="pound-item" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
+																{{/if}}
+															{{/each}}
 															</ul>
 															<ul class="comment-list">
-																<li class="comment-item">14CM*14CM*4.5CM≈6寸，约510g</li>
-																<li class="comment-item">免费赠送5份餐具</li>
-																<li class="comment-item">适合2~3人食用</li>
+															{{each item.specs.regular[0].comment as comment cidx}}
+																<li class="comment-item">{{comment}}</li>
+															{{/each}}
 															</ul>
 															<div class="numbers clearfix">
 																<p class="title">数量：</p>
 																<div class="content clearfix">
 																	<a href="javascript:;" class="num-minus"></a>
-																	<input type="text" class="txt-num" value="1">
+																	<input type="text" class="txt-num" value="1" readonly="readonly">
 																	<a href="javascript:;" class="num-add"></a>
 																</div>
 															</div>
@@ -311,6 +326,7 @@
 																<a href="javascript:;" class="operate operate-join-basket">加入购物车</a>
 															</div>
 														</div>
+														{{/if}}
 													</div>
 												</div>
 											</div>

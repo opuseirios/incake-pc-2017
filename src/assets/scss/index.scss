@@ -330,10 +330,14 @@
 						margin: 0 auto;
 
 						ul {
-							width: 100%;
+							width: 140px;
+							margin: 0 auto;
 							background-color: #ccc;
 							border-radius: 5px;
 							overflow: hidden;
+							&.no-sc {
+								width: 70px;
+							}
 						}
 						li {
 							display: inline-block;
