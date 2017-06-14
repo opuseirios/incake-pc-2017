@@ -13,7 +13,9 @@
 
 	function fnInitPortal() {
 		var $header = $('#layoutHeader'),
-			$portal = $header.find('.portal');
+			$portal = $header.find('.portal'),
+			$oLocator = $header.find('.locator'),
+			$oBasket = $header.find('.basket');
 
 		$portal.on('click', '.info', function(e) {
 			if(!$(this).hasClass('active')) {
@@ -21,6 +23,16 @@
 					.addClass('active')
 					.next('.plist')
 					.slideDown();
+
+				// 查看城市定位是否展开
+				if($oLocator.hasClass('active')) {
+					$oLocator.find('>p').trigger('click');
+				}
+
+				// 购物篮下拉列表是否展开，如果展开进行收缩
+				if($oBasket.hasClass('active')) {
+					$oBasket.find('.view').trigger('click');
+				}
 			} else {
 				$(this)
 					.removeClass('active')
@@ -33,6 +45,7 @@
 	function fnInitBasket() {
 
 		var $oHeader = $('#layoutHeader'),
+			$portal = $oHeader.find('.portal'),
 			$oBasket = $oHeader.find('.basket'),
 			$oLocator = $oHeader.find('.locator'),
 			$oView = $oBasket.find('.view'),
@@ -46,9 +59,14 @@
 				$oContent.slideDown();
 				$oBasket.addClass('active');
 
-				// 查看城市定位是否展开
+				// 查看城市定位是否展开，如果展开进行收缩
 				if($oLocator.hasClass('active')) {
 					$oLocator.find('>p').trigger('click');
+				}
+
+				// 查看个人信息是否展开，如果展开进行收缩
+				if($portal.find('.info').hasClass('active')) {
+					$portal.find('.info').trigger('click');
 				}
 			} else {
 				$oArrow.removeClass('active');
