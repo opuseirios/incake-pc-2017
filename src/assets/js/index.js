@@ -604,16 +604,18 @@
                     }
                 }
             ]
+
         };
         var _html = template('tplBestChoice', _data);
         $oBestChoice.html(_html);
 
-        handle4JoinBasket($oBestChoice);
+        handle4JoinBasket();
     }
 
     // 加入购物车处理函数
-    function handle4JoinBasket($cakelist) {
-        var tl = new TimelineLite();
+    function handle4JoinBasket() {
+		var $cakelist = $('#bestChoice'),
+        	tl = new TimelineLite();
 
         // 加入购物车icon点击事件
         $cakelist.on('click', '.join-basket', function(e) {
@@ -633,7 +635,7 @@
         });
 
         // 规格切换
-        $cakelist.find('.spec-switcher').on('click', 'li', function(e) {
+        $cakelist.on('click', '.spec-switcher li', function(e) {
             var $li = $(this).closest('ul').find('li'),
                 wrapperDom = $(this).closest('.spec-switcher').next('.spec-container').find('.spec-wrapper').eq(0),
                 idx = $(this).index();

@@ -198,14 +198,95 @@
 							{{else}}
 							<li class="normal">
 							{{/if}}
-								<a href="{{item.link}}" class="img">
-									<img src="{{item.imgUrl}}" alt="">
-									{{if item.favor}}
-									<span class="favor selected"></span>
-									{{else}}
-									<span class="favor"></span>
-									{{/if}}
-								</a>
+								<div class="img">
+									<a href="{{item.link}}" class="link">
+										<img src="{{item.imgUrl}}" alt="">
+										{{if item.favor}}
+										<span class="favor selected"></span>
+										{{else}}
+										<span class="favor"></span>
+										{{/if}}
+									</a>
+									<div class="spec">
+										<a href="javascript:;" class="spec-close"></a>
+										<div class="spec-switcher">
+											{{if item.specs.sc.length > 0}}
+											<ul class="clearfix">
+												<li class="active">惊喜款</li>
+												<li>常规款</li>
+											</ul>
+											{{else}}
+											<ul class="clearfix no-sc">
+												<li class="active">常规款</li>
+											</ul>
+											{{/if}}
+										</div>
+										<div class="spec-container">
+											<div class="spec-wrapper clearfix">
+												{{if item.specs.sc.length > 0}}
+												<div class="spec-box">
+													<ul class="pound-list clearfix">
+													{{each item.specs.sc as sitem sidx}}
+														{{if sidx === 0}}
+														<li class="pound-item active" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
+														{{else}}
+														<li class="pound-item" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
+														{{/if}}
+													{{/each}}
+													</ul>
+													<ul class="comment-list">
+													{{each item.specs.sc[0].comment as comment cidx}}
+														<li class="comment-item">{{comment}}</li>
+													{{/each}}
+													</ul>
+													<div class="numbers clearfix">
+														<p class="title">数量：</p>
+														<div class="content clearfix">
+															<a href="javascript:;" class="num-minus"></a>
+															<input type="text" class="txt-num" value="1" readonly="readonly">
+															<a href="javascript:;" class="num-add"></a>
+														</div>
+													</div>
+													<div class="operates clearfix">
+														<a href="javascript:;" class="operate operate-buy">立即购买</a>
+														<a href="javascript:;" class="operate operate-join-basket">加入购物车</a>
+													</div>
+												</div>
+												{{/if}}
+												{{if item.specs.regular.length > 0}}
+												<div class="spec-box">
+													<ul class="pound-list clearfix">
+													{{each item.specs.regular as ritem ridx}}
+														{{if ridx === 0}}
+														<li class="pound-item active" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
+														{{else}}
+														<li class="pound-item" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
+														{{/if}}
+													{{/each}}
+													</ul>
+													<ul class="comment-list">
+													{{each item.specs.regular[0].comment as comment cidx}}
+														<li class="comment-item">{{comment}}</li>
+													{{/each}}
+													</ul>
+													<div class="numbers clearfix">
+														<p class="title">数量：</p>
+														<div class="content clearfix">
+															<a href="javascript:;" class="num-minus"></a>
+															<input type="text" class="txt-num" value="1" readonly="readonly">
+															<a href="javascript:;" class="num-add"></a>
+														</div>
+													</div>
+													<div class="operates clearfix">
+														<a href="javascript:;" class="operate operate-buy">立即购买</a>
+														<a href="javascript:;" class="operate operate-join-basket">加入购物车</a>
+													</div>
+												</div>
+												{{/if}}
+											</div>
+										</div>
+									</div>
+								</div>
 								<div class="text">
 									<p class="desc">{{item.desc}}</p>
 									<p class="name">
@@ -216,6 +297,7 @@
 										<span class="price">￥{{item.price}}</span>
 										<span class="pound">/{{item.pound}}磅</span>
 									</p>
+									<a href="javascript:;" class="join-basket"></a>
 								</div>
 							</li>
 							{{/each}}
@@ -229,14 +311,95 @@
 							{{else}}
 							<li class="normal">
 							{{/if}}
-								<a href="{{item.link}}" class="img">
-									<img src="{{item.imgUrl}}" alt="">
-									{{if item.favor}}
-									<span class="favor selected"></span>
-									{{else}}
-									<span class="favor"></span>
-									{{/if}}
-								</a>
+								<div class="img">
+									<a href="{{item.link}}" class="link">
+										<img src="{{item.imgUrl}}" alt="">
+										{{if item.favor}}
+										<span class="favor selected"></span>
+										{{else}}
+										<span class="favor"></span>
+										{{/if}}
+									</a>
+									<div class="spec">
+										<a href="javascript:;" class="spec-close"></a>
+										<div class="spec-switcher">
+											{{if item.specs.sc.length > 0}}
+											<ul class="clearfix">
+												<li class="active">惊喜款</li>
+												<li>常规款</li>
+											</ul>
+											{{else}}
+											<ul class="clearfix no-sc">
+												<li class="active">常规款</li>
+											</ul>
+											{{/if}}
+										</div>
+										<div class="spec-container">
+											<div class="spec-wrapper clearfix">
+												{{if item.specs.sc.length > 0}}
+												<div class="spec-box">
+													<ul class="pound-list clearfix">
+													{{each item.specs.sc as sitem sidx}}
+														{{if sidx === 0}}
+														<li class="pound-item active" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
+														{{else}}
+														<li class="pound-item" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
+														{{/if}}
+													{{/each}}
+													</ul>
+													<ul class="comment-list">
+													{{each item.specs.sc[0].comment as comment cidx}}
+														<li class="comment-item">{{comment}}</li>
+													{{/each}}
+													</ul>
+													<div class="numbers clearfix">
+														<p class="title">数量：</p>
+														<div class="content clearfix">
+															<a href="javascript:;" class="num-minus"></a>
+															<input type="text" class="txt-num" value="1" readonly="readonly">
+															<a href="javascript:;" class="num-add"></a>
+														</div>
+													</div>
+													<div class="operates clearfix">
+														<a href="javascript:;" class="operate operate-buy">立即购买</a>
+														<a href="javascript:;" class="operate operate-join-basket">加入购物车</a>
+													</div>
+												</div>
+												{{/if}}
+												{{if item.specs.regular.length > 0}}
+												<div class="spec-box">
+													<ul class="pound-list clearfix">
+													{{each item.specs.regular as ritem ridx}}
+														{{if ridx === 0}}
+														<li class="pound-item active" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
+														{{else}}
+														<li class="pound-item" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
+														{{/if}}
+													{{/each}}
+													</ul>
+													<ul class="comment-list">
+													{{each item.specs.regular[0].comment as comment cidx}}
+														<li class="comment-item">{{comment}}</li>
+													{{/each}}
+													</ul>
+													<div class="numbers clearfix">
+														<p class="title">数量：</p>
+														<div class="content clearfix">
+															<a href="javascript:;" class="num-minus"></a>
+															<input type="text" class="txt-num" value="1" readonly="readonly">
+															<a href="javascript:;" class="num-add"></a>
+														</div>
+													</div>
+													<div class="operates clearfix">
+														<a href="javascript:;" class="operate operate-buy">立即购买</a>
+														<a href="javascript:;" class="operate operate-join-basket">加入购物车</a>
+													</div>
+												</div>
+												{{/if}}
+											</div>
+										</div>
+									</div>
+								</div>
 								<div class="text">
 									<p class="desc">{{item.desc}}</p>
 									<p class="name">
@@ -247,6 +410,7 @@
 										<span class="price">￥{{item.price}}</span>
 										<span class="pound">/{{item.pound}}磅</span>
 									</p>
+									<a href="javascript:;" class="join-basket"></a>
 								</div>
 							</li>
 							{{/each}}

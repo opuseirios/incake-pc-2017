@@ -59,7 +59,7 @@
 .list-contents {
 	width: 100%;
 
-	li {
+	> li {
 		position: relative;
 		float: left;
 		width: 291px;
@@ -76,7 +76,6 @@
 
 		.img {
 			position: relative;
-			display: block;
 			width: 291px;
 			height: 291px;
 			overflow: hidden;
@@ -85,11 +84,18 @@
 				width: 100%;
 			}
 
+			.link {
+				display: block;
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+
 			.favor {
 				display: none;
 				position: absolute;
-				right: 14px;
-				bottom: 14px;
+				top: 15px;
+				left: 15px;
 				z-index: 99;
 				width: 30px;
 				height: 30px;
@@ -110,18 +116,223 @@
 					background-image: url('../imgs/icons/icon_favor_selected.png');
 				}
 			}
+
+			.spec {
+				position: absolute;
+				left: 0;
+				bottom: -100%;
+				width: 100%;
+				background: {
+					image: url('../imgs/icons/icon_mask_alpha_white.png');
+				}
+				.spec-close {
+					display: block;
+					position: absolute;
+					top: 24px;
+					right: 15px;
+					width: 15px;
+					height: 15px;
+					background: {
+						image: url('../imgs/icons/icon_close_15_rect.png');
+						repeat: no-repeat;
+						size: cover;
+						position: center center;
+					}
+				}
+				.spec-switcher {
+					width: 140px;
+					height: 26px;
+					padding: 14px 0;
+					margin: 0 auto;
+
+					ul {
+						width: 140px;
+						margin: 0 auto;
+						background-color: #ccc;
+						border-radius: 5px;
+						overflow: hidden;
+						&.no-sc {
+							width: 70px;
+						}
+					}
+					li {
+						display: inline-block;
+						float: left;
+						width: 70px;
+						height: 26px;
+						line-height: 26px;
+						text-align: center;
+						font-size: 16px;
+						color: #444;
+						cursor: pointer;
+
+						&.active {
+							color: #fff;
+							background-color: #e9546a;
+							border-radius: 5px;
+						}
+					}
+				}
+				.spec-container {
+					width: 100%;
+					overflow-x: hidden;
+				}
+				.spec-wrapper {
+					position: relative;
+					width: 200%;
+
+					.spec-box {
+						float: left;
+						width: 261px;
+						padding: 0 15px;
+					}
+
+					.pound-list,
+					.comment-list {
+						width: 100%;
+					}
+					.pound-item {
+						display: inline-block;
+						float: left;
+						width: 50px;
+						height: 20px;
+						margin: 0 0 8px 10px;
+						line-height: 20px;
+						text-align: center;
+						font-size: 14px;
+						color: #333;
+						border: 1px solid #333;
+						cursor: pointer;
+						overflow: hidden;
+
+						&.active {
+							position: relative;
+							border-color: #e9546b;
+							color: #e9546b;
+
+							&:after {
+								display: block;
+								position: absolute;
+								right: 0;
+								bottom: 0;
+								width: 17px;
+								height: 17px;
+								content: '';
+								background: {
+									image: url('../imgs/icons/icon_order_active_17.png');
+									repeat: no-repeat;
+									size: 17px 17px;
+									position: right bottom;
+								}
+							}
+						}
+					}
+
+					.comment-item {
+						padding-left: 18px;
+						line-height: 24px;
+						font-size: 12px;
+						color: #000;
+						background: {
+							image: url('../imgs/icons/icon_dot_black_8.png');
+							repeat: no-repeat;
+							size: 8px 8px;
+							position: left center;
+						}
+					}
+
+					.numbers {
+						width: 190px;
+						padding-top: 10px;
+						margin: 0 auto;
+
+						.title {
+							float: left;
+							width: 60px;
+							line-height: 22px;
+							text-align: right;
+							font-size: 14px;
+							color: #000;
+						}
+
+						.content {
+							float: left;
+							width: 110px;
+							margin-left: 10px;
+							a {
+								display: inline-block;
+								float: left;
+								width: 22px;
+								height: 22px;
+								background: {
+									repeat: no-repeat;
+									size: cover;
+									position: center center;
+								}
+							}
+							.num-minus {
+								background-image: url('../imgs/icons/icon_minus_22.png');
+								&.active {
+									background-image: url('../imgs/icons/icon_minus_22_active.png');
+								}
+							}
+							.num-add {
+								background-image: url('../imgs/icons/icon_add_22_active.png');
+							}
+							.txt-num {
+								display: inline-block;
+								float: left;
+								width: 40px;
+								height: 20px;
+								margin: 0 10px;
+								line-height: 20px;
+								text-align: center;
+								font-size: 14px;
+								color: #000;
+								border: 1px solid #000;
+							}
+						}
+					}
+
+					.operates {
+						width: 190px;
+						padding: 15px 0;
+						margin: 0 auto;
+						.operate {
+							display: inline-block;
+							width: 90px;
+							height: 26px;
+							line-height: 26px;
+							text-align: center;
+							font-size: 14px;
+							color: #fff;
+							background-color: #e9546a;
+							border-radius: 5px;
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+						.operate-buy {
+							float: left;
+						}
+						.operate-join-basket {
+							float: right;
+						}
+					}
+
+				}
+			}
+
 		}
 
 		.text {
+			position: relative;
 			width: 100%;
 			height: 109px;
 
 			p {
 				margin-left: 20px;
 				color: #635859;
-				text-overflow: ellipsis;
-			    white-space: nowrap;
-			    overflow: hidden;
 
 				&.desc {
 					padding: 14px 0 11px;
@@ -156,6 +367,20 @@
 					.pound {
 						font-size: 12px;
 					}
+				}
+			}
+			.join-basket {
+				display: block;
+				position: absolute;
+				right: 20px;
+				bottom: 15px;
+				width: 28px;
+				height: 28px;
+				background: {
+					image: url('../imgs/icons/icon_join_basket_rect.png');
+					repeat: no-repeat;
+					size: cover;
+					position: center center;
 				}
 			}
 		}
