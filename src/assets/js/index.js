@@ -1,5 +1,5 @@
 (function(window, $, undefined) {
-	
+
 	$(function() {
 		// 轮播图
 		fnInitMainSlider();
@@ -147,6 +147,137 @@
 		};
 		var _html = template('tplBestChoice', _data);
 		$oBestChoice.html(_html);
+
+		handle4JoinBasket();
+	}
+
+	// 加入购物车处理函数
+	function handle4JoinBasket() {
+		var $cakelist = $('#bestChoice'),
+			tl = new TimelineLite();
+
+		// 加入购物车icon点击事件
+		$cakelist.on('click', '.join-basket', function(e) {
+			var specDom = $(this).closest('.text').prev('.img').find('.spec').eq(0);
+			tl.clear();
+			if($(specDom).attr('data-expand') === 'true') {
+				handle4HideSpec(specDom);
+			} else {
+				handle4ShowSpec(specDom);
+			}
+		});
+
+		// 关闭规格遮罩
+		$cakelist.on('click', '.spec-close', function(e) {
+			var specDom = $(this).closest('.spec').eq(0);
+			handle4HideSpec(specDom);
+		});
+
+		// 规格切换
+		$cakelist.find('.spec-switcher').on('click', 'li', function(e) {
+			var $li = $(this).closest('ul').find('li'),
+				wrapperDom = $(this)
+					.closest('.spec-switcher')
+					.next('.spec-container')
+					.find('.spec-wrapper')
+					.eq(0),
+				idx = $(this).index();
+
+			// 如果只有一种规格，不进行规格切换
+			if($li.length < 2) {
+				return false;
+			}
+
+			$(this).addClass('active').siblings().removeClass('active');
+
+			// 当前规则中的磅数设置第一个尺寸为选中状态
+			$(wrapperDom)
+				.find('.spec-box')
+				.eq(idx)
+				.find('.pound-item')
+				.eq(0)
+				.trigger('click');
+
+			tl.clear();
+			if(idx === 0) {
+				tl.to(wrapperDom, 0.5, {
+					left: 0
+				});
+			} else {
+				tl.to(wrapperDom, 0.5, {
+					left: '-100%'
+				});
+			}
+		});
+
+		// 磅数切换
+		$cakelist.on('click', '.pound-item', function(e) {
+			$(this)
+				.addClass('active')
+				.siblings()
+				.removeClass('active');
+
+			var comments = $(this).attr('data-comment').split('*||*'),
+				$items = $(this).closest('.pound-list').next('.comment-list').find('.comment-item'),
+				$numbers = $(this).closest('.pound-list').siblings('.numbers');
+
+			// 动态绑定备注内容
+			$items.eq(0).html(comments[0]);
+			$items.eq(1).html(comments[1]);
+			$items.eq(2).html(comments[2]);
+
+			// 把数量改成1
+			$numbers
+				.find('.num-minus')
+				.removeClass('active')
+				.end()
+				.find('.txt-num')
+				.val(1);
+		});
+
+		// 数量加减
+		$cakelist.on('click', '.num-add', function(e) {
+			var minusDom = $(this).siblings('.num-minus'),
+				inputDom = $(this).siblings('.txt-num'),
+				inputVal = parseInt(inputDom.val().trim(), 10);
+
+			inputDom.val(++inputVal);
+			if(inputVal >= 2) {
+				minusDom.addClass('active');
+			}
+		}).on('click', '.num-minus', function(e) {
+			var inputDom = $(this).siblings('.txt-num'),
+				inputVal = parseInt(inputDom.val().trim(), 10);
+
+			inputVal --;
+			if(inputVal <= 1) {
+				inputVal = 1;
+				$(this).removeClass('active');
+			}
+			inputDom.val(inputVal);
+		});
+
+		// 显示规格遮罩处理函数
+		function handle4ShowSpec(specDom) {
+			tl.clear();
+			tl.to(specDom, 0.5, {
+				bottom: '0',
+				onComplete: function() {
+					$(specDom).attr('data-expand', 'true');
+				}
+			});
+		}
+
+		// 隐藏规格遮罩处理函数
+		function handle4HideSpec(specDom) {
+			tl.clear();
+			tl.to(specDom, 0.5, {
+				bottom: '-100%',
+				onComplete: function() {
+					$(specDom).attr('data-expand', 'false');
+				}
+			});
+		}
 	}
 
 	function fnInitMainSlider() {
@@ -176,7 +307,7 @@
 		    $oMainSlider.on('click', '.next-slide', function(e) {
 		    	e.preventDefault();
 		    	_swiper.swipeNext();
-		    });	
+		    });
 
 		    $oMainSlider.hover(function() {
 		    	_swiper.stopAutoplay();

@@ -141,7 +141,7 @@
 
 		<!-- layout container begin -->
 		<div class="layout-container">
-			
+
 			<!-- home page begin -->
 			<div class="page home-page" id="homePage">
 				<div class="page-container">
@@ -168,7 +168,7 @@
 						</div>
 					</div>
 					<!-- main slider end -->
-					
+
 					<!-- our inspiration begin -->
 					<div class="section our-inspiration">
 						<div class="section-title">
@@ -215,7 +215,7 @@
 						</div>
 					</div>
 					<!-- our inspiration end -->
-					
+
 					<!-- ad container begin -->
 					<div class="ad-container">
 						<div class="ad-wrapper">
@@ -242,14 +242,79 @@
 									{{else}}
 									<li>
 									{{/if}}
-										<a href="{{item.link}}" class="img">
-											<img src="{{item.imgUrl}}" alt="">
-											{{if item.favor}}
-											<span class="favor selected"></span>
-											{{else}}
-											<span class="favor"></span>
-											{{/if}}
-										</a>
+										<div class="img">
+											<a href="{{item.link}}" class="link">
+												<img src="{{item.imgUrl}}" alt="">
+												{{if item.favor}}
+												<span class="favor selected"></span>
+												{{else}}
+												<span class="favor"></span>
+												{{/if}}
+											</a>
+											<div class="spec">
+												<a href="javascript:;" class="spec-close"></a>
+												<div class="spec-switcher">
+													<ul class="clearfix">
+														<li class="active">惊喜款</li>
+														<li>常规款</li>
+													</ul>
+												</div>
+												<div class="spec-container">
+													<div class="spec-wrapper clearfix">
+														<div class="spec-box">
+															<ul class="pound-list clearfix">
+																<li class="pound-item active" data-comment="14CM*14CM*4.5CM≈6寸，约510g*||*免费赠送5份餐具*||*适合2~3人食用">1.5磅</li>
+																<li class="pound-item" data-comment="17.5CM*17.5CM*4.5CM≈8寸，约1.0kg*||*免费赠送10份餐具*||*适合7~8人食用">2.5磅</li>
+																<li class="pound-item" data-comment="23CM*23CM*4.5CM≈12寸，约1.5kg*||*免费赠送15份餐具*||*适合11~12人食用">3.5磅</li>
+																<li class="pound-item" data-comment="30CM*30CM*4.5CM≈14寸，约2.4kg*||*免费赠送20份餐具*||*适合15~20人食用">5.5磅</li>
+															</ul>
+															<ul class="comment-list">
+																<li class="comment-item">14CM*14CM*4.5CM≈6寸，约510g</li>
+																<li class="comment-item">免费赠送5份餐具</li>
+																<li class="comment-item">适合2~3人食用</li>
+															</ul>
+															<div class="numbers clearfix">
+																<p class="title">数量：</p>
+																<div class="content clearfix">
+																	<a href="javascript:;" class="num-minus"></a>
+																	<input type="text" class="txt-num" value="1">
+																	<a href="javascript:;" class="num-add"></a>
+																</div>
+															</div>
+															<div class="operates clearfix">
+																<a href="javascript:;" class="operate operate-buy">立即购买</a>
+																<a href="javascript:;" class="operate operate-join-basket">加入购物车</a>
+															</div>
+														</div>
+														<div class="spec-box">
+															<ul class="pound-list clearfix">
+																<li class="pound-item active" data-comment="14CM*14CM*4.5CM≈6寸，约510g*||*免费赠送5份餐具*||*适合2~3人食用">1.5磅</li>
+																<li class="pound-item" data-comment="17.5CM*17.5CM*4.5CM≈8寸，约1.0kg*||*免费赠送10份餐具*||*适合7~8人食用">2.5磅</li>
+																<li class="pound-item" data-comment="23CM*23CM*4.5CM≈12寸，约1.5kg*||*免费赠送15份餐具*||*适合11~12人食用">3.5磅</li>
+																<li class="pound-item" data-comment="30CM*30CM*4.5CM≈14寸，约2.4kg*||*免费赠送20份餐具*||*适合15~20人食用">5.5磅</li>
+															</ul>
+															<ul class="comment-list">
+																<li class="comment-item">14CM*14CM*4.5CM≈6寸，约510g</li>
+																<li class="comment-item">免费赠送5份餐具</li>
+																<li class="comment-item">适合2~3人食用</li>
+															</ul>
+															<div class="numbers clearfix">
+																<p class="title">数量：</p>
+																<div class="content clearfix">
+																	<a href="javascript:;" class="num-minus"></a>
+																	<input type="text" class="txt-num" value="1">
+																	<a href="javascript:;" class="num-add"></a>
+																</div>
+															</div>
+															<div class="operates clearfix">
+																<a href="javascript:;" class="operate operate-buy">立即购买</a>
+																<a href="javascript:;" class="operate operate-join-basket">加入购物车</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 										<div class="text">
 											<p class="desc">{{item.desc}}</p>
 											<p class="name">
@@ -260,6 +325,7 @@
 												<span class="price">￥{{item.price}}</span>
 												<span class="pound">/{{item.pound}}磅</span>
 											</p>
+											<a href="javascript:;" class="join-basket"></a>
 										</div>
 									</li>
 									{{/each}}
@@ -268,7 +334,7 @@
 						</div>
 					</div>
 					<!-- best choice end -->
-					
+
 					<!-- ads container begin -->
 					<div class="ads-container clearfix">
 						<a href="javascript:;">
@@ -327,7 +393,7 @@
 						<span>沪ICP备12045835</span>
 						<span>沪公网安备31010802001150</span>
 					</p>
-				</div>				
+				</div>
 			</div>
 		</div>
 		<!-- layout footer end -->
