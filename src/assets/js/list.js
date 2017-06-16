@@ -14,6 +14,11 @@
         return str;
     });
 
+    // 价格格式化
+    template.helper('priceFormat', function(price) {
+        return parseInt(price, 10);
+    });
+
     $(function() {
 
         // 绑定蛋糕列表数据
