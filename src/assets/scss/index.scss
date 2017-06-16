@@ -1,6 +1,67 @@
 .home-page {
 	background-color: #fff;
 }
+
+.page-container {
+	position: relative;
+}
+
+.main-notice {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	width: 100%;
+	background-color: #fce8eb;
+	border-bottom: 1px solid #fdadb9;
+
+	.notice-wrapper {
+		position: relative;
+		width: 1200px;
+		height: 40px;
+		margin: 0 auto;
+	}
+
+	.notice-title {
+		display: inline-block;
+		float: left;
+		width: 60px;
+		line-height: 40px;
+		font-size: 14px;
+		text-align: right;
+		color: #e9546b;
+		font-weight: bold;
+	}
+
+	.notice-close {
+		display: inline-block;
+		float: right;
+		width: 30px;
+		height: 40px;
+		background: {
+			image: url('../imgs/icons/icon_close_16_rect.png');
+			repeat: no-repeat;
+			size: 16px 16px;
+			position: center center;
+		}
+	}
+
+	.notice-content {
+		position: absolute;
+		top: 0;
+		right: 40px;
+		bottom: 0;
+		left: 60px;
+		overflow: hidden;
+
+		p {
+			font-size: 14px;
+			line-height: 40px;
+			color: #e9546b;
+		}
+	}
+}
+
 .main-slider {
 	width: 100%;
 	border-bottom: 2px solid #dfe0e2;

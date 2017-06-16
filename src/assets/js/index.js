@@ -15,6 +15,10 @@
     });
 
     $(function() {
+
+        // 公告
+        fnInitNotice();
+
         // 轮播图
         fnInitMainSlider();
 
@@ -760,4 +764,23 @@
             $oMainSlider.find('.next-slide').hide();
         }
     }
+
+    function fnInitNotice() {
+        var $notice = $('#idxNotice'),
+            $noticeMsg = $notice.find('.notice-content').find('p'),
+            tl = new TimelineLite();
+
+        $noticeMsg.liMarquee();
+
+        $notice.on('click', '.notice-close', function(e) {
+            tl.clear();
+            tl.to($notice, 1, {
+                opacity: 0,
+                onComplete: function() {
+                    $notice.remove();
+                }
+            });
+        });
+    }
+
 })(window, jQuery);
