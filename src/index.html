@@ -285,9 +285,9 @@
 															<ul class="pound-list clearfix">
 															{{each item.specs.sc as sitem sidx}}
 																{{if sidx === 0}}
-																<li class="pound-item active" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
+																<li class="pound-item active" data-price="{{sitem.price}}" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
 																{{else}}
-																<li class="pound-item" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
+																<li class="pound-item" data-price="{{sitem.price}}" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
 																{{/if}}
 															{{/each}}
 															</ul>
@@ -297,12 +297,10 @@
 															{{/each}}
 															</ul>
 															<div class="numbers clearfix">
-																<p class="title">数量：</p>
-																<div class="content clearfix">
-																	<a href="javascript:;" class="num-minus"></a>
-																	<input type="text" class="txt-num" value="1" readonly="readonly">
-																	<a href="javascript:;" class="num-add"></a>
-																</div>
+																<a href="javascript:;" class="num-minus"></a>
+																<input type="text" class="txt-num" value="1" readonly="readonly">
+																<span class="txt-price">¥ <i data-price="{{item.price}}">{{item.price}}</i></span>
+																<a href="javascript:;" class="num-add"></a>
 															</div>
 															<div class="operates clearfix">
 																<a href="javascript:;" class="operate operate-buy">立即购买</a>
@@ -315,9 +313,9 @@
 															<ul class="pound-list clearfix">
 															{{each item.specs.regular as ritem ridx}}
 																{{if ridx === 0}}
-																<li class="pound-item active" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
+																<li class="pound-item active" data-price="{{ritem.price}}" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
 																{{else}}
-																<li class="pound-item" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
+																<li class="pound-item" data-price="{{ritem.price}}" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
 																{{/if}}
 															{{/each}}
 															</ul>
@@ -327,12 +325,10 @@
 															{{/each}}
 															</ul>
 															<div class="numbers clearfix">
-																<p class="title">数量：</p>
-																<div class="content clearfix">
-																	<a href="javascript:;" class="num-minus"></a>
-																	<input type="text" class="txt-num" value="1" readonly="readonly">
-																	<a href="javascript:;" class="num-add"></a>
-																</div>
+																<a href="javascript:;" class="num-minus"></a>
+																<input type="text" class="txt-num" value="1" readonly="readonly">
+																<span class="txt-price">¥ <i data-price="{{item.price}}">{{item.price}}</i></span>
+																<a href="javascript:;" class="num-add"></a>
 															</div>
 															<div class="operates clearfix">
 																<a href="javascript:;" class="operate operate-buy">立即购买</a>
