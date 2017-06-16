@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>INCAKE | 企业VIP专享</title>
+	<link rel="stylesheet" href="assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="assets/css/layout.css">
+	<link rel="stylesheet" href="assets/css/list.css">
+	<link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+	<!-- layout begin -->
+	<div class="layout">
+
+		<!-- layout header begin -->
+		<div class="layout-header" id="layoutHeader">
+			<div class="header-body">
+				<!-- logo begin -->
+				<a href="index.html" class="logo"></a>
+				<!-- logo end -->
+				<!-- vip nav begin -->
+                <h2 class="vip-nav">企业VIP专享</h2>
+                <!-- vip nav end -->
+				<!-- portal begin -->
+				<div class="portal clearfix">
+					<div class="unlogin clearfix">
+						<a href="login.html" class="login">登录</a>
+						<span>|</span>
+						<a href="register.html" class="register">注册</a>
+					</div>
+					<div class="logined clearfix active">
+						<div class="profile-wrap">
+							<p class="info">13811112222</p>
+							<ul class="plist">
+								<li class="active"><a href="javascript:;">个人中心</a></li>
+								<li><a href="javascript:;">账户设置</a></li>
+								<li><a href="javascript:;">账户优惠券</a></li>
+								<li class="last"><a href="javascript:;">退出账号</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- portal end -->
+				<!-- basket begin -->
+				<div class="basket">
+					<a href="javascript:;" class="view"><span>10</span></a>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<ul class="list basket-list"></ul>
+						<script id="tplBasketList" type="text/html">
+							{{if list.length > 0}}
+							{{each list as item i}}
+							<li class="clearfix">
+								<a href="{{item.link}}" class="img">
+									<img src="{{item.thumbUrl}}" alt="">
+								</a>
+								<div class="text">
+									<p class="first-row clearfix">
+										<span class="name">{{item.name}}</span>
+										<span class="price">￥{{item.price}}</span>
+									</p>
+									<p class="second-row clearfix">
+										<span class="pound">{{item.pound}}磅</span>
+										<span class="num">x{{item.num}}</span>
+									</p>
+								</div>
+								<a href="javascript:;" class="remove"></a>
+							</li>
+							{{/each}}
+							{{/if}}
+						</script>
+						<a href="javascript:;" class="view-basket">查看购物篮 >></a>
+					</div>
+				</div>
+				<!-- basket end -->
+				<!-- locator begin -->
+				<div class="locator">
+					<span class="arrow"></span>
+					<p>上海</p>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<p>请选择您要配送的城市：</p>
+						<ul class="clearfix">
+							<li class="active">上海</li>
+							<li>福州</li>
+							<li>苏州</li>
+							<li>昆山</li>
+							<li>厦门</li>
+							<li>北京</li>
+							<li>南京</li>
+							<li>杭州</li>
+							<li>青岛</li>
+							<li>扬州</li>
+						</ul>
+					</div>
+				</div>
+				<!-- locator end -->
+			</div>
+		</div>
+		<!-- layout header end -->
+
+		<!-- layout container begin -->
+		<div class="layout-container">
+
+			<!-- list page begin -->
+			<div class="page list-page" id="listPage">
+				<div class="page-container">
+					<ul class="list-categories">
+						<li class="first clearfix">
+							<div class="title">商品：</div>
+							<div class="content clearfix">
+								<a class="active" href="javascript:;" data-category="all">全部</a>
+								<a href="javascript:;" data-category="zhishi">芝士系列</a>
+								<a href="javascript:;" data-category="qiaokeli">巧克力系列</a>
+								<a href="javascript:;" data-category="napolun">拿破仑系列</a>
+								<a href="javascript:;" data-category="ms">慕斯系列</a>
+								<a href="javascript:;" data-category="rz">乳脂系列</a>
+								<a href="javascript:;" data-category="xp">选拼系列</a>
+								<a href="javascript:;" data-category="xz">星座系列</a>
+								<a href="javascript:;" data-category="ali">阿狸系列</a>
+							</div>
+						</li>
+						<li class="clearfix">
+							<div class="title">口味：</div>
+							<div class="content clearfix">
+								<a href="javascript:;" data-category="milk">鲜奶</a>
+								<a href="javascript:;" data-category="coffee">咖啡</a>
+								<a href="javascript:;" data-category="cheese">芝士</a>
+								<a href="javascript:;" data-category="mousse">慕斯</a>
+							</div>
+						</li>
+					</ul>
+					<ul class="list-contents clearfix" id="cakeList"></ul>
+					<script id="tplCakeList" type="text/html">
+						<!-- {{if diy.length > 0}}
+						{{each diy as item i}}
+							<li class="diy">
+								<div class="img">
+									<img src="{{item.img}}" alt="">
+								</div>
+								<a href="{{item.url}}" class="diy-immediately">立即定制 >></a>
+							</li>
+						{{/each}}
+						{{/if}} -->
+						{{if list.length > 0}}
+							{{each list as item i}}
+							{{if i%4 === 3}}
+							<li class="normal last-col">
+							{{else}}
+							<li class="normal">
+							{{/if}}
+								<div class="img">
+									<a href="{{item.link}}" class="link">
+										<img src="{{item.imgUrl}}" alt="">
+										{{if item.favor}}
+										<span class="favor selected"></span>
+										{{else}}
+										<span class="favor"></span>
+										{{/if}}
+									</a>
+									<div class="spec">
+										<a href="javascript:;" class="spec-close"></a>
+										<div class="spec-switcher">
+											{{if item.specs.sc.length > 0}}
+											<ul class="clearfix">
+												<li class="active">惊喜款</li>
+												<li>常规款</li>
+											</ul>
+											{{else}}
+											<ul class="clearfix no-sc">
+												<li class="active">常规款</li>
+											</ul>
+											{{/if}}
+										</div>
+										<div class="spec-container">
+											<div class="spec-wrapper clearfix">
+												{{if item.specs.sc.length > 0}}
+												<div class="spec-box">
+													<ul class="pound-list clearfix">
+													{{each item.specs.sc as sitem sidx}}
+														{{if sidx === 0}}
+														<li class="pound-item active" data-price="{{sitem.price}}" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
+														{{else}}
+														<li class="pound-item" data-price="{{sitem.price}}" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
+														{{/if}}
+													{{/each}}
+													</ul>
+													<ul class="comment-list">
+													{{each item.specs.sc[0].comment as comment cidx}}
+														<li class="comment-item">{{comment}}</li>
+													{{/each}}
+													</ul>
+													<div class="numbers clearfix">
+														<a href="javascript:;" class="num-minus"></a>
+														<input type="text" class="txt-num" value="1" readonly="readonly">
+														<span class="txt-price">¥ <i data-price="{{item.price}}">{{item.price}}</i></span>
+														<a href="javascript:;" class="num-add"></a>
+													</div>
+													<div class="operates clearfix">
+														<a href="javascript:;" class="operate operate-buy">立即购买</a>
+														<a href="javascript:;" class="operate operate-join-basket">加入购物车</a>
+													</div>
+												</div>
+												{{/if}}
+												{{if item.specs.regular.length > 0}}
+												<div class="spec-box">
+													<ul class="pound-list clearfix">
+													{{each item.specs.regular as ritem ridx}}
+														{{if ridx === 0}}
+														<li class="pound-item active" data-price="{{ritem.price}}" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
+														{{else}}
+														<li class="pound-item" data-price="{{ritem.price}}" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
+														{{/if}}
+													{{/each}}
+													</ul>
+													<ul class="comment-list">
+													{{each item.specs.regular[0].comment as comment cidx}}
+														<li class="comment-item">{{comment}}</li>
+													{{/each}}
+													</ul>
+													<div class="numbers clearfix">
+														<a href="javascript:;" class="num-minus"></a>
+														<input type="text" class="txt-num" value="1" readonly="readonly">
+														<span class="txt-price">¥ <i data-price="{{item.price}}">{{item.price}}</i></span>
+														<a href="javascript:;" class="num-add"></a>
+													</div>
+													<div class="operates clearfix">
+														<a href="javascript:;" class="operate operate-buy">立即购买</a>
+														<a href="javascript:;" class="operate operate-join-basket">加入购物车</a>
+													</div>
+												</div>
+												{{/if}}
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="text">
+									<p class="desc">{{item.desc}}</p>
+									<p class="name">
+										<span class="cn">{{item.name.cn}}</span>
+										<span class="en">{{item.name.en}}</span>
+									</p>
+									<p class="attr">
+										<span class="price">￥{{item.price}}</span>
+										<span class="pound">/{{item.pound}}磅</span>
+									</p>
+									<a href="javascript:;" class="join-basket"></a>
+								</div>
+							</li>
+							{{/each}}
+						{{/if}}
+					</script>
+					<script id="tplMoreList" type="text/html">
+						{{if list.length > 0}}
+							{{each list as item i}}
+							{{if i%4 === 3}}
+							<li class="normal last-col">
+							{{else}}
+							<li class="normal">
+							{{/if}}
+								<div class="img">
+									<a href="{{item.link}}" class="link">
+										<img src="{{item.imgUrl}}" alt="">
+										{{if item.favor}}
+										<span class="favor selected"></span>
+										{{else}}
+										<span class="favor"></span>
+										{{/if}}
+									</a>
+									<div class="spec">
+										<a href="javascript:;" class="spec-close"></a>
+										<div class="spec-switcher">
+											{{if item.specs.sc.length > 0}}
+											<ul class="clearfix">
+												<li class="active">惊喜款</li>
+												<li>常规款</li>
+											</ul>
+											{{else}}
+											<ul class="clearfix no-sc">
+												<li class="active">常规款</li>
+											</ul>
+											{{/if}}
+										</div>
+										<div class="spec-container">
+											<div class="spec-wrapper clearfix">
+												{{if item.specs.sc.length > 0}}
+												<div class="spec-box">
+													<ul class="pound-list clearfix">
+													{{each item.specs.sc as sitem sidx}}
+														{{if sidx === 0}}
+														<li class="pound-item active" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
+														{{else}}
+														<li class="pound-item" data-comment="{{sitem.comment | commentFormat}}">{{sitem.pound}}磅</li>
+														{{/if}}
+													{{/each}}
+													</ul>
+													<ul class="comment-list">
+													{{each item.specs.sc[0].comment as comment cidx}}
+														<li class="comment-item">{{comment}}</li>
+													{{/each}}
+													</ul>
+													<div class="numbers clearfix">
+														<p class="title">数量：</p>
+														<div class="content clearfix">
+															<a href="javascript:;" class="num-minus"></a>
+															<input type="text" class="txt-num" value="1" readonly="readonly">
+															<a href="javascript:;" class="num-add"></a>
+														</div>
+													</div>
+													<div class="operates clearfix">
+														<a href="javascript:;" class="operate operate-buy">立即购买</a>
+														<a href="javascript:;" class="operate operate-join-basket">加入购物车</a>
+													</div>
+												</div>
+												{{/if}}
+												{{if item.specs.regular.length > 0}}
+												<div class="spec-box">
+													<ul class="pound-list clearfix">
+													{{each item.specs.regular as ritem ridx}}
+														{{if ridx === 0}}
+														<li class="pound-item active" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
+														{{else}}
+														<li class="pound-item" data-comment="{{ritem.comment | commentFormat}}">{{ritem.pound}}磅</li>
+														{{/if}}
+													{{/each}}
+													</ul>
+													<ul class="comment-list">
+													{{each item.specs.regular[0].comment as comment cidx}}
+														<li class="comment-item">{{comment}}</li>
+													{{/each}}
+													</ul>
+													<div class="numbers clearfix">
+														<p class="title">数量：</p>
+														<div class="content clearfix">
+															<a href="javascript:;" class="num-minus"></a>
+															<input type="text" class="txt-num" value="1" readonly="readonly">
+															<a href="javascript:;" class="num-add"></a>
+														</div>
+													</div>
+													<div class="operates clearfix">
+														<a href="javascript:;" class="operate operate-buy">立即购买</a>
+														<a href="javascript:;" class="operate operate-join-basket">加入购物车</a>
+													</div>
+												</div>
+												{{/if}}
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="text">
+									<p class="desc">{{item.desc}}</p>
+									<p class="name">
+										<span class="cn">{{item.name.cn}}</span>
+										<span class="en">{{item.name.en}}</span>
+									</p>
+									<p class="attr">
+										<span class="price">￥{{item.price}}</span>
+										<span class="pound">/{{item.pound}}磅</span>
+									</p>
+									<a href="javascript:;" class="join-basket"></a>
+								</div>
+							</li>
+							{{/each}}
+						{{/if}}
+					</script>
+					<div class="morecake">
+						<p class="loading"><span>正在加载...请稍后！</span></p>
+					</div>
+				</div>
+			</div>
+			<!-- list page end -->
+
+		</div>
+		<!-- layout container end -->
+
+		<!-- layout footer begin -->
+		<div class="layout-footer">
+			<div class="footer-body">
+				<div class="container">
+					<div class="logo"></div>
+					<div class="content">
+						<p class="nav clearfix">
+							<a href="javascript:;">配送范围</a><span>|</span>
+							<a href="javascript:;">帮助中心</a><span>|</span>
+							<a href="javascript:;">品牌故事</a><span>|</span>
+							<a href="javascript:;">关于我们</a><span>|</span>
+							<a href="javascript:;">招贤纳士</a>
+						</p>
+						<p class="hotline clearfix">
+							<span>客服热线：</span>
+							<span class="tel">400-921-5757</span>
+						</p>
+						<div class="third-party clearfix">
+							<a class="wechat" href="javascript:;"></a>
+							<a class="sina" href="javascript:;"></a>
+							<a class="qq" href="javascript:;"></a>
+							<a class="dianping" href="javascript:;"></a>
+						</div>
+					</div>
+					<div class="qrcode">
+						<div class="img"></div>
+						<p class="text">微信订购更方便</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					<p>
+						<span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+						<span>沪ICP备12045835</span>
+						<span>沪公网安备31010802001150</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- layout footer end -->
+
+	</div>
+	<!-- layout end -->
+
+	<!-- javscript begin -->
+	<script src="assets/plugins/LABjs/LAB.min.js"></script>
+	<script>
+		$LAB
+		.script('assets/plugins/polyfill/polyfill.min.js').wait()
+		.script('assets/plugins/jquery/jquery-1.10.2.min.js').wait()
+		.script('assets/plugins/tweenmax/TweenMax.min.js').wait()
+		.script('assets/plugins/artTemplate/template.js').wait()
+		.script('assets/plugins/underscore/underscore-min.js').wait()
+		.script('assets/js/layout.js').wait()
+		.script('assets/js/list.js');
+	</script>
+	<!-- javascript end -->
+</body>
+</html>

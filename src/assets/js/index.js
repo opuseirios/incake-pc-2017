@@ -14,6 +14,11 @@
         return str;
     });
 
+    // 价格格式化
+    template.helper('priceFormat', function(price) {
+        return parseInt(price, 10);
+    });
+
     $(function() {
 
         // 公告
@@ -669,7 +674,7 @@
             var comments = $(this).attr('data-comment').split('*||*'),
                 $items = $(this).closest('.pound-list').next('.comment-list').find('.comment-item'),
                 $numbers = $(this).closest('.pound-list').siblings('.numbers'),
-                price = $(this).attr('data-price');
+                price = parseInt($(this).attr('data-price'), 10);
 
             // 动态绑定备注内容
             $items.eq(0).html(comments[0]);

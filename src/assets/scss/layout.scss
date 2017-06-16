@@ -133,6 +133,17 @@ input {
                 position: center center;
             }
         }
+        .vip-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 290px;
+            width: 180px;
+            padding: 10px;
+            line-height: 30px;
+            font-size: 24px;
+            font-weight: normal;
+            color: #fff;
+        }
         .nav {
             position: absolute;
             bottom: 0;
