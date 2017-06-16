@@ -299,7 +299,7 @@
 															<div class="numbers clearfix">
 																<a href="javascript:;" class="num-minus"></a>
 																<input type="text" class="txt-num" value="1" readonly="readonly">
-																<span class="txt-price">¥ <i data-price="{{item.price}}">{{parseInt(item.price, 10)}}</i></span>
+																<span class="txt-price">¥ <i data-price="{{item.price}}">{{item.price | priceFormat}}</i></span>
 																<a href="javascript:;" class="num-add"></a>
 															</div>
 															<div class="operates clearfix">
@@ -327,7 +327,7 @@
 															<div class="numbers clearfix">
 																<a href="javascript:;" class="num-minus"></a>
 																<input type="text" class="txt-num" value="1" readonly="readonly">
-																<span class="txt-price">¥ <i data-price="{{item.price}}">{{item.price}}</i></span>
+																<span class="txt-price">¥ <i data-price="{{item.price}}">{{item.price | priceFormat}}</i></span>
 																<a href="javascript:;" class="num-add"></a>
 															</div>
 															<div class="operates clearfix">
