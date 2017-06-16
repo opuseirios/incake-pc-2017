@@ -10,7 +10,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 999;
+	z-index: 9;
 	width: 100%;
 	background-color: #fce8eb;
 	border-bottom: 1px solid #fdadb9;
@@ -374,7 +374,7 @@
 					.spec-close {
 						display: block;
 						position: absolute;
-						top: 24px;
+						top: 15px;
 						right: 15px;
 						width: 15px;
 						height: 15px;
@@ -386,27 +386,27 @@
 						}
 					}
 					.spec-switcher {
-						width: 140px;
-						height: 26px;
-						padding: 14px 0;
+						width: 200px;
+						height: 30px;
+						padding-top: 36px;
 						margin: 0 auto;
 
 						ul {
-							width: 140px;
+							width: 200px;
 							margin: 0 auto;
 							background-color: #ccc;
-							border-radius: 5px;
+							border-radius: 2px;
 							overflow: hidden;
 							&.no-sc {
-								width: 70px;
+								width: 100px;
 							}
 						}
 						li {
 							display: inline-block;
 							float: left;
-							width: 70px;
-							height: 26px;
-							line-height: 26px;
+							width: 100px;
+							height: 30px;
+							line-height: 30px;
 							text-align: center;
 							font-size: 16px;
 							color: #444;
@@ -415,13 +415,13 @@
 							&.active {
 								color: #fff;
 								background-color: #e9546a;
-								border-radius: 5px;
+								border-radius: 2px;
 							}
 						}
 					}
 					.spec-container {
 						width: 100%;
-						padding-top: 10px;
+						padding-top: 20px;
 						overflow-x: hidden;
 					}
 					.spec-wrapper {
@@ -440,7 +440,7 @@
 						}
 
 						.comment-list {
-							padding: 10px 0;
+							padding: 5px 0;
 						}
 
 						.pound-item {
@@ -449,7 +449,7 @@
 							width: auto;
 							height: 20px;
 							padding: 0 8px;
-							margin: 0 0 8px 10px;
+							margin: 0 0 10px 10px;
 							line-height: 20px;
 							text-align: center;
 							font-size: 14px;
@@ -483,7 +483,7 @@
 
 						.comment-item {
 							padding-left: 18px;
-							line-height: 24px;
+							line-height: 22px;
 							font-size: 12px;
 							color: #000;
 							background: {
@@ -496,13 +496,13 @@
 
 						.numbers {
 							width: 200px;
-							padding-top: 10px;
+							padding-top: 18px;
 							margin: 0 auto;
 
 							a {
 								display: inline-block;
-								width: 24px;
-								height: 24px;
+								width: 26px;
+								height: 26px;
 								background: {
 									repeat: no-repeat;
 									size: cover;
@@ -512,23 +512,23 @@
 							.num-minus {
 								float: left;
 								margin-left: 4px;
-								background-image: url('../imgs/icons/icon_minus_22.png');
+								background-image: url('../imgs/icons/icon_sub_disabled.png');
 								&.active {
-									background-image: url('../imgs/icons/icon_minus_22_active.png');
+									background-image: url('../imgs/icons/icon_sub_enabled.png');
 								}
 							}
 							.num-add {
 								float: right;
 								margin-right: 4px;
-								background-image: url('../imgs/icons/icon_add_22_active.png');
+								background-image: url('../imgs/icons/icon_add_enabled.png');
 							}
 							.txt-num {
 								display: inline-block;
 								float: left;
 								width: 54px;
-								height: 22px;
+								height: 24px;
 								margin: 0 10px;
-								line-height: 22px;
+								line-height: 24px;
 								text-align: center;
 								font-size: 14px;
 								color: #000;
@@ -539,8 +539,8 @@
 								display: inline-block;
 								float: left;
 								width: 56px;
-								height: 24px;
-								line-height: 24px;
+								height: 26px;
+								line-height: 26px;
 								text-align: center;
 								border-radius: 2px;
 								color: #fff;
@@ -553,18 +553,18 @@
 
 						.operates {
 							width: 200px;
-							padding: 15px 0;
+							padding: 10px 0;
 							margin: 0 auto;
 							.operate {
 								display: inline-block;
 								width: 90px;
-								height: 26px;
-								line-height: 26px;
+								height: 30px;
+								line-height: 30px;
 								text-align: center;
 								font-size: 14px;
 								color: #fff;
 								background-color: #e9546a;
-								border-radius: 5px;
+								border-radius: 2px;
 								&:hover {
 									text-decoration: underline;
 								}
