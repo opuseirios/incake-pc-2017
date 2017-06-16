@@ -723,7 +723,8 @@
 
             var comments = $(this).attr('data-comment').split('*||*'),
                 $items = $(this).closest('.pound-list').next('.comment-list').find('.comment-item'),
-                $numbers = $(this).closest('.pound-list').siblings('.numbers');
+                $numbers = $(this).closest('.pound-list').siblings('.numbers'),
+                price = $(this).attr('data-price');
 
             // 动态绑定备注内容
             $items.eq(0).html(comments[0]);
@@ -732,27 +733,37 @@
 
             // 把数量改成1
             $numbers.find('.num-minus').removeClass('active').end().find('.txt-num').val(1);
+
+            // 同步价格
+            $numbers.find('.txt-price').find('i').attr('data-price', price).html(price)
         });
 
         // 数量加减
         $cakelist.on('click', '.num-add', function(e) {
             var minusDom = $(this).siblings('.num-minus'),
                 inputDom = $(this).siblings('.txt-num'),
-                inputVal = parseInt(inputDom.val().trim(), 10);
+                inputVal = parseInt(inputDom.val().trim(), 10),
+                priceDom = $(this).siblings('.txt-price').find('i'),
+                price = parseInt(priceDom.attr('data-price'), 10);
 
-            inputDom.val(++inputVal);
+            inputVal++;
+            inputDom.val(inputVal);
+            priceDom.html(inputVal * price);
             if (inputVal >= 2) {
                 minusDom.addClass('active');
             }
         }).on('click', '.num-minus', function(e) {
             var inputDom = $(this).siblings('.txt-num'),
-                inputVal = parseInt(inputDom.val().trim(), 10);
+                inputVal = parseInt(inputDom.val().trim(), 10),
+                priceDom = $(this).siblings('.txt-price').find('i'),
+                price = parseInt(priceDom.attr('data-price'), 10);
 
             inputVal--;
             if (inputVal <= 1) {
                 inputVal = 1;
                 $(this).removeClass('active');
             }
+            priceDom.html(inputVal * price);
             inputDom.val(inputVal);
         });
 

@@ -680,7 +680,7 @@
             $numbers.find('.num-minus').removeClass('active').end().find('.txt-num').val(1);
 
             // 同步价格
-            $numbers.find('.txt-price').find('i').html(price)
+            $numbers.find('.txt-price').find('i').attr('data-price', price).html(price)
         });
 
         // 数量加减
@@ -691,11 +691,12 @@
                 priceDom = $(this).siblings('.txt-price').find('i'),
                 price = parseInt(priceDom.attr('data-price'), 10);
 
-            inputDom.val(++inputVal);
+            inputVal++;
+            inputDom.val(inputVal);
+            priceDom.html(inputVal * price);
             if (inputVal >= 2) {
                 minusDom.addClass('active');
             }
-            priceDom.html(inputVal * price);
         }).on('click', '.num-minus', function(e) {
             var inputDom = $(this).siblings('.txt-num'),
                 inputVal = parseInt(inputDom.val().trim(), 10),
@@ -707,8 +708,8 @@
                 inputVal = 1;
                 $(this).removeClass('active');
             }
-            inputDom.val(inputVal);
             priceDom.html(inputVal * price);
+            inputDom.val(inputVal);
         });
 
         // 显示规格遮罩处理函数
