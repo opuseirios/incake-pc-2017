@@ -11,7 +11,7 @@
       var _data = {
           list: [
               {
-                  link: 'detail.html',
+                  link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_01.jpg',
                   desc: '纯芝士与醇香奶油的梦幻组合',
                   name: {
@@ -21,7 +21,7 @@
                   price: 189,
                   pound: 1.5
               }, {
-                  link: 'detail.html',
+                  link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_02.jpg',
                   desc: '纯芝士与醇香奶油的梦幻组合',
                   name: {
@@ -31,7 +31,7 @@
                   price: 189,
                   pound: 1.5
               }, {
-                  link: 'detail.html',
+                  link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_03.jpg',
                   desc: '纯芝士与醇香奶油的梦幻组合',
                   name: {
@@ -41,7 +41,7 @@
                   price: 189,
                   pound: 1.5
               }, {
-                  link: 'detail.html',
+                  link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_04.jpg',
                   desc: '纯芝士与醇香奶油的梦幻组合',
                   name: {
@@ -51,7 +51,7 @@
                   price: 189,
                   pound: 1.5
               }, {
-                  link: 'detail.html',
+                  link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_01.jpg',
                   desc: '纯芝士与醇香奶油的梦幻组合',
                   name: {
@@ -61,7 +61,7 @@
                   price: 189,
                   pound: 1.5
               }, {
-                  link: 'detail.html',
+                  link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_02.jpg',
                   desc: '纯芝士与醇香奶油的梦幻组合',
                   name: {
@@ -71,7 +71,7 @@
                   price: 189,
                   pound: 1.5
               }, {
-                  link: 'detail.html',
+                  link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_03.jpg',
                   desc: '纯芝士与醇香奶油的梦幻组合',
                   name: {
@@ -81,7 +81,7 @@
                   price: 189,
                   pound: 1.5
               }, {
-                  link: 'detail.html',
+                  link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_04.jpg',
                   desc: '纯芝士与醇香奶油的梦幻组合',
                   name: {
