@@ -1,0 +1,120 @@
+.exchange-page {
+  background-color: #fff;
+}
+
+.page-container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.list-contents {
+	width: 100%;
+  padding: 40px 0 20px;
+
+	> li {
+		position: relative;
+		float: left;
+		width: 291px;
+		margin: 0 12px 10px 0;
+		overflow: hidden;
+
+		&.last-col {
+			margin-right: 0;
+		}
+
+		&.normal:nth-of-type(4n+4) {
+			margin-right: 0;
+		}
+
+		.img {
+			position: relative;
+			width: 291px;
+			height: 291px;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+			}
+
+			.link {
+				display: block;
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.text {
+			position: relative;
+			width: 100%;
+			height: 109px;
+
+			p {
+				margin-left: 20px;
+				color: #635859;
+
+				&.desc {
+					padding: 14px 0 11px;
+					font-size: 14px;
+					color: #b5b5b5;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden;
+				}
+
+				&.name {
+					.cn {
+						padding-top: 10px;
+						font-size: 14px;
+						line-height: 30px;
+					}
+
+					.en {
+						font-size: 10px;
+						line-height: 30px;
+					}
+				}
+
+				&.attr {
+					padding-top: 5px;
+					color: #e9546b;
+
+					.price {
+						font-size: 14px;
+					}
+
+					.pound {
+						font-size: 12px;
+					}
+				}
+			}
+
+      .pick-gift {
+        display: block;
+        position: absolute;
+        right: 18px;
+        bottom: 16px;
+        width: 82px;
+        height: 26px;
+        font-size: 14px;
+        line-height: 26px;
+        text-align: center;
+        color: #fff;
+        background-color: #e9546b;
+        border-radius: 2px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+		}
+
+		&:hover {
+			outline: 1px solid #e9546b;
+
+			.img .favor {
+				display: block;
+			}
+		}
+	}
+}
