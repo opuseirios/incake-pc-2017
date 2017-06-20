@@ -232,6 +232,24 @@
 			bottom: 0;
 		}
 
+		&.coming-soon:after {
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 140px;
+			height: 60px;
+			margin-left: -70px;
+			margin-top: -30px;
+			content: '';
+			background: {
+				image: url('../imgs/index/coming_soon.jpg');
+				repeat: no-repeat;
+				size: cover;
+				position: center center;
+			}
+		}
+
 		.img {
 			display: block;
 			width: 100%;
