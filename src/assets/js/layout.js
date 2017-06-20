@@ -1,5 +1,6 @@
 (function(window, $, undefined) {
 
+	// document ready events
 	$(function() {
 		// 导航栏
 		fnInitHeaderNav();
