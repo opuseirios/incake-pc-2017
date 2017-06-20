@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+	<title>INCAKE | 蛋糕搭配蛋糕</title>
+	<link rel="stylesheet" href="../assets/plugins/normalize/normalize.css">
+	<link rel="stylesheet" href="../assets/css/layout.css">
+	<link rel="stylesheet" href="../assets/css/exchange.css">
+	<link rel="shortcut icon" href="../favicon.ico" />
+</head>
+<body>
+	<!-- layout begin -->
+	<div class="layout">
+
+		<!-- layout header begin -->
+		<div class="layout-header" id="layoutHeader">
+			<div class="header-body">
+				<!-- logo begin -->
+				<a href="index.html" class="logo"></a>
+				<!-- logo end -->
+				<!-- nav begin -->
+				<ul class="nav clearfix">
+					<li><a href="/index.html">首页</a></li>
+					<li class="sub active">
+						<a href="javascript:;">蛋糕馆</a>
+						<ul class="subnav">
+							<li><a href="javascript:;">芝士系列</a></li>
+							<li><a href="javascript:;">巧克力系列</a></li>
+							<li><a href="javascript:;">拿破仑系列</a></li>
+							<li><a href="javascript:;">慕斯系列</a></li>
+							<li><a href="javascript:;">乳脂系列</a></li>
+							<li><a href="javascript:;">选拼系列</a></li>
+							<li><a href="javascript:;">星座系列</a></li>
+							<li><a href="javascript:;">阿狸系列</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;">三小时送</a></li>
+					<li class="sub">
+						<a href="javascript:;">INLIFE</a>
+						<ul class="subnav">
+							<li><a href="javascript:;">下午茶</a></li>
+							<li><a href="javascript:;">鲜花</a></li>
+							<li><a href="javascript:;">饮品</a></li>
+							<li><a href="javascript:;">礼品</a></li>
+						</ul>
+					</li>
+					<li class="sub">
+						<a href="javascript:;">惊喜定制</a>
+						<ul class="subnav">
+							<li><a href="javascript:;">惊喜蛋糕</a></li>
+							<li><a href="javascript:;">翻糖定制</a></li>
+							<li><a href="javascript:;">场景定制</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:;">试吃申请</a></li>
+					<li><a href="javascript:;">卡券兑换</a></li>
+				</ul>
+				<!-- nav end -->
+				<!-- portal begin -->
+				<div class="portal clearfix">
+					<div class="unlogin clearfix">
+						<a href="login.html" class="login">登录</a>
+						<span>|</span>
+						<a href="register.html" class="register">注册</a>
+					</div>
+					<div class="logined clearfix active">
+						<div class="profile-wrap">
+							<p class="info">13811112222</p>
+							<ul class="plist">
+								<li class="active"><a href="javascript:;">个人中心</a></li>
+								<li><a href="javascript:;">账户设置</a></li>
+								<li><a href="javascript:;">账户优惠券</a></li>
+								<li class="last"><a href="javascript:;">退出账号</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- portal end -->
+				<!-- basket begin -->
+				<div class="basket">
+					<a href="javascript:;" class="view"><span>10</span></a>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<ul class="list basket-list"></ul>
+						<script id="tplBasketList" type="text/html">
+							{{if list.length > 0}}
+							{{each list as item i}}
+							<li class="clearfix">
+								<a href="{{item.link}}" class="img">
+									<img src="{{item.thumbUrl}}" alt="">
+								</a>
+								<div class="text">
+									<p class="first-row clearfix">
+										<span class="name">{{item.name}}</span>
+										<span class="price">￥{{item.price}}</span>
+									</p>
+									<p class="second-row clearfix">
+										<span class="pound">{{item.pound}}磅</span>
+										<span class="num">x{{item.num}}</span>
+									</p>
+								</div>
+								<a href="javascript:;" class="remove"></a>
+							</li>
+							{{/each}}
+							{{/if}}
+						</script>
+						<a href="javascript:;" class="view-basket">查看购物篮 >></a>
+					</div>
+				</div>
+				<!-- basket end -->
+				<!-- locator begin -->
+				<div class="locator">
+					<span class="arrow"></span>
+					<p>上海</p>
+					<div class="content">
+						<span class="arrow-up"></span>
+						<p>请选择您要配送的城市：</p>
+						<ul class="clearfix">
+							<li class="active">上海</li>
+							<li>福州</li>
+							<li>苏州</li>
+							<li>昆山</li>
+							<li>厦门</li>
+							<li>北京</li>
+							<li>南京</li>
+							<li>杭州</li>
+							<li>青岛</li>
+							<li>扬州</li>
+						</ul>
+					</div>
+				</div>
+				<!-- locator end -->
+			</div>
+		</div>
+		<!-- layout header end -->
+
+		<!-- layout container begin -->
+		<div class="layout-container">
+
+			<!-- list page begin -->
+			<div class="page exchange-page" id="exchangePage">
+				<div class="page-container">
+
+					<ul class="list-contents clearfix" id="cakeList"></ul>
+					<script id="tplCakeList" type="text/html">
+						{{if list.length > 0}}
+							{{each list as item i}}
+							{{if i%4 === 3}}
+							<li class="normal last-col">
+							{{else}}
+							<li class="normal">
+							{{/if}}
+								<div class="img">
+									<a href="{{item.link}}" class="link">
+										<img src="{{item.imgUrl}}" alt="">
+                    <span class="selector"></span>
+									</a>
+								</div>
+								<div class="text">
+									<p class="desc">{{item.desc}}</p>
+									<p class="name">
+										<span class="cn">{{item.name.cn}}</span>
+										<span class="en">{{item.name.en}}</span>
+									</p>
+									<p class="attr">
+										<span class="price">￥{{item.price}}</span>
+										<span class="pound">/{{item.pound}}磅</span>
+									</p>
+								</div>
+							</li>
+							{{/each}}
+						{{/if}}
+					</script>
+
+          <!-- gifts footer begin -->
+          <div class="gifts-footer">
+            <div class="parts-wrapper" id="partsWrapper">
+              <div class="parts-header">
+                <ul class="categories-nav clearfix">
+                  <li class="active" data-target="candles">数字蜡烛</li>
+                  <li data-target="plates">餐盘</li>
+                </ul>
+              </div>
+              <div class="parts-container">
+                <div class="categories-body">
+                  <a href="javascript:;" class="btn btn-prev"></a>
+                  <a href="javascript:;" class="btn btn-next"></a>
+                  <div class="list-wrap">
+                    <ul class="list-parts clearfix"></ul>
+                    <script type="text/html" id="tplListParts">
+                    {{each list as item i}}
+                    <li>
+                      <a href="{{item.link}}" class="img">
+                        <img src="{{item.img}}" alt="">
+                        <span class="selector"></span>
+                      </a>
+                      <div class="text">
+                        <p class="name">
+                          <span class="cn">{{item.name.cn}}</span>
+                          <span class="en">{{item.name.en}}</span>
+                        </p>
+                        <p class="attr">
+                          <span class="price">￥{{item.price}}</span>
+                          <span class="pound">/{{item.spec}}</span>
+                        </p>
+                        <div class="operate clearfix">
+                          <a href="javascript:;" class="num-minus"></a>
+                          <input type="text" class="txt-num" value="1" readonly="readonly">
+                          <a href="javascript:;" class="num-add"></a>
+                        </div>
+                      </div>
+                    </li>
+                    {{/each}}
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- gifts footer end -->
+
+          <a href="javascript:;" class="cakes-submit">确认搭配</a>
+
+        </div>
+			</div>
+			<!-- list page end -->
+
+		</div>
+		<!-- layout container end -->
+
+		<!-- layout footer begin -->
+		<div class="layout-footer">
+			<div class="footer-body">
+				<div class="container">
+					<div class="logo"></div>
+					<div class="content">
+						<p class="nav clearfix">
+							<a href="javascript:;">配送范围</a><span>|</span>
+							<a href="javascript:;">帮助中心</a><span>|</span>
+							<a href="javascript:;">品牌故事</a><span>|</span>
+							<a href="javascript:;">关于我们</a><span>|</span>
+							<a href="javascript:;">招贤纳士</a>
+						</p>
+						<p class="hotline clearfix">
+							<span>客服热线：</span>
+							<span class="tel">400-921-5757</span>
+						</p>
+						<div class="third-party clearfix">
+							<a class="wechat" href="javascript:;"></a>
+							<a class="sina" href="javascript:;"></a>
+							<a class="qq" href="javascript:;"></a>
+							<a class="dianping" href="javascript:;"></a>
+						</div>
+					</div>
+					<div class="qrcode">
+						<div class="img"></div>
+						<p class="text">微信订购更方便</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					<p>
+						<span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+						<span>沪ICP备12045835</span>
+						<span>沪公网安备31010802001150</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- layout footer end -->
+
+	</div>
+	<!-- layout end -->
+
+	<!-- javscript begin -->
+	<script src="../assets/plugins/LABjs/LAB.min.js"></script>
+	<script>
+		$LAB
+		.script('../assets/plugins/polyfill/polyfill.min.js').wait()
+		.script('../assets/plugins/jquery/jquery-1.10.2.min.js').wait()
+		.script('../assets/plugins/tweenmax/TweenMax.min.js').wait()
+		.script('../assets/plugins/artTemplate/template.js').wait()
+		.script('../assets/plugins/underscore/underscore-min.js').wait()
+		.script('../assets/js/layout.js').wait()
+		.script('../assets/js/cakes.js');
+	</script>
+	<!-- javascript end -->
+</body>
+</html>
