@@ -51,7 +51,7 @@
         width: 30px;
         height: 30px;
         background: {
-          image: url('../imgs/icons/icon_basket_ckbox.png');
+          image: url('../imgs/icons/icon_ckbox_42_unchecked.png');
           repeat: no-repeat;
           size: cover;
           position: center center;
@@ -183,7 +183,7 @@
     &.selected {
       .img .selector {
         display: block;
-        background-image: url('../imgs/icons/icon_basket_ckbox_checked.png');
+        background-image: url('../imgs/icons/icon_ckbox_42_checked.png');
       }
 
       .text .operate {
@@ -350,7 +350,7 @@
               width: 30px;
               height: 30px;
               background: {
-                image: url('../imgs/icons/icon_basket_ckbox.png');
+                image: url('../imgs/icons/icon_ckbox_42_unchecked.png');
                 repeat: no-repeat;
                 size: cover;
                 position: center center;
@@ -450,7 +450,7 @@
           &.selected {
             .img .selector {
               display: block;
-              background-image: url('../imgs/icons/icon_basket_ckbox_checked.png');
+              background-image: url('../imgs/icons/icon_ckbox_42_checked.png');
             }
 
             .text .operate {
@@ -604,7 +604,7 @@
             width: 30px;
             height: 30px;
             background: {
-              image: url('../imgs/icons/icon_basket_ckbox.png');
+              image: url('../imgs/icons/icon_ckbox_42_unchecked.png');
               repeat: no-repeat;
               size: cover;
               position: center center;
@@ -701,7 +701,7 @@
         &.selected {
           .img .selector {
             display: block;
-            background-image: url('../imgs/icons/icon_basket_ckbox_checked.png');
+            background-image: url('../imgs/icons/icon_ckbox_42_checked.png');
           }
 
           .text .operate {
