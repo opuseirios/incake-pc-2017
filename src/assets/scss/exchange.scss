@@ -728,7 +728,8 @@
 
 .gifts-submit,
 .cakes-submit,
-.groups-submit {
+.groups-submit,
+.parts-submit {
   display: block;
   width: 210px;
   height: 60px;
@@ -812,7 +813,8 @@
   text-align: center;
 }
 
-.group-list {
+.group-list,
+.part-list {
   > li .text {
     height: 159px;
   }

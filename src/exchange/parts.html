@@ -6,7 +6,7 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta name="description" content="">
   <meta name="author" content="">
-	<title>INCAKE | 搭配套餐</title>
+	<title>INCAKE | 搭配小商品</title>
 	<link rel="stylesheet" href="../assets/plugins/normalize/normalize.css">
 	<link rel="stylesheet" href="../assets/css/layout.css">
 	<link rel="stylesheet" href="../assets/css/exchange.css">
@@ -145,9 +145,9 @@
 			<div class="page exchange-page" id="exchangePage">
 				<div class="page-container">
 
-          <p class="groups-tip">温馨提示：套餐选择规则</p>
+          <p class="groups-tip">温馨提示：小商品选择规则</p>
 
-					<ul class="list-contents group-list clearfix" id="cakeList"></ul>
+					<ul class="list-contents part-list clearfix" id="cakeList"></ul>
 					<script id="tplCakeList" type="text/html">
 						{{if list.length > 0}}
 							{{each list as item i}}
@@ -230,7 +230,7 @@
           </div>
           <!-- gifts footer end -->
 
-          <a href="javascript:;" class="groups-submit">确认搭配</a>
+          <a href="javascript:;" class="parts-submit">确认搭配</a>
 
         </div>
 			</div>
@@ -294,7 +294,7 @@
 		.script('../assets/plugins/artTemplate/template.js').wait()
 		.script('../assets/plugins/underscore/underscore-min.js').wait()
 		.script('../assets/js/layout.js').wait()
-		.script('../assets/js/groups.js');
+		.script('../assets/js/parts.js');
 	</script>
 	<!-- javascript end -->
 </body>
