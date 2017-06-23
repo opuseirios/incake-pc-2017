@@ -116,9 +116,9 @@
     };
 
     // 测试，当惊喜款蛋糕为空
-    // _data = {
-    //   list: []
-    // };
+    _data = {
+      list: []
+    };
 
     var _html = template('tplSurpriseList', _data);
     $listContainer.prepend(_html);
@@ -232,9 +232,9 @@
     };
 
     // 测试，当常规款蛋糕为空
-    // _data = {
-    //   list: []
-    // };
+    _data = {
+      list: []
+    };
 
     var _html = template('tplRegularList', _data);
     if ($listContainer.children('.surprise-list').length > 0) {
@@ -304,9 +304,9 @@
     };
 
     // 测试，当小商品为空
-    // _data = {
-    //   list: []
-    // };
+    _data = {
+      list: []
+    };
 
     var _html = template('tplPartList', _data);
     $listContainer.append(_html);

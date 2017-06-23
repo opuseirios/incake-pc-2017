@@ -1166,6 +1166,19 @@
         }
       }
     }
+
+    .empty-basket {
+      display: block;
+      width: 600px;
+      height: 300px;
+      margin: 100px auto;
+      background: {
+        image: url('../imgs/basket/empty_basket.png');
+        repeat: no-repeat;
+        size: cover;
+        position: center center;
+      }
+    }
   }
 
   .list-footer {
