@@ -1289,182 +1289,102 @@
     width: 780px;
     margin: 0 auto;
     border-bottom: 1px solid #635859;
-
-    .categories-nav {
-      width: 200px;
-      margin: 0 auto;
-      padding-bottom: 3px;
-
-      li {
-        float: left;
-        width: 100px;
-        height: 26px;
-        line-height: 26px;
-        text-align: center;
-        font-size: 16px;
-        color: #505050;
-        cursor: pointer;
-
-        &.active {
-          position: relative;
-          color: #e9546b;
-          border-color: #e9546b;
-
-          &:after {
-            display: block;
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            content: '';
-            background-color: #e9546b;
-          }
-        }
-      }
-    }
+    font-size: 16px;
+    line-height: 30px;
+    color: #505050;
+    text-align: center;
   }
 
   .parts-container {
-    width: 100%;
+    width: 1080px;
+    height: 378px;
     padding-top: 40px;
+    margin: 0 auto;
+    overflow: hidden;
 
-    .categories-body {
-      position: relative;
-      width: 100%;
-      height: 378px;
-    }
-
-    .btn {
-      display: block;
-      position: absolute;
-      top: 50%;
-      width: 40px;
-      height: 50px;
-      margin-top: -25px;
-      background: {
-        repeat: no-repeat;
-        size: cover;
-        position: center center;
-      }
-    }
-
-    .btn-prev {
-      left: 0;
-      background-image: url('../imgs/icons/icon_prev_btn.jpg');
-
-      &.active {
-        background-image: url('../imgs/icons/icon_prev_btn_hover.jpg');
-      }
-    }
-
-    .btn-next {
-      right: 0;
-      background-image: url('../imgs/icons/icon_next_btn.jpg');
-
-      &.active {
-        background-image: url('../imgs/icons/icon_next_btn_hover.jpg');
-      }
-    }
-
-    .list-wrap {
-      position: relative;
-      width: 1070px;
-      height: 378px;
-      margin: 0 auto;
+    .part-item {
+      float: left;
+      width: 260px;
+      margin-left: 10px;
       overflow: hidden;
-    }
 
-    .list-parts {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 378px;
-
-      li {
-        float: left;
+      .img {
+        display: block;
         width: 260px;
-        margin-right: 10px;
+        height: 260px;
         overflow: hidden;
 
-        .img {
-          display: block;
-          width: 260px;
-          height: 260px;
-          overflow: hidden;
-
-          img {
-            width: 100%;
-          }
-        }
-
-        .text {
-          position: relative;
+        img {
           width: 100%;
-          height: 118px;
+        }
+      }
 
-          p {
-            color: #635859;
-            text-align: center;
+      .text {
+        position: relative;
+        width: 100%;
+        height: 118px;
 
-            &.name {
-              padding-top: 10px;
+        p {
+          color: #635859;
+          text-align: center;
 
-              span {
-                display: inline-block;
-                width: 100%;
-              }
+          &.name {
+            padding-top: 10px;
 
-              .cn {
-                font-size: 14px;
-                line-height: 20px;
-              }
-
-              .en {
-                font-size: 10px;
-                line-height: 20px;
-              }
+            span {
+              display: inline-block;
+              width: 100%;
             }
 
-            &.attr {
-              padding-top: 5px;
-              color: #e9546b;
+            .cn {
+              font-size: 14px;
+              line-height: 20px;
+            }
 
-              .price {
-                font-size: 14px;
-              }
-
-              .pound {
-                font-size: 12px;
-              }
+            .en {
+              font-size: 10px;
+              line-height: 20px;
             }
           }
 
-          .join-basket {
-            display: none;
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            width: 30px;
-            height: 30px;
-            margin-left: -15px;
-            border-radius: 50%;
-            background: {
-              image: url('../imgs/icons/icon_join_basket.png');
-              repeat: no-repeat;
-              size: cover;
-              position: center center;
+          &.attr {
+            padding-top: 5px;
+            color: #e9546b;
+
+            .price {
+              font-size: 14px;
+            }
+
+            .pound {
+              font-size: 12px;
             }
           }
         }
 
-        &:hover {
-          outline: 1px solid #e9546b;
-          outline-offset: -1px;
-
-          .text .join-basket {
-            display: block;
+        .join-basket {
+          display: none;
+          position: absolute;
+          bottom: 10px;
+          left: 50%;
+          width: 30px;
+          height: 30px;
+          margin-left: -15px;
+          border-radius: 50%;
+          background: {
+            image: url('../imgs/icons/icon_join_basket.png');
+            repeat: no-repeat;
+            size: cover;
+            position: center center;
           }
+        }
+      }
+
+      &:hover {
+        outline: 1px solid #e9546b;
+        outline-offset: -1px;
+
+        .text .join-basket {
+          display: block;
         }
       }
     }
@@ -1839,6 +1759,163 @@
       width: 100%;
       height: 60px;
       line-height: 60px;
+      text-align: center;
+      font-size: 18px;
+      color: #fff;
+      background-color: #e9546b;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.mask-numbercandle {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background: {
+    image: url('../imgs/basket/mask_bg.png');
+  }
+
+  .numbercandle-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 680px;
+    height: 426px;
+    margin: -215px 0 0 -342px;
+    border: 2px solid #e9546b;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  .numbercandle-close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 22px;
+    height: 22px;
+    background: {
+      image: url('../imgs/popup_close.png');
+      repeat: no-repeat;
+      size: cover;
+      position: center center;
+    }
+    cursor: pointer;
+  }
+
+  .container-body {
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
+
+    ul {
+      width: 100%;
+      padding-top: 70px;
+    }
+    li {
+      display: inline-block;
+      position: relative;
+      float: left;
+      width: 74px;
+      height: 74px;
+      margin: 0 0 60px 50px;
+      border: 1px solid #c3c3c3;
+
+      .img {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .operate {
+        display: none;
+        position: absolute;
+        bottom: -36px;
+        left: 50%;
+        width: 100px;
+        height: 24px;
+        margin-left: -50px;
+
+        a, input {
+          display: inline-block;
+          float: left;
+        }
+        input {
+          width: 40px;
+          margin: 0 5px;
+          line-height: 22px;
+          text-align: center;
+          border: 1px solid #b9b9b9;
+          border-radius: 3px;
+        }
+        a {
+          width: 24px;
+          height: 24px;
+          background: {
+            repeat: no-repeat;
+            size: 20px 20px;
+            position: center center;
+          }
+
+          &.num-minus {
+            background-image: url('../imgs/icons/icon_minus_22.png');
+            &.active {
+              background-image: url('../imgs/icons/icon_sub_enabled.png');
+            }
+          }
+          &.num-add {
+            background-image: url('../imgs/icons/icon_add_enabled.png');
+          }
+        }
+      }
+
+      &.active, &:hover {
+        border-color: #e9546a;
+
+        &:after {
+          display: block;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          content: '';
+          width: 33px;
+          height: 33px;
+          background: {
+            image: url('../imgs/parts/candle_number_active.png');
+            repeat: no-repeat;
+            size: cover;
+            position: right bottom;
+          }
+        }
+
+        .operate {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .container-footer {
+    width: 100%;
+    height: 66px;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 66px;
+      line-height: 66px;
       text-align: center;
       font-size: 18px;
       color: #fff;

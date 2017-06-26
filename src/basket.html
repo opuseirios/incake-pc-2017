@@ -497,7 +497,7 @@
 								</script>
 
 								<!-- empty basket begin -->
-								<a href="list.html" class="empty-basket"></a>
+								<!-- <a href="list.html" class="empty-basket"></a> -->
 								<!-- empty basket end -->
 							</div>
 							<div class="list-footer clearfix">
@@ -524,38 +524,70 @@
 					<!-- basket footer begin -->
 					<div class="basket-footer">
 						<div class="parts-wrapper" id="partsWrapper">
-							<div class="parts-header">
-								<ul class="categories-nav clearfix">
-									<li class="active" data-target="candles">数字蜡烛</li>
-									<li data-target="plates">餐盘</li>
-								</ul>
-							</div>
-							<div class="parts-container">
-								<div class="categories-body">
-									<a href="javascript:;" class="btn btn-prev"></a>
-									<a href="javascript:;" class="btn btn-next"></a>
-									<div class="list-wrap">
-										<ul class="list-parts clearfix"></ul>
-										<script type="text/html" id="tplListParts">
-										{{each list as item i}}
-										<li>
-											<a href="{{item.link}}" class="img">
-												<img src="{{item.img}}" alt="">
-											</a>
-											<div class="text">
-												<p class="name">
-													<span class="cn">{{item.name.cn}}</span>
-													<span class="en">{{item.name.en}}</span>
-												</p>
-												<p class="attr">
-													<span class="price">￥{{item.price}}</span>
-													<span class="pound">/{{item.spec}}</span>
-												</p>
-												<a href="javascript:;" class="join-basket"></a>
-											</div>
-										</li>
-										{{/each}}
-										</script>
+							<p class="parts-header">餐盘和蜡烛</p>
+							<div class="parts-container clearfix">
+								<div class="part-item">
+									<a href="javascript:;" class="img">
+										<img src="assets/imgs/parts/plate.jpg" alt="">
+									</a>
+									<div class="text">
+										<p class="name">
+											<span class="cn">盘叉</span>
+											<span class="en">cake plate</span>
+										</p>
+										<p class="attr">
+											<span class="price">￥2.50</span>
+											<span class="pound">/5份</span>
+										</p>
+										<a href="javascript:;" class="join-basket btn-normal"></a>
+									</div>
+								</div>
+								<div class="part-item">
+									<a href="javascript:;" class="img">
+										<img src="assets/imgs/parts/candle_numbers.jpg" alt="">
+									</a>
+									<div class="text">
+										<p class="name">
+											<span class="cn">数字蜡烛</span>
+											<span class="en">number candle</span>
+										</p>
+										<p class="attr">
+											<span class="price">￥2.00</span>
+											<span class="pound">/1份</span>
+										</p>
+										<a href="javascript:;" class="join-basket btn-candle"></a>
+									</div>
+								</div>
+								<div class="part-item">
+									<a href="javascript:;" class="img">
+										<img src="assets/imgs/parts/candle_iloveyou.jpg" alt="">
+									</a>
+									<div class="text">
+										<p class="name">
+											<span class="cn">I love you 蜡烛</span>
+											<span class="en">i love you candle</span>
+										</p>
+										<p class="attr">
+											<span class="price">￥8.00</span>
+											<span class="pound">/1份</span>
+										</p>
+										<a href="javascript:;" class="join-basket btn-normal"></a>
+									</div>
+								</div>
+								<div class="part-item">
+									<a href="javascript:;" class="img">
+										<img src="assets/imgs/parts/candle_happybirthday.jpg" alt="">
+									</a>
+									<div class="text">
+										<p class="name">
+											<span class="cn">Happy Birthday 蜡烛</span>
+											<span class="en">happy birthday candle</span>
+										</p>
+										<p class="attr">
+											<span class="price">￥10.00</span>
+											<span class="pound">/1份</span>
+										</p>
+										<a href="javascript:;" class="join-basket btn-normal"></a>
 									</div>
 								</div>
 							</div>
@@ -631,6 +663,121 @@
 				</div>
 			</div>
 			<!-- mask tip message end -->
+
+			<!-- mask number candle begin -->
+			<div class="mask-numbercandle" id="numberCandle">
+				<div class="numbercandle-container">
+					<span class="numbercandle-close"></span>
+					<div class="container-body">
+						<ul class="clearfix">
+							<li>
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/parts/candle_number_01.jpg" alt="">
+								</a>
+								<div class="operate clearfix">
+									<a href="javascript:;" class="num-minus"></a>
+									<input type="text" class="txt-num" value="1" readonly>
+									<a href="javascript:;" class="num-add"></a>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/parts/candle_number_02.jpg" alt="">
+								</a>
+								<div class="operate clearfix">
+									<a href="javascript:;" class="num-minus"></a>
+									<input type="text" class="txt-num" value="1" readonly>
+									<a href="javascript:;" class="num-add"></a>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/parts/candle_number_03.jpg" alt="">
+								</a>
+								<div class="operate clearfix">
+									<a href="javascript:;" class="num-minus"></a>
+									<input type="text" class="txt-num" value="1" readonly>
+									<a href="javascript:;" class="num-add"></a>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/parts/candle_number_04.jpg" alt="">
+								</a>
+								<div class="operate clearfix">
+									<a href="javascript:;" class="num-minus"></a>
+									<input type="text" class="txt-num" value="1" readonly>
+									<a href="javascript:;" class="num-add"></a>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/parts/candle_number_05.jpg" alt="">
+								</a>
+								<div class="operate clearfix">
+									<a href="javascript:;" class="num-minus"></a>
+									<input type="text" class="txt-num" value="1" readonly>
+									<a href="javascript:;" class="num-add"></a>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/parts/candle_number_06.jpg" alt="">
+								</a>
+								<div class="operate clearfix">
+									<a href="javascript:;" class="num-minus"></a>
+									<input type="text" class="txt-num" value="1" readonly>
+									<a href="javascript:;" class="num-add"></a>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/parts/candle_number_07.jpg" alt="">
+								</a>
+								<div class="operate clearfix">
+									<a href="javascript:;" class="num-minus"></a>
+									<input type="text" class="txt-num" value="1" readonly>
+									<a href="javascript:;" class="num-add"></a>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/parts/candle_number_08.jpg" alt="">
+								</a>
+								<div class="operate clearfix">
+									<a href="javascript:;" class="num-minus"></a>
+									<input type="text" class="txt-num" value="1" readonly>
+									<a href="javascript:;" class="num-add"></a>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/parts/candle_number_09.jpg" alt="">
+								</a>
+								<div class="operate clearfix">
+									<a href="javascript:;" class="num-minus"></a>
+									<input type="text" class="txt-num" value="1" readonly>
+									<a href="javascript:;" class="num-add"></a>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:;" class="img">
+									<img src="assets/imgs/parts/candle_number_00.jpg" alt="">
+								</a>
+								<div class="operate clearfix">
+									<a href="javascript:;" class="num-minus"></a>
+									<input type="text" class="txt-num" value="1" readonly>
+									<a href="javascript:;" class="num-add"></a>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="container-footer">
+						<a href="javascript:;">确 定</a>
+					</div>
+				</div>
+			</div>
+			<!-- mask number candle end -->
 
 		</div>
 		<!-- layout container end -->
