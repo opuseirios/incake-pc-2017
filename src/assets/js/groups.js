@@ -133,260 +133,51 @@
   // init list parts data
   function fnInitListParts() {
     var $wrapper = $('#partsWrapper'),
-      $nav = $wrapper.find('.categories-nav'),
-      $body = $wrapper.find('.categories-body'),
-      $btnPrev = $body.find('.btn-prev'),
-      $btnNext = $body.find('.btn-next'),
-      $listParts = $body.find('.list-parts'),
-      liW = 260,
-      liML = 10,
-      viewNum = 4,
-      iLeft = 0,
-      maxW = 0,
-      len = 0;
+      $mask = $('#numberCandle');
 
-    // 默认初始化时传入数字蜡烛数据
-    handle4InitList('candles');
-
-    /**
-     * ==================================
-     * Methods
-     * ==================================
-     */
-
-    // switch nav
-    $nav.on('click', 'li', function(e) {
-      var target = $(this).attr('data-target');
-      iLeft = 0;
-      handle4InitList(target);
-      $(this).addClass('active').siblings().removeClass('active');
+    // 数字蜡烛加入购物车
+    $wrapper.on('click', '.btn-candle', function(e) {
+      $mask.fadeIn();
     });
 
-    // handle for next slide
-    $btnNext.on('click', function(e) {
-      if (!$(this).hasClass('active')) {
-        return false;
-      }
-      iLeft += (liW + liML);
-      if (iLeft >= maxW) {
-        iLeft = maxW;
-        $(this).removeClass('active');
-      }
-      $listParts.animate({
-        left: -iLeft + 'px'
-      });
-      if (len > viewNum && !$btnPrev.hasClass('active')) {
-        $btnPrev.addClass('active');
-      }
+    // 关闭数字蜡烛弹窗
+    $mask.on('click', '.numbercandle-close', function(e) {
+      $mask.fadeOut();
     });
 
-    // handle for previous slide
-    $btnPrev.on('click', function(e) {
-      if (!$(this).hasClass('active')) {
-        return false;
-      }
-      iLeft -= (liW + liML);
-      if (iLeft <= 0) {
-        iLeft = 0;
-        $(this).removeClass('active');
-      }
-      $listParts.animate({
-        left: -iLeft + 'px'
-      });
-      if (len > viewNum && !$btnNext.hasClass('active')) {
-        $btnNext.addClass('active');
-      }
+    // 数字蜡烛选择
+    $mask.on('click', '.container-body li', function(e) {
+      $(this).toggleClass('active');
     });
 
-    // 选中切换
-    $listParts.on('click', '.img', function(e) {
-      var $element = $(this).closest('li');
-      $element.toggleClass('selected');
+    // 增加数量
+    $mask.on('click', '.num-add', function(e) {
+      var $input = $(this).prev('.txt-num'),
+        amount = parseInt($input.val());
+      amount++;
+      if (amount > 1) {
+        $(this).siblings('.num-minus').addClass('active');
+      }
+      $input.val(amount);
+
       e.preventDefault();
+      e.stopPropagation();
     });
 
-    // 数量加减
-    $listParts.on('click', '.num-add', function(e) {
-      var minusDom = $(this).siblings('.num-minus'),
-        inputDom = $(this).siblings('.txt-num'),
-        inputVal = parseInt(inputDom.val().trim(), 10);
-
-      inputVal++;
-      inputDom.val(inputVal);
-      if (inputVal >= 2) {
-        minusDom.addClass('active');
-      }
-    }).on('click', '.num-minus', function(e) {
-      var inputDom = $(this).siblings('.txt-num'),
-        inputVal = parseInt(inputDom.val().trim(), 10);
-
-      inputVal--;
-      if (inputVal <= 1) {
-        inputVal = 1;
+    // 减少数量
+    $mask.on('click', '.num-minus', function(e) {
+      var $input = $(this).next('.txt-num'),
+        amount = parseInt($input.val());
+      amount--;
+      if (amount <= 1) {
+        amount = 1;
         $(this).removeClass('active');
       }
-      inputDom.val(inputVal);
+      $input.val(amount);
+
+      e.preventDefault();
+      e.stopPropagation();
     });
-
-    /**
-     * ==================================
-     * Handles
-     * ==================================
-     */
-
-    // handle for init list
-    function handle4InitList(target) {
-
-      // 数字蜡烛模拟数据
-      var candlesData = {
-        list: [
-          {
-            link: 'javascript:;',
-            img: '/assets/imgs/list/cake_01.jpg',
-            name: {
-              cn: '芒果拿破仑',
-              en: 'Mango Napoleon'
-            },
-            spec: '4只装',
-            price: 189
-          }, {
-            link: 'javascript:;',
-            img: '/assets/imgs/list/cake_02.jpg',
-            name: {
-              cn: '芒果拿破仑',
-              en: 'Mango Napoleon'
-            },
-            spec: '1.5磅',
-            price: 189
-          }, {
-            link: 'javascript:;',
-            img: '/assets/imgs/list/cake_03.jpg',
-            name: {
-              cn: '芒果拿破仑',
-              en: 'Mango Napoleon'
-            },
-            spec: '1.5磅',
-            price: 189
-          }, {
-            link: 'javascript:;',
-            img: '/assets/imgs/list/cake_04.jpg',
-            name: {
-              cn: '芒果拿破仑',
-              en: 'Mango Napoleon'
-            },
-            spec: '1.5磅',
-            price: 189
-          }, {
-            link: 'javascript:;',
-            img: '/assets/imgs/list/cake_01.jpg',
-            name: {
-              cn: '芒果拿破仑',
-              en: 'Mango Napoleon'
-            },
-            spec: '4只装',
-            price: 189
-          }, {
-            link: 'javascript:;',
-            img: '/assets/imgs/list/cake_02.jpg',
-            name: {
-              cn: '芒果拿破仑',
-              en: 'Mango Napoleon'
-            },
-            spec: '1.5磅',
-            price: 189
-          }, {
-            link: 'javascript:;',
-            img: '/assets/imgs/list/cake_03.jpg',
-            name: {
-              cn: '芒果拿破仑',
-              en: 'Mango Napoleon'
-            },
-            spec: '1.5磅',
-            price: 189
-          }, {
-            link: 'javascript:;',
-            img: '/assets/imgs/list/cake_04.jpg',
-            name: {
-              cn: '芒果拿破仑',
-              en: 'Mango Napoleon'
-            },
-            spec: '1.5磅',
-            price: 189
-          }
-        ]
-      };
-
-      // 餐盘模拟数据
-      var platesData = {
-        list: [
-          {
-            link: 'javascript:;',
-            img: '/assets/imgs/list/cake_04.jpg',
-            name: {
-              cn: '芒果拿破仑',
-              en: 'Mango Napoleon'
-            },
-            spec: '4只装',
-            price: 189
-          }, {
-            link: 'javascript:;',
-            img: '/assets/imgs/list/cake_03.jpg',
-            name: {
-              cn: '芒果拿破仑',
-              en: 'Mango Napoleon'
-            },
-            spec: '1.5磅',
-            price: 189
-          }, {
-            link: 'javascript:;',
-            img: '/assets/imgs/list/cake_02.jpg',
-            name: {
-              cn: '芒果拿破仑',
-              en: 'Mango Napoleon'
-            },
-            spec: '1.5磅',
-            price: 189
-          }
-        ]
-      };
-
-      // TODO 上线时需要通过AJAX从后台拉取
-      switch (target) {
-        case 'candles':
-          _data = candlesData;
-          break;
-        case 'plates':
-          _data = platesData;
-          break;
-        default:
-          _data = candlesData;
-          break;
-      }
-
-      // set list position left to 0
-      $listParts.css({left: 0});
-
-      len = _data.list.length;
-      maxW = (len - viewNum) * (liW + liML);
-      $listParts.width((liW + liML) * len);
-
-      // reset previous button style
-      if ($btnPrev.hasClass('active')) {
-        $btnPrev.removeClass('active');
-      }
-
-      // reset next button style
-      if (len > viewNum) {
-        $btnNext.addClass('active');
-      } else {
-        if ($btnNext.hasClass('active')) {
-          $btnNext.removeClass('active');
-        }
-      }
-
-      var _html = template('tplListParts', _data);
-      $listParts.append(_html);
-    }
   }
 
 })(window, jQuery);
