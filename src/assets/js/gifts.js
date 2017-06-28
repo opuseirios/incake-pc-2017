@@ -209,9 +209,51 @@
     var $wrapper = $('#partsWrapper'),
       $mask = $('#numberCandle');
 
+    // 选中配件
+    $wrapper.on('click', '.part-item', function(e) {
+      if($(this).hasClass('active')) {
+        $(this).removeClass('active');
+      } else {
+        $(this).addClass('active');
+      }
+    });
+
+    // 配件数量加减
+    $wrapper.on('click', '.num-add', function(e) {
+      var $input = $(this).prev('.txt-num'),
+        amount = parseInt($input.val());
+      amount++;
+      if (amount > 1) {
+        $(this).siblings('.num-minus').addClass('active');
+      }
+      $input.val(amount);
+
+      e.preventDefault();
+      e.stopPropagation();
+    }).on('click', '.num-minus', function(e) {
+      var $input = $(this).next('.txt-num'),
+        amount = parseInt($input.val());
+      amount--;
+      if (amount <= 1) {
+        amount = 1;
+        $(this).removeClass('active');
+      }
+      $input.val(amount);
+
+      e.preventDefault();
+      e.stopPropagation();
+    }).on('click', '.operate', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+
     // 数字蜡烛加入购物车
     $wrapper.on('click', '.btn-candle', function(e) {
       $mask.fadeIn();
+
+      e.preventDefault();
+      e.stopPropagation();
     });
 
     // 关闭数字蜡烛弹窗
