@@ -575,6 +575,19 @@
             position: center center;
           }
         }
+
+        .selected {
+          display: none;
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          width: 100px;
+          line-height: 30px;
+          text-align: left;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
       }
 
       &:hover {
@@ -585,12 +598,80 @@
           display: block;
         }
       }
+
+      &.active {
+        outline: 1px solid #e9546b;
+        outline-offset: -1px;
+
+        .text .join-basket {
+          display: block;
+        }
+
+        .text .selected {
+          display: block;
+        }
+      }
+
+      &.normal-part {
+        .text .operate {
+          display: none;
+          width: 100px;
+          height: 24px;
+          margin: 10px auto 0;
+
+          a,
+          input {
+            display: inline-block;
+            float: left;
+          }
+
+          input {
+            width: 40px;
+            margin: 0 5px;
+            line-height: 22px;
+            text-align: center;
+            border: 1px solid #b9b9b9;
+            border-radius: 3px;
+          }
+
+          a {
+            width: 24px;
+            height: 24px;
+            background: {
+              repeat: no-repeat;
+              size: 20px 20px;
+              position: center center;
+            }
+
+            &.num-minus {
+              background-image: url('../imgs/icons/icon_minus_22.png');
+
+              &.active {
+                background-image: url('../imgs/icons/icon_sub_enabled.png');
+              }
+            }
+
+            &.num-add {
+              background-image: url('../imgs/icons/icon_add_enabled.png');
+            }
+          }
+        }
+      }
+
+      &.normal-part.active {
+        .text .join-basket {
+          display: none;
+        }
+        .text .operate {
+          display: block;
+        }
+      }
     }
   }
 }
 
-.gifts-submit,
 .cakes-submit,
+.gifts-submit,
 .groups-submit,
 .parts-submit {
   display: block;
@@ -732,6 +813,7 @@
       width: 100%;
       padding-top: 70px;
     }
+
     li {
       display: inline-block;
       position: relative;
@@ -760,10 +842,12 @@
         height: 24px;
         margin-left: -50px;
 
-        a, input {
+        a,
+        input {
           display: inline-block;
           float: left;
         }
+
         input {
           width: 40px;
           margin: 0 5px;
@@ -772,6 +856,7 @@
           border: 1px solid #b9b9b9;
           border-radius: 3px;
         }
+
         a {
           width: 24px;
           height: 24px;
@@ -783,17 +868,20 @@
 
           &.num-minus {
             background-image: url('../imgs/icons/icon_minus_22.png');
+
             &.active {
               background-image: url('../imgs/icons/icon_sub_enabled.png');
             }
           }
+
           &.num-add {
             background-image: url('../imgs/icons/icon_add_enabled.png');
           }
         }
       }
 
-      &.active, &:hover {
+      &.active,
+      &:hover {
         border-color: #e9546a;
 
         &:after {
