@@ -659,8 +659,12 @@
     	});
 
     	// button of edit operate
-    	$btnEdit.on('click', function(){
+    	// $btnEdit.on('click', function(){
+    	$addrLock.on('click', '.btn-edit', function(e){
     		$mask.fadeIn(200, function(){
+    			//$mask.find('.sel-city').select2();
+    			//$mask.find('.sel-area').select2();
+    			//$mask.find('.sel-ext').select2();
     			$popAddr.fadeIn();
     			$option.val('edit');
     		});
