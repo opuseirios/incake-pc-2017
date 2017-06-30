@@ -140,7 +140,7 @@
     // 拷贝并压缩图片
     gulp.task('build:images', function() {
     	return gulp.src(paths.source.images + '**/*.+(png|jpg|jpeg|gif|svg)')
-    		.pipe(cache(imagemin({
+    		.pipe(cache(imagemin([], {
     			interlaced: true
     		})))
     		.pipe(gulp.dest(paths.build.images));
