@@ -2,6 +2,25 @@
 
 	// document ready events
 	$(function() {
+
+		// 图片懒加载
+		(function() {
+			var imgLazyLoad = new LazyLoad({
+			    elements_selector: ".lazy"
+			});
+
+			// 节流函数，减少更新频率
+			var throttle = _.throttle(updateViewport, 200);
+			$(window).on('scroll', throttle);
+
+			function updateViewport() {
+				imgLazyLoad.update();
+			}
+		})();
+
+		// 瑞雪检测代码
+		// (function(j){var h=j.sdkUrl,a=j.name,d=this,g=d.document,f=null,e=null;d.RXSTREAM201607=a;d[a]=d[a]||function(i){return function(){(d[a]._rx=d[a]._rx||[]).push([i,arguments])}};var b=["track","trackSignup","userIdentify"];for(var c=0;c<b.length;c++){d[a][b[c]]=d[a].call(null,b[c])}if(!d[a].lt){f=g.createElement("script"),e=g.getElementsByTagName("script")[0];f.async=true;f.src=h;e.parentNode.insertBefore(f,e);d[a].lt=1*new Date();d[a].para=j}})({sdkUrl:location.protocol+"//stream.ruixuesoft.com/sdk/rxStream.js",sendLimit:1,showLog:true,name:"rxStream",autoTrack:true,apiHost:location.protocol+"//sc.ruixuesoft.com",appId:347});
+
 		// 导航栏
 		fnInitHeaderNav();
 		// 城市切换

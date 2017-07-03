@@ -200,7 +200,7 @@
 							{{/if}}
 								<div class="img">
 									<a href="{{item.link}}" class="link">
-										<img src="{{item.imgUrl}}" alt="">
+										<img class="lazy" data-original="{{item.imgUrl}}" alt="">
 										{{if item.favor}}
 										<span class="favor selected"></span>
 										{{else}}
@@ -309,7 +309,7 @@
 							{{/if}}
 								<div class="img">
 									<a href="{{item.link}}" class="link">
-										<img src="{{item.imgUrl}}" alt="">
+										<img class="lazy" data-original="{{item.imgUrl}}" alt="">
 										{{if item.favor}}
 										<span class="favor selected"></span>
 										{{else}}
@@ -473,9 +473,10 @@
 		$LAB
 		.script('assets/plugins/polyfill/polyfill.min.js').wait()
 		.script('assets/plugins/jquery/jquery-1.10.2.min.js').wait()
+		.script('assets/plugins/underscore/underscore-min.js').wait()
+		.script('assets/plugins/lazyload/lazyload.transpiled.min.js').wait()
 		.script('assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('assets/plugins/artTemplate/template.js').wait()
-		.script('assets/plugins/underscore/underscore-min.js').wait()
 		.script('assets/js/layout.js').wait()
 		.script('assets/js/list.js');
 	</script>
