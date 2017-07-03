@@ -697,10 +697,10 @@
     	});
 
     	// button of time operate
-    	$btnTime.on('click', function(){
-    		// stop propagation
-    		event.stopPropagation();
-
+    	$btnTime.on('click', function(e){
+			// stop propagation
+    		e.stopPropagation();
+    		
     		var isActive = $deliveryTime.hasClass('b-time');
 	    	if(!isActive){
 	    		$deliveryTime.addClass('b-time');
@@ -709,6 +709,7 @@
 	    		$deliveryTime.removeClass('b-time');
 	    		$popupTime.slideUp();
 	    	}
+    		
     	});
 
     	// popup-time item operate
