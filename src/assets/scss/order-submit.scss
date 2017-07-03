@@ -1320,6 +1320,15 @@ img {
                     line-height: 60px;
                     color: #d61e32;
                 }
+                &.s-tip {
+                    float: left;
+                    text-indent: 20px;
+                    color: #505050;
+                    i.s-tips {
+                        font-style: normal;
+                        color: #e9546b;
+                    }
+                }
             }
             a.btn-payment {
                 display: block;
