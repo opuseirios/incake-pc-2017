@@ -38,9 +38,7 @@
     handle4JoinBasket();
 
     // 加载更多数据
-    var throttle = _.throttle(function() {
-      updateCakeList(updateViewport);
-    }, 200);
+    var throttle = _.throttle(updateCakeList, 200);
     $(window).on('scroll', throttle);
   });
 
@@ -48,7 +46,7 @@
   var beforeScrollTop = document.documentElement.scrollTop || document.body.scrollTop, // 滚动前scrollTop值
     afterScrollTop = 0; // 滚动后scrollTop值
 
-  function updateCakeList(cb4UpdateViewport) {
+  function updateCakeList() {
 
     afterScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     var delta = afterScrollTop - beforeScrollTop;
@@ -84,8 +82,6 @@
             }
             isLoading = false;
             $oLoading.hide();
-
-            cb4UpdateViewport && cb4UpdateViewport();
           }
         });
       }
