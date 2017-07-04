@@ -39,10 +39,10 @@
     fnInitMainSlider();
 
     // 绑定当季热卖数据
-    fnBindBestChoice(updateViewport);
+    fnBindBestChoice();
   });
 
-  function fnBindBestChoice(cb4UpdateViewport) {
+  function fnBindBestChoice() {
     var $oBestChoice = $('#bestChoice');
     var _data = {
       list: [
@@ -629,7 +629,6 @@
     var _html = template('tplBestChoice', _data);
     $oBestChoice.html(_html);
 
-    cb4UpdateViewport && cb4UpdateViewport();
     handle4JoinBasket();
   }
 
