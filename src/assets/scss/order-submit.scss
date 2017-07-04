@@ -1321,9 +1321,12 @@ img {
                     color: #d61e32;
                 }
                 &.s-tip {
-                    float: left;
-                    text-indent: 20px;
+                    display: table;
+                    right: inherit;
+                    width: 500px;
+                    line-height: normal;
                     color: #505050;
+                    text-align: left;
                     i.s-tips {
                         font-style: normal;
                         color: #e9546b;
