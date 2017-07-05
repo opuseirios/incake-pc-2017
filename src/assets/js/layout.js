@@ -177,11 +177,13 @@
 	}
 
 	function fnInitRxHeadNavigation() {
+		if(!rxStream) {
+			return false;
+		}
+
 		var $header = $('#layoutHeader'),
 			$portal = $header.find('.portal'),
-			$navigation = $header.find('.nav'),
-			b_type = '',
-			b_menu = '';
+			$navigation = $header.find('.nav');
 
 		var o_username = '',
 			o_mobile = '',
@@ -192,8 +194,12 @@
 			o_mobile = $portal.find('.info').html().trim();
 		}
 
+		// 头部导航栏
 		$navigation.on('click', 'a', function(e) {
-			var $subnav = $(this).closest('.subnav');
+			var $subnav = $(this).closest('.subnav'),
+				b_type = '',
+				b_menu = '';
+
 			if($subnav.length > 0) {
 				b_type = $subnav.prev('a').html();
 				b_menu = $(this).html();
@@ -204,7 +210,7 @@
 
 			// send to rxstream server
 			rxStream.track('head_navigation', {
-				object: {
+				subject: {
 					o_username: o_username,
 					o_mobile: o_mobile
 				},

@@ -40,6 +40,9 @@
 
     // 绑定当季热卖数据
     fnBindBestChoice();
+
+    // 瑞雪检测 --- 首页
+    fnInitRxHome();
   });
 
   function fnBindBestChoice() {
@@ -810,4 +813,181 @@
     });
   }
 
+  function fnInitRxHome() {
+    if(!rxStream) {
+			return false;
+		}
+
+    var $header = $('#layoutHeader'),
+      $portal = $header.find('.portal'),
+      $homepage = $('#homePage');
+
+    var o_username = '',
+      o_mobile = '',
+      b_device = 'pc';
+
+    if($portal.find('.info').length > 0) {
+      o_username = $portal.find('.info').html().trim();
+      o_mobile = $portal.find('.info').html().trim();
+    }
+
+    // 访问首页
+    (function() {
+      // send to rxstream server
+			rxStream.track('visit_homepage', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+					b_device: b_device
+				}
+			});
+    })();
+
+    // banner 广告
+
+    // 首页分类入口
+    $homepage.find('.our-inspiration').on('click', '.item .img', function(e) {
+      var b_menu = $(this).next('.text').html().split('|')[0].trim();
+
+      // send to rxstream server
+			rxStream.track('ad_category', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+					b_menu: b_menu,
+					b_device: b_device
+				}
+			});
+    });
+
+    // 当季热卖
+    $('#bestChoice').on('click', '.link', function(e) {
+      var b_ad_number = 0,
+        b_productname = '',
+        b_product_size = '',
+        b_productprice_d = '',
+        b_productprice_m = 0;
+
+      var $item = $(this).closest('li');
+
+      b_ad_number = $item.index() + 1;
+      b_productname = $item.find('.cn').html().trim();
+      b_product_size = $item.find('.pound').html().trim().slice(1);
+      b_productprice_d = $item.find('.price').html().trim().slice(1);
+      b_productprice_m = parseFloat(b_productprice_d, 10).toFixed(2);
+
+      // send to rxstream server
+			rxStream.track('featured_products', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+					b_ad_number: b_ad_number,
+          b_productname: b_productname,
+          b_product_size: b_product_size,
+          b_productprice_d: b_productprice_d,
+          b_productprice_m: b_productprice_m,
+					b_device: b_device
+				}
+			});
+    });
+
+    // 长条广告位
+
+    // 底部广告位
+
+    // 加入购物车
+    $('#bestChoice').on('click', '.operate-join-basket', function(e) {
+      var b_productname = '',
+        b_product_size = '',
+        b_productprice_d = '',
+        b_productprice_m = 0,
+        b_productCount_d = 0,
+        b_productstyle = '';
+
+      var $spec = $(this).closest('.spec'),
+        $item = $spec.closest('li'),
+        $switcher = $spec.find('.spec-switcher'),
+        $wrapper = $spec.find('.spec-wrapper'),
+        currType = $switcher.find('li').filter('.active').index(),
+        $specbox = $wrapper.find('.spec-box').eq(currType),
+        $pounditem = $specbox.find('.pound-item').filter('.active');
+
+      b_productname = $item.find('.cn').html().trim();
+      b_product_size = $pounditem.html().trim();
+      b_productprice_d = $pounditem.attr('data-price').trim();
+      b_productprice_m = parseFloat(b_productprice_d, 10).toFixed(2);
+      b_productCount_d = parseInt($specbox.find('.numbers').find('.txt-num').val(), 10);
+      b_productstyle = $switcher.find('li').filter('.active').html().trim();
+
+      // send to rxstream server
+			rxStream.track('add_shoppingcart', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+          b_productname: b_productname,
+          b_product_size: b_product_size,
+          b_productprice_d: b_productprice_d,
+          b_productprice_m: b_productprice_m,
+          b_productCount_d: b_productCount_d,
+          b_productstyle: b_productstyle,
+					b_device: b_device
+				}
+			});
+
+      e.stopPropagation();
+    });
+
+    // 立即购买
+    $('#bestChoice').on('click', '.operate-buy', function(e) {
+      var b_productname = '',
+        b_product_size = '',
+        b_productprice_d = '',
+        b_productprice_m = 0,
+        b_productCount_d = 0,
+        b_productstyle = '';
+
+      var $spec = $(this).closest('.spec'),
+        $item = $spec.closest('li'),
+        $switcher = $spec.find('.spec-switcher'),
+        $wrapper = $spec.find('.spec-wrapper'),
+        currType = $switcher.find('li').filter('.active').index(),
+        $specbox = $wrapper.find('.spec-box').eq(currType),
+        $pounditem = $specbox.find('.pound-item').filter('.active');
+
+      b_productname = $item.find('.cn').html().trim();
+      b_product_size = $pounditem.html().trim();
+      b_productprice_d = $pounditem.attr('data-price').trim();
+      b_productprice_m = parseFloat(b_productprice_d, 10).toFixed(2);
+      b_productCount_d = parseInt($specbox.find('.numbers').find('.txt-num').val(), 10);
+      b_productstyle = $switcher.find('li').filter('.active').html().trim();
+
+      // send to rxstream server
+			rxStream.track('buy_now', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+          b_productname: b_productname,
+          b_product_size: b_product_size,
+          b_productprice_d: b_productprice_d,
+          b_productprice_m: b_productprice_m,
+          b_productCount_d: b_productCount_d,
+          b_productstyle: b_productstyle,
+					b_device: b_device
+				}
+			});
+
+      e.stopPropagation();
+    });
+
+  }
 })(window, jQuery);
