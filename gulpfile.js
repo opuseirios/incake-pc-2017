@@ -1,6 +1,6 @@
 (function() {
 
-	var gulp = require('gulp'),	
+	var gulp = require('gulp'),
 		sass = require('gulp-sass'),
 		cssnano = require('gulp-cssnano'),
 		autoprefixer = require('gulp-autoprefixer'),
@@ -75,7 +75,8 @@
 		browserSync.init({
 			server: {
 				baseDir: paths.source.root
-			}
+			},
+			open: "external" // open with external mode (http://192.168.1.xxx:3000)
 		});
 	});
 
@@ -97,7 +98,7 @@
      * 构建阶段Tasks
      * ======================================
      */
-    
+
     // 压缩js和css
     gulp.task('useref', function() {
     	return gulp.src(paths.source.root + '**/*.html')
