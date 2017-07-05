@@ -1630,6 +1630,34 @@
       height: 384px;
       margin: -192px 0 0 -192px;
     }
+
+    .adventurescake-wrapper {
+      position: relative;
+      width: 600px;
+      height: 600px;
+    }
+
+    .adventurescake-wrapper:after {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 600px;
+      height: 600px;
+      content: '';
+      background: {
+        image: url('../imgs/basket/adventures_cake_wrapper.png');
+        repeat: no-repeat;
+        size: cover;
+        position: center center;
+      }
+    }
+
+    .adventurescake-wrapper img {
+      position: relative;
+      width: 600px;
+      height: 600px;
+    }
   }
 
   .container-footer {

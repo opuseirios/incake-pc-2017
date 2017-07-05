@@ -201,18 +201,18 @@
         }, {
           uniqueId: _.uniqueId('inputImage_'),
           link: '/detail.html',
-          thumbImg: '/assets/imgs/basket/thumb_image_cake.jpg',
+          thumbImg: '/assets/imgs/basket/thumb_adventures_cake.jpg',
           name: {
-            cn: '画影',
-            en: 'Image Cake'
+            cn: '寻找爱的冒险',
+            en: 'Adventures of love'
           },
           attr: ['附送餐具5套'],
           amount: 1,
-          spec: '1.5磅',
-          price: 189,
+          spec: '2.0磅',
+          price: 199,
           privilege: '',
           operate: '<a href="javascript:;" class="btn-del-item">删除</a>',
-          isImageCake: true
+          isAdventuresCake: true
         }, {
           link: '/detail.html',
           thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
@@ -436,7 +436,8 @@
 
       // TODO 验证惊喜表单合法性
       var isSurprisePassed = true,
-        isImageCakePassed = false;
+        isImageCakePassed = true,
+        isAdventuresCakePassed = false;
 
       var _htmlBody = '',
         _htmlFooter = '';
@@ -448,6 +449,9 @@
         _htmlFooter += '<a href="javascript:;">现在去填写惊喜</a>';
       } else if (!isImageCakePassed) {
         _htmlBody += '<p>您挑选的画影蛋糕还没设置照片哦，现在就去上传照片吧！</p>';
+        _htmlFooter += '<a href="javascript:;">现在去上传照片</a>';
+      } else if (!isAdventuresCakePassed) {
+        _htmlBody += '<p>您挑选的寻找爱的冒险蛋糕还没设置照片哦，现在就去上传照片吧！</p>';
         _htmlFooter += '<a href="javascript:;">现在去上传照片</a>';
       }
 
@@ -533,6 +537,33 @@
           _html += '<label for="' + uid + '" class="btn btn-reupload">';
           _html += '<span>重新上传</span>';
           _html += '<input type="file" class="sr-only reupload-image" data-imgtype="imagecake" id="' + uid + '" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">';
+          _html += '</label>';
+          _html += '</div>';
+
+          var _beforeHtml = '';
+          _beforeHtml += '<p class="preview-box clearfix">';
+          _beforeHtml += '<span>已上传1张照片</span></p>';
+
+          var $uploadImg = $inputImage.closest('.upload-wrapper').prev();
+
+          if ($uploadImg.prev('.preview-box').length != 0) {
+            $uploadImg.prev('.preview-box').remove().end().before(_beforeHtml);
+          } else {
+            $uploadImg.html('重新上传').before(_beforeHtml);
+          }
+
+          $inputImage.closest('.upload-container').html(_html);
+        } else if (imgType == 'adventurescake') {
+          var _html = '';
+          _html += '<div class="img uploaded">';
+          _html += '<img src="' + thumbImg + '" data-image="' + img + '">';
+          _html += '<a href="javascript:;" class="btn-preview" data-imgtype="adventurescake"></a>';
+          _html += '</div>';
+          _html += '<div class="text">';
+          _html += '<p>请上传一张照片，我们会美美的安放在寻找爱的冒险上哦～</p>';
+          _html += '<label for="' + uid + '" class="btn btn-reupload">';
+          _html += '<span>重新上传</span>';
+          _html += '<input type="file" class="sr-only reupload-image" data-imgtype="adventurescake" id="' + uid + '" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">';
           _html += '</label>';
           _html += '</div>';
 
@@ -650,9 +681,9 @@
     })($image);
 
     /* ====================================
-         * Preview Images
-         * ====================================
-         */
+     * Preview Images
+     * ====================================
+     */
 
     // preview image
     $page.on('click', '.btn-preview', function(e) {
@@ -666,6 +697,10 @@
         _html += '<img class="image" src="' + imgSrc + '" alt="">';
       } else if (imgtype == 'imagecake') {
         _html += '<div class="imagecake-wrapper">';
+        _html += '<img class="image" src="' + imgSrc + '" alt="">';
+        _html += '</div>';
+      } else if (imgtype == 'adventurescake') {
+        _html += '<div class="adventurescake-wrapper">';
         _html += '<img class="image" src="' + imgSrc + '" alt="">';
         _html += '</div>';
       }

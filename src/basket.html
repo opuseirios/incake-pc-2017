@@ -419,6 +419,23 @@
 											</div>
 										</div>
 										{{/if}}
+										{{if item.isAdventuresCake}}
+										<a href="javascript:;" class="upload-img">上传照片</a>
+										<div class="upload-wrapper">
+											<div class="upload-container clearfix">
+												<div class="img">
+													<img src="assets/imgs/basket/img_default.jpg" alt="">
+												</div>
+												<div class="text">
+													<p>请上传一张照片，我们会美美的安放在寻找爱的冒险上哦～</p>
+													<label for="{{item.uniqueId}}" class="btn btn-upload">
+														<span>上传定制照片</span>
+														<input type="file" class="sr-only import-image" data-imgtype="adventurescake" id="{{item.uniqueId}}" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+													</label>
+												</div>
+											</div>
+										</div>
+										{{/if}}
 									</li>
 									{{/each}}
 								</ul>
