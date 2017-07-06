@@ -13,7 +13,7 @@
               {
                   link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_01.jpg',
-                  desc: '纯芝士与醇香奶油的梦幻组合',
+                  desc: '芝士系列口味；免费赠送5套餐具、生日牌（生日牌中文字不超过10个，英文字母不超过20个）',
                   name: {
                       cn: '小鸡派对',
                       en: 'Chick Party'
@@ -33,7 +33,7 @@
               }, {
                   link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_03.jpg',
-                  desc: '纯芝士与醇香奶油的梦幻组合',
+                  desc: '芝士系列口味；免费赠送5套餐具、生日牌（生日牌中文字不超过10个，英文字母不超过20个）',
                   name: {
                       cn: '小鸡派对',
                       en: 'Chick Party'
@@ -43,7 +43,7 @@
               }, {
                   link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_04.jpg',
-                  desc: '纯芝士与醇香奶油的梦幻组合',
+                  desc: '芝士系列口味；免费赠送5套餐具、生日牌（生日牌中文字不超过10个，英文字母不超过20个）',
                   name: {
                       cn: '百变魔方',
                       en: 'Rubik Cube'
@@ -53,7 +53,7 @@
               }, {
                   link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_01.jpg',
-                  desc: '纯芝士与醇香奶油的梦幻组合',
+                  desc: '芝士系列口味；免费赠送5套餐具、生日牌（生日牌中文字不超过10个，英文字母不超过20个）',
                   name: {
                       cn: '小鸡派对',
                       en: 'Chick Party'
@@ -63,7 +63,7 @@
               }, {
                   link: '/detail.html',
                   imgUrl: '/assets/imgs/list/cake_02.jpg',
-                  desc: '纯芝士与醇香奶油的梦幻组合',
+                  desc: '芝士系列口味；免费赠送5套餐具、生日牌（生日牌中文字不超过10个，英文字母不超过20个）',
                   name: {
                       cn: '百变魔方',
                       en: 'Rubik Cube'

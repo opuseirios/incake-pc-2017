@@ -15,7 +15,7 @@
       list: [
         {
           link: 'javascript:;',
-          imgUrl: '/assets/imgs/list/cake_01.jpg',
+          imgUrl: '/assets/imgs/exchange/group_01.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '小鸡派对',
@@ -25,7 +25,7 @@
           pound: 1.5
         }, {
           link: 'javascript:;',
-          imgUrl: '/assets/imgs/list/cake_02.jpg',
+          imgUrl: '/assets/imgs/exchange/group_02.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '百变魔方',
@@ -35,7 +35,7 @@
           pound: 1.5
         }, {
           link: 'javascript:;',
-          imgUrl: '/assets/imgs/list/cake_03.jpg',
+          imgUrl: '/assets/imgs/exchange/group_03.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '小鸡派对',
@@ -45,7 +45,7 @@
           pound: 1.5
         }, {
           link: 'javascript:;',
-          imgUrl: '/assets/imgs/list/cake_04.jpg',
+          imgUrl: '/assets/imgs/exchange/group_01.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '百变魔方',
@@ -55,7 +55,7 @@
           pound: 1.5
         }, {
           link: 'javascript:;',
-          imgUrl: '/assets/imgs/list/cake_01.jpg',
+          imgUrl: '/assets/imgs/exchange/group_02.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '小鸡派对',
@@ -65,7 +65,7 @@
           pound: 1.5
         }, {
           link: 'javascript:;',
-          imgUrl: '/assets/imgs/list/cake_02.jpg',
+          imgUrl: '/assets/imgs/exchange/group_03.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '百变魔方',
@@ -75,7 +75,7 @@
           pound: 1.5
         }, {
           link: 'javascript:;',
-          imgUrl: '/assets/imgs/list/cake_03.jpg',
+          imgUrl: '/assets/imgs/exchange/group_01.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '小鸡派对',
@@ -85,7 +85,7 @@
           pound: 1.5
         }, {
           link: 'javascript:;',
-          imgUrl: '/assets/imgs/list/cake_04.jpg',
+          imgUrl: '/assets/imgs/exchange/group_02.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '百变魔方',
@@ -100,9 +100,14 @@
     $oCakeList.html(_html);
 
     // 选中切换
-    $oCakeList.on('click', '.img', function(e) {
-      var $element = $(this).closest('li');
-      $element.toggleClass('selected');
+    $oCakeList.on('click', '.selector', function(e) {
+			var $element = $(this).closest('li');
+	    $element.toggleClass('selected');		
+	    if($element.hasClass('selected')){
+	    	$(this).addClass('active').text('取消');
+	    }else {
+	    	$(this).text('确定').removeClass('active');
+	    }
       e.preventDefault();
     });
 

@@ -144,8 +144,7 @@
 			<!-- list page begin -->
 			<div class="page exchange-page" id="exchangePage">
 				<div class="page-container">
-
-					<ul class="list-contents clearfix" id="cakeList"></ul>
+					<ul class="list-contents cake-lists clearfix" id="cakeList"></ul>
 					<script id="tplCakeList" type="text/html">
 						{{if list.length > 0}}
 							{{each list as item i}}
@@ -157,7 +156,6 @@
 								<div class="img">
 									<a href="{{item.link}}" class="link">
 										<img src="{{item.imgUrl}}" alt="">
-                    <span class="selector"></span>
 									</a>
 								</div>
 								<div class="text">
@@ -170,6 +168,7 @@
 										<span class="price">￥{{item.price}}</span>
 										<span class="pound">/{{item.pound}}磅</span>
 									</p>
+									<a href="{{item.link}}" class="selector">确定</a>
 								</div>
 							</li>
 							{{/each}}
@@ -180,6 +179,7 @@
           <div class="gifts-footer">
 						<div class="parts-wrapper" id="partsWrapper">
 							<p class="parts-header">餐盘和蜡烛</p>
+							<p class="parts-title">温馨提示：已免费赠送5套餐具、生日牌，如增加餐具需额外付款购买</p>
 							<div class="parts-container clearfix">
 								<div class="part-item normal-part">
 									<a href="javascript:;" class="img">
@@ -266,7 +266,7 @@
 					</div>
           <!-- gifts footer end -->
 
-          <a href="javascript:;" class="cakes-submit">确认搭配</a>
+          <a href="javascript:;" class="cakes-submit">确认购买</a>
 
         </div>
 			</div>

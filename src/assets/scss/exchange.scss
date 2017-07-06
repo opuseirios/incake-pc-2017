@@ -6,16 +6,26 @@
   width: 1200px;
   margin: 0 auto;
 }
-
+.list-title {
+    width: 100%;
+    height: 70px;
+    font-size: 18px;
+    line-height: 70px;
+    color: #e9546b;
+    text-align: center;
+    font-weight: bold;
+}
 .list-contents {
   width: 100%;
-  padding: 40px 0 20px;
-
+  padding: 6px 0 20px;
+  &.cake-lists {
+      padding-top: 40px;
+  }
   > li {
     position: relative;
     float: left;
     width: 291px;
-    margin: 0 12px 10px 0;
+    margin: 0 12px 14px 0;
     overflow: hidden;
 
     &.last-col {
@@ -27,7 +37,6 @@
     }
 
     .img {
-      position: relative;
       width: 291px;
       height: 291px;
       overflow: hidden;
@@ -38,43 +47,29 @@
 
       .link {
         display: block;
-        position: relative;
         width: 100%;
         height: 100%;
       }
 
-      .selector {
-        display: none;
-        position: absolute;
-        right: 10px;
-        top: 251px;
-        width: 30px;
-        height: 30px;
-        background: {
-          image: url('../imgs/icons/icon_ckbox_42_unchecked.png');
-          repeat: no-repeat;
-          size: cover;
-          position: center center;
-        }
-      }
     }
 
     .text {
       position: relative;
       width: 100%;
-      height: 109px;
+      height: 158px;
 
       p {
         margin-left: 20px;
         color: #635859;
 
         &.desc {
-          padding: 14px 0 11px;
+          width: 251px;
+          height: 60px;
+          padding: 9px 0;
           font-size: 14px;
           color: #b5b5b5;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
+          line-height: 20px;
+          text-align: justify;
         }
 
         &.name {
@@ -103,7 +98,30 @@
           }
         }
       }
-
+      .selector {
+        position: absolute;
+        right: 18px;
+        bottom: 21px;
+        display: block;
+        width: 82px;
+        height: 26px;
+        background-color: #e9546b;
+        border-radius: 2px;
+        font-size: 14px;
+        line-height: 26px;
+        color: #fff;
+        text-align: center;
+        &.active {
+            width: 80px;
+            height: 24px;
+            background-color: #fff;
+            border: 1px solid #e9546b;
+            color: #505050;            
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+      }
       .operate {
         display: none;
         position: absolute;
@@ -170,22 +188,10 @@
 
     &:hover {
       outline: 1px solid #e9546b;
-
-      .img .favor {
-        display: block;
-      }
-
-      .img .selector {
-        display: block;
-      }
     }
 
     &.selected {
-      .img .selector {
-        display: block;
-        background-image: url('../imgs/icons/icon_ckbox_42_checked.png');
-      }
-
+      outline: 1px solid #e9546b;
       .text .operate {
         display: block;
       }
@@ -200,7 +206,7 @@
   .selected-cake {
     float: left;
     width: 240px;
-    padding-top: 51px;
+    padding-top: 85px;
 
     .img {
       display: block;
@@ -224,9 +230,11 @@
           padding: 10px 0;
           font-size: 14px;
           color: #b5b5b5;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
+//        text-overflow: ellipsis;
+//        white-space: nowrap;
+//        overflow: hidden;
+          height: 60px;
+          line-height: 20px;
         }
 
         &.name {
@@ -269,20 +277,26 @@
       color: #505050;
       border-bottom: 1px solid #635859;
     }
-
+    .gifts-title {
+        width: 100%;
+        height: 54px;
+        font-size: 16px;
+        line-height: 54px;
+        color: #e9546b;
+        text-align: center;
+    }
     .wrap-container {
       position: relative;
       width: 100%;
       height: 378px;
-      margin-top: 20px;
+//    margin-top: 20px;
 
       .btn {
         display: block;
         position: absolute;
-        top: 50%;
+        top: 144px;
         width: 40px;
         height: 50px;
-        margin-top: -25px;
         background: {
           repeat: no-repeat;
           size: cover;
@@ -307,7 +321,16 @@
           background-image: url('../imgs/icons/icon_next_btn_hover.jpg');
         }
       }
-
+      
+      .icon-add {
+          display: block;
+          position: absolute;
+          top: 104px;
+          left: -68px;
+          width: 34px;
+          height: 34px;
+      }
+      
       .list-wrap {
         position: absolute;
         top: 0;
@@ -405,17 +428,17 @@
             .operate {
               display: none;
               position: absolute;
-              bottom: 15px;
-              left: 20px;
+              bottom: 18px;
+              left: 12px;
 
               a {
                 display: inline-block;
                 float: left;
-                width: 30px;
+                width: 25px;
                 height: 30px;
                 background: {
                   repeat: no-repeat;
-                  size: cover;
+                  size: 25px 25px;
                   position: center center;
                 }
               }
@@ -434,7 +457,7 @@
 
               .txt-num {
                 float: left;
-                margin: 0 10px;
+                margin: 0 8px;
                 width: 70px;
                 height: 28px;
                 line-height: 28px;
@@ -445,14 +468,39 @@
                 border-radius: 2px;
               }
             }
+            
+            .selector {
+                position: absolute;
+                right: 12px;
+                bottom: 22px;
+                display: block;
+                width: 54px;
+                height: 24px;
+                background-color: #e9546b;
+                border-radius: 2px;
+                font-size: 14px;
+                line-height: 24px;
+                color: #fff;
+                text-align: center;
+                &.active {
+                    width: 52px;
+                    height: 22px;
+                    background-color: #fff;
+                    border: 1px solid #e9546b;
+                    color: #505050;            
+                }
+                &:hover {
+                  text-decoration: underline;
+                }
+
+            }
+            
           }
 
           &.selected {
-            .img .selector {
-              display: block;
-              background-image: url('../imgs/icons/icon_ckbox_42_checked.png');
-            }
-
+            outline: 1px solid #e9546b;
+            outline-offset: -1px;
+            
             .text .operate {
               display: block;
             }
@@ -466,9 +514,6 @@
               display: block;
             }
 
-            .img .selector {
-              display: block;
-            }
           }
         }
       }
@@ -477,7 +522,7 @@
 }
 
 .gifts-footer {
-  padding: 60px 0 30px;
+  padding: 60px 0 50px;
 
   .parts-wrapper {
     width: 100%;
@@ -492,14 +537,23 @@
     color: #505050;
     text-align: center;
   }
-
+  .parts-title {
+     width: 100%;
+     height: 54px;
+     font-size: 16px;
+     line-height: 54px;
+     text-align: center;
+     color: #E9546B;
+      
+  }
   .parts-container {
     width: 1080px;
     height: 378px;
-    padding-top: 40px;
     margin: 0 auto;
     overflow: hidden;
-
+    &.parts-content {
+        margin-top: 20px;
+    }
     .part-item {
       float: left;
       width: 260px;
@@ -546,7 +600,7 @@
           }
 
           &.attr {
-            padding-top: 5px;
+            padding: 2px 0 4px;
             color: #e9546b;
 
             .price {
@@ -615,9 +669,9 @@
       &.normal-part {
         .text .operate {
           display: none;
-          width: 100px;
-          height: 24px;
-          margin: 10px auto 0;
+          width: 140px;
+          height: 30px;
+          margin: 6px auto 0;
 
           a,
           input {
@@ -626,20 +680,20 @@
           }
 
           input {
-            width: 40px;
-            margin: 0 5px;
-            line-height: 22px;
+            width: 70px;
+            margin: 0 8px;
+            line-height: 28px;
             text-align: center;
             border: 1px solid #b9b9b9;
-            border-radius: 3px;
+            border-radius: 2px;
           }
 
           a {
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 30px;
             background: {
               repeat: no-repeat;
-              size: 20px 20px;
+              size: 26px 26px;
               position: center center;
             }
 
@@ -700,6 +754,7 @@
     font-size: 16px;
     color: #e9546b;
     text-align: center;
+    font-weight: bold;
   }
 
   .entries {
@@ -750,17 +805,37 @@
 }
 
 .groups-tip {
-  padding-top: 20px;
-  line-height: 30px;
+  height: 60px;
+  line-height: 60px;
   font-size: 16px;
   color: #e9546b;
   text-align: center;
+  font-weight: bold;
 }
 
 .group-list,
 .part-list {
+    padding-bottom: 0;
   > li .text {
-    height: 159px;
+    height: 130px;
+    p.desc {
+        height: 14px;
+    }
+    p.attr {
+        padding-top: 0;
+    }
+    .operate {
+        a {
+          width: 26px;
+          background-size: 26px 26px;
+        }
+        .txt-num {
+          margin: 0 8px;
+        }
+    }
+    .selector {
+        bottom: 17px;
+    }
   }
 }
 
