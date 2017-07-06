@@ -145,7 +145,7 @@
 			<div class="page exchange-page" id="exchangePage">
 				<div class="page-container">
 
-          <p class="groups-tip">温馨提示：小商品选择规则</p>
+          <p class="groups-tip">温馨提示：请按照兑换券提示的数量进行商品点选</p>
 
 					<ul class="list-contents part-list clearfix" id="cakeList"></ul>
 					<script id="tplCakeList" type="text/html">
@@ -159,7 +159,7 @@
 								<div class="img">
 									<a href="{{item.link}}" class="link">
 										<img src="{{item.imgUrl}}" alt="">
-                    <span class="selector"></span>
+                    <!--<span class="selector"></span>-->
 									</a>
 								</div>
 								<div class="text">
@@ -172,11 +172,12 @@
 										<span class="price">￥{{item.price}}</span>
 										<span class="pound">/{{item.pound}}磅</span>
 									</p>
-                  <div class="operate clearfix">
-                    <a href="javascript:;" class="num-minus"></a>
-                    <input type="text" class="txt-num" value="1" readonly="readonly">
-                    <a href="javascript:;" class="num-add"></a>
-                  </div>
+					                <div class="operate clearfix">
+					                    <a href="javascript:;" class="num-minus"></a>
+					                    <input type="text" class="txt-num" value="1" readonly="readonly">
+					                    <a href="javascript:;" class="num-add"></a>
+					                </div>
+					                <a href="{{item.link}}" class="selector">确定</a> 
 								</div>
 							</li>
 							{{/each}}
@@ -184,10 +185,10 @@
 					</script>
 
 					<!-- gifts footer begin -->
-          <div class="gifts-footer">
+          			<div class="gifts-footer">
 						<div class="parts-wrapper" id="partsWrapper">
 							<p class="parts-header">餐盘和蜡烛</p>
-							<div class="parts-container clearfix">
+							<div class="parts-container parts-content clearfix">
 								<div class="part-item normal-part">
 									<a href="javascript:;" class="img">
 										<img src="../assets/imgs/parts/plate.jpg" alt="">
@@ -273,7 +274,7 @@
 					</div>
           <!-- gifts footer end -->
 
-          <a href="javascript:;" class="parts-submit">确认搭配</a>
+          <a href="javascript:;" class="parts-submit">确认购买</a>
 
         </div>
 			</div>

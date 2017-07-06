@@ -29,7 +29,7 @@
       var _data = {
         list: [{
           link: 'javascript:;',
-          img: '/assets/imgs/list/cake_01.jpg',
+          img: '/assets/imgs/exchange/group_01.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '芒果拿破仑',
@@ -39,7 +39,7 @@
           price: 189
         }, {
           link: 'javascript:;',
-          img: '/assets/imgs/list/cake_02.jpg',
+          img: '/assets/imgs/exchange/group_02.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '芒果拿破仑',
@@ -49,7 +49,7 @@
           price: 189
         }, {
           link: 'javascript:;',
-          img: '/assets/imgs/list/cake_03.jpg',
+          img: '/assets/imgs/exchange/group_03.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '芒果拿破仑',
@@ -59,7 +59,7 @@
           price: 189
         }, {
           link: 'javascript:;',
-          img: '/assets/imgs/list/cake_04.jpg',
+          img: '/assets/imgs/exchange/group_01.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '芒果拿破仑',
@@ -69,7 +69,7 @@
           price: 189
         }, {
           link: 'javascript:;',
-          img: '/assets/imgs/list/cake_01.jpg',
+          img: '/assets/imgs/exchange/group_02.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '芒果拿破仑',
@@ -79,7 +79,7 @@
           price: 189
         }, {
           link: 'javascript:;',
-          img: '/assets/imgs/list/cake_02.jpg',
+          img: '/assets/imgs/exchange/group_03.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '芒果拿破仑',
@@ -89,7 +89,7 @@
           price: 189
         }, {
           link: 'javascript:;',
-          img: '/assets/imgs/list/cake_03.jpg',
+          img: '/assets/imgs/exchange/group_01.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '芒果拿破仑',
@@ -99,7 +99,7 @@
           price: 189
         }, {
           link: 'javascript:;',
-          img: '/assets/imgs/list/cake_04.jpg',
+          img: '/assets/imgs/exchange/group_02.jpg',
           desc: '纯芝士与醇香奶油的梦幻组合',
           name: {
             cn: '芒果拿破仑',
@@ -174,9 +174,14 @@
     });
 
     // 选中切换
-    $giftList.on('click', '.img', function(e) {
-      var $element = $(this).closest('li');
-      $element.toggleClass('selected');
+    $giftList.on('click', '.selector', function(e) {
+			var $element = $(this).closest('li');
+	    $element.toggleClass('selected');		
+	    if($element.hasClass('selected')){
+	    	$(this).addClass('active').text('取消');
+	    }else {
+	    	$(this).text('确定').removeClass('active');
+	    }
       e.preventDefault();
     });
 

@@ -144,6 +144,7 @@
 			<!-- list page begin -->
 			<div class="page exchange-page" id="exchangePage">
 				<div class="page-container">
+					<p class="list-title">请选择您要兑换的蛋糕</p>
 					<ul class="list-contents clearfix" id="cakeList"></ul>
 					<script id="tplCakeList" type="text/html">
 						{{if list.length > 0}}
@@ -168,7 +169,7 @@
 										<span class="price">￥{{item.price}}</span>
 										<span class="pound">/{{item.pound}}磅</span>
 									</p>
-									<a href="./gifts.html" class="pick-gift">去挑赠品</a>
+									<a href="./gifts.html" class="pick-gift">确定</a>
 								</div>
 							</li>
 							{{/each}}

@@ -16,7 +16,7 @@
               {
                   link: 'javascript:;',
                   imgUrl: '/assets/imgs/list/cake_01.jpg',
-                  desc: '纯芝士与醇香奶油的梦幻组合',
+                  desc: '芝士系列口味；免费赠送5套餐具、生日牌（生日牌中文字不超过10个，英文字母不超过20个）',
                   name: {
                       cn: '小鸡派对',
                       en: 'Chick Party'
@@ -36,7 +36,7 @@
               }, {
                   link: 'javascript:;',
                   imgUrl: '/assets/imgs/list/cake_03.jpg',
-                  desc: '纯芝士与醇香奶油的梦幻组合',
+                  desc: '芝士系列口味；免费赠送5套餐具、生日牌（生日牌中文字不超过10个，英文字母不超过20个）',
                   name: {
                       cn: '小鸡派对',
                       en: 'Chick Party'
@@ -100,9 +100,20 @@
       $oCakeList.html(_html);
 
       // 选中切换
-      $oCakeList.on('click', '.img', function(e) {
-        var $element = $(this).closest('li');
-        $element.toggleClass('selected');
+			$oCakeList.on('click','li', function(e) {
+        var $oSelector = $(this).find('.selector'),
+        		$aItems = $(this).siblings('li'),
+        		$aBtns = $aItems.find('.selector');
+        		
+        if($(this).hasClass('selected')){
+        	$oSelector.removeClass('active').text('确定');
+        	$(this).removeClass('selected');
+        }else {
+        	$aBtns.text('确定').removeClass('active');
+        	$oSelector.addClass('active').text('取消');
+        	$aItems.removeClass('selected');
+        	$(this).addClass('selected');
+        }
         e.preventDefault();
       });
   }

@@ -152,7 +152,7 @@
                 <img src="/assets/imgs/list/cake_01.jpg" alt="">
               </a>
               <div class="text">
-								<p class="desc">纯芝士与醇香奶油的梦幻组合</p>
+								<p class="desc">芝士系列口味；免费赠送5套餐具、生日牌（生日牌中文字不超过10个，英文字母不超过20个）</p>
 								<p class="name">
 									<span class="cn">小鸡派对</span>
 									<span class="en">Chick Party</span>
@@ -165,9 +165,11 @@
             </div>
             <div class="gifts-wrapper" id="giftWrapper">
               <p class="wrap-header">赠品</p>
+              <p class="gifts-title">本券可免费兑换一份甜点呦</p>
               <div class="wrap-container clearfix">
                 <a href="javascript:;" class="btn btn-prev"></a>
                 <a href="javascript:;" class="btn btn-next"></a>
+                <p class="icon-add"><img src="../assets/imgs/exchange/icon_add_red.png"/></p>
                 <div class="list-wrap">
                   <ul class="gift-list clearfix"></ul>
                   <script type="text/html" id="tplGiftList">
@@ -175,7 +177,7 @@
                   <li>
                     <a href="{{item.link}}" class="img">
                       <img src="{{item.img}}" alt="">
-                      <span class="selector"></span>
+                      <!--<span class="selector"></span>-->
                     </a>
                     <div class="text">
                       <p class="desc">{{item.desc}}</p>
@@ -192,6 +194,7 @@
                         <input type="text" class="txt-num" value="1" readonly="readonly">
                         <a href="javascript:;" class="num-add"></a>
                       </div>
+                      <a href="{{item.link}}" class="selector">确定</a>
                     </div>
                   </li>
                   {{/each}}
@@ -206,6 +209,7 @@
           <div class="gifts-footer">
 						<div class="parts-wrapper" id="partsWrapper">
 							<p class="parts-header">餐盘和蜡烛</p>
+							<p class="parts-title">温馨提示：已免费赠送5套餐具、生日牌，如增加餐具需额外付款购买</p>
 							<div class="parts-container clearfix">
 								<div class="part-item normal-part">
 									<a href="javascript:;" class="img">
