@@ -183,7 +183,8 @@
 
 		var $header = $('#layoutHeader'),
 			$portal = $header.find('.portal'),
-			$navigation = $header.find('.nav');
+			$navigation = $header.find('.nav'),
+			$locator = $header.find('.locator');
 
 		var o_username = '',
 			o_mobile = '',
@@ -217,6 +218,25 @@
 				properties: {
 					b_type: b_type,
 					b_menu: b_menu,
+					b_device: b_device
+				}
+			});
+		});
+
+		// 定位城市
+		$locator.on('click', 'li', function(e) {
+			var b_positioncity = '';
+
+			b_positioncity = $(this).html().trim();
+
+			// send to rxstream server
+			rxStream.track('positioncity', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+					b_positioncity: b_positioncity,
 					b_device: b_device
 				}
 			});

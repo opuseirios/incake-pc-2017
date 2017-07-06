@@ -846,6 +846,34 @@
     })();
 
     // banner 广告
+    $('#mainSlider').on('click', '.swiper-slide', function(e) {
+      var slideLen = $(this).closest('.swiper-wrapper').find('.swiper-slide:not(.swiper-slide-duplicate)').length;
+      var b_ad_title = '',
+        b_ad_number = 0,
+        b_ad_type = '';
+
+      b_ad_number = $(this).index();
+      if(b_ad_number > slideLen) {
+        b_ad_number = b_ad_number - slideLen;
+      }
+      console.log(b_ad_number);
+      b_ad_title = $(this).attr('data-adtitle').trim();
+      b_ad_type = $(this).attr('data-adtype').trim();
+
+      // send to rxstream server
+			rxStream.track('ad_banner', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+          b_ad_title: b_ad_title,
+          b_ad_number: b_ad_number,
+          b_ad_type: b_ad_type,
+					b_device: b_device
+				}
+			});
+    });
 
     // 首页分类入口
     $homepage.find('.our-inspiration').on('click', '.item .img', function(e) {
@@ -898,8 +926,48 @@
     });
 
     // 长条广告位
+    $homepage.find('.ad-container').on('click', '.ad', function(e) {
+      var b_ad_title = '';
+
+      b_ad_title = $(this).attr('data-adtitle').trim();
+
+      // send to rxstream server
+			rxStream.track('long_banner', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+          b_ad_title: b_ad_title,
+					b_device: b_device
+				}
+			});
+    });
 
     // 底部广告位
+    $homepage.find('.ads-container').on('click', 'a', function(e) {
+      var b_ad_title = '',
+        b_ad_number = 0,
+        b_ad_type = '';
+
+      b_ad_number = $(this).index() + 1;
+      b_ad_title = $(this).attr('data-adtitle').trim();
+      b_ad_type = $(this).attr('data-adtype').trim();
+
+      // send to rxstream server
+			rxStream.track('ad_bottom', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+          b_ad_title: b_ad_title,
+          b_ad_number: b_ad_number,
+          b_ad_type: b_ad_type,
+					b_device: b_device
+				}
+			});
+    });
 
     // 加入购物车
     $('#bestChoice').on('click', '.operate-join-basket', function(e) {
@@ -989,5 +1057,31 @@
       e.stopPropagation();
     });
 
+    // 喜欢
+    $('#bestChoice').on('click', '.favor', function(e) {
+      var b_productname = '',
+        b_linkornot = '';
+
+      var $item = $(this).closest('li');
+
+      b_productname = $item.find('.cn').html().trim();
+      b_linkornot = $(this).hasClass('selected') ? '取消喜欢' : '喜欢';
+
+      // send to rxstream server
+			rxStream.track('like', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+          b_productname: b_productname,
+          b_linkornot: b_linkornot,
+					b_device: b_device
+				}
+			});
+
+      e.preventDefault();
+      e.stopPropagation();
+    });
   }
 })(window, jQuery);
