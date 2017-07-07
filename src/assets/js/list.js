@@ -40,6 +40,9 @@
     // 加载更多数据
     var throttle = _.throttle(updateCakeList, 200);
     $(window).on('scroll', throttle);
+
+    // 瑞雪检测 --- 蛋糕馆
+    fnInitRxList();
   });
 
   var isLoading = false; // 避免多次加载
@@ -808,4 +811,137 @@
     }
   }
 
+  function fnInitRxList() {
+    if(!rxStream) {
+			return false;
+		}
+
+    var $header = $('#layoutHeader'),
+      $portal = $header.find('.portal'),
+      $listpage = $('#listPage');
+
+    var o_username = '',
+      o_mobile = '',
+      b_device = 'pc';
+
+    if($portal.find('.info').length > 0) {
+      o_username = $portal.find('.info').html().trim();
+      o_mobile = $portal.find('.info').html().trim();
+    }
+
+    // 加入购物车
+    $('#cakeList').on('click', '.operate-join-basket', function(e) {
+      var b_productname = '',
+        b_product_size = '',
+        b_productprice_d = '',
+        b_productprice_m = 0,
+        b_productCount_d = 0,
+        b_productstyle = '';
+
+      var $spec = $(this).closest('.spec'),
+        $item = $spec.closest('li'),
+        $switcher = $spec.find('.spec-switcher'),
+        $wrapper = $spec.find('.spec-wrapper'),
+        currType = $switcher.find('li').filter('.active').index(),
+        $specbox = $wrapper.find('.spec-box').eq(currType),
+        $pounditem = $specbox.find('.pound-item').filter('.active');
+
+      b_productname = $item.find('.cn').html().trim();
+      b_product_size = $pounditem.html().trim();
+      b_productprice_d = $pounditem.attr('data-price').trim();
+      b_productprice_m = parseFloat(b_productprice_d, 10).toFixed(2);
+      b_productCount_d = parseInt($specbox.find('.numbers').find('.txt-num').val(), 10);
+      b_productstyle = $switcher.find('li').filter('.active').html().trim();
+
+      // send to rxstream server
+			rxStream.track('add_shoppingcart', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+          b_productname: b_productname,
+          b_product_size: b_product_size,
+          b_productprice_d: b_productprice_d,
+          b_productprice_m: b_productprice_m,
+          b_productCount_d: b_productCount_d,
+          b_productstyle: b_productstyle,
+					b_device: b_device
+				}
+			});
+
+      e.stopPropagation();
+    });
+
+    // 立即购买
+    $('#cakeList').on('click', '.operate-buy', function(e) {
+      var b_productname = '',
+        b_product_size = '',
+        b_productprice_d = '',
+        b_productprice_m = 0,
+        b_productCount_d = 0,
+        b_productstyle = '';
+
+      var $spec = $(this).closest('.spec'),
+        $item = $spec.closest('li'),
+        $switcher = $spec.find('.spec-switcher'),
+        $wrapper = $spec.find('.spec-wrapper'),
+        currType = $switcher.find('li').filter('.active').index(),
+        $specbox = $wrapper.find('.spec-box').eq(currType),
+        $pounditem = $specbox.find('.pound-item').filter('.active');
+
+      b_productname = $item.find('.cn').html().trim();
+      b_product_size = $pounditem.html().trim();
+      b_productprice_d = $pounditem.attr('data-price').trim();
+      b_productprice_m = parseFloat(b_productprice_d, 10).toFixed(2);
+      b_productCount_d = parseInt($specbox.find('.numbers').find('.txt-num').val(), 10);
+      b_productstyle = $switcher.find('li').filter('.active').html().trim();
+
+      // send to rxstream server
+			rxStream.track('buy_now', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+          b_productname: b_productname,
+          b_product_size: b_product_size,
+          b_productprice_d: b_productprice_d,
+          b_productprice_m: b_productprice_m,
+          b_productCount_d: b_productCount_d,
+          b_productstyle: b_productstyle,
+					b_device: b_device
+				}
+			});
+
+      e.stopPropagation();
+    });
+
+    // 喜欢
+    $('#cakeList').on('click', '.favor', function(e) {
+      var b_productname = '',
+        b_linkornot = '';
+
+      var $item = $(this).closest('li');
+
+      b_productname = $item.find('.cn').html().trim();
+      b_linkornot = $(this).hasClass('selected') ? '取消喜欢' : '喜欢';
+
+      // send to rxstream server
+			rxStream.track('like', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+          b_productname: b_productname,
+          b_linkornot: b_linkornot,
+					b_device: b_device
+				}
+			});
+
+      e.preventDefault();
+      e.stopPropagation();
+    });
+  }
 })(window, jQuery);
