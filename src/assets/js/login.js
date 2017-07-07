@@ -1,18 +1,17 @@
 (function(window, $, undefined) {
-	
+
 	$(function() {
-		
+
 		// 切换登录模式
 		fnChangeMode();
-		
+
 		// 获取验证码
 		fnRegCode();
-		
+
 		// 登录验证
 		fnRegLogin();
-		
 	});
-	
+
 	function fnChangeMode() {
 		var $oLoginPage	= $("#loginPage"),
 			$oLoginMode = $oLoginPage.find(".login-mode"),
@@ -24,7 +23,7 @@
 			$oTipNumber = $oLoginMode.find(".tip-number"),
 			$oBtnPhone = $oTipPhone.find("a"),
 			$oBtnNumber = $oTipNumber.find("a");
-			
+
 		$oBtnPhone.on("click", function(){
 			$oLoginMode.find("input").val("");
 			$oLoginMode.find(".reg-tip").text("");
@@ -34,7 +33,7 @@
 			$oModePhone.show();
 			$oUphone.focus();
 		});
-		
+
 		$oBtnNumber.on("click", function(){
 			$oTipNumber.hide();
 			$oTipPhone.show();
@@ -43,7 +42,7 @@
 			$oUname.focus();
 		});
 	}
-	
+
 	function fnRegCode(){
 		var $oLoginPage	= $("#loginPage"),
 			$oAutoLogin = $oLoginPage.find('.automatic-logon'),
@@ -55,11 +54,11 @@
 			count = 0,
 			_interval = '',
 			time = 58;
-		
+
 		$oAutoLogin.on("click", function(){
 			$(this).toggleClass('active');
 		});
-		
+
 		$oBtnReg.on("click", function(){
 			if($oUphone.val() == ""){
 				$aRegTip.text("请输入手机号码！");
@@ -83,25 +82,25 @@
 			    			$oBtnReg.removeClass("active").text('获取验证码');
 			    		}
 			    	},1000);
-				}	
+				}
 			}
-			
+
 	    });
 	}
-	
+
 	function fnRegLogin(){
 		var $oLoginPage	= $("#loginPage"),
 			$aBtnLogin = $oLoginPage.find(".btn-login");
-			
+
 		$aBtnLogin.on("click", function(){
-			
+
 			var $oParent = $(this).closest("ul"),
 				$aRegTip = $oParent.find(".reg-tip");
-			
+
 			if($oParent.hasClass("mode-number")){ //账号密码登录
 				var $oUname = $oParent.find(".uName"),
-					$oUpwd = $oParent.find(".uPwd"); 
-				
+					$oUpwd = $oParent.find(".uPwd");
+
 				// 非空验证
 				if($oUname.val() == ""){
 					$aRegTip.text("请输入用户名或手机号码！");
@@ -112,19 +111,21 @@
 				}else{
 					// 此处添加账号密码验证（待完善）
 					var regAccount = false; //验证结果
-					
+
 					if(!regAccount){
 						$aRegTip.text("用户名或密码有误，请重新输入！");
 					}else{
 						$aRegTip.text("");
 						// 执行页面跳转（待完善）
-						
+
+						// 瑞雪检测 --- 登录
+						fnInitRxLogin($oUname.val());
 					}
 				}
 			}else{	// 手机号注册登录
 				var $oUphone = $oParent.find(".uPhone"),
-					$oUReg = $oParent.find(".uReg"); 
-				
+					$oUReg = $oParent.find(".uReg");
+
 				// 非空验证
 				if($oUphone.val() == ""){
 					$aRegTip.text("请输入手机号码！");
@@ -133,7 +134,7 @@
 					// 此处进行手机号码验证
 					var regPhone = $oUphone.val().match(/^1[34578]\d{9}$/),
 						regCode = false;// 此处添加验证码验证（待完善）
-						
+
 					if(!regPhone){
 						$aRegTip.text("手机号码格式不正确，请重新输入！");
 						$oUphone.focus();
@@ -146,12 +147,33 @@
 					}else{
 						$aRegTip.text("");
 						// 执行页面跳转（待完善）
-						
+
+						// 瑞雪检测 --- 登录
+						fnInitRxLogin($oUphone.val());
 					}
 				}
 			}
-	    });
+    });
 	}
 
+	function fnInitRxLogin(id) {
+		if(!rxStream) {
+			return false;
+		}
 
+		var o_username = id,
+      o_mobile = id,
+      b_device = 'pc';
+
+		// send to rxstream server
+		rxStream.trackSignup(id, 'login', {
+			subject: {
+				o_username: o_username,
+				o_mobile: o_mobile
+			},
+			properties: {
+				b_device: b_device
+			}
+		});
+	}
 })(window, jQuery);
