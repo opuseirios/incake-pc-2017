@@ -357,8 +357,7 @@
   		}
 
       var $header = $('#layoutHeader'),
-        $portal = $header.find('.portal'),
-        $detailpage = $('#detailPage');
+        $portal = $header.find('.portal');
 
       var o_username = '',
         o_mobile = '',
