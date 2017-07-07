@@ -1,15 +1,15 @@
 (function(window, $, undefined) {
-	
+
 	$(function() {
-		
+
 		// 获取验证码
 		fnRegCode();
-		
+
 		// 注册验证
 		fnRegRegister();
-		
+
 	});
-	
+
 	function fnRegCode(){
 		var $oRegisterPage	= $("#registerPage"),
 			$oBtnReg = $oRegisterPage.find(".btn-reg"),
@@ -20,7 +20,7 @@
 			count = 0,
 			_interval = '',
 			time = 58;
-		
+
 		$oBtnReg.on("click", function(){
 			if($oUphone.val() == ""){
 				$aRegTip.show().text("请输入手机号码！");
@@ -44,25 +44,25 @@
 			    			$oBtnReg.removeClass("active").text('获取验证码');
 			    		}
 			    	},1000);
-				}	
+				}
 			}
-			
+
 	    });
 	}
-	
+
 	function fnRegRegister(){
 		var $oRegisterPage	= $("#registerPage"),
 			$aBtnRegister = $oRegisterPage.find(".btn-register");
-			
+
 		$aBtnRegister.on("click", function(){
-			
+
 			var $oParent = $(this).closest("ul"),
 				$oUphone = $oParent.find(".uPhone"),
 				$oUReg = $oParent.find(".uReg"),
 				$oUpwd = $oParent.find(".uPwd"),
 				$oUpwdAgain = $oParent.find(".uPwd-again"),
 				$aRegTip = $oParent.find(".reg-tip");
-			
+
 				// 非空验证
 				if($oUphone.val() == ""){
 					$aRegTip.show().text("请输入手机号码！");
@@ -71,7 +71,7 @@
 					// 此处进行手机号码验证
 					var regPhone = $oUphone.val().match(/^1[34578]\d{9}$/),
 						regCode = true;// 此处添加验证码验证（待完善）
-						
+
 					if(!regPhone){
 						$aRegTip.show().text("手机号码格式不正确，请重新输入！");
 						$oUphone.focus();
@@ -95,12 +95,33 @@
 					}else{
 						$aRegTip.hide().text("");
 						// 执行页面跳转（待完善）
-						
+
+						// 瑞雪检测 --- 注册
+						fnInitRxRegister($oUphone.val());
 					}
 				}
-			
+
 	    });
 	}
 
+	function fnInitRxRegister(id) {
+		if(!rxStream) {
+			return false;
+		}
 
+		var o_username = id,
+      o_mobile = id,
+      b_device = 'pc';
+
+		// send to rxstream server
+		rxStream.trackSignup(id, 'signup', {
+			subject: {
+				o_username: o_username,
+				o_mobile: o_mobile
+			},
+			properties: {
+				b_device: b_device
+			}
+		});
+	}
 })(window, jQuery);
