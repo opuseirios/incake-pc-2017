@@ -10,6 +10,9 @@
 
         // 切换商品详情和评价选项卡
         fnSwitchDetail();
+
+        // 瑞雪检测 --- 详情页
+        fnInitRxDetail();
     });
 
     // 切换商品详情和评价
@@ -137,6 +140,8 @@
 
                     // TODO 执行设置喜欢逻辑
                 }
+
+                fnInitRxFavor($info, isFavored);
             });
         })($operates);
 
@@ -230,4 +235,158 @@
         })();
     }
 
+    function fnInitRxDetail() {
+      if(!rxStream) {
+  			return false;
+  		}
+
+      var $header = $('#layoutHeader'),
+        $portal = $header.find('.portal'),
+        $detailpage = $('#detailPage');
+
+      var o_username = '',
+        o_mobile = '',
+        b_device = 'pc';
+
+      if($portal.find('.info').length > 0) {
+        o_username = $portal.find('.info').html().trim();
+        o_mobile = $portal.find('.info').html().trim();
+      }
+
+      // 访问详情页
+      (function() {
+        var b_productname = '';
+
+        b_productname = $('#introInfo').find('.title').find('.cn').html().trim();
+
+        // send to rxstream server
+  			rxStream.track('view_detail', {
+  				subject: {
+  					o_username: o_username,
+  					o_mobile: o_mobile
+  				},
+  				properties: {
+            b_productname: b_productname,
+  					b_device: b_device
+  				}
+  			});
+      })();
+
+      // 加入购物车
+      $('#introInfo').on('click', '.add-basket', function(e) {
+        var b_productname = '',
+          b_product_size = '',
+          b_productprice_d = '',
+          b_productprice_m = 0,
+          b_productCount_d = 0,
+          b_productstyle = '';
+
+        var $item = $(this).closest('.introinfo-wrap'),
+          $type = $item.find('.types').find('li').filter('.checked');
+
+        b_productname = $item.find('.title').find('.cn').html().trim();
+        b_product_size = $item.find('.specifics').find('.spec').filter('.active').html().trim();
+        b_productprice_d = $type.find('.price').find('i').html().trim();
+        b_productprice_m = parseFloat(b_productprice_d, 10).toFixed(2);
+        b_productCount_d = parseInt($item.find('.amount').find('.txt-amount').val(), 10);
+        b_productstyle = $type.find('.name').html().trim();
+
+        // send to rxstream server
+  			rxStream.track('add_shoppingcart', {
+  				subject: {
+  					o_username: o_username,
+  					o_mobile: o_mobile
+  				},
+  				properties: {
+            b_productname: b_productname,
+            b_product_size: b_product_size,
+            b_productprice_d: b_productprice_d,
+            b_productprice_m: b_productprice_m,
+            b_productCount_d: b_productCount_d,
+            b_productstyle: b_productstyle,
+  					b_device: b_device
+  				}
+  			});
+
+        e.stopPropagation();
+      });
+
+      // 立即购买
+      $('#introInfo').on('click', '.buy-immediate', function(e) {
+        var b_productname = '',
+          b_product_size = '',
+          b_productprice_d = '',
+          b_productprice_m = 0,
+          b_productCount_d = 0,
+          b_productstyle = '';
+
+        var $item = $(this).closest('.introinfo-wrap'),
+          $type = $item.find('.types').find('li').filter('.checked');
+
+        b_productname = $item.find('.title').find('.cn').html().trim();
+        b_product_size = $item.find('.specifics').find('.spec').filter('.active').html().trim();
+        b_productprice_d = $type.find('.price').find('i').html().trim();
+        b_productprice_m = parseFloat(b_productprice_d, 10).toFixed(2);
+        b_productCount_d = parseInt($item.find('.amount').find('.txt-amount').val(), 10);
+        b_productstyle = $type.find('.name').html().trim();
+
+        // send to rxstream server
+  			rxStream.track('buy_now', {
+  				subject: {
+  					o_username: o_username,
+  					o_mobile: o_mobile
+  				},
+  				properties: {
+            b_productname: b_productname,
+            b_product_size: b_product_size,
+            b_productprice_d: b_productprice_d,
+            b_productprice_m: b_productprice_m,
+            b_productCount_d: b_productCount_d,
+            b_productstyle: b_productstyle,
+  					b_device: b_device
+  				}
+  			});
+
+        e.stopPropagation();
+      });
+    }
+
+    function fnInitRxFavor($item, isFavored) {
+      if(!rxStream) {
+  			return false;
+  		}
+
+      var $header = $('#layoutHeader'),
+        $portal = $header.find('.portal'),
+        $detailpage = $('#detailPage');
+
+      var o_username = '',
+        o_mobile = '',
+        b_device = 'pc';
+
+      if($portal.find('.info').length > 0) {
+        o_username = $portal.find('.info').html().trim();
+        o_mobile = $portal.find('.info').html().trim();
+      }
+
+      // 喜欢
+      var b_productname = '',
+        b_linkornot = '';
+
+      b_productname = $item.find('.title').find('.cn').html().trim();
+      b_linkornot = isFavored ? '取消喜欢' : '喜欢';
+
+      // send to rxstream server
+			rxStream.track('like', {
+				subject: {
+					o_username: o_username,
+					o_mobile: o_mobile
+				},
+				properties: {
+          b_productname: b_productname,
+          b_linkornot: b_linkornot,
+					b_device: b_device
+				}
+			});
+    }
 })(window, document, jQuery);
