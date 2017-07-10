@@ -141,7 +141,6 @@
 		</div>
 		<!-- layout header end -->
 
-
 		<!-- layout container begin -->
 		<div class="layout-container">
 
@@ -193,7 +192,7 @@
 									<!-- surprise list begin -->
 									<ul class="surprise-list">
 										{{each list as item i}}
-										<li class="item">
+										<li class="item" data-name="{{item.name.cn}}" data-price="{{item.price}}" data-size="{{item.spec}}" data-amount="{{item.amount}}">
 											<div class="item-content clearfix">
 												<div class="c-product clearfix">
 													<a href="{{item.link}}" class="img">
@@ -269,7 +268,7 @@
 									<!-- surprise list begin -->
 									<ul class="regular-list">
 										{{each list as item i}}
-										<li class="item">
+										<li class="item" data-name="{{item.name.cn}}" data-price="{{item.price}}" data-size="{{item.spec}}" data-amount="{{item.amount}}">
 											<div class="item-content clearfix">
 												<div class="c-product clearfix">
 													<a href="{{item.link}}" class="img">
@@ -330,7 +329,7 @@
 									<!-- surprise list begin -->
 									<ul class="part-list">
 										{{each list as item i}}
-										<li class="item">
+										<li class="item" data-name="{{item.name.cn}}" data-price="{{item.price}}" data-size="{{item.spec}}" data-amount="{{item.amount}}">
 											<div class="item-content clearfix">
 												<div class="c-product clearfix">
 													<a href="{{item.link}}" class="img">
@@ -485,7 +484,7 @@
 								</div>
 							</div>
 							<!-- cake card end -->
-							
+
 							<!-- incake card begin -->
 							<div class="list-box incakeCardInfo">
 								<h3 class="incakeCard-info">向阳印克卡券</h3>
@@ -504,7 +503,7 @@
 								</div>
 							</div>
 							<!-- incake card end -->
-							
+
 							<!-- payment method begin -->
 							<div class="list-box paymentMethod">
 								<h3 class="payment-info">支付方式</h3>
