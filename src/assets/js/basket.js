@@ -824,21 +824,6 @@
       o_mobile = $portal.find('.info').html().trim();
     }
 
-    // 访问购物篮
-    (function() {
-
-      // send to rxstream server
-      rxStream.track('view_basket', {
-        subject: {
-          o_username: o_username,
-          o_mobile: o_mobile
-        },
-        properties: {
-          b_device: b_device
-        }
-      });
-    })();
-
     // 去结算
     $basketpage.on('click', '.btn-settle', function(e) {
       var shoppingcart = [];

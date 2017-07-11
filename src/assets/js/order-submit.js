@@ -1263,12 +1263,29 @@
 
     // 提交订单 && 提交订单详情
     $container.on('click', '.summary-info .btn-payment', function(e) {
-      var submit_order_detail = [],
+      var $sinfo = $(this).closest('.summary-info').find('.s-info'),
+        submit_order_detail = [],
         submit_order = {},
-        totalAmount = 0,
-        totalPrice = 0;
+        s_total = 0,
+        s_money = 0,
+        s_count = 0,
+        s_coupon = 0,
+        s_sales = 0,
+        discount_price = 0,
+        discount_type = '无';
 
-      totalPrice = parseFloat($(this).siblings('.s-money').html().trim()).toFixed(2);
+      s_total = parseFloat($sinfo.find('.s-total').html().trim()).toFixed(2);
+      s_money = parseFloat($(this).siblings('.s-money').html().trim()).toFixed(2);
+      s_coupon = parseFloat($sinfo.find('.s-coupon').html().trim()).toFixed(2);
+      s_sales = parseFloat($sinfo.find('.s-sales').html().trim()).toFixed(2);
+
+      if(s_coupon != 0) {
+        discount_price = s_coupon;
+        discount_type = '优惠券';
+      } else if(s_sales != 0) {
+        discount_price = s_sales;
+        discount_type = '促销';
+      }
 
       var $items = $info.find('.item');
 
@@ -1287,7 +1304,7 @@
         b_productprice_m = parseFloat($(item).attr('data-price').trim()).toFixed(2);
         b_order_count = parseInt($(item).attr('data-amount').trim(), 10);
 
-        totalAmount += b_order_count;
+        s_count += b_order_count;
 
         submit_order_detail.push({
           b_productstyle: b_productstyle,
@@ -1300,10 +1317,6 @@
         });
       });
 
-      submit_order.b_orderprice = totalPrice;
-      submit_order.b_order_count = totalAmount;
-      submit_order.b_device = b_device;
-
       // send submit_order_detail to rxstream server
       $.each(submit_order_detail, function(index, detail) {
         rxStream.track('submit_order_detail', {
@@ -1314,6 +1327,18 @@
   				properties: detail
   			});
       });
+
+      // b_orderprice 订单金额
+      // b_order_amount 实际支付金额
+      // b_order_count 商品件数
+      // b_discountprice 优惠金额
+      // b_discounttype 优惠类型
+      submit_order.b_orderprice = s_total;
+      submit_order.b_order_amount = s_money;
+      submit_order.b_order_count = s_count;
+      submit_order.b_discountprice = discount_price;
+      submit_order.b_discounttype = discount_type;
+      submit_order.b_device = b_device;
 
       // send submit_order to rxstream server
 			rxStream.track('submit_order', {
