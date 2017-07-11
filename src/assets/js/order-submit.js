@@ -865,14 +865,14 @@
       $listItem = $paymentList.find('a'),
       $btnOnline = $paymentList.find('.btn-online'),
       $btnCOD = $paymentList.find('.btn-COD'),
-      $btnCard = $paymentList.find('.btn-card');
-    $listCont = $paymentMethod.find('.payment-content'),
-    $onLineType = $listCont.find('.online-type'),
-    $onLineItem = $onLineType.find('a'),
-    $cardType = $listCont.find('.card-type'),
-    $cardNumber = $cardType.find('.card-number'),
-    $cardPwd = $cardType.find('.card-pwd'),
-    $btnExchange = $cardType.find('.btn-exchange');
+      $btnCard = $paymentList.find('.btn-card'),
+      $listCont = $paymentMethod.find('.payment-content'),
+      $onLineType = $listCont.find('.online-type'),
+      $onLineItem = $onLineType.find('a'),
+      $cardType = $listCont.find('.card-type'),
+      $cardNumber = $cardType.find('.card-number'),
+      $cardPwd = $cardType.find('.card-pwd'),
+      $btnExchange = $cardType.find('.btn-exchange');
 
     // button of online operate
     $btnOnline.on('click', function() {

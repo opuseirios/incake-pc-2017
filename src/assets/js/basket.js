@@ -59,6 +59,9 @@
       handle4Scrolling();
       $(window).on('scroll', throttleScroll);
     })();
+
+    // 瑞雪检测 --- 购物篮
+    fnInitRxBasket();
   });
 
   // init surprise data
@@ -803,4 +806,115 @@
     });
   }
 
+  function fnInitRxBasket() {
+    if(!rxStream) {
+      return false;
+    }
+
+    var $header = $('#layoutHeader'),
+      $portal = $header.find('.portal'),
+      $basketpage = $('#basketPage');
+
+    var o_username = '',
+      o_mobile = '',
+      b_device = 'pc';
+
+    if($portal.find('.info').length > 0) {
+      o_username = $portal.find('.info').html().trim();
+      o_mobile = $portal.find('.info').html().trim();
+    }
+
+    // 访问购物篮
+    (function() {
+
+      // send to rxstream server
+      rxStream.track('view_basket', {
+        subject: {
+          o_username: o_username,
+          o_mobile: o_mobile
+        },
+        properties: {
+          b_device: b_device
+        }
+      });
+    })();
+
+    // 去结算
+    $basketpage.on('click', '.btn-settle', function(e) {
+      var shoppingcart = [];
+
+      var $basketContainer = $basketpage.find('.basket-container'),
+        $container = $basketContainer.find('.list-container'),
+        $items = $container.find('.item');
+
+      var $selectedItems = $items.filter(function(idx, item) {
+        var $item = $(item),
+          $ckbox = $item.find('.c-ckbox').find('.btn-ckbox');
+
+        return $ckbox.hasClass('checked');
+      });
+
+      $selectedItems.each(function(index, item) {
+        var b_productstyle = '',
+          b_productname = '',
+          b_product_size = '',
+          b_productprice_d = '',
+          b_productprice_m = 0,
+          b_productCount_d = 0;
+
+        b_productstyle = $(item).attr('data-style').trim();
+        b_productname = $(item).attr('data-name').trim();
+        b_product_size = $(item).attr('data-size').trim();
+        b_productprice_d = $(item).attr('data-price').trim();
+        b_productprice_m = parseFloat($(item).attr('data-price').trim()).toFixed(2);
+        b_productCount_d = parseInt($(item).attr('data-amount').trim(), 10);
+
+        shoppingcart.push({
+          b_productstyle: b_productstyle,
+          b_productname: b_productname,
+          b_product_size: b_product_size,
+          b_productprice_d: b_productprice_d,
+          b_productprice_m: b_productprice_m,
+          b_productCount_d: b_productCount_d,
+          b_device: b_device
+        });
+      });
+
+      // send submit_shoppingcart to rxstream server
+      $.each(shoppingcart, function(index, detail) {
+        rxStream.track('submit_shoppingcart', {
+  				subject: {
+  					o_username: o_username,
+  					o_mobile: o_mobile
+  				},
+  				properties: detail
+  			});
+      });
+
+    });
+
+    // 选择配送城市
+    $('.mask-go-pay').on('click', '.btn-city-ok', function(e) {
+      var b_shiptocity = '';
+
+      var $wrapper = $(this).closest('.go-pay'),
+        $citylist = $wrapper.find('.city-list'),
+        $checkedcity = $citylist.find('.city-item').filter('.checked');
+
+      b_shiptocity = $checkedcity.html().tirm();
+
+      // send to rxstream server
+      rxStream.track('shiptocity', {
+        subject: {
+          o_username: o_username,
+          o_mobile: o_mobile
+        },
+        properties: {
+          b_shiptocity: b_shiptocity,
+          b_device: b_device
+        }
+      });
+    });
+
+  }
 })(window, document, jQuery);

@@ -189,9 +189,9 @@
 								<ul class="surprise-list">
 									{{each list as item i}}
 									{{if item.isSoldout}}
-									<li class="item soldout">
+									<li class="item soldout" data-style="惊喜款" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
 									{{else}}
-									<li class="item">
+									<li class="item" data-style="惊喜款" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
 									{{/if}}
 										<div class="item-content clearfix">
 											<div class="c-ckbox">
@@ -344,9 +344,9 @@
 								<ul class="regular-list">
 									{{each list as item i}}
 									{{if item.isSoldout}}
-									<li class="item soldout">
+									<li class="item soldout" data-style="常规款" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
 									{{else}}
-									<li class="item">
+									<li class="item" data-style="常规款" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
 									{{/if}}
 										<div class="item-content clearfix">
 											<div class="c-ckbox">
@@ -448,9 +448,9 @@
 								<ul class="part-list">
 									{{each list as item i}}
 									{{if item.isSoldout}}
-									<li class="item soldout">
+									<li class="item soldout" data-style="小商品" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
 									{{else}}
-									<li class="item">
+									<li class="item" data-style="小商品" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
 									{{/if}}
 										<div class="item-content clearfix">
 											<div class="c-ckbox">
