@@ -38,11 +38,43 @@
       fnCouponInfo();
       fnMoreInfo();
       fnRemarksInfo();
+      fnInitPromotion();
     });
 
     // 瑞雪检测 --- 订单提交
     fnInitRxOrderSubmit();
   });
+
+  function fnInitPromotion() {
+    var $currJionPromotion = null;
+
+    // join promotion
+    $('#settlementPage').on('click', '.join-promotion', function(e) {
+      var isJoined = $(this).hasClass('checked');
+
+      if(!isJoined) {
+        $currJionPromotion = $(this);
+        $('#maskPromotionTip').fadeIn();
+      } else {
+        $(this).removeClass('checked');
+
+        // TODO 取消参与活动，放开配送日期及优惠券限制操作
+      }
+    });
+
+    $('#maskPromotionTip').on('click', '.btn-promotion-abort', function(e) {
+      $currJionPromotion = null;
+      $('#maskPromotionTip').fadeOut();
+    });
+
+    $('#maskPromotionTip').on('click', '.btn-promotion-join', function(e) {
+      $currJionPromotion.addClass('checked');
+
+      // TODO 参与活动，限制商品配送日期及优惠券操作
+
+      $('#maskPromotionTip').fadeOut();
+    });
+  }
 
   // init surprise data
   function fnInitSurprise() {
@@ -74,6 +106,11 @@
             sScene: '生日/祝寿',
             remark: '非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容',
             sPhoto: '/assets/imgs/basket/img_preview_thumb.jpg'
+          },
+          hasPromotion: true,
+          promotion: {
+            title: '立减',
+            content: '温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示'
           }
         }, {
           link: '/detail.html',
@@ -98,6 +135,11 @@
             sScene: '生日/祝寿',
             remark: '非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容非真正内容',
             sPhoto: '/assets/imgs/basket/img_preview_thumb.jpg'
+          },
+          hasPromotion: true,
+          promotion: {
+            title: '立减',
+            content: '温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示'
           }
         }
       ]
@@ -153,7 +195,12 @@
           },
           subtotal: '219',
           discountInfo: '',
-          imgCake: '<a href="javascript:;" class="btn-option btn-imgCake">画影</a>'
+          imgCake: '<a href="javascript:;" class="btn-option btn-imgCake">画影</a>',
+          hasPromotion: true,
+          promotion: {
+            title: '立减',
+            content: '温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示'
+          }
         }
       ]
     };
@@ -952,7 +999,7 @@
       if (!isActive) {
         $titleItem.removeClass('active');
         $couponTitle.find('i').animate({
-          left: *200 + 'px'
+          left: 200 + 'px'
         }, 500);
         $(this).addClass('active');
         $listCont.find('div.active').slideUp().removeClass('active');

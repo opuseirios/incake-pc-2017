@@ -147,7 +147,6 @@
 			<!-- settlement page begin -->
 			<div class="page settlement-page" id="settlementPage">
 				<div class="page-container">
-
 					<!-- settlement header begin -->
 					<div class="settlement-header">
 						<div class="title">
@@ -193,6 +192,13 @@
 									<ul class="surprise-list">
 										{{each list as item i}}
 										<li class="item" data-style="惊喜款" data-name="{{item.name.cn}}" data-price="{{item.price}}" data-size="{{item.spec}}" data-amount="{{item.amount}}">
+										{{if item.hasPromotion}}
+											<p class="item-promotion clearfix">
+												<span class="promotion-title">{{item.promotion.title}}</span>
+												<span class="promotion-content">{{item.promotion.content}}</span>
+												<span class="join-promotion">参与活动</span>
+											</p>
+										{{/if}}
 											<div class="item-content clearfix">
 												<div class="c-product clearfix">
 													<a href="{{item.link}}" class="img">
@@ -269,6 +275,13 @@
 									<ul class="regular-list">
 										{{each list as item i}}
 										<li class="item" data-style="常规款" data-name="{{item.name.cn}}" data-price="{{item.price}}" data-size="{{item.spec}}" data-amount="{{item.amount}}">
+										{{if item.hasPromotion}}
+											<p class="item-promotion clearfix">
+												<span class="promotion-title">{{item.promotion.title}}</span>
+												<span class="promotion-content">{{item.promotion.content}}</span>
+												<span class="join-promotion">参与活动</span>
+											</p>
+										{{/if}}
 											<div class="item-content clearfix">
 												<div class="c-product clearfix">
 													<a href="{{item.link}}" class="img">
@@ -693,6 +706,7 @@
 					</div>
 					<!-- settlement container end -->
 				</div>
+
 				<!-- mask  begin-->
 				<div id="mask-list">
 					<div class="popups popup-preview">
@@ -818,8 +832,25 @@
 					</div>
 				</div>
 				<!-- mask end -->
+
+				<!-- mask promotion begin -->
+				<div class="mask-promotion-tip" id="maskPromotionTip">
+					<div class="promotion-tip">
+						<div class="tip-container">
+							<div class="content vcenter">
+								<p class="vcenter-child">注意哟，参与本活动后，<span>此订单</span>不可再使用其他优惠卡券。</p>
+							</div>
+						</div>
+						<div class="tip-footer clearfix">
+							<a href="javascript:;" class="btn-promotion-abort">再考虑一下</a>
+							<a href="javascript:;" class="btn-promotion-join">参与活动</a>
+						</div>
+					</div>
+				</div>
+				<!-- mask promotion end -->
 			</div>
 			<!-- settlement page end -->
+
 		</div>
 		<!-- layout container end -->
 

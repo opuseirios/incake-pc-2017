@@ -84,7 +84,12 @@
           spec: '1.5磅',
           price: 189,
           privilege: '',
-          operate: '<a href="javascript:;" class="btn-del-item">删除</a>'
+          operate: '<a href="javascript:;" class="btn-del-item">删除</a>',
+          hasPromotion: true,
+          promotion: {
+            title: '立减',
+            content: '温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示'
+          }
         }, {
           uniqueId: _.uniqueId('inputImage_'),
           link: '/detail.html',
@@ -140,10 +145,10 @@
       var isActive = $(this).hasClass('active');
       if (!isActive) {
         $(this).addClass('active');
-        $(this).next('.surprise-wrapper').slideDown();
+        $(this).parent().next('.surprise-wrapper').slideDown();
       } else {
         $(this).removeClass('active');
-        $(this).next('.surprise-wrapper').slideUp();
+        $(this).parent().next('.surprise-wrapper').slideUp();
       }
     });
 
@@ -185,7 +190,12 @@
           spec: '1.5磅',
           price: 189,
           privilege: '',
-          operate: '<a href="javascript:;" class="btn-del-item">删除</a>'
+          operate: '<a href="javascript:;" class="btn-del-item">删除</a>',
+          hasPromotion: true,
+          promotion: {
+            title: '立减',
+            content: '温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示'
+          }
         }, {
           uniqueId: _.uniqueId('inputImage_'),
           link: '/detail.html',
@@ -200,7 +210,12 @@
           price: 189,
           privilege: '',
           operate: '<a href="javascript:;" class="btn-del-item">删除</a>',
-          isImageCake: true
+          isImageCake: true,
+          hasPromotion: true,
+          promotion: {
+            title: '立减',
+            content: '温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示温馨提示'
+          }
         }, {
           uniqueId: _.uniqueId('inputImage_'),
           link: '/detail.html',
@@ -260,10 +275,10 @@
       var isActive = $(this).hasClass('active');
       if (!isActive) {
         $(this).addClass('active');
-        $(this).next('.upload-wrapper').slideDown();
+        $(this).parent().next('.upload-wrapper').slideDown();
       } else {
         $(this).removeClass('active');
-        $(this).next('.upload-wrapper').slideUp();
+        $(this).parent().next('.upload-wrapper').slideUp();
       }
     });
   }

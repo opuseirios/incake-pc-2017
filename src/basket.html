@@ -193,6 +193,12 @@
 									{{else}}
 									<li class="item" data-style="惊喜款" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
 									{{/if}}
+									{{if item.hasPromotion}}
+										<p class="item-promotion clearfix">
+											<span class="promotion-title">{{item.promotion.title}}</span>
+											<span class="promotion-content">{{item.promotion.content}}</span>
+										</p>
+									{{/if}}
 										<div class="item-content clearfix">
 											<div class="c-ckbox">
 												<a href="javascript:;" class="btn-ckbox"></a>
@@ -246,8 +252,8 @@
 													{{#item.operate}}
 												</div>
 											</div>
+											<a href="javascript:;" class="view-surprise">想要的惊喜在这里</a>
 										</div>
-										<a href="javascript:;" class="view-surprise">想要的惊喜在这里</a>
 										<div class="surprise-wrapper">
 											<div class="surprise-container">
 												<div class="sec clearfix">
@@ -348,6 +354,12 @@
 									{{else}}
 									<li class="item" data-style="常规款" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
 									{{/if}}
+									{{if item.hasPromotion}}
+										<p class="item-promotion clearfix">
+											<span class="promotion-title">{{item.promotion.title}}</span>
+											<span class="promotion-content">{{item.promotion.content}}</span>
+										</p>
+									{{/if}}
 										<div class="item-content clearfix">
 											<div class="c-ckbox">
 												<a href="javascript:;" class="btn-ckbox"></a>
@@ -401,9 +413,11 @@
 													{{#item.operate}}
 												</div>
 											</div>
+											{{if item.isImageCake || item.isAdventuresCake}}
+											<a href="javascript:;" class="upload-img">上传照片</a>
+											{{/if}}
 										</div>
 										{{if item.isImageCake}}
-										<a href="javascript:;" class="upload-img">上传照片</a>
 										<div class="upload-wrapper">
 											<div class="upload-container clearfix">
 												<div class="img">
@@ -420,7 +434,6 @@
 										</div>
 										{{/if}}
 										{{if item.isAdventuresCake}}
-										<a href="javascript:;" class="upload-img">上传照片</a>
 										<div class="upload-wrapper">
 											<div class="upload-container clearfix">
 												<div class="img">
