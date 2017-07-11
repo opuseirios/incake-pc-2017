@@ -1285,6 +1285,9 @@
       } else if(s_sales != 0) {
         discount_price = s_sales;
         discount_type = '促销';
+      } else {
+        discount_price = 0;
+        discount_type = '无';
       }
 
       var $items = $info.find('.item');
