@@ -1273,12 +1273,14 @@
       var $items = $info.find('.item');
 
       $items.each(function(idx, item) {
-        var b_productname = '',
+        var b_productstyle = '',
+          b_productname = '',
           b_product_size = '',
           b_productprice_d = '',
           b_productprice_m = 0,
           b_order_count = 0;
 
+        b_productstyle = $(item).attr('data-style').trim();
         b_productname = $(item).attr('data-name').trim();
         b_product_size = $(item).attr('data-size').trim();
         b_productprice_d = $(item).attr('data-price').trim();
@@ -1288,6 +1290,7 @@
         totalAmount += b_order_count;
 
         submit_order_detail.push({
+          b_productstyle: b_productstyle,
           b_productname: b_productname,
           b_product_size: b_product_size,
           b_productprice_d: b_productprice_d,
