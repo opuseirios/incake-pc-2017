@@ -349,6 +349,25 @@
 
         e.stopPropagation();
       });
+
+      // 继续购物
+      $('#maskPopup').on('click', '.btn-cancel', function(e) {
+        var isKeepbuy = $(this).html().trim() === '再逛逛' ? true : false;
+        if(!isKeepbuy) {
+          return false;
+        }
+
+        // send to rxstream server
+  			rxStream.track('keepbuy', {
+  				subject: {
+  					o_username: o_username,
+  					o_mobile: o_mobile
+  				},
+  				properties: {
+  					b_device: b_device
+  				}
+  			});
+      });
     }
 
     function fnInitRxFavor($item, isFavored) {
