@@ -562,7 +562,7 @@
           _beforeHtml += '<p class="preview-box clearfix">';
           _beforeHtml += '<span>已上传1张照片</span></p>';
 
-          var $uploadImg = $inputImage.closest('.upload-wrapper').prev();
+          var $uploadImg = $inputImage.closest('.item').find('.upload-img');
 
           if ($uploadImg.prev('.preview-box').length != 0) {
             $uploadImg.prev('.preview-box').remove().end().before(_beforeHtml);
@@ -589,7 +589,7 @@
           _beforeHtml += '<p class="preview-box clearfix">';
           _beforeHtml += '<span>已上传1张照片</span></p>';
 
-          var $uploadImg = $inputImage.closest('.upload-wrapper').prev();
+          var $uploadImg = $inputImage.closest('.item').find('.upload-img');
 
           if ($uploadImg.prev('.preview-box').length != 0) {
             $uploadImg.prev('.preview-box').remove().end().before(_beforeHtml);
