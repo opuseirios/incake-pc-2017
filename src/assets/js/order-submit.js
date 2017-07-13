@@ -1317,6 +1317,7 @@
         s_money = 0,
         s_count = 0,
         s_coupon = 0,
+        s_card = 0,
         s_sales = 0,
         discount_price = 0,
         discount_type = '无';
@@ -1324,12 +1325,16 @@
       s_total = parseFloat($sinfo.find('.s-total').html().trim()).toFixed(2);
       s_money = parseFloat($(this).siblings('.s-money').html().trim()).toFixed(2);
       s_coupon = parseFloat($sinfo.find('.s-coupon').html().trim()).toFixed(2);
+      s_card = parseFloat($sinfo.find('.s-card').html().trim()).toFixed(2);
       s_sales = parseFloat($sinfo.find('.s-sales').html().trim()).toFixed(2);
 
       if(s_coupon != 0) {
         discount_price = s_coupon;
         discount_type = '优惠券';
-      } else if(s_sales != 0) {
+      } else if(s_card != 0) {
+        discount_price = s_card;
+        discount_type = '蛋糕卡';
+      }else if(s_sales != 0) {
         discount_price = s_sales;
         discount_type = '促销';
       } else {

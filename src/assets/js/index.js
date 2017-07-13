@@ -843,6 +843,18 @@
 					b_device: b_device
 				}
 			});
+
+      // rxStream.track('session', {
+			// 	subject: {
+			// 		o_username: o_username,
+			// 		o_mobile: o_mobile
+			// 	},
+			// 	properties: {
+      //     b_position_ad: '',
+      //     b_content_ad: '',
+			// 		b_device: b_device
+			// 	}
+			// });
     })();
 
     // banner 广告

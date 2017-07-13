@@ -7,7 +7,6 @@
 
 		// 注册验证
 		fnRegRegister();
-
 	});
 
 	function fnRegCode(){
