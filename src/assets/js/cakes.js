@@ -16,7 +16,7 @@
               {
                   link: 'javascript:;',
                   imgUrl: '/assets/imgs/list/cake_01.jpg',
-                  desc: '芝士系列口味；免费赠送5套餐具、生日牌（生日牌中文字不超过10个，英文字母不超过20个）',
+                  desc: '芝士系列口味；免费赠送5套餐具、生日牌（生日牌中文字不超过10个，英文字母不超过20个）芝士系列口味；免费赠送5套餐具、生日牌（生日牌中文字不超过10个，英文字母不超过20个）',
                   name: {
                       cn: '小鸡派对',
                       en: 'Chick Party'
@@ -104,7 +104,7 @@
         var $oSelector = $(this).find('.selector'),
         		$aItems = $(this).siblings('li'),
         		$aBtns = $aItems.find('.selector');
-        		
+
         if($(this).hasClass('selected')){
         	$oSelector.removeClass('active').text('确定');
         	$(this).removeClass('selected');
