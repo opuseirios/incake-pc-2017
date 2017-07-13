@@ -124,6 +124,15 @@
             p {
                 line-height: 24px;
             }
+            p.promotion-tip {
+              padding-top: 10px;
+              color: #e9546b;
+              line-height: 20px;
+
+              &.title {
+                font-weight: bold;
+              }
+            }
         }
         .specific-wrap {
             width: 100%;
