@@ -892,29 +892,38 @@
       });
 
     });
+  }
+
+  function fnInitShip2City(city) {
+    if(!rxStream) {
+      return false;
+    }
+
+    var $header = $('#layoutHeader'),
+      $portal = $header.find('.portal');
+
+    var o_username = '',
+      o_mobile = '',
+      b_device = 'pc';
+
+    if($portal.find('.info').length > 0) {
+      o_username = $portal.find('.info').html().trim();
+      o_mobile = $portal.find('.info').html().trim();
+    }
 
     // 选择配送城市
-    $('.mask-go-pay').on('click', '.btn-city-ok', function(e) {
-      var b_shiptocity = '';
+    var b_shiptocity = city;
 
-      var $wrapper = $(this).closest('.go-pay'),
-        $citylist = $wrapper.find('.city-list'),
-        $checkedcity = $citylist.find('.city-item').filter('.checked');
-
-      b_shiptocity = $checkedcity.html().tirm();
-
-      // send to rxstream server
-      rxStream.track('shiptocity', {
-        subject: {
-          o_username: o_username,
-          o_mobile: o_mobile
-        },
-        properties: {
-          b_shiptocity: b_shiptocity,
-          b_device: b_device
-        }
-      });
+    // send to rxstream server
+    rxStream.track('shiptocity', {
+      subject: {
+        o_username: o_username,
+        o_mobile: o_mobile
+      },
+      properties: {
+        b_shiptocity: b_shiptocity,
+        b_device: b_device
+      }
     });
-
   }
 })(window, document, jQuery);
