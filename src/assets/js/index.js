@@ -699,7 +699,7 @@
       $numbers.find('.num-minus').removeClass('active').end().find('.txt-num').val(1);
 
       // 同步价格
-      $numbers.find('.txt-price').find('i').attr('data-price', price).html(price)
+      $numbers.find('.txt-price').find('i').attr('data-price', price).html(price);
     });
 
     // 数量加减
