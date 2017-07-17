@@ -843,18 +843,6 @@
 					b_device: b_device
 				}
 			});
-
-      // rxStream.track('session', {
-			// 	subject: {
-			// 		o_username: o_username,
-			// 		o_mobile: o_mobile
-			// 	},
-			// 	properties: {
-      //     b_position_ad: '',
-      //     b_content_ad: '',
-			// 		b_device: b_device
-			// 	}
-			// });
     })();
 
     // banner 广告
@@ -885,6 +873,19 @@
 					b_device: b_device
 				}
 			});
+
+      // session func
+      rxStream.track('session', {
+        subject: {
+          o_username: o_username,
+          o_mobile: o_mobile
+        },
+        properties: {
+          b_position_ad: 'banner广告',
+          b_content_ad: b_ad_title,
+        	b_device: b_device
+        }
+			});
     });
 
     // 首页分类入口
@@ -901,6 +902,19 @@
 					b_menu: b_menu,
 					b_device: b_device
 				}
+			});
+
+      // session func
+      rxStream.track('session', {
+        subject: {
+          o_username: o_username,
+          o_mobile: o_mobile
+        },
+        properties: {
+          b_position_ad: '首页分类入口',
+          b_content_ad: b_menu,
+        	b_device: b_device
+        }
 			});
     });
 
@@ -935,6 +949,19 @@
 					b_device: b_device
 				}
 			});
+
+      // session func
+      rxStream.track('session', {
+        subject: {
+          o_username: o_username,
+          o_mobile: o_mobile
+        },
+        properties: {
+          b_position_ad: '当季热卖',
+          b_content_ad: b_productname,
+        	b_device: b_device
+        }
+			});
     });
 
     // 长条广告位
@@ -953,6 +980,19 @@
           b_ad_title: b_ad_title,
 					b_device: b_device
 				}
+			});
+
+      // session func
+      rxStream.track('session', {
+        subject: {
+          o_username: o_username,
+          o_mobile: o_mobile
+        },
+        properties: {
+          b_position_ad: '长条广告位',
+          b_content_ad: b_ad_title,
+        	b_device: b_device
+        }
 			});
     });
 
@@ -978,6 +1018,19 @@
           b_ad_type: b_ad_type,
 					b_device: b_device
 				}
+			});
+
+      // session func
+      rxStream.track('session', {
+        subject: {
+          o_username: o_username,
+          o_mobile: o_mobile
+        },
+        properties: {
+          b_position_ad: '底部广告位',
+          b_content_ad: b_ad_title,
+        	b_device: b_device
+        }
 			});
     });
 
@@ -1020,6 +1073,19 @@
           b_productstyle: b_productstyle,
 					b_device: b_device
 				}
+			});
+
+      // session func
+      rxStream.track('session', {
+        subject: {
+          o_username: o_username,
+          o_mobile: o_mobile
+        },
+        properties: {
+          b_position_ad: '加入购物车',
+          b_content_ad: b_productname,
+        	b_device: b_device
+        }
 			});
 
       e.stopPropagation();
@@ -1066,6 +1132,19 @@
 				}
 			});
 
+      // session func
+      rxStream.track('session', {
+        subject: {
+          o_username: o_username,
+          o_mobile: o_mobile
+        },
+        properties: {
+          b_position_ad: '立即购买',
+          b_content_ad: b_productname,
+        	b_device: b_device
+        }
+			});
+
       e.stopPropagation();
     });
 
@@ -1090,6 +1169,19 @@
           b_linkornot: b_linkornot,
 					b_device: b_device
 				}
+			});
+
+      // session func
+      rxStream.track('session', {
+        subject: {
+          o_username: o_username,
+          o_mobile: o_mobile
+        },
+        properties: {
+          b_position_ad: '喜欢',
+          b_content_ad: b_productname,
+        	b_device: b_device
+        }
 			});
 
       e.preventDefault();
