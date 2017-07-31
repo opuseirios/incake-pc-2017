@@ -13,6 +13,18 @@
         next(null);
       },
       function(next) {
+        fnInitInlife();
+        next(null);
+      },
+      function(next) {
+        fnInitAli();
+        next(null);
+      },
+      function(next) {
+        fnInitDiy();
+        next(null);
+      },
+      function(next) {
         fnInitPart();
         next(null);
       },
@@ -217,6 +229,105 @@
     fnInitListOperate($regular);
   }
 
+  // init inlife data
+  function fnInitInlife() {
+    var $page = $('#settlementPage'),
+      $listContainer = $page.find('.list-container');
+
+    var _data = {
+      list: [
+        {
+          link: '/detail.html',
+          thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+          name: {
+            cn: '芒果拿破仑',
+            en: 'Mango Napoleon'
+          },
+          price: 189,
+          spec: '1.5磅',
+          attr: ['附送餐具5套'],
+          amount: 1,
+          privilege: {
+            name: '夏日甜心',
+            price: '30'
+          },
+          subtotal: '219',
+          discountInfo: '',
+          surprise: ''
+        }
+      ]
+    };
+
+    var _html = template('tplInlifeList', _data);
+    $listContainer.append(_html);
+  }
+
+  // init ali data
+  function fnInitAli() {
+    var $page = $('#settlementPage'),
+      $listContainer = $page.find('.list-container');
+
+    var _data = {
+      list: [
+        {
+          link: '/detail.html',
+          thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+          name: {
+            cn: '芒果拿破仑',
+            en: 'Mango Napoleon'
+          },
+          price: 189,
+          spec: '1.5磅',
+          attr: ['附送餐具5套'],
+          amount: 1,
+          privilege: {
+            name: '夏日甜心',
+            price: '30'
+          },
+          subtotal: '219',
+          discountInfo: '',
+          surprise: ''
+        }
+      ]
+    };
+
+    var _html = template('tplAliList', _data);
+    $listContainer.append(_html);
+  }
+
+  // init diy data
+  function fnInitDiy() {
+    var $page = $('#settlementPage'),
+      $listContainer = $page.find('.list-container');
+
+    var _data = {
+      list: [
+        {
+          link: '/detail.html',
+          thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+          name: {
+            cn: '芒果拿破仑',
+            en: 'Mango Napoleon'
+          },
+          price: 189,
+          spec: '1.5磅',
+          attr: ['附送餐具5套'],
+          amount: 1,
+          privilege: {
+            name: '夏日甜心',
+            price: '30'
+          },
+          subtotal: '219',
+          discountInfo: '',
+          surprise: ''
+        }
+      ]
+    };
+
+    var _html = template('tplDiyList', _data);
+    $listContainer.append(_html);
+  }
+
   // init part data
   function fnInitPart() {
     var $page = $('#settlementPage'),
@@ -247,15 +358,7 @@
     };
 
     var _html = template('tplPartList', _data);
-    if ($listContainer.children('.surprise-list').length > 0) {
-      if ($listContainer.children('.regular-list').length > 0) {
-        $(_html).insertAfter($listContainer.children('.regular-list'));
-      } else {
-        $(_html).insertAfter($listContainer.children('.surprise-list'));
-      }
-    } else {
-      $listContainer.prepend(_html);
-    }
+    $listContainer.append(_html);
   }
 
   // func of init list-container operate

@@ -455,6 +455,216 @@
 								<!-- regular list end -->
 								{{/if}}
 								</script>
+								<script type="text/html" id="tplInlifeList">
+								{{if list.length != 0}}
+								<!-- inlife list begin -->
+								<ul class="inlife-list">
+									{{each list as item i}}
+									{{if item.isSoldout}}
+									<li class="item soldout" data-style="INLIFE" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
+									{{else}}
+									<li class="item" data-style="INLIFE" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
+									{{/if}}
+										<div class="item-content clearfix">
+											<div class="c-ckbox">
+												<a href="javascript:;" class="btn-ckbox"></a>
+											</div>
+											<div class="c-product clearfix">
+												<a href="{{item.link}}" class="img">
+													<img src="{{item.thumbImg}}" alt="">
+												</a>
+												<div class="text vcenter">
+													<div class="vcenter-child">
+														<p class="cn">{{item.name.cn}}</p>
+														<p class="en">{{item.name.en}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="c-attr vcenter">
+												<div class="vcenter-child">
+													{{each item.attr as attr}}
+													<p>{{attr}}</p>
+													{{/each}}
+												</div>
+											</div>
+											<div class="c-amount">
+												<div class="content clearfix">
+													{{if item.amount == 1}}
+													<a href="javascript:;" class="btn btn-sub disabled"></a>
+													{{else}}
+													<a href="javascript:;" class="btn btn-sub"></a>
+													{{/if}}
+													<div class="amount-wrap">
+														<input type="text" class="txt-amount" value="{{item.amount}}">
+													</div>
+													<a href="javascript:;" class="btn btn-add"></a>
+												</div>
+											</div>
+											<div class="c-spec vcenter">
+												<div class="vcenter-child">
+													<p>{{item.spec}}</p>
+												</div>
+											</div>
+											<div class="c-price vcenter">
+												<div class="vcenter-child">
+													<p>¥{{item.price}}</p>
+												</div>
+											</div>
+											<div class="c-privilege vcenter">
+												<div class="vcenter-child">{{item.privilege}}</div>
+											</div>
+											<div class="c-operate vcenter">
+												<div class="vcenter-child">
+													{{#item.operate}}
+												</div>
+											</div>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+								<!-- inlife list end -->
+								{{/if}}
+								</script>
+								<script type="text/html" id="tplAliList">
+								{{if list.length != 0}}
+								<!-- ali list begin -->
+								<ul class="ali-list">
+									{{each list as item i}}
+									{{if item.isSoldout}}
+									<li class="item soldout" data-style="阿狸专属" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
+									{{else}}
+									<li class="item" data-style="阿狸专属" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
+									{{/if}}
+										<div class="item-content clearfix">
+											<div class="c-ckbox">
+												<a href="javascript:;" class="btn-ckbox"></a>
+											</div>
+											<div class="c-product clearfix">
+												<a href="{{item.link}}" class="img">
+													<img src="{{item.thumbImg}}" alt="">
+												</a>
+												<div class="text vcenter">
+													<div class="vcenter-child">
+														<p class="cn">{{item.name.cn}}</p>
+														<p class="en">{{item.name.en}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="c-attr vcenter">
+												<div class="vcenter-child">
+													{{each item.attr as attr}}
+													<p>{{attr}}</p>
+													{{/each}}
+												</div>
+											</div>
+											<div class="c-amount">
+												<div class="content clearfix">
+													{{if item.amount == 1}}
+													<a href="javascript:;" class="btn btn-sub disabled"></a>
+													{{else}}
+													<a href="javascript:;" class="btn btn-sub"></a>
+													{{/if}}
+													<div class="amount-wrap">
+														<input type="text" class="txt-amount" value="{{item.amount}}">
+													</div>
+													<a href="javascript:;" class="btn btn-add"></a>
+												</div>
+											</div>
+											<div class="c-spec vcenter">
+												<div class="vcenter-child">
+													<p>{{item.spec}}</p>
+												</div>
+											</div>
+											<div class="c-price vcenter">
+												<div class="vcenter-child">
+													<p>¥{{item.price}}</p>
+												</div>
+											</div>
+											<div class="c-privilege vcenter">
+												<div class="vcenter-child">{{item.privilege}}</div>
+											</div>
+											<div class="c-operate vcenter">
+												<div class="vcenter-child">
+													{{#item.operate}}
+												</div>
+											</div>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+								<!-- ali list end -->
+								{{/if}}
+								</script>
+								<script type="text/html" id="tplDiyList">
+								{{if list.length != 0}}
+								<!-- diy list begin -->
+								<ul class="diy-list">
+									{{each list as item i}}
+									{{if item.isSoldout}}
+									<li class="item soldout" data-style="定制款" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
+									{{else}}
+									<li class="item" data-style="定制款" data-name="{{item.name.cn}}" data-size="{{item.spec}}" data-price="{{item.price}}" data-amount="{{item.amount}}">
+									{{/if}}
+										<div class="item-content clearfix">
+											<div class="c-ckbox">
+												<a href="javascript:;" class="btn-ckbox"></a>
+											</div>
+											<div class="c-product clearfix">
+												<a href="{{item.link}}" class="img">
+													<img src="{{item.thumbImg}}" alt="">
+												</a>
+												<div class="text vcenter">
+													<div class="vcenter-child">
+														<p class="cn">{{item.name.cn}}</p>
+														<p class="en">{{item.name.en}}</p>
+													</div>
+												</div>
+											</div>
+											<div class="c-attr vcenter">
+												<div class="vcenter-child">
+													{{each item.attr as attr}}
+													<p>{{attr}}</p>
+													{{/each}}
+												</div>
+											</div>
+											<div class="c-amount">
+												<div class="content clearfix">
+													{{if item.amount == 1}}
+													<a href="javascript:;" class="btn btn-sub disabled"></a>
+													{{else}}
+													<a href="javascript:;" class="btn btn-sub"></a>
+													{{/if}}
+													<div class="amount-wrap">
+														<input type="text" class="txt-amount" value="{{item.amount}}">
+													</div>
+													<a href="javascript:;" class="btn btn-add"></a>
+												</div>
+											</div>
+											<div class="c-spec vcenter">
+												<div class="vcenter-child">
+													<p>{{item.spec}}</p>
+												</div>
+											</div>
+											<div class="c-price vcenter">
+												<div class="vcenter-child">
+													<p>¥{{item.price}}</p>
+												</div>
+											</div>
+											<div class="c-privilege vcenter">
+												<div class="vcenter-child">{{item.privilege}}</div>
+											</div>
+											<div class="c-operate vcenter">
+												<div class="vcenter-child">
+													{{#item.operate}}
+												</div>
+											</div>
+										</div>
+									</li>
+									{{/each}}
+								</ul>
+								<!-- diy list end -->
+								{{/if}}
+								</script>
 								<script type="text/html" id="tplPartList">
 								{{if list.length != 0}}
 								<!-- part list begin -->

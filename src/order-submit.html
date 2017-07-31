@@ -271,7 +271,7 @@
 									</script>
 									<script type="text/html" id="tplRegularList">
 									{{if list.length != 0}}
-									<!-- surprise list begin -->
+									<!-- regular list begin -->
 									<ul class="regular-list">
 										{{each list as item i}}
 										<li class="item" data-style="常规款" data-name="{{item.name.cn}}" data-price="{{item.price}}" data-size="{{item.spec}}" data-amount="{{item.amount}}">
@@ -337,9 +337,237 @@
 									<!-- regular list end -->
 									{{/if}}
 									</script>
+									<script type="text/html" id="tplInlifeList">
+									{{if list.length != 0}}
+									<!-- inlife list begin -->
+									<ul class="inlife-list">
+										{{each list as item i}}
+										<li class="item" data-style="小商品" data-name="{{item.name.cn}}" data-price="{{item.price}}" data-size="{{item.spec}}" data-amount="{{item.amount}}">
+											<div class="item-content clearfix">
+												<div class="c-product clearfix">
+													<a href="{{item.link}}" class="img">
+														<img src="{{item.thumbImg}}" alt="">
+													</a>
+													<div class="text vcenter">
+														<div class="vcenter-child">
+															<p class="cn">{{item.name.cn}}</p>
+															<p class="en">{{item.name.en}}</p>
+														</div>
+													</div>
+												</div>
+												<div class="c-attr vcenter">
+													<div class="vcenter-child">
+														<p>¥{{item.price}}&nbsp;/&nbsp;{{item.spec}}</p>
+														{{each item.attr as attr}}
+														<p>{{attr}}</p>
+														{{/each}}
+													</div>
+												</div>
+												<div class="c-amount vcenter">
+													<div class="vcenter-child">
+														<p>{{item.amount}}</p>
+													</div>
+												</div>
+												<div class="c-privilege vcenter">
+													<div class="vcenter-child">
+														<p>{{item.privilege.name}}&nbsp;/&nbsp;¥{{item.privilege.price}}</p>
+													</div>
+												</div>
+												<div class="c-price vcenter">
+													<div class="vcenter-child">
+														<p>¥{{item.subtotal}}</p>
+													</div>
+												</div>
+												<div class="c-activity vcenter">
+													<div class="vcenter-child">
+														{{#item.discountInfo}}
+													</div>
+													<div class="popups popup-act">
+														<textarea class="txt-popups" placeholder="母亲节写上送给妈妈的话吧！"></textarea>
+													</div>
+												</div>
+												<div class="c-operate vcenter">
+													<div class="vcenter-child">
+														{{#item.surprise.btns}}
+													</div>
+													<div class="popups popup-surprise">
+														<ul>
+															<li class="s-target">想要给惊喜（<span>{{item.surprise.sTarget}}</span>）</li>
+															<li class="s-scene">想在（<span>{{item.surprise.sScene}}</span>）场景下给Ta惊喜</li>
+															<li class="s-remark clearfix">
+																<p class="s-label">备注：</p>
+																<p class="remark-text">{{item.surprise.remark}}</p>
+															</li>
+															<li class="s-photo clearfix">
+																<p class="s-label">照片：</p>
+																<a href="javascript:;" class="btn-preview"><img src="{{item.surprise.sPhoto}}"/></a>
+																<a href="javascript:;" class="btn-sure">确&nbsp;定</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</li>
+										{{/each}}
+									</ul>
+									<!-- inlife list end -->
+									{{/if}}
+									</script>
+									<script type="text/html" id="tplAliList">
+									{{if list.length != 0}}
+									<!-- ali list begin -->
+									<ul class="ali-list">
+										{{each list as item i}}
+										<li class="item" data-style="小商品" data-name="{{item.name.cn}}" data-price="{{item.price}}" data-size="{{item.spec}}" data-amount="{{item.amount}}">
+											<div class="item-content clearfix">
+												<div class="c-product clearfix">
+													<a href="{{item.link}}" class="img">
+														<img src="{{item.thumbImg}}" alt="">
+													</a>
+													<div class="text vcenter">
+														<div class="vcenter-child">
+															<p class="cn">{{item.name.cn}}</p>
+															<p class="en">{{item.name.en}}</p>
+														</div>
+													</div>
+												</div>
+												<div class="c-attr vcenter">
+													<div class="vcenter-child">
+														<p>¥{{item.price}}&nbsp;/&nbsp;{{item.spec}}</p>
+														{{each item.attr as attr}}
+														<p>{{attr}}</p>
+														{{/each}}
+													</div>
+												</div>
+												<div class="c-amount vcenter">
+													<div class="vcenter-child">
+														<p>{{item.amount}}</p>
+													</div>
+												</div>
+												<div class="c-privilege vcenter">
+													<div class="vcenter-child">
+														<p>{{item.privilege.name}}&nbsp;/&nbsp;¥{{item.privilege.price}}</p>
+													</div>
+												</div>
+												<div class="c-price vcenter">
+													<div class="vcenter-child">
+														<p>¥{{item.subtotal}}</p>
+													</div>
+												</div>
+												<div class="c-activity vcenter">
+													<div class="vcenter-child">
+														{{#item.discountInfo}}
+													</div>
+													<div class="popups popup-act">
+														<textarea class="txt-popups" placeholder="母亲节写上送给妈妈的话吧！"></textarea>
+													</div>
+												</div>
+												<div class="c-operate vcenter">
+													<div class="vcenter-child">
+														{{#item.surprise.btns}}
+													</div>
+													<div class="popups popup-surprise">
+														<ul>
+															<li class="s-target">想要给惊喜（<span>{{item.surprise.sTarget}}</span>）</li>
+															<li class="s-scene">想在（<span>{{item.surprise.sScene}}</span>）场景下给Ta惊喜</li>
+															<li class="s-remark clearfix">
+																<p class="s-label">备注：</p>
+																<p class="remark-text">{{item.surprise.remark}}</p>
+															</li>
+															<li class="s-photo clearfix">
+																<p class="s-label">照片：</p>
+																<a href="javascript:;" class="btn-preview"><img src="{{item.surprise.sPhoto}}"/></a>
+																<a href="javascript:;" class="btn-sure">确&nbsp;定</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</li>
+										{{/each}}
+									</ul>
+									<!-- ali list end -->
+									{{/if}}
+									</script>
+									<script type="text/html" id="tplDiyList">
+									{{if list.length != 0}}
+									<!-- diy list begin -->
+									<ul class="diy-list">
+										{{each list as item i}}
+										<li class="item" data-style="小商品" data-name="{{item.name.cn}}" data-price="{{item.price}}" data-size="{{item.spec}}" data-amount="{{item.amount}}">
+											<div class="item-content clearfix">
+												<div class="c-product clearfix">
+													<a href="{{item.link}}" class="img">
+														<img src="{{item.thumbImg}}" alt="">
+													</a>
+													<div class="text vcenter">
+														<div class="vcenter-child">
+															<p class="cn">{{item.name.cn}}</p>
+															<p class="en">{{item.name.en}}</p>
+														</div>
+													</div>
+												</div>
+												<div class="c-attr vcenter">
+													<div class="vcenter-child">
+														<p>¥{{item.price}}&nbsp;/&nbsp;{{item.spec}}</p>
+														{{each item.attr as attr}}
+														<p>{{attr}}</p>
+														{{/each}}
+													</div>
+												</div>
+												<div class="c-amount vcenter">
+													<div class="vcenter-child">
+														<p>{{item.amount}}</p>
+													</div>
+												</div>
+												<div class="c-privilege vcenter">
+													<div class="vcenter-child">
+														<p>{{item.privilege.name}}&nbsp;/&nbsp;¥{{item.privilege.price}}</p>
+													</div>
+												</div>
+												<div class="c-price vcenter">
+													<div class="vcenter-child">
+														<p>¥{{item.subtotal}}</p>
+													</div>
+												</div>
+												<div class="c-activity vcenter">
+													<div class="vcenter-child">
+														{{#item.discountInfo}}
+													</div>
+													<div class="popups popup-act">
+														<textarea class="txt-popups" placeholder="母亲节写上送给妈妈的话吧！"></textarea>
+													</div>
+												</div>
+												<div class="c-operate vcenter">
+													<div class="vcenter-child">
+														{{#item.surprise.btns}}
+													</div>
+													<div class="popups popup-surprise">
+														<ul>
+															<li class="s-target">想要给惊喜（<span>{{item.surprise.sTarget}}</span>）</li>
+															<li class="s-scene">想在（<span>{{item.surprise.sScene}}</span>）场景下给Ta惊喜</li>
+															<li class="s-remark clearfix">
+																<p class="s-label">备注：</p>
+																<p class="remark-text">{{item.surprise.remark}}</p>
+															</li>
+															<li class="s-photo clearfix">
+																<p class="s-label">照片：</p>
+																<a href="javascript:;" class="btn-preview"><img src="{{item.surprise.sPhoto}}"/></a>
+																<a href="javascript:;" class="btn-sure">确&nbsp;定</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</li>
+										{{/each}}
+									</ul>
+									<!-- diy list end -->
+									{{/if}}
+									</script>
 									<script type="text/html" id="tplPartList">
 									{{if list.length != 0}}
-									<!-- surprise list begin -->
+									<!-- part list begin -->
 									<ul class="part-list">
 										{{each list as item i}}
 										<li class="item" data-style="小商品" data-name="{{item.name.cn}}" data-price="{{item.price}}" data-size="{{item.spec}}" data-amount="{{item.amount}}">

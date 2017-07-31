@@ -360,6 +360,30 @@ img {
       }
     }
 
+    .inlife-list {
+      border-top: 1px solid #ae6733;
+
+      &:before {
+        background-image: url('../imgs/basket/inlife_list_title.png');
+      }
+    }
+
+    .ali-list {
+      border-top: 1px solid #f7624a;
+
+      &:before {
+        background-image: url('../imgs/basket/ali_list_title.png');
+      }
+    }
+
+    .diy-list {
+      border-top: 1px solid #99a73d;
+
+      &:before {
+        background-image: url('../imgs/basket/diy_list_title.png');
+      }
+    }
+
     .part-list {
       border-top: 1px solid #f58c1e;
 

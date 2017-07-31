@@ -13,6 +13,18 @@
         next(null);
       },
       function(next) {
+        fnInitInlife();
+        next(null);
+      },
+      function(next) {
+        fnInitAli();
+        next(null);
+      },
+      function(next) {
+        fnInitDiy();
+        next(null);
+      },
+      function(next) {
         fnInitPart();
         next(null);
       }
@@ -281,6 +293,132 @@
         $(this).parent().next('.upload-wrapper').slideUp();
       }
     });
+  }
+
+  // init inlife data
+  function fnInitInlife() {
+    var $page = $('#basketPage'),
+      $listContainer = $page.find('.list-container');
+
+    var _data = {
+      list: [
+        {
+          link: '/detail.html',
+          thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+          name: {
+            cn: '芒果拿破仑',
+            en: 'Mango Napoleon'
+          },
+          attr: ['-'],
+          amount: 1,
+          spec: '4只装',
+          price: 189,
+          privilege: '',
+          operate: '<a href="javascript:;" class="btn-del-item">删除</a>'
+        }, {
+          link: '/detail.html',
+          thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+          name: {
+            cn: '芒果拿破仑',
+            en: 'Mango Napoleon'
+          },
+          attr: ['附送餐具5套'],
+          amount: 1,
+          spec: '1.5磅',
+          price: 189,
+          privilege: '',
+          operate: '<a href="javascript:;" class="btn-del-item">删除</a>',
+          isSoldout: true
+        }
+      ]
+    };
+
+    var _html = template('tplInlifeList', _data);
+    $listContainer.append(_html);
+  }
+
+  // init ali data
+  function fnInitAli() {
+    var $page = $('#basketPage'),
+      $listContainer = $page.find('.list-container');
+
+    var _data = {
+      list: [
+        {
+          link: '/detail.html',
+          thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+          name: {
+            cn: '芒果拿破仑',
+            en: 'Mango Napoleon'
+          },
+          attr: ['-'],
+          amount: 1,
+          spec: '4只装',
+          price: 189,
+          privilege: '',
+          operate: '<a href="javascript:;" class="btn-del-item">删除</a>'
+        }, {
+          link: '/detail.html',
+          thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+          name: {
+            cn: '芒果拿破仑',
+            en: 'Mango Napoleon'
+          },
+          attr: ['附送餐具5套'],
+          amount: 1,
+          spec: '1.5磅',
+          price: 189,
+          privilege: '',
+          operate: '<a href="javascript:;" class="btn-del-item">删除</a>',
+          isSoldout: true
+        }
+      ]
+    };
+
+    var _html = template('tplAliList', _data);
+    $listContainer.append(_html);
+  }
+
+  // init diy data
+  function fnInitDiy() {
+    var $page = $('#basketPage'),
+      $listContainer = $page.find('.list-container');
+
+    var _data = {
+      list: [
+        {
+          link: '/detail.html',
+          thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+          name: {
+            cn: '芒果拿破仑',
+            en: 'Mango Napoleon'
+          },
+          attr: ['-'],
+          amount: 1,
+          spec: '4只装',
+          price: 189,
+          privilege: '',
+          operate: '<a href="javascript:;" class="btn-del-item">删除</a>'
+        }, {
+          link: '/detail.html',
+          thumbImg: '/assets/imgs/basket/thumb_cake.jpg',
+          name: {
+            cn: '芒果拿破仑',
+            en: 'Mango Napoleon'
+          },
+          attr: ['附送餐具5套'],
+          amount: 1,
+          spec: '1.5磅',
+          price: 189,
+          privilege: '',
+          operate: '<a href="javascript:;" class="btn-del-item">删除</a>',
+          isSoldout: true
+        }
+      ]
+    };
+
+    var _html = template('tplDiyList', _data);
+    $listContainer.append(_html);
   }
 
   // init part data
