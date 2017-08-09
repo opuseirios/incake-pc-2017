@@ -110,8 +110,8 @@
             $oNumber = $oComWrap.find('.number'),
             $aComItem = $oComWrap.find('.address-item'),
             $aBtnUpdate = $aComItem.find('.btn-update'),
-            $aBtnDelete = $aComItem.find('.btn-delete');
-        $oMask = $('#mask'),
+            $aBtnDelete = $aComItem.find('.btn-delete'),
+            $oMask = $('#mask'),
             $oMaskTitle = $oMask.find('.popup-title').find('span'),
             $oBtnClose = $oMask.find('.btn-close'),
             $oBtnCancel = $oMask.find('#btn-cancel');
@@ -186,6 +186,33 @@
         $oMask.find('.set-default').on('click', 'i', function() {
         	$(this).toggleClass('checked');
         });
+
+        // 地址输入智能提示
+        var autoComplete = new AMap.Autocomplete({
+          input: 'addressStreet'
+        });
+        AMap.event.addListener(autoComplete, "select", handle4Select);
+        function handle4Select(e) {
+          console.dir(e.poi);
+
+          // poi 对象，以“江裕大厦”为例
+          /*
+          {
+            adcode: "310106",
+            address: "广中西路777弄99号",
+            district: "上海市静安区",
+            id: "B00155QRVH",
+            location: {
+              M: 121.43897400000003
+              O: 31.279017
+              lat: 31.279017
+              lng: 121.438974
+            },
+            name: "江裕大厦",
+            typecode: "120201"
+          }
+          */
+        }
     }
 
     // 格式化弹窗内容

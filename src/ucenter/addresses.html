@@ -141,14 +141,14 @@
 
 		<!-- layout container begin -->
 		<div class="layout-container">
-			
+
 			<!-- ucenter page begin -->
 			<div class="page ucenter-page" id="ucenterPage">
 				<div class="page-container">
-					
+
 					<!-- ucenter wrap begin -->
 					<div class="ucenter-wrap clearfix">
-						
+
 						<!-- ucenter menu begin -->
 						<div class="uc-menu">
 							<p class="title">我的INCAKE</p>
@@ -185,7 +185,7 @@
 
 						<!-- ucenter container begin -->
 						<div class="uc-container">
-							
+
 							<!-- address wrap begin -->
 							<div class="container-wrap address-wrap">
 								<div class="header">
@@ -235,7 +235,7 @@
 								</div>
 							</div>
 							<!-- address wrap end -->
-							
+
 							<!-- mask begin -->
 							<div id="mask">
 								<div class="popup-content p-address">
@@ -291,7 +291,11 @@
 											</li>
 											<li class="require clearfix">
 												<p class="name">&nbsp;</p>
-												<input type="text" class="address-street" placeholder="请输入街道名称／小区名称">
+												<input type="text" class="address-street" id="addressStreet" placeholder="请输入街道名称／小区名称">
+											</li>
+											<li class="require clearfix">
+												<p class="name">门牌号</p>
+												<input type="text" class="building-no" placeholder="请注明楼号门牌号">
 											</li>
 											<li class="require clearfix">
 												<p class="name">手机</p>
@@ -309,7 +313,7 @@
 								</div>
 							</div>
 							<!-- mask end -->
-							
+
 						</div>
 						<!-- ucenter container end -->
 
@@ -360,7 +364,7 @@
 						<span>沪ICP备12045835</span>
 						<span>沪公网安备31010802001150</span>
 					</p>
-				</div>				
+				</div>
 			</div>
 		</div>
 		<!-- layout footer end -->
@@ -377,6 +381,7 @@
 		.script('../assets/plugins/tweenmax/TweenMax.min.js').wait()
 		.script('../assets/plugins/artTemplate/template.js').wait()
 		.script('../assets/plugins/select2/js/select2.min.js').wait()
+		.script('http://webapi.amap.com/maps?v=1.3&key=3cd3f1a4da8c59951ec1dd0b3ad23fc9&plugin=AMap.Autocomplete').wait()
 		.script('../assets/js/layout.js').wait()
 		.script('../assets/js/addresses.js');
 	</script>
