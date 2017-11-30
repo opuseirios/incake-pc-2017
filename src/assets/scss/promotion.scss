@@ -1,0 +1,39 @@
+.promotion-mask {
+  position: fixed;
+  left: -10px;
+  top: 50%;
+  z-index: 999999999;
+  width: 400px;
+  height: 526px;
+  margin-top: -263px;
+
+  .mask-body {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 526px;
+    background: {
+      image: url('../imgs/promotion/body_bg.png');
+      repeat: no-repeat;
+      size: cover;
+      position: center center;
+    };
+  }
+
+  .mask-close {
+    display: block;
+    position: absolute;
+    top: 54px;
+    right: 79px;
+    width: 50px;
+    height: 50px;
+    background: {
+      image: url('../imgs/promotion/btn_close.png');
+      repeat: no-repeat;
+      size: cover;
+      position: center center;
+    };
+  }
+}
