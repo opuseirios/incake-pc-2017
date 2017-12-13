@@ -42,7 +42,16 @@
     fnBindBestChoice();
 
     // 瑞雪检测 --- 首页
-    fnInitRxHome();
+    // fnInitRxHome();
+
+    // 圣诞节下雪效果
+    new Snowflakes({
+      container: document.body,
+      count: 50,
+      speed: 1,
+      useRotate: true,
+      useScale: true
+    });
   });
 
   function fnBindBestChoice() {
