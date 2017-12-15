@@ -3,12 +3,6 @@
 	// document ready events
 	$(function() {
 
-		// 瑞雪系统安装代码 -- 开发环境
-		(function(j){var h=j.sdkUrl,a=j.name,d=this,g=d.document,f=null,e=null;d.RXSTREAM201607=a;d[a]=d[a]||function(i){return function(){(d[a]._rx=d[a]._rx||[]).push([i,arguments])}};var b=["track","trackSignup","userIdentify"];for(var c=0;c<b.length;c++){d[a][b[c]]=d[a].call(null,b[c])}if(!d[a].lt){f=g.createElement("script"),e=g.getElementsByTagName("script")[0];f.async=true;f.src=h;e.parentNode.insertBefore(f,e);d[a].lt=1*new Date();d[a].para=j}})({sdkUrl:location.protocol+"//stream.ruixuesoft.com/sdk/rxStream.js",sendLimit:1,showLog:false,name:"rxStream",autoTrack:true,apiHost:location.protocol+"//sc.ruixuesoft.com",appId:311});
-
-		// 瑞雪系统安装代码 -- 生产环境
-		// (function(j){var h=j.sdkUrl,a=j.name,d=this,g=d.document,f=null,e=null;d.RXSTREAM201607=a;d[a]=d[a]||function(i){return function(){(d[a]._rx=d[a]._rx||[]).push([i,arguments])}};var b=["track","trackSignup","userIdentify"];for(var c=0;c<b.length;c++){d[a][b[c]]=d[a].call(null,b[c])}if(!d[a].lt){f=g.createElement("script"),e=g.getElementsByTagName("script")[0];f.async=true;f.src=h;e.parentNode.insertBefore(f,e);d[a].lt=1*new Date();d[a].para=j}})({sdkUrl:location.protocol+"//stream.ruixuesoft.com/sdk/rxStream.js",sendLimit:1,showLog:true,name:"rxStream",autoTrack:true,apiHost:location.protocol+"//sc.ruixuesoft.com",appId:347});
-
 		// 导航栏
 		fnInitHeaderNav();
 		// 城市切换
@@ -17,9 +11,6 @@
 		fnInitBasket();
 		// 登录注册
 		fnInitPortal();
-
-		// 瑞雪检测 --- 头部导航栏
-		fnInitRxHeadNavigation();
 	});
 
 	function fnInitPortal() {
@@ -176,99 +167,6 @@
 				.find('.subnav')
 				.stop()
 				.fadeOut();
-		});
-	}
-
-	function fnInitRxHeadNavigation() {
-		if(!rxStream) {
-			return false;
-		}
-
-		var $header = $('#layoutHeader'),
-			$portal = $header.find('.portal'),
-			$navigation = $header.find('.nav'),
-			$locator = $header.find('.locator');
-
-		var o_username = '',
-			o_mobile = '',
-			b_device = 'pc';
-
-		if($portal.find('.info').length > 0) {
-			o_username = $portal.find('.info').html().trim();
-			o_mobile = $portal.find('.info').html().trim();
-		}
-
-		// 头部导航栏
-		$navigation.on('click', 'a', function(e) {
-			var $subnav = $(this).closest('.subnav'),
-				b_type = '',
-				b_menu = '';
-
-			if($subnav.length > 0) {
-				b_type = $subnav.prev('a').html();
-				b_menu = $(this).html();
-			} else {
-				b_type = $(this).html();
-				b_menu = '';
-			}
-
-			// send to rxstream server
-			rxStream.track('head_navigation', {
-				subject: {
-					o_username: o_username,
-					o_mobile: o_mobile
-				},
-				properties: {
-					b_type: b_type,
-					b_menu: b_menu,
-					b_device: b_device
-				}
-			});
-
-			// session func
-      rxStream.track('session', {
-        subject: {
-          o_username: o_username,
-          o_mobile: o_mobile
-        },
-        properties: {
-          b_position_ad: '头部导航栏',
-          b_content_ad: b_menu,
-        	b_device: b_device
-        }
-			});
-		});
-
-		// 定位城市
-		$locator.on('click', 'li', function(e) {
-			var b_positioncity = '';
-
-			b_positioncity = $(this).html().trim();
-
-			// send to rxstream server
-			rxStream.track('positioncity', {
-				subject: {
-					o_username: o_username,
-					o_mobile: o_mobile
-				},
-				properties: {
-					b_positioncity: b_positioncity,
-					b_device: b_device
-				}
-			});
-
-			// session func
-      rxStream.track('session', {
-        subject: {
-          o_username: o_username,
-          o_mobile: o_mobile
-        },
-        properties: {
-          b_position_ad: '定位城市',
-          b_content_ad: b_positioncity,
-        	b_device: b_device
-        }
-			});
 		});
 	}
 })(window, jQuery);
