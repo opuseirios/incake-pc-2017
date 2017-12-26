@@ -1,7 +1,12 @@
 ;(function(window, document, $, undefined) {
   $(function() {
-    initCard();
+    verifyCity() && initCard();
   });
+
+  function verifyCity() {
+    var $elem = $('#ulChangeCity').find('li.active');
+    return ($elem.attr('citycode') == '021') ? true : false;
+  }
 
   function initCard() {
     var $container = $('<div class="okcard-container"></div>'),
