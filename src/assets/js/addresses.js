@@ -8,6 +8,86 @@
         // 初始化下拉框
         $('.select2').select2();
 
+        // 高德地图智能提示模块代码
+		(function($layout) {
+
+			// Doms
+			var $addrElem = $layout.find('.address-input'),
+				$inputElem = $addrElem.find('.address-street'),
+				$listElem = $addrElem.find('.search-addrlist');
+
+			// Amap variables
+			var autocomplete = null;
+			AMap.plugin(['AMap.Autocomplete'], function() {
+				var autoOptions = {
+					city: ''
+				};
+				autocomplete = new AMap.Autocomplete(autoOptions);
+			});
+
+			// 文本改变事件
+			$inputElem.on('input focus', function(e) {
+				var _html = '';
+				var keywords = $(this).val().trim();
+				
+				if (keywords == '') {
+					$listElem.empty().hide();
+					return false;
+				}
+
+				autocomplete.search(keywords, function(status, result) {
+					if (status == 'complete') {
+						var tips = result.tips;
+
+						// 过滤掉没有详细地址信息的数据
+						tips = tips.filter(function(tip) {
+							return !(tip.id == '' || location == '');
+						});
+
+						if (tips.length == 0) {
+							$listElem.empty().hide();
+							return false;
+						}
+
+						tips.forEach(function(tip) {
+							_html += '<li';
+							_html += ' data-adcode="' + tip.adcode + '"';
+							_html += ' data-address="' + tip.address + '"';
+							_html += ' data-district="' + tip.district + '"';
+							_html += ' data-lng="' + tip.location.lng + '"';
+							_html += ' data-lat="' + tip.location.lat + '"';
+							_html += ' data-name="' + tip.name + '"';
+							_html += ' data-typecode="' + tip.typecode + '">';
+							_html += tip.name + '<span>' + tip.district + '</span>';
+							_html += '</li>';
+						});
+
+						$listElem.html(_html).show();
+					}
+				});
+			});
+
+			// 搜索列表项选中事件
+			$listElem.on('click', 'li', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+				var $elem = $(this);
+				var data = {
+					adcode: $elem.data('adcode'),
+					address: $elem.data('address'),
+					district: $elem.data('district'),
+					lng: parseFloat($elem.data('lng')),
+					lat: parseFloat($elem.data('lat')),
+					name: $elem.data('name'),
+					typecode: $elem.data('typecode')
+				};
+
+				$inputElem.val(data.name);
+				$listElem.hide();
+			});
+        })($('#mask'));
+        
     });
 
     // 初始化列表
@@ -186,33 +266,6 @@
         $oMask.find('.set-default').on('click', 'i', function() {
         	$(this).toggleClass('checked');
         });
-
-        // 地址输入智能提示
-        var autoComplete = new AMap.Autocomplete({
-          input: 'addressStreet'
-        });
-        AMap.event.addListener(autoComplete, "select", handle4Select);
-        function handle4Select(e) {
-          console.dir(e.poi);
-
-          // poi 对象，以“江裕大厦”为例
-          /*
-          {
-            adcode: "310106",
-            address: "广中西路777弄99号",
-            district: "上海市静安区",
-            id: "B00155QRVH",
-            location: {
-              M: 121.43897400000003
-              O: 31.279017
-              lat: 31.279017
-              lng: 121.438974
-            },
-            name: "江裕大厦",
-            typecode: "120201"
-          }
-          */
-        }
     }
 
     // 格式化弹窗内容
