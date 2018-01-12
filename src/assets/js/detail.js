@@ -12,7 +12,7 @@
     fnSwitchDetail();
 
     // 瑞雪检测 --- 详情页
-    fnInitRxDetail();
+    // fnInitRxDetail();
   });
 
   // 切换商品详情和评价

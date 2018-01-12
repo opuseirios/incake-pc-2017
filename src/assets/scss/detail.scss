@@ -154,6 +154,7 @@
             }
             .specifics {
                 .spec {
+                    position: relative;
                     display: block;
                     float: left;
                     width: 129px;
@@ -178,6 +179,22 @@
                             height: 3px;
                             content: '';
                             background-color: #e9546b;
+                        }
+                    }
+
+                    &.special:before {
+                        display: block;
+                        position: absolute;
+                        top: -14px;
+                        right: 2px;
+                        width: 45px;
+                        height: 40px;
+                        content: '';
+                        background: {
+                            image: url('../imgs/detail/icon_special.png');
+                            repeat: no-repeat;
+                            size: cover;
+                            position: center center;
                         }
                     }
                 }
