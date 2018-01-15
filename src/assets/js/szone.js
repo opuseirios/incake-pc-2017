@@ -12,7 +12,7 @@
 
   // 绑定新品列表
   function fnBindNew() {
-    var $oNewList = $('#newList');
+    var $oCakeList = $('#cakeCategory');
     var _data = {
       list: [
         {
@@ -98,13 +98,13 @@
       ]
     };
 
-    var _html = template('tplList', _data);
-    $oNewList.html(_html);
+    var _html = template('tplListNew', _data);
+    $oCakeList.append(_html);
   }
 
   // 绑定热卖列表
   function fnBindHot() {
-    var $oHotList = $('#hotList');
+    var $oCakeList = $('#cakeCategory');
     var _data = {
       list: [
         {
@@ -185,13 +185,13 @@
       ]
     };
 
-    var _html = template('tplList', _data);
-    $oHotList.html(_html);
+    var _html = template('tplListHot', _data);
+    $oCakeList.append(_html);
   }
 
   // 绑定下午茶列表
   function fnBindTea() {
-    var $oTeaList = $('#teaList');
+    var $oTeaList = $('#teaCategory');
     var _data = {
       list: [
         {
@@ -347,7 +347,7 @@
       ]
     };
 
-    var _html = template('tplList', _data);
+    var _html = template('tplListTea', _data);
     $oTeaList.html(_html);
   }
 })(window, document, jQuery);
