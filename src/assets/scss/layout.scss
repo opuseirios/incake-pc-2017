@@ -193,6 +193,22 @@ input {
                         background-image: url('../imgs/icons/icon_arrow_up.png');
                     }
                 }
+
+                &.new:after {
+                    display: block;
+                    position: absolute;
+                    top: -6px;
+                    right: 0;
+                    width: 29px;
+                    height: 10px;
+                    content: '';
+                    background: {
+                        image: url('../imgs/icons/icon_new.gif');
+                        repeat: no-repeat;
+                        size: cover;
+                        position: center center;
+                    }
+                }
                 .subnav {
                     display: none;
                     position: absolute;
