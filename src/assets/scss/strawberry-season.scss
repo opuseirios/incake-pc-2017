@@ -1,0 +1,135 @@
+.strawberry-page {
+  width: 100%;
+  background-image: url('../imgs/strawberry-season/body_bg.png');
+}
+
+.page-container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.strawberry-banner {
+  position: relative;
+  width: 1000px;
+  height: 486px;
+  margin: 0 auto;
+
+  .inner {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1920px;
+    height: 486px;
+    margin-left: -960px;
+    background: {
+      image: url('../imgs/strawberry-season/banner.png');
+      repeat: no-repeat;
+      size: cover;
+      position: center center;
+    }
+  }
+}
+
+.strawberry-container {
+  width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 200px;
+
+  .cake {
+    position: relative;
+    width: 1000px;
+    height: 500px;
+
+    .img {
+      position: absolute;
+      top: 0;
+      width: 450px;
+      height: 500px;
+    }
+
+    .text {
+      position: absolute;
+      top: 0;
+      width: 550px;
+      height: 500px;
+
+      .btn-buy {
+        display: block;
+        position: absolute;
+        width: 227px;
+        height: 56px;
+        background: {
+          image: url('../imgs/strawberry-season/btn_buy.png');
+          repeat: no-repeat;
+          position: 0 0;
+        }
+
+        &:hover {
+          background-position: -227px 0;
+        }
+
+        &.btn-01 {
+          bottom: 112px;
+          left: 27px;
+        }
+        &.btn-02 {
+          bottom: 141px;
+          left: 207px;
+        }
+        &.btn-03 {
+          bottom: 136px;
+          left: 27px;
+
+          &:after {
+            display: block;
+            position: absolute;
+            top: -13px;
+            right: -47px;
+            width: 70px;
+            height: 75px;
+            content: '';
+            background: {
+              image: url('../imgs/strawberry-season/icon_strawberry_01.png');
+              repeat: no-repeat;
+              size: cover;
+              position: center center;
+            }
+          }
+        }
+        &.btn-04 {
+          bottom: 122px;
+          left: 268px;
+
+          &:after {
+            display: block;
+            position: absolute;
+            bottom: 0px;
+            left: -41px;
+            width: 70px;
+            height: 78px;
+            content: '';
+            background: {
+              image: url('../imgs/strawberry-season/icon_strawberry_02.png');
+              repeat: no-repeat;
+              size: cover;
+              position: center center;
+            }
+          }
+        }
+      }
+    }
+
+    &.pl .img{
+      left: 0;
+    }
+    &.pl .text{
+      right: 0;
+    }
+    &.pr .img{
+      right: 0;
+    }
+    &.pr .text{
+      left: 0;
+    }
+  }
+}
