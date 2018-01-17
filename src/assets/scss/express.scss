@@ -1,0 +1,126 @@
+.page-container {
+  width: 100%;
+  background-image: url('../imgs/express/body_bg.jpg');
+
+  img {
+    width: 100%;
+  }
+}
+
+.express-banner {
+  position: relative;
+  width: 1200px;
+  height: 680px;
+  margin: 0 auto;
+
+  .inner {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1920px;
+    height: 680px;
+    margin-left: -960px;
+    background: {
+      image: url('../imgs/express/banner.png');
+      repeat: no-repeat;
+      size: cover;
+      position: center center;
+    }
+  }
+}
+
+.express-container {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 250px;
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1920px;
+    height: 214px;
+    margin-left: -960px;
+    background: {
+      image: url('../imgs/express/container_bg.png');
+      repeat: no-repeat;
+      size: cover;
+      position: center center;
+    }
+  }
+
+  .cake {
+    display: block;
+    float: left;
+    width: 330px;
+    margin: 70px 35px 0 35px;
+
+    .img {
+      display: block;
+      width: 328px;
+      height: 328px;
+      border: 1px solid #eee;
+      border-radius: 30px;
+      overflow: hidden;
+      perspective: 400px;
+
+      img {
+        transform-origin: center center;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      &:hover img {
+        transform: scale(1.2) rotate(-5deg);
+      }
+    }
+
+    .text {
+      width: 100%;
+      margin-top: 30px;
+
+      p {
+        text-align: center;
+      }
+
+      .cn {
+        font-size: 24px;
+        line-height: 30px;
+        color: #1090b0;
+      }
+      .en {
+        font-size: 14px;
+        line-height: 20px;
+        color: #bbb;
+        text-transform: uppercase;
+      }
+      .pound {
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 26px;
+        color: #1090b0;
+      }
+    }
+
+    .btn-buy {
+      display: block;
+      width: 168px;
+      height: 46px;
+      margin: 20px auto 0;
+      line-height: 46px;
+      font-size: 24px;
+      text-align: center;
+      color: #fff;
+      background-color: #e9546b;
+      border-radius: 23px;
+      box-shadow: 0 0 15px 0 #e9546b;
+      overflow: hidden;
+
+      &:hover {
+        background-color: #e82644;
+      }
+    }
+  }
+}
