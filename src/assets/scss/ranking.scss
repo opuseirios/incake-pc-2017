@@ -1,8 +1,6 @@
 .ranking-page {
   width: 100%;
-  background: {
-    image: url('../imgs/ranking/body_bg.jpg');
-  }
+  background-color: #fff;
 
   img {
     border: none;
@@ -13,7 +11,7 @@
 .ranking-banner {
   position: relative;
   width: 1200px;
-  height: 596px;
+  height: 556px;
   margin: 0 auto;
 
   .inner {
@@ -21,7 +19,7 @@
     top: 0;
     left: 50%;
     width: 1920px;
-    height: 596px;
+    height: 556px;
     margin-left: -960px;
     background: {
       image: url('../imgs/ranking/banner.jpg');
@@ -35,15 +33,7 @@
 .top-container {
   width: 1200px;
   margin: 0 auto;
-
-  &.top3 {
-    width: 1124px;
-    padding: 50px 0 100px;
-  }
-
-  &.top-last {
-    padding-bottom: 200px;
-  }
+  padding-bottom: 100px;
 }
 
 .top-item {
@@ -55,6 +45,7 @@
   }
 
   .rank {
+    display: none;
     position: absolute;
     width: 90px;
     height: 90px;
@@ -97,26 +88,23 @@
     display: block;
     position: relative;
     width: 340px;
-    height: 310px;
+    height: 340px;
   }
 
   .text {
     width: 340px;
-    height: 80px;
+    height: 96px;
   }
 
   .btn-buy {
-    display: block;
-    width: 227px;
-    height: 56px;
+    display: none;
+    width: 220px;
+    height: 62px;
     background: {
       image: url('../imgs/ranking/btn_buy.png');
       repeat: no-repeat;
-      position: 0 0;
-    }
-
-    &:hover {
-      background-position: -227px 0;
+      size: cover;
+      position: center center;
     }
   }
 }
@@ -125,7 +113,7 @@
   position: relative;
   width: 100%;
   height: 352px;
-  margin-top: 180px;
+  margin-top: 100px;
 
   .rank {
     width: 144px;
@@ -136,20 +124,21 @@
   .img {
     position: absolute;
     top: 0;
-    width: 576px;
-    height: 356px;
+    width: 626px;
+    height: 352px;
   }
 
   .text {
     position: absolute;
-    top: 60px;
-    width: 586px;
-    height: 180px;
+    top: 70px;
+    width: 624px;
+    height: 224px;
   }
 
   .btn-buy {
+    display: block;
     position: absolute;
-    top: 240px;
+    bottom: 0;
   }
 
   &.normal .rank {
@@ -162,7 +151,7 @@
     right: 0;
   }
   &.normal .btn-buy {
-    right: 180px;
+    right: 202px;
   }
 
   &.reverse .rank {
@@ -175,7 +164,7 @@
     left: 0;
   }
   &.reverse .btn-buy {
-    left: 180px;
+    left: 202px;
   }
 }
 
