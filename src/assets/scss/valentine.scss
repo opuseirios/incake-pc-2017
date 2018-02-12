@@ -1,0 +1,115 @@
+.valentine-page {
+  width: 100%;
+}
+
+.valentine-banner {
+  position: relative;
+  width: 1200px;
+  height: 680px;
+  margin: 0 auto;
+
+  .inner {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1920px;
+    height: 680px;
+    margin-left: -960px;
+    background: {
+      image: url(../imgs/valentine/banner.jpg);
+      repeat: no-repeat;
+      size: cover;
+      position: center center;
+    }
+  }
+}
+
+.valentine-container {
+  position: relative;
+  z-index: 9;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 100px 0;
+
+  &:before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1;
+    width: 1920px;
+    height: 100%;
+    margin-left: -960px;
+    content: '';
+    background: {
+      image: url('../imgs/valentine/bg.jpg');
+    }
+  }
+
+  .cake {
+    position: relative;
+    z-index: 9;
+    width: 1200px;
+    height: 640px;
+    background: {
+      repeat: no-repeat;
+      size: cover;
+      position: center;
+    }
+
+    .btn {
+      display: block;
+      position: absolute;
+      width: 190px;
+      height: 46px;
+      font-size: 26px;
+      line-height: 46px;
+      text-align: center;
+      color: #fff;
+      background-color: #e21a2f;
+      border-radius: 5px;
+    }
+
+    &.cake01 {
+      background-image: url('../imgs/valentine/cake_01.png');
+
+      .fire {
+        position: absolute;
+        top: -40px;
+        left: -40px;
+        width: 680px;
+        height: 680px;
+        background: {
+          image: url('../imgs/valentine/fire.gif');
+          repeat: no-repeat;
+          size: cover;
+          position: center;
+        }
+      }
+
+      .btn {
+        top: 386px;
+        right: 290px;
+        transform: rotate(-4deg);
+      }
+    }
+    &.cake02 {
+      background-image: url('../imgs/valentine/cake_02.png');
+
+      .btn {
+        top: 390px;
+        left: 290px;
+        transform: rotate(4deg);
+      }
+    }
+    &.cake03 {
+      background-image: url('../imgs/valentine/cake_03.png');
+
+      .btn {
+        top: 394px;
+        right: 290px;
+        transform: rotate(-4deg);
+      }
+    }
+  }
+}
