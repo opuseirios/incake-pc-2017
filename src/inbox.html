@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>INCAKE | INBOX</title>
+    <link rel="stylesheet" href="assets/plugins/normalize/normalize.css">
+    <link rel="stylesheet" href="assets/plugins/swiper/css/idangerous.swiper.css">
+    <link rel="stylesheet" href="assets/plugins/liMarquee/css/liMarquee.css">
+    <link rel="stylesheet" href="assets/plugins/fullpage/jquery.fullpage.min.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/inbox.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+<div class="layout">
+    <!-- layout header begin -->
+    <div class="layout-header inbox-header" id="layoutHeader">
+        <div class="header-body">
+            <!-- logo begin -->
+            <a href="index.html" class="logo"></a>
+            <!-- logo end -->
+            <!-- nav begin -->
+            <ul class="nav clearfix">
+                <li><a href="/index.html">首页</a></li>
+                <li class="sub">
+                    <a href="/list.html">蛋糕馆</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">芝士系列</a></li>
+                        <li><a href="javascript:;">巧克力系列</a></li>
+                        <li><a href="javascript:;">拿破仑系列</a></li>
+                        <li><a href="javascript:;">慕斯系列</a></li>
+                        <li><a href="javascript:;">乳脂系列</a></li>
+                        <li><a href="javascript:;">选拼系列</a></li>
+                        <li><a href="javascript:;">星座系列</a></li>
+                        <li><a href="javascript:;">阿狸系列</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;">三小时送</a></li>
+                <li class="sub">
+                    <a href="javascript:;">INLIFE</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">下午茶</a></li>
+                        <li><a href="javascript:;">鲜花</a></li>
+                        <li><a href="javascript:;">饮品</a></li>
+                        <li><a href="javascript:;">礼品</a></li>
+                    </ul>
+                </li>
+                <li class="sub">
+                    <a href="javascript:;">惊喜定制</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">惊喜蛋糕</a></li>
+                        <li><a href="javascript:;">翻糖定制</a></li>
+                        <li><a href="javascript:;">场景定制</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;">试吃申请</a></li>
+                <li><a href="javascript:;">卡券兑换</a></li>
+            </ul>
+            <!-- nav end -->
+            <!-- portal begin -->
+            <div class="portal clearfix">
+                <div class="unlogin clearfix">
+                    <a href="login.html" class="login">登录</a>
+                    <span>|</span>
+                    <a href="register.html" class="register">注册</a>
+                </div>
+                <div class="logined clearfix active">
+                    <div class="profile-wrap">
+                        <p class="info">13811112222</p>
+                        <ul class="plist">
+                            <li class="active"><a href="javascript:;">个人中心</a></li>
+                            <li><a href="javascript:;">账户设置</a></li>
+                            <li><a href="javascript:;">账户优惠券</a></li>
+                            <li class="last"><a href="javascript:;">退出账号</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- portal end -->
+            <!-- basket begin -->
+            <div class="basket">
+                <a href="javascript:;" class="view"><span>10</span></a>
+                <div class="content">
+                    <span class="arrow-up"></span>
+                    <ul class="list basket-list"></ul>
+                    <script id="tplBasketList" type="text/html">
+                        {{if list.length > 0}}
+                        {{each list as item i}}
+                        <li class="clearfix">
+                            <a href="{{item.link}}" class="img">
+                                <img src="{{item.thumbUrl}}" alt="">
+                            </a>
+                            <div class="text">
+                                <p class="first-row clearfix">
+                                    <span class="name">{{item.name}}</span>
+                                    <span class="price">￥{{item.price}}</span>
+                                </p>
+                                <p class="second-row clearfix">
+                                    <span class="pound">{{item.pound}}磅</span>
+                                    <span class="num">x{{item.num}}</span>
+                                </p>
+                            </div>
+                            <a href="javascript:;" class="remove"></a>
+                        </li>
+                        {{/each}}
+                        {{/if}}
+                    </script>
+                    <a href="javascript:;" class="view-basket">查看购物篮 >></a>
+                </div>
+            </div>
+            <!-- basket end -->
+            <!-- locator begin -->
+            <div class="locator">
+                <span class="arrow"></span>
+                <p>上海</p>
+                <div class="content">
+                    <span class="arrow-up"></span>
+                    <p>请选择您要配送的城市：</p>
+                    <ul class="clearfix">
+                        <li class="active">上海</li>
+                        <li>福州</li>
+                        <li>苏州</li>
+                        <li>昆山</li>
+                        <li>厦门</li>
+                        <li>北京</li>
+                        <li>南京</li>
+                        <li>杭州</li>
+                        <li>青岛</li>
+                        <li>扬州</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- locator end -->
+        </div>
+    </div>
+    <!-- layout header end -->
+
+    <!--layout container begin-->
+    <div class="layout-container inbox-container" id="fullPage">
+        <!--banner-->
+        <div class="section section-banner">
+            <div class="section-container">
+                <div class="banner-container">
+                    <a class="bannerImg" href="javascript:;">
+                        <img src="assets/imgs/inbox/bannerImg.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="section section-wc">
+            <div class="section-container">
+                <div class="wc-container">
+                    <div class="section-title">
+                        <img src="assets/imgs/inbox/wc-title.png" alt="">
+                    </div>
+                    <div class="inbox">
+                        <a href="javascript:;"  ><img src="assets/imgs/inbox/wcInbox.png" alt=""></a>
+                    </div>
+                    <div class="cakes clearfix">
+                        <a href="javascript:;" class="cake-one"><img src="assets/imgs/inbox/wc_cake1.png" alt=""></a>
+                        <a href="javascript:;" class="cake-two"><img src="assets/imgs/inbox/wc_Cake2.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section-bc">
+            <div class="section-container">
+                <div class="bc-container">
+                    <div class="section-title">
+                        <img src="assets/imgs/inbox/bc_title.png" alt="">
+                    </div>
+                    <div class="inbox">
+                        <a href="javascript:;"  ><img src="assets/imgs/inbox/bcInbox.png" alt=""></a>
+                    </div>
+                    <div class="cakes clearfix">
+                        <a href="javascript:;" class="cake-one"><img src="assets/imgs/inbox/bc_cake1.png" alt=""></a>
+                        <a href="javascript:;" class="cake-two"><img src="assets/imgs/inbox/bc_Cake2.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section-red">
+            <div class="section-container">
+                <div class="red-container">
+                    <div class="section-title">
+                        <img src="assets/imgs/inbox/red_title.png" alt="">
+                    </div>
+                    <div class="inbox">
+                        <a href="javascript:;"  ><img src="assets/imgs/inbox/toRedInbox.png" alt=""></a>
+                    </div>
+                    <div class="cakes clearfix">
+                        <a href="javascript:;" class="cake-one"><img src="assets/imgs/inbox/redCake1.png" alt=""></a>
+                        <a href="javascript:;" class="cake-two"><img src="assets/imgs/inbox/redCake2.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section-mango">
+            <div class="section-container">
+                <div class="mango-container">
+                    <div class="section-title">
+                        <img src="assets/imgs/inbox/mango_title.png" alt="">
+                    </div>
+                    <div class="inbox">
+                        <a href="javascript:;"  ><img src="assets/imgs/inbox/mangoInbox.png" alt=""></a>
+                    </div>
+                    <div class="cakes clearfix">
+                        <a href="javascript:;" class="cake-one"><img src="assets/imgs/inbox/mango_cake1.png" alt=""></a>
+                        <a href="javascript:;" class="cake-two"><img src="assets/imgs/inbox/mango_cake2.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section-dou">
+            <div class="section-container">
+                <div class="dou-container">
+                    <div class="section-title">
+                        <img src="assets/imgs/inbox/dou_title.png" alt="">
+                    </div>
+                    <div class="inbox">
+                        <a href="javascript:;"  ><img src="assets/imgs/inbox/douInbox.png" alt=""></a>
+                    </div>
+                    <div class="cakes clearfix">
+                        <a href="javascript:;" class="cake-one"><img src="assets/imgs/inbox/dou_cake1.png" alt=""></a>
+                        <a href="javascript:;" class="cake-two"><img src="assets/imgs/inbox/dou_cake2.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="assets/plugins/LABjs/LAB.min.js"></script>
+<script>
+    $LAB
+        .script('assets/plugins/polyfill/polyfill.min.js').wait()
+        .script('assets/plugins/jquery/jquery-1.12.4.min.js').wait()
+        .script('assets/plugins/underscore/underscore-min.js').wait()
+        .script('assets/plugins/lazyload/lazyload.transpiled.min.js').wait()
+        .script('assets/plugins/tweenmax/TweenMax.min.js').wait()
+        .script('assets/plugins/artTemplate/template.js').wait()
+        .script('assets/plugins/fullpage/jquery.fullpage.js').wait()
+        .script('assets/js/layout.js').wait()
+        .script('assets/js/inbox.js');
+</script>
+</html>

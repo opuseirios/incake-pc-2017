@@ -1,12 +1,12 @@
 .szone-page {
   width: 100%;
-  background-color: #bb1c22;
+  background-color: #f2fcfe;
 }
 
 .szone-banner {
   position: relative;
   width: 1200px;
-  height: 700px;
+  height: 900px;
   margin: 0 auto;
 
   .inner {
@@ -15,7 +15,7 @@
     z-index: 9;
     left: 50%;
     width: 1920px;
-    height: 760px;
+    height: 900px;
     margin-left: -960px;
     background: {
       image: url('../imgs/szone/banner.png');
@@ -31,24 +31,6 @@
   z-index: 2;
   width: 1200px;
   margin: 0 auto;
-
-  &:before {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    z-index: 1;
-    width: 1920px;
-    height: 100%;
-    margin-left: -960px;
-    content: '';
-    background: {
-      image: url('../imgs/szone/body_bg.jpg');
-      repeat: no-repeat;
-      size: 100% auto;
-      position: top center;
-    }
-  }
-
   .category {
     position: relative;
     z-index: 10;
@@ -141,7 +123,7 @@
         font-weight: bold;
         line-height: 24px;
         text-align: center;
-        color: #e9546b;
+        color: #f9877d;
       }
 
       .en {
@@ -158,7 +140,7 @@
 
       .current {
         height: 24px;
-        color: #e9546b;
+        color: #f9877d;
         line-height: 24px;
         text-align: center;
 
@@ -197,13 +179,13 @@
       margin: 16px auto 0;
       font-size: 18px;
       color: #fff;
-      background-color: #497bfc;
+      background-color: #4fcce1;
       text-align: center;
       line-height: 38px;
       border-radius: 19px;
 
       &:hover {
-        background-color: #124feb;
+        background-color: #0da0b9;
       }
     }
   }
@@ -219,13 +201,14 @@
 
 .szone-rule {
   width: 100%;
-  background-color: #940f14;
+  background-color: #daf8fd;
 
   dl {
     width: 580px;
     margin: 0 auto;
     padding: 30px 0;
-    color: #fff;
+    color: #55c1d2;
+
   }
 
   dt {

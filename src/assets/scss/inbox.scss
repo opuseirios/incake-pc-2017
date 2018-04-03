@@ -1,0 +1,233 @@
+body,html{
+  width: 100%;
+  height: 100%;
+}
+
+// Sections Background Colors
+$color-bg-01: #7c574c;
+$color-bg-02: #e0f6fb;
+$color-bg-03: #de9275;
+$color-bg-04: #fcd8d2;
+$color-bg-05: #fdedc3;
+$color-bg-06: #fff0e2;
+
+// Indicator Dots Colors
+$color-indicator-01: #2c1d18;
+$color-indicator-02: #9ed3e1;
+$color-indicator-03: #9c5239;
+$color-indicator-04: #f86146;
+$color-indicator-05: #fdc029;
+$color-indicator-06: #fbb170;
+
+/*breakpoints*/
+$breakpoint-xl-min:1366px;
+$breakpoint-lg-min:1200px;
+$breakpoint-md-min:992px;
+
+.layout{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.inbox-header{
+  position: fixed;
+  z-index: 999;
+}
+.inbox-container{
+  width: 100%;
+  height: 100%;
+  .section{
+    background-size: cover;
+    background-position: top center;
+    &:nth-of-type(1) {
+      background-color: $color-bg-01;
+    }
+    &:nth-of-type(2) {
+      background-color: $color-bg-02;
+      background-image: url(../imgs/inbox/wc_bg.png);
+    }
+    &:nth-of-type(3) {
+      background-color: $color-bg-03;
+      background-image: url(../imgs/inbox/bc_bg.png);
+    }
+    &:nth-of-type(4) {
+      background-color: $color-bg-04;
+      background-image: url(../imgs/inbox/red_bg.png);
+    }
+    &:nth-of-type(5) {
+      background-color: $color-bg-05;
+      background-image: url(../imgs/inbox/mango_bg.png);
+    }
+    &:nth-of-type(6) {
+      background-color: $color-bg-06;
+      background-image: url(../imgs/inbox/dou_bg.png);
+    }
+
+    .section-container{
+      width: 100%;
+      height: 100%;
+      .section-title{
+        width: 1200px;
+        margin: 80px auto 0;
+
+        img{
+          display: block;
+          margin: 0 auto;
+          width: 75%;
+        }
+      }
+      .inbox{
+        width: 375px;
+        height: 350px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-70%);
+        //margin: 80px auto 0;
+        z-index: 99;
+        a{
+          display: block;
+          width: 100%;
+          height: 100%;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .cakes{
+        width: 100%;
+        height: 35%;
+        position: absolute;
+        bottom: 0;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+        .cake-one{
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: block;
+          width: 50%;
+          height: 100%;
+          float: left;
+        }
+        .cake-two{
+          position: absolute;
+          right: 0;
+          top: 0;
+          display: block;
+          height: 100%;
+          width: 50%;
+          float: left;
+        }
+      }
+    }
+  }
+  .section-banner{
+    .section-container{
+      //position: relative;
+      background: #7c574c;
+      .banner-container{
+        width: 1200px;
+        height: 680px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        background: url("../imgs/inbox/banner.png") no-repeat;
+        background-size: 100% 100%;
+        .bannerImg{
+          display: block;
+          position: absolute;
+          left: -1px;
+          top: 0px;
+          img{
+            width: 100.4%;
+            height: 100.1%;
+            opacity: .6;
+          }
+        }
+      }
+    }
+  }
+  .section-wc{
+    background: #e0f6fb;
+    .wc-container{
+      width: 100%;
+      height: 100%;
+      background: url("../imgs/inbox/wc_bg.png") no-repeat;
+    }
+  }
+  .section-bc{
+    background: #de9275;
+    .bc-container{
+      width: 100%;
+      height: 100%;
+      background: url("../imgs/inbox/bc_bg.png") no-repeat;
+    }
+  }
+  .section-red{
+    background: #fcd8d2;
+    .bc-container{
+      width: 100%;
+      height: 100%;
+      background: url("../imgs/inbox/red_bg.png") no-repeat;
+    }
+  }
+  .section-dou{
+    background: #fff0e2;
+    .bc-container{
+      width: 100%;
+      height: 100%;
+      background: url("../imgs/inbox/dou_bg.png") no-repeat;
+    }
+  }
+  .section-mango{
+    background: #fdedc3;
+    .bc-container{
+      width: 100%;
+      height: 100%;
+      background: url("../imgs/inbox/mango_bg.png") no-repeat;
+    }
+  }
+}
+
+
+#fp-nav{
+  margin-right: 100px;
+  li{
+    &:first-child{
+      span{
+        background: #2c1d18;
+      }
+    }
+    &:nth-of-type(2){
+      span{
+        background:#9ed3e1;
+      }
+
+    }
+    &:nth-of-type(3){
+      span{
+        background:#9c5239;
+      }
+    }
+    &:nth-of-type(4){
+      span{
+        background:#f86146;
+      }
+    }
+    &:nth-of-type(5){
+      span{
+        background:#fdc029;
+      }
+    }
+    &:nth-of-type(6){
+      span{
+        background:#fbb170;
+      }
+    }
+  }
+}
