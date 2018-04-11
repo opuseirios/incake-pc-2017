@@ -21,6 +21,12 @@
 
   $(function() {
 
+      if(Cookies.get('name')==='test'){
+          $('.qrcode-sw').css('display','none')
+      }else {
+          $('.qrcode-sw').css('display','block')
+      }
+
     // 图片懒加载
     var imgLazyLoad = new LazyLoad({elements_selector: ".lazy"});
 
@@ -41,6 +47,14 @@
     // 绑定当季热卖数据
     fnBindBestChoice();
   });
+
+
+
+  /*关闭二维码*/
+  $('.qrcode-close').click(function () {
+      Cookies.set('name','test');
+      $('.qrcode-sw').fadeOut();
+  })
 
   function fnBindBestChoice() {
     var $oBestChoice = $('#bestChoice');
