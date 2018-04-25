@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>INCAKE | 订单详情</title>
+    <link rel="stylesheet" href="../assets/plugins/normalize/normalize.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/ucenter.css">
+    <link rel="stylesheet" href="../assets/css/logistic-information.css">
+    <link rel="shortcut icon" href="../favicon.ico" />
+</head>
+<body>
+<!-- layout begin -->
+<div class="layout">
+
+    <!-- layout header begin -->
+    <div class="layout-header" id="layoutHeader">
+        <div class="header-body">
+            <!-- logo begin -->
+            <a href="index.html" class="logo"></a>
+            <!-- logo end -->
+            <!-- nav begin -->
+            <ul class="nav clearfix">
+                <li><a href="/index.html">首页</a></li>
+                <li class="sub">
+                    <a href="/list.html">蛋糕馆</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">芝士系列</a></li>
+                        <li><a href="javascript:;">巧克力系列</a></li>
+                        <li><a href="javascript:;">拿破仑系列</a></li>
+                        <li><a href="javascript:;">慕斯系列</a></li>
+                        <li><a href="javascript:;">乳脂系列</a></li>
+                        <li><a href="javascript:;">选拼系列</a></li>
+                        <li><a href="javascript:;">星座系列</a></li>
+                        <li><a href="javascript:;">阿狸系列</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;">三小时送</a></li>
+                <li class="sub">
+                    <a href="javascript:;">INLIFE</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">下午茶</a></li>
+                        <li><a href="javascript:;">鲜花</a></li>
+                        <li><a href="javascript:;">饮品</a></li>
+                        <li><a href="javascript:;">礼品</a></li>
+                    </ul>
+                </li>
+                <li class="sub">
+                    <a href="javascript:;">惊喜定制</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">惊喜蛋糕</a></li>
+                        <li><a href="javascript:;">翻糖定制</a></li>
+                        <li><a href="javascript:;">场景定制</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:;">试吃申请</a></li>
+                <li><a href="javascript:;">卡券兑换</a></li>
+            </ul>
+            <!-- nav end -->
+            <!-- portal begin -->
+            <div class="portal clearfix">
+                <div class="unlogin clearfix">
+                    <a href="login.html" class="login">登录</a>
+                    <span>|</span>
+                    <a href="register.html" class="register">注册</a>
+                </div>
+                <div class="logined clearfix active">
+                    <div class="profile-wrap">
+                        <p class="info">13811112222</p>
+                        <ul class="plist">
+                            <li class="active"><a href="javascript:;">个人中心</a></li>
+                            <li><a href="javascript:;">账户设置</a></li>
+                            <li><a href="javascript:;">账户优惠券</a></li>
+                            <li class="last"><a href="javascript:;">退出账号</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- portal end -->
+            <!-- basket begin -->
+            <div class="basket">
+                <a href="javascript:;" class="view"><span>10</span></a>
+                <div class="content">
+                    <span class="arrow-up"></span>
+                    <ul class="list basket-list"></ul>
+                    <script id="tplBasketList" type="text/html">
+                        {{if list.length > 0}}
+                        {{each list as item i}}
+                        <li class="clearfix">
+                            <a href="{{item.link}}" class="img">
+                                <img src="{{item.thumbUrl}}" alt="">
+                            </a>
+                            <div class="text">
+                                <p class="first-row clearfix">
+                                    <span class="name">{{item.name}}</span>
+                                    <span class="price">￥{{item.price}}</span>
+                                </p>
+                                <p class="second-row clearfix">
+                                    <span class="pound">{{item.pound}}磅</span>
+                                    <span class="num">x{{item.num}}</span>
+                                </p>
+                            </div>
+                            <a href="javascript:;" class="remove"></a>
+                        </li>
+                        {{/each}}
+                        {{/if}}
+                    </script>
+                    <a href="javascript:;" class="view-basket">查看购物篮 >></a>
+                </div>
+            </div>
+            <!-- basket end -->
+            <!-- locator begin -->
+            <div class="locator">
+                <span class="arrow"></span>
+                <p>上海</p>
+                <div class="content">
+                    <span class="arrow-up"></span>
+                    <p>请选择您要配送的城市：</p>
+                    <ul class="clearfix">
+                        <li class="active">上海</li>
+                        <li>福州</li>
+                        <li>苏州</li>
+                        <li>昆山</li>
+                        <li>厦门</li>
+                        <li>北京</li>
+                        <li>南京</li>
+                        <li>杭州</li>
+                        <li>青岛</li>
+                        <li>扬州</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- locator end -->
+        </div>
+    </div>
+    <!-- layout header end -->
+
+    <!-- layout container begin -->
+    <div class="layout-container">
+
+        <!-- ucenter page begin -->
+        <div class="page ucenter-page" id="ucenterPage">
+            <div class="page-container">
+
+                <!-- ucenter wrap begin -->
+                <div class="ucenter-wrap clearfix">
+
+                    <!-- ucenter menu begin -->
+                    <div class="uc-menu">
+                        <p class="title">我的INCAKE</p>
+                        <div class="section section-trade">
+                            <p>交易管理</p>
+                            <ul>
+                                <li class="active"><a href="/ucenter/latestorders.html">最近的订单</a></li>
+                                <li><a href="/ucenter/orders.html">我的订单</a></li>
+                            </ul>
+                        </div>
+                        <div class="section section-account">
+                            <p>我的账户</p>
+                            <ul>
+                                <li><a href="javascript:;">我的积分</a></li>
+                                <li><a href="javascript:;">我的奖品</a></li>
+                                <li><a href="javascript:;">我的优惠券</a></li>
+                                <li><a href="javascript:;">积分兑换优惠券</a></li>
+                                <li><a href="javascript:;">我喜欢的</a></li>
+                                <li><a href="/ucenter/comments.html">我的评论</a></li>
+                            </ul>
+                        </div>
+                        <div class="section section-personal">
+                            <p>个人信息管理</p>
+                            <ul>
+                                <li><a href="/ucenter/profile.html">个人信息</a></li>
+                                <li><a href="/ucenter/commemorates.html">纪念日管理</a></li>
+                                <li><a href="/ucenter/pwdreset.html">修改密码</a></li>
+                                <li><a href="/ucenter/addresses.html">收货地址</a></li>
+                                <li><a href="/ucenter/invoices.html">发票管理</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- ucenter menu end -->
+
+                    <!-- ucenter container begin -->
+                    <div class="uc-container">
+
+                        <!-- order-detail wrap begin -->
+                        <div class="container-wrap oDetail-wrap" id="logistics">
+                            <script id="tplLogistics" type="text/html">
+                                {{if list.length===0}}
+                                <div class="logistics-detail">
+                                    <h2 class="status">暂无物流信息</h2>
+                                </div>
+                                <div class="logistics-status">
+                                    <div class="status">物流状态：<span>暂无物流信息</span></div>
+                                    <div class="company">物流公司：<span>暂无物流信息</span></div>
+                                    <div class="bills">物流单号：<span>暂无物流信息</span></div>
+                                </div>
+                                {{else}}
+                                <div class="logistics-detail">
+                                    <h2 class="status">{{status}}</h2>
+                                    <ul class="detail">
+                                        {{each list as item i}}
+                                        {{if i===list.length-1}}
+                                        <li class="item">
+                                            <span class="date">{{item.date}}</span>
+                                            <span class="time">{{item.time}}</span>
+                                            <span class="msg">{{item.msg}}</span>
+                                        </li>
+                                        {{else}}
+                                        <li class="item">
+                                            <span class="date">{{item.date}}</span>
+                                            <span class="time">{{item.time}}</span>
+                                            <span class="msg">{{item.msg}}</span>
+                                            <div class="line"></div>
+                                        </li>
+                                        {{/if}}
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                                <div class="logistics-status">
+                                    <div class="status">物流状态：<span>{{status}}</span></div>
+                                    <div class="company">物流公司：<span>{{company}}</span></div>
+                                    <div class="bills">物流单号：<span>{{bill}}</span></div>
+                                </div>
+                                {{/if}}
+                             </script>
+
+                        </div>
+                        <!-- order-detail wrap end -->
+
+                    </div>
+                    <!-- ucenter container end -->
+
+                </div>
+                <!-- ucenter wrap end -->
+
+            </div>
+        </div>
+        <!-- ucenter page end -->
+
+    </div>
+    <!-- layout container end -->
+
+    <!-- layout footer begin -->
+    <div class="layout-footer">
+        <div class="footer-body">
+            <div class="container">
+                <div class="logo"></div>
+                <div class="content">
+                    <p class="nav clearfix">
+                        <a href="javascript:;">配送范围</a><span>|</span>
+                        <a href="javascript:;">帮助中心</a><span>|</span>
+                        <a href="javascript:;">品牌故事</a><span>|</span>
+                        <a href="javascript:;">关于我们</a><span>|</span>
+                        <a href="javascript:;">招贤纳士</a>
+                    </p>
+                    <p class="hotline clearfix">
+                        <span>客服热线：</span>
+                        <span class="tel">400-921-5757</span>
+                    </p>
+                    <div class="third-party clearfix">
+                        <a class="wechat" href="javascript:;"></a>
+                        <a class="sina" href="javascript:;"></a>
+                        <a class="qq" href="javascript:;"></a>
+                        <a class="dianping" href="javascript:;"></a>
+                    </div>
+                </div>
+                <div class="qrcode">
+                    <div class="img"></div>
+                    <p class="text">微信订购更方便</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <p>
+                    <span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+                    <span>沪ICP备12045835</span>
+                    <span>沪公网安备31010802001150</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- layout footer end -->
+
+</div>
+<!-- layout end -->
+
+<!-- javscript begin -->
+<script src="../assets/plugins/LABjs/LAB.min.js"></script>
+<script>
+    $LAB
+        .script('../assets/plugins/polyfill/polyfill.min.js').wait()
+        .script('../assets/plugins/jquery/jquery-1.12.4.min.js').wait()
+        .script('../assets/plugins/tweenmax/TweenMax.min.js').wait()
+        .script('../assets/plugins/artTemplate/template.js').wait()
+        .script('../assets/js/layout.js').wait()
+        .script('../assets/js/ucenter.js').wait()
+        .script('../assets/js/logistics-information.js');
+</script>
+<!-- javascript end -->
+</body>
+</html>

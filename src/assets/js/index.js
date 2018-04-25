@@ -21,11 +21,7 @@
 
   $(function() {
 
-      if(Cookies.get('name')==='test'){
-          $('.qrcode-sw').css('display','none')
-      }else {
-          $('.qrcode-sw').css('display','block')
-      }
+
 
     // 图片懒加载
     var imgLazyLoad = new LazyLoad({elements_selector: ".lazy"});
@@ -52,7 +48,7 @@
 
   /*关闭二维码*/
   $('.qrcode-close').click(function () {
-      Cookies.set('name','test');
+      Cookies.set('name','test1');
       $('.qrcode-sw').fadeOut();
   })
 

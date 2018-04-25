@@ -52,7 +52,7 @@ template.helper('timestampFormat', function(timestamp) {
 				}],
 				totalMoney: 189,
 				paymentType: '支付宝支付',
-				orderStatus: '<a href="javascript:;" class="cancel">取消订单</a><a href="javascript:;" class="payonline">在线支付</a><p>未支付</p>',
+				orderStatus: '<a href="javascript:;" class="cancel">取消订单</a><a href="javascript:;" class="payonline">在线支付</a><p>未支付</p><a href="javascript:;" class="check-logistics">查看物流</a>',
 				orderOperates: '<a href="javascript:;" class="rebuy">再购物</a>'
 			}, {
 				orderNo: 'SHW0865760',
@@ -71,7 +71,7 @@ template.helper('timestampFormat', function(timestamp) {
 				}],
 				totalMoney: 189,
 				paymentType: '支付宝支付',
-				orderStatus: '<a href="javascript:;" class="cancel">取消订单</a><a href="javascript:;" class="payonline">在线支付</a><p>未支付</p>',
+				orderStatus: '<a href="javascript:;" class="cancel">取消订单</a><a href="javascript:;" class="payonline">在线支付</a><p>未支付</p><a href="javascript:;" class="check-logistics">查看物流</a>',
 				orderOperates: '<a href="javascript:;" class="rebuy">再购物</a>'
 			}]
 		};
