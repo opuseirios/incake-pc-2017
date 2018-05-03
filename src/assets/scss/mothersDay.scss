@@ -1,0 +1,260 @@
+.mothersDay-page{
+  width: 1920px;
+  height: 6090px;
+  background-color: #ffe8ec;
+  background-image: url(../imgs/mothers-day/bg.png);
+  background-size: 100% 6090px;
+}
+
+
+
+/*banner begin*/
+.mothersDay-banner{
+  position: relative;
+  width: 1200px;
+  height: 900px;
+  margin: 0 auto;
+
+  .inner {
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    left: 50%;
+    width: 1864px;
+    height: 908px;
+    margin-left: -932px;
+    background: {
+      image: url('../imgs/mothers-day/banner.png');
+      repeat: no-repeat;
+      size: cover;
+      position: center center;
+    }
+  }
+}
+/*banner end*/
+
+
+.mothersDay-container{
+  width: 1200px;
+  margin: 0 auto;
+}
+/*赠品begin*/
+.mothersDay-present{
+  width: 100%;
+  height: 434px;
+  background: url("../imgs/mothers-day/present.png") no-repeat;
+  background-size: cover;
+  .title{
+    padding-left: 575px;
+    padding-top: 95px;
+    font-size: 40px;
+    line-height: 40px;
+    color: #f25670;
+    font-weight: 600;
+  }
+  .text{
+    padding-top: 40px;
+    padding-left: 575px;
+    line-height: 36px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #5e5a5b;
+  }
+  .notice{
+    padding-top: 20px;
+    font-size: 18px;
+    line-height: 36px;
+    font-weight: 600;
+    padding-left: 575px;
+    color: #f25670;
+  }
+}
+/*赠品end*/
+
+/*福利 begin*/
+.benefit{
+  width: 100%;
+  .title{
+    width: 100%;
+    height: 67px;
+    text-align: center;
+    background: url("../imgs/mothers-day/title_bg.png") no-repeat;
+    background-size: 1200px 67px;
+    font-size: 67px;
+    line-height: 67px;
+    color: #fa6b89;
+    font-weight: 600;
+  }
+  .desc{
+    padding-top: 40px;
+    width: 100%;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+    color: #fa6b89;
+    font-weight: 600;
+    padding-bottom: 50px;
+  }
+  .cake{
+    width: 1200px;
+    height: 660px;
+    background: url("../imgs/mothers-day/cake1_bg.png") no-repeat;
+    background-size: 1200px 660px;
+    .img{
+      float: left;
+      display: block;
+      width: 455px;
+      height: 540px;
+      padding-left: 100px;
+      padding-top: 35px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .content{
+      float: left;
+      margin-left: 80px;
+      .name{
+        padding-top: 65px;
+        font-size: 60px;
+        line-height: 60px;
+        font-weight: 600;
+        color: #f25670;
+      }
+      .en{
+        margin-top: 20px;
+        font-size: 18px;
+        color: #575757;
+        font-weight: 400;
+      }
+      .nowPrice{
+        margin-top: 50px;
+        font-size: 28px;
+        line-height: 28px;
+        color: #ff5371;
+        .price{
+          font-weight: 600;
+          font-size: 40px;
+          font-style: normal;
+        }
+        .pound{
+          font-size: 24px;
+        }
+        span.oldPrice{
+          margin-left: 24px;
+          font-size: 24px;
+          text-decoration: line-through;
+          color: #c8c8c8;
+        }
+        &:nth-of-type(2){
+          margin-top: 20px;
+        }
+      }
+      .oldPrice{
+        margin-top: 20px;
+        text-decoration: line-through;
+        font-size: 22px;
+        color: #c8c8c8;
+      }
+      .orderTime,.deliveryTime{
+        margin-top: 75px;
+        font-size: 22px;
+        color: #4e4e4e;
+        .time{
+          font-style: normal;
+          color: #ff5472;
+        }
+      }
+      .deliveryTime{
+        margin-top: 20px;
+      }
+      .buyNow{
+        display: block;
+        text-align: center;
+        margin-top: 45px;
+        width: 245px;
+        height: 65px;
+        line-height: 65px;
+        color: #fff;
+        background: #3cc7fb;
+        font-size: 44px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &.one{
+    margin-top: 150px;
+  }
+  &.two{
+    margin-top: 110px;
+    .cake{
+      height: 700px;
+      background: url("./../imgs/mothers-day/cake2_bg.png") no-repeat;
+      background-size: 1200px 700px;
+      .orderTime{
+        margin-top: 55px;
+      }
+      &.queen{
+        background: url("./../imgs/mothers-day/cake3_bg.png") no-repeat;
+      }
+    }
+  }
+  &.three{
+    margin-top: 90px;
+    .cake{
+      height: 700px;
+      background: url("./../imgs/mothers-day/top1_bg.png") no-repeat;
+      background-size: 1200px 700px;
+      .nowPrice{
+        margin-top: 105px;
+      }
+      .orderTime{
+        margin-top: 60px;
+      }
+      &.tiramisu{
+        height: 715px;
+        background: url("./../imgs/mothers-day/top2_bg.png") no-repeat;
+        background-size: 1200px 715px;
+      }
+    }
+  }
+}
+/*福利 end*/
+
+//rule begin
+.mothersDay-rule{
+  width: 100%;
+  background: #ffccd4;
+  font-weight: 500;
+  dl{
+    width: 480px;
+    padding: 40px 0;
+    margin: 0 auto;
+    color: #c25060;
+    dt{
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+    dd{
+      padding-left: 40px;
+      font-size: 12px;
+      line-height: 32px;
+    }
+  }
+}
+
+.mothersDay-sw-page{
+  height: 5580px;
+  background-image: url(../imgs/mothers-day/bg_sw.png);
+  background-size: 100% 5525px;
+  .benefit{
+    &.one{
+      margin-top: 90px;
+    }
+  }
+
+}
+//rule end

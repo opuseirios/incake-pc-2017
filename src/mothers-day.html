@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>INCAKE | 母亲节</title>
+    <link rel="stylesheet" href="assets/plugins/normalize/normalize.css">
+    <link rel="stylesheet" href="assets/plugins/swiper/css/idangerous.swiper.css">
+    <link rel="stylesheet" href="assets/plugins/liMarquee/css/liMarquee.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/mothersDay.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+<div class="layout">
+    <!-- layout header begin -->
+    <div class="layout-header" id="layoutHeader">
+        <div class="header-body">
+            <!-- logo begin -->
+            <a href="index.html" class="logo"></a>
+            <!-- logo end -->
+            <!-- nav begin -->
+            <ul class="nav clearfix">
+                <li><a href="/index.html">首页</a></li>
+                <li class="sub">
+                    <a href="/list.html">蛋糕馆</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">芝士系列</a></li>
+                        <li><a href="javascript:;">巧克力系列</a></li>
+                        <li><a href="javascript:;">拿破仑系列</a></li>
+                        <li><a href="javascript:;">慕斯系列</a></li>
+                        <li><a href="javascript:;">乳脂系列</a></li>
+                        <li><a href="javascript:;">选拼系列</a></li>
+                        <li><a href="javascript:;">星座系列</a></li>
+                        <li><a href="javascript:;">阿狸系列</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="javascript:;">特惠商城</a></li>
+                <!-- <li><a href="javascript:;">三小时送</a></li> -->
+                <li class="sub">
+                    <a href="javascript:;">INLIFE</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">下午茶</a></li>
+                        <li><a href="javascript:;">鲜花</a></li>
+                        <li><a href="javascript:;">饮品</a></li>
+                        <li><a href="javascript:;">礼品</a></li>
+                    </ul>
+                </li>
+                <li class="sub">
+                    <a href="javascript:;">惊喜定制</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">惊喜蛋糕</a></li>
+                        <li><a href="javascript:;">翻糖定制</a></li>
+                        <li><a href="javascript:;">场景定制</a></li>
+                    </ul>
+                </li>
+                <!-- <li><a href="javascript:;">试吃申请</a></li> -->
+                <li><a href="javascript:;">卡券兑换</a></li>
+            </ul>
+            <!-- nav end -->
+            <!-- stock code begin -->
+            <p class="stock-code">股票代码：837489</p>
+            <!-- stock code end -->
+            <!-- portal begin -->
+            <div class="portal clearfix">
+                <div class="unlogin clearfix active">
+                    <a href="login.html" class="login">登录</a>
+                    <span>|</span>
+                    <a href="register.html" class="register">注册</a>
+                </div>
+                <div class="logined clearfix">
+                    <div class="profile-wrap">
+                        <p class="info">13811112222</p>
+                        <ul class="plist">
+                            <li class="active"><a href="javascript:;">个人中心</a></li>
+                            <li><a href="javascript:;">账户设置</a></li>
+                            <li><a href="javascript:;">账户优惠券</a></li>
+                            <li class="last"><a href="javascript:;">退出账号</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- portal end -->
+            <!-- basket begin -->
+            <div class="basket">
+                <a href="javascript:;" class="view"><span>10</span></a>
+                <div class="content">
+                    <span class="arrow-up"></span>
+                    <ul class="list basket-list"></ul>
+                    <script id="tplBasketList" type="text/html">
+                        {{if list.length > 0}}
+                        {{each list as item i}}
+                        <li class="clearfix">
+                            <a href="{{item.link}}" class="img">
+                                <img src="{{item.thumbUrl}}" alt="">
+                            </a>
+                            <div class="text">
+                                <p class="first-row clearfix">
+                                    <span class="name">{{item.name}}</span>
+                                    <span class="price">￥{{item.price}}</span>
+                                </p>
+                                <p class="second-row clearfix">
+                                    <span class="pound">{{item.pound}}磅</span>
+                                    <span class="num">x{{item.num}}</span>
+                                </p>
+                            </div>
+                            <a href="javascript:;" class="remove"></a>
+                        </li>
+                        {{/each}}
+                        {{/if}}
+                    </script>
+                    <a href="javascript:;" class="view-basket">查看购物篮 >></a>
+                </div>
+            </div>
+            <!-- basket end -->
+            <!-- locator begin -->
+            <div class="locator">
+                <span class="arrow"></span>
+                <p>上海</p>
+                <div class="content">
+                    <span class="arrow-up"></span>
+                    <p>请选择您要配送的城市：</p>
+                    <ul class="clearfix" id="ulChangeCity">
+                        <li class="active" citycode="021">上海</li>
+                        <li citycode="0591">福州</li>
+                        <li citycode="0512">苏州</li>
+                        <li citycode="0592">厦门</li>
+                        <li citycode="010">北京</li>
+                        <li citycode="025">南京</li>
+                        <li citycode="0571">杭州</li>
+                        <li citycode="0574">宁波</li>
+                        <li citycode="0532">青岛</li>
+                        <li citycode="0514">扬州</li>
+                        <li citycode="0511">镇江</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- locator end -->
+        </div>
+    </div>
+    <!-- layout header end -->
+
+    <!-- layout container begin -->
+    <div class="layout-container">
+
+        <!-- szone page begin -->
+        <div class="page mothersDay-page" id="mothersDayPage">
+            <div class="page-container">
+
+                <!-- banner begin -->
+                <div class="mothersDay-banner">
+                    <div class="inner"></div>
+                </div>
+                <!-- banner end -->
+
+                <div class="mothersDay-container">
+                    <!--赠品 begin-->
+                    <div class="mothersDay-present">
+                        <h2 class="title">翻糖饼干花</h2>
+                        <p class="text">在INCAKE的世界，没有不能吃的东西，包括康乃馨。<br>
+                            想不想送给妈妈这束可以吃的翻糖饼干花？</p>
+                        <p class="notice">凡指定在5月9日-5月13日期间内配送的蛋糕订单，<br>
+                            均送翻糖饼干花一束。数量有限，先到先得！</p>
+                    </div>
+                    <!--赠品 end-->
+
+                    <!--福利一 begin-->
+                    <div class="benefit one">
+                        <h2 class="title">福利一</h2>
+                        <div class="desc">INCAKE专门为母亲节订制了两款蛋糕<br>
+                            绝代双骄之芳华篇</div>
+                        <div class="cake clearfix">
+                            <a class="img" href="javascript:;">
+                                <img src="./assets/imgs/mothers-day/cake1.png" alt="">
+                            </a>
+                            <div class="content">
+                                <h2 class="name">芳华</h2>
+                                <h5 class="en">YOUTH</h5>
+                                <p class="nowPrice">¥<i class="price">188</i> /<span class="pound">1.8磅</span></p>
+                                <p class="oldPrice">原价：298元/1.8磅</p>
+                                <p class="orderTime">预定时间：<i class="time">5月2日-5月9日</i></p>
+                                <p class="deliveryTime">预定时间：<i class="time">5月6日-5月13日</i></p>
+                                <a href="javascript:;" class="buyNow">立即购买</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--福利一 end-->
+
+                    <!--福利二 begin-->
+                    <div class="benefit two">
+                        <h2 class="title">福利二</h2>
+                        <div class="desc">绝代双骄之臻爱奶香</div>
+                        <div class="cake clearfix">
+                            <a class="img" href="javascript:;">
+                                <img src="./assets/imgs/mothers-day/cake2.png" alt="">
+                            </a>
+                            <div class="content">
+                                <h2 class="name">臻爱奶香</h2>
+                                <h5 class="en">TRUE LOVE</h5>
+                                <p class="nowPrice">¥<i class="price">138</i> /<span class="pound">1.2磅</span> <span class="oldPrice">原价：198元/1.2磅</span></p>
+                                <p class="nowPrice">¥<i class="price">168</i> /<span class="pound">2.2磅</span> <span class="oldPrice">原价：298元/2.2磅</span></p>
+                                <p class="orderTime">预定时间：<i class="time">5月2日-5月9日</i></p>
+                                <p class="deliveryTime">预定时间：<i class="time">5月6日-5月13日</i></p>
+                                <a href="javascript:;" class="buyNow">立即购买</a>
+                            </div>
+                        </div>
+
+                        <div class="desc">经典回归之女王芝士</div>
+                        <div class="cake clearfix queen">
+                            <a class="img" href="javascript:;">
+                                <img src="./assets/imgs/mothers-day/cake3.png" alt="">
+                            </a>
+                            <div class="content">
+                                <h2 class="name">女王芝士</h2>
+                                <h5 class="en">QUEEN CHEESE CAKE</h5>
+                                <p class="nowPrice">¥<i class="price">138</i> /<span class="pound">1.5磅</span> <span class="oldPrice">原价：198元/1.5磅</span></p>
+                                <p class="nowPrice">¥<i class="price">168</i> /<span class="pound">2.5磅</span> <span class="oldPrice">原价：298元/2.5磅</span></p>
+                                <p class="orderTime">预定时间：<i class="time">5月2日-5月9日</i></p>
+                                <p class="deliveryTime">预定时间：<i class="time">5月3日-6月2日</i></p>
+                                <a href="javascript:;" class="buyNow">立即购买</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--福利二 end-->
+
+                    <!--福利三 begin-->
+                    <div class="benefit three">
+                        <h2 class="title">福利三</h2>
+                        <div class="desc">为庆祝这一年一度的节日，我们还精心选出了五款热品进行了一个投票活动，<br>
+                            选出票数最多的两款，给予母亲节专属福利价</div>
+                        <div class="cake clearfix">
+                            <a class="img" href="javascript:;">
+                                <img src="./assets/imgs/mothers-day/top1.png" alt="">
+                            </a>
+                            <div class="content">
+                                <h2 class="name">爱丁堡之恋</h2>
+                                <h5 class="en">LOVE IN EDINBURGH</h5>
+                                <p class="nowPrice">¥<i class="price">158</i> /<span class="pound">1.5磅</span> <span class="oldPrice">原价：198元/1.5磅</span></p>
+                                <p class="orderTime">预定时间：<i class="time">5月2日-5月9日</i></p>
+                                <p class="deliveryTime">预定时间：<i class="time">5月3日-6月2日</i></p>
+                                <a href="javascript:;" class="buyNow">立即购买</a>
+                            </div>
+                        </div>
+
+                        <div class="cake clearfix tiramisu">
+                            <a class="img" href="javascript:;">
+                                <img src="./assets/imgs/mothers-day/top2.png" alt="">
+                            </a>
+                            <div class="content">
+                                <h2 class="name">提拉米苏</h2>
+                                <h5 class="en">TIRAMISU</h5>
+                                <p class="nowPrice">¥<i class="price">158</i> /<span class="pound">1.5磅</span> <span class="oldPrice">原价：198元/1.5磅</span></p>
+                                <p class="orderTime">预定时间：<i class="time">5月2日-5月9日</i></p>
+                                <p class="deliveryTime">预定时间：<i class="time">5月3日-6月2日</i></p>
+                                <a href="javascript:;" class="buyNow">立即购买</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--福利三 end-->
+                </div>
+            </div>
+        </div>
+        <!-- rule begin -->
+        <div class="mothersDay-rule">
+            <dl>
+                <dt>活动规则</dt>
+                <dd>1. 母亲节活动时间：5/2—5/9；配送时间：5/3—6/2</dd>
+                <dd>2. 芳华、臻爱奶香两款产品配送时间为5/6—5/13</dd>
+                <dd>3. 其他活动产品及官网正价产品配送时间均为5/3—6/2</dd>
+                <dd>4. 赠品翻糖饼干花配送时间仅5/9—5/13期间配送即赠</dd>
+                <dd>5. 本活动不可使用代金卡，不与其他优惠同享</dd>
+            </dl>
+        </div>
+        <!-- rule end -->
+    </div>
+    <!-- layout footer begin -->
+    <div class="layout-footer">
+        <div class="footer-body">
+            <div class="container">
+                <div class="logo"></div>
+                <div class="content">
+                    <p class="nav clearfix">
+                        <a href="javascript:;">配送范围</a><span>|</span>
+                        <a href="javascript:;">帮助中心</a><span>|</span>
+                        <a href="javascript:;">品牌故事</a><span>|</span>
+                        <a href="javascript:;">关于我们</a><span>|</span>
+                        <a href="javascript:;">招贤纳士</a>
+                    </p>
+                    <p class="hotline clearfix">
+                        <span>客服热线：</span>
+                        <span class="tel">400-921-5757</span>
+                    </p>
+                    <p class="stock-code">股票代码：837489</p>
+                    <!--<div class="third-party clearfix">
+                        <a class="wechat" href="javascript:;"></a>
+                        <a class="sina" href="javascript:;"></a>
+                        <a class="qq" href="javascript:;"></a>
+                        <a class="dianping" href="javascript:;"></a>
+                    </div>-->
+                </div>
+                <div class="qrcode">
+                    <div class="img"></div>
+                    <p class="text">微信订购更方便</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <p>
+                    <span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+                    <span>沪ICP备12045835</span>
+                    <span>沪公网安备31010802001150</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- layout footer end -->
+</div>
+</body>
+</html>
