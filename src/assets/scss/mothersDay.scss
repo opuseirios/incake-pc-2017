@@ -229,7 +229,7 @@
   background: #ffccd4;
   font-weight: 500;
   dl{
-    width: 480px;
+    width: 550px;
     padding: 40px 0;
     margin: 0 auto;
     color: #c25060;
@@ -239,7 +239,7 @@
       margin-bottom: 24px;
     }
     dd{
-      padding-left: 40px;
+      padding-left: 60px;
       font-size: 12px;
       line-height: 32px;
     }
@@ -255,6 +255,45 @@
       margin-top: 90px;
     }
   }
+}
 
+.mothersDay-other-page{
+  height: 3277px;
+  background-image: url(../imgs/mothers-day/bg_other.png);
+  background-size: 100% 3277px;
+  .impression{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 30px;
+    line-height: 60px;
+    color: #fa6b89;
+    font-weight: 600;
+  }
+  .one{
+    margin-top: 130px;
+    .inbox{
+      margin-top: 40px;
+      height: 660px;
+      background: url("../imgs/mothers-day/inbox1_bg.png") no-repeat;
+      background-size: 1200px 660px;
+      .name{
+        font-size: 30px;
+        line-height: 50px;
+      }
+      .express{
+        margin-top: 20px;
+        font-size: 22px;
+        color: #4e4e4e;
+      }
+    }
+  }
+  .two{
+    .cake{
+      height: 700px;
+      background: url("../imgs/mothers-day/inbox2_bg.png") no-repeat;
+      background-size: 1200px 700px;
+    }
+  }
 }
 //rule end
