@@ -1,0 +1,150 @@
+.afternoon-tea-page{
+  width: 100%;
+  background: url("../imgs/afternoon-tea/bg.png");
+  background-size: 44px 44px;
+  position: relative;
+}
+
+.afternoon-tea-banner{
+  position: relative;
+  width: 1200px;
+  height: 485px;
+  margin: 0 auto;
+  .inner {
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    left: 50%;
+    width: 1920px;
+    height: 485px;
+    margin-left: -960px;
+    background: {
+      image: url('../imgs/afternoon-tea/banner.png');
+      repeat: no-repeat;
+      size: cover;
+      position: center center;
+    }
+  }
+}
+.page-container{
+  width: 1200px;
+  margin: 0 auto;
+}
+.group{
+  margin: 0 auto;
+  width: 1200px;
+  padding: 0 25px;
+  .cake{
+    display: inline-block;
+    padding-top: 80px;
+    width: 325px;
+    text-align: center;
+    margin-right: 90px;
+    &:nth-of-type(3n){
+      margin-right: 0;
+    }
+    .img{
+      display: block;
+      position: relative;
+      margin: 0 auto;
+      width: 300px;
+      height: 300px;
+      img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    .cn{
+      line-height: 70px;
+      font-size: 28px;
+      font-weight: 500;
+    }
+    .en{
+      line-height: 14px;
+      font-size: 14px;
+    }
+    .price{
+      line-height: 70px;
+      height: 70px;
+      position: relative;
+      color: #f27d89;
+      font-size: 18px;
+      font-weight: 500;
+      .rmb{
+        font-style: normal;
+        font-size: 14px;
+        position: absolute;
+        left: 115px;
+        top: -6px;
+      }
+      .num{
+        font-size: 30px;
+      }
+    }
+    .buyBtn{
+      display: block;
+      width: 180px;
+      height: 40px;
+      margin: 0 auto;
+      border-radius: 20px;
+      color: #fff;
+      background: #f9a780;
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 40px;
+    }
+  }
+}
+
+.txt{
+  font-size: 26px;
+  text-align: center;
+  line-height: 50px;
+  color: #a3a04b;
+  &.txt1{
+    padding-top: 90px;
+  }
+}
+.txt4{
+  padding-top: 120px;
+  padding-bottom: 250px;
+  color: #fe7c89;
+}
+.bg1{
+  right: 0;
+  top: 30%;
+  width: 210px;
+  height: 550px;
+  position: absolute;
+  background: url("./../imgs/afternoon-tea/bg1.png") no-repeat;
+  background-size: 211px 550px;
+}
+.bg2{
+  left: 0;
+  top: 45%;
+  width: 142px;
+  height: 384px;
+  position: absolute;
+  background: url("./../imgs/afternoon-tea/bg2.png") no-repeat;
+  background-size: 142px 384px;
+}
+.bg3{
+  bottom: 0;
+  right: 0;
+  width: 287px;
+  height: 290px;
+  position: absolute;
+  background:url("./../imgs/afternoon-tea/bg3.png") no-repeat;
+  background-size: 287px 290px;
+}
+.bg4{
+  bottom: 0;
+  left: 0;
+  width: 467px;
+  height: 229px;
+  position: absolute;
+  background: url("./../imgs/afternoon-tea/bg4.png") no-repeat;
+  background-size: 467px 229px;
+}
