@@ -1,12 +1,12 @@
 .szone-page {
   width: 100%;
-  background-color: #f2fcfe;
+  background:url("./../imgs/szone/bg.png");
 }
 
 .szone-banner {
   position: relative;
   width: 1200px;
-  height: 900px;
+  height: 995px;
   margin: 0 auto;
 
   .inner {
@@ -15,10 +15,10 @@
     z-index: 9;
     left: 50%;
     width: 1920px;
-    height: 900px;
+    height: 995px;
     margin-left: -960px;
     background: {
-      image: url('../imgs/szone/banner.png');
+      image: url('../imgs/szone/bannerNew.png');
       repeat: no-repeat;
       size: cover;
       position: center center;
@@ -31,6 +31,8 @@
   z-index: 2;
   width: 1200px;
   margin: 0 auto;
+  margin-top: -200px;
+  padding-bottom: 100px;
   .category {
     position: relative;
     z-index: 10;
@@ -131,7 +133,7 @@
         font-size: 12px;
         line-height: 16px;
         text-align: center;
-        color: #bfbebe;
+        color: #838283;
       }
     }
 
@@ -164,7 +166,7 @@
 
       .original {
         height: 16px;
-        color: #d8d8d8;
+        color: #838283;
         font-size: 12px;
         line-height: 16px;
         text-align: center;
@@ -201,13 +203,13 @@
 
 .szone-rule {
   width: 100%;
-  background-color: #daf8fd;
+  background-color: #71c0e1;
 
   dl {
     width: 580px;
     margin: 0 auto;
     padding: 30px 0;
-    color: #55c1d2;
+    color: #fff;
 
   }
 
