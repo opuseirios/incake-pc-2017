@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>INCAKE | 七夕节</title>
+    <link rel="stylesheet" href="assets/plugins/normalize/normalize.css">
+    <!--轮播图插件-->
+    <link rel="stylesheet" href="assets/plugins/swiper/css/idangerous.swiper.css">
+    <!--无缝滚动插件-->
+    <link rel="stylesheet" href="assets/plugins/liMarquee/css/liMarquee.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/magpie-festival.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+<!-- layout begin -->
+<div class="layout">
+    <!-- layout header begin -->
+    <div class="layout-header" id="layoutHeader">
+        <div class="header-body">
+            <!-- logo begin -->
+            <a href="index.html" class="logo"></a>
+            <!-- logo end -->
+            <!-- nav begin -->
+            <ul class="nav clearfix">
+                <li><a href="/index.html">首页</a></li>
+                <li class="sub">
+                    <a href="/list.html">蛋糕馆</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">芝士系列</a></li>
+                        <li><a href="javascript:;">巧克力系列</a></li>
+                        <li><a href="javascript:;">拿破仑系列</a></li>
+                        <li><a href="javascript:;">慕斯系列</a></li>
+                        <li><a href="javascript:;">乳脂系列</a></li>
+                        <li><a href="javascript:;">选拼系列</a></li>
+                        <li><a href="javascript:;">星座系列</a></li>
+                        <li><a href="javascript:;">阿狸系列</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="javascript:;">特惠商城</a></li>
+                <!-- <li><a href="javascript:;">三小时送</a></li> -->
+                <li class="sub">
+                    <a href="javascript:;">INLIFE</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">下午茶</a></li>
+                        <li><a href="javascript:;">鲜花</a></li>
+                        <li><a href="javascript:;">饮品</a></li>
+                        <li><a href="javascript:;">礼品</a></li>
+                    </ul>
+                </li>
+                <li class="sub">
+                    <a href="javascript:;">惊喜定制</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">惊喜蛋糕</a></li>
+                        <li><a href="javascript:;">翻糖定制</a></li>
+                        <li><a href="javascript:;">场景定制</a></li>
+                    </ul>
+                </li>
+                <!-- <li><a href="javascript:;">试吃申请</a></li> -->
+                <li><a href="javascript:;">卡券兑换</a></li>
+            </ul>
+            <!-- nav end -->
+            <!-- stock code begin -->
+            <p class="stock-code">股票代码：837489</p>
+            <!-- stock code end -->
+            <!-- portal begin -->
+            <div class="portal clearfix">
+                <div class="unlogin clearfix active">
+                    <a href="login.html" class="login">登录</a>
+                    <span>|</span>
+                    <a href="register.html" class="register">注册</a>
+                </div>
+                <div class="logined clearfix">
+                    <div class="profile-wrap">
+                        <p class="info">13811112222</p>
+                        <ul class="plist">
+                            <li class="active"><a href="javascript:;">个人中心</a></li>
+                            <li><a href="javascript:;">账户设置</a></li>
+                            <li><a href="javascript:;">账户优惠券</a></li>
+                            <li class="last"><a href="javascript:;">退出账号</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- portal end -->
+            <!-- basket begin -->
+            <div class="basket">
+                <a href="javascript:;" class="view"><span>10</span></a>
+                <div class="content">
+                    <span class="arrow-up"></span>
+                    <ul class="list basket-list"></ul>
+                    <script id="tplBasketList" type="text/html">
+                        {{if list.length > 0}}
+                        {{each list as item i}}
+                        <li class="clearfix">
+                            <a href="{{item.link}}" class="img">
+                                <img src="{{item.thumbUrl}}" alt="">
+                            </a>
+                            <div class="text">
+                                <p class="first-row clearfix">
+                                    <span class="name">{{item.name}}</span>
+                                    <span class="price">￥{{item.price}}</span>
+                                </p>
+                                <p class="second-row clearfix">
+                                    <span class="pound">{{item.pound}}磅</span>
+                                    <span class="num">x{{item.num}}</span>
+                                </p>
+                            </div>
+                            <a href="javascript:;" class="remove"></a>
+                        </li>
+                        {{/each}}
+                        {{/if}}
+                    </script>
+                    <a href="javascript:;" class="view-basket">查看购物篮 >></a>
+                </div>
+            </div>
+            <!-- basket end -->
+            <!-- locator begin -->
+            <div class="locator">
+                <span class="arrow"></span>
+                <p>上海</p>
+                <div class="content">
+                    <span class="arrow-up"></span>
+                    <p>请选择您要配送的城市：</p>
+                    <ul class="clearfix" id="ulChangeCity">
+                        <li class="active" citycode="021">上海</li>
+                        <li citycode="0591">福州</li>
+                        <li citycode="0512">苏州</li>
+                        <li citycode="0592">厦门</li>
+                        <li citycode="010">北京</li>
+                        <li citycode="025">南京</li>
+                        <li citycode="0571">杭州</li>
+                        <li citycode="0574">宁波</li>
+                        <li citycode="0532">青岛</li>
+                        <li citycode="0514">扬州</li>
+                        <li citycode="0511">镇江</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- locator end -->
+        </div>
+    </div>
+    <!-- layout header end -->
+    <!-- layout container begin -->
+    <div class="layout-container">
+        <!--maiden-page begin-->
+        <div class="page magpie-page" id="magpiePage">
+            <div class="page-container">
+                <!-- banner begin -->
+                <div class="magpie-banner">
+                    <div class="inner"></div>
+                </div>
+                <div class="intro-wrapper">
+                    <div class="intro">
+                        <div class="intro-container">
+                            <div class="text">
+                                <p>没有巧克力的七夕不及格。</p>
+                                <p>为给你一个满分的浪漫，凡是8月7日起购买七夕蛋糕，</p>
+                                <p class="underline">均送醇香生巧一盒</p>
+                                <p>只限前200份，抓紧预订哦！</p>
+                            </div>
+                            <a href="javascript:;" class="buyNow">立即购买</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="magpie-container">
+                    <div class="container-title">
+                    </div>
+                    <div class="cakes">
+                        <h3 class="title meet"></h3>
+                        <ul>
+                            <li class="cake">
+                                <a class="img" href="javascript:;">
+                                    <img src="./assets/imgs/magpie-festival/cake1.png" alt="">
+                                </a>
+                                <div class="info">
+                                    <h3 class="name">清新柠檬</h3>
+                                    <p class="desc">这个夏，和胃口不好 Say Goodbye</p>
+                                    <div class="price-wrapper">
+                                        <div class="price">
+                                            <p class="oldPrice">原价：198/1.2磅</p>
+                                            <p class="nowPrice">现价：<span class="num">158</span>/1.2磅</p>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:;" class="buyBtn">立即购买</a>
+                                </div>
+                            </li>
+                            <li class="cake">
+                                <a class="img" href="javascript:;">
+                                    <img src="./assets/imgs/magpie-festival/cake2.png" alt="">
+                                </a>
+                                <div class="info">
+                                    <h3 class="name">海盐奥利奥</h3>
+                                    <p class="desc">升级奥利奥新吃法</p>
+                                    <div class="price-wrapper">
+                                        <div class="price one">
+                                            <p class="oldPrice">原价：198/1.2磅</p>
+                                            <p class="nowPrice">现价：<span class="num">119</span>/1.2磅</p>
+                                        </div>
+                                        <div class="price two">
+                                            <p class="oldPrice">原价：298/2.2磅</p>
+                                            <p class="nowPrice">现价：<span class="num">179</span>/2.2磅</p>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:;" class="buyBtn">立即购买</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cakes">
+                        <h3 class="title love"></h3>
+                        <ul>
+                            <li class="cake">
+                                <a class="img" href="javascript:;">
+                                    <img src="./assets/imgs/magpie-festival/cake3.png" alt="">
+                                </a>
+                                <div class="info">
+                                    <h3 class="name">爱丁堡之恋</h3>
+                                    <div class="price-wrapper">
+                                        <div class="price one">
+                                            <p class="oldPrice">原价：198/1.5磅</p>
+                                            <p class="nowPrice">现价：<span class="num">156</span>/1.5磅</p>
+                                        </div>
+                                        <div class="price two">
+                                            <p class="oldPrice">原价：298/2.5磅</p>
+                                            <p class="nowPrice">现价：<span class="num">235</span>/2.5磅</p>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:;" class="buyBtn">立即购买</a>
+                                </div>
+                            </li>
+                            <li class="cake">
+                                <a class="img" href="javascript:;">
+                                    <img src="./assets/imgs/magpie-festival/cake4.png" alt="">
+                                </a>
+                                <div class="info">
+                                    <h3 class="name">伦敦之焰</h3>
+                                    <div class="price-wrapper">
+                                        <div class="price">
+                                            <p class="oldPrice">原价：198/1.5磅</p>
+                                            <p class="nowPrice">现价：<span class="num">156</span>/1.5磅</p>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:;" class="buyBtn">立即购买</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="magpie-rules">
+                <dl>
+                    <dt>活动规则</dt>
+                    <dd>1. 七夕蛋糕活动时间：8-8~8-16，配送时间8-11~8-17；</dd>
+                    <dd>2. 生巧随蛋糕配送；</dd>
+                    <dd>3. 心心相印+醇香生巧套餐仅限上海地区；</dd>
+                    <dd>4. 清新柠檬+海盐奥利奥仅限上海，苏州，杭州，宁波地区;</dd>
+                    <dd>5. 爱丁堡之恋和伦敦之焰配送地区请定位到所在城市查看;</dd>
+                    <dd>6. 本活动不可使用代金卡，不与其他优惠同享。</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <!-- layout footer begin -->
+    <div class="layout-footer">
+        <div class="footer-body">
+            <div class="container">
+                <div class="logo"></div>
+                <div class="content">
+                    <p class="nav clearfix">
+                        <a href="javascript:;">配送范围</a><span>|</span>
+                        <a href="javascript:;">帮助中心</a><span>|</span>
+                        <a href="javascript:;">品牌故事</a><span>|</span>
+                        <a href="javascript:;">关于我们</a><span>|</span>
+                        <a href="javascript:;">招贤纳士</a>
+                    </p>
+                    <p class="hotline clearfix">
+                        <span>客服热线：</span>
+                        <span class="tel">400-921-5757</span>
+                    </p>
+                    <p class="stock-code">股票代码：837489</p>
+                    <!--<div class="third-party clearfix">
+                        <a class="wechat" href="javascript:;"></a>
+                        <a class="sina" href="javascript:;"></a>
+                        <a class="qq" href="javascript:;"></a>
+                        <a class="dianping" href="javascript:;"></a>
+                    </div>-->
+                </div>
+                <div class="qrcode">
+                    <div class="img"></div>
+                    <p class="text">微信订购更方便</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <p>
+                    <span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+                    <span>沪ICP备12045835</span>
+                    <span>沪公网安备31010802001150</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- layout footer end -->
+</div>
+</body>
+</html>
+<script src="assets/plugins/LABjs/LAB.min.js"></script>
+<script>
+    $LAB
+        .script('assets/plugins/polyfill/polyfill.min.js').wait()
+        .script('assets/plugins/jquery/jquery-1.12.4.min.js').wait()
+        .script('assets/plugins/underscore/underscore-min.js').wait()
+        .script('assets/plugins/lazyload/lazyload.transpiled.min.js').wait()
+        .script('assets/plugins/tweenmax/TweenMax.min.js').wait()
+        .script('assets/plugins/artTemplate/template.js').wait()
+        .script('assets/js/layout.js').wait()
+        .script('assets/js/magpie-festival.js');
+</script>
+</body>
+</html>
