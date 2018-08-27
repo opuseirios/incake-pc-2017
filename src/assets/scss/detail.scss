@@ -247,6 +247,18 @@
                         display: inline-block;
                         line-height: 45px;
                     }
+                    .oldPrice{
+                        float: left;
+                        margin-top: 2px;
+                        margin-left: 45px;
+                        margin-right: -10px;
+                        font-size: 16px;
+                        text-decoration: line-through;
+                        i{
+                            font-size: 16px;
+                            text-decoration: line-through;
+                        }
+                    }
                     .price {
                         float: left;
                         margin-left: 45px;
@@ -276,6 +288,18 @@
                         background-color: #e9546b;
                         i {
                             font-size: 28px;
+                        }
+                        .oldPrice{
+                            float: left;
+                            margin-top: 6px;
+                            margin-left: 45px;
+                            margin-right: -15px;
+                            font-size: 18px;
+                            text-decoration: line-through;
+                            i{
+                                font-size: 18px;
+                                text-decoration: line-through;
+                            }
                         }
                         .radio {
                             background-image: url('../imgs/icons/icon_radio_detail_checked.png');
@@ -945,4 +969,14 @@
             }
         }
     }
+}
+
+/*dou-text*/
+.dou-wrapper{
+  margin-top: 10px;
+    margin-bottom: -10px;
+  img{
+    width: 224px;
+      height: 24px;
+  }
 }

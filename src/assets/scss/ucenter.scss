@@ -89,6 +89,16 @@
             width: 100%;
             border-bottom: 1px solid #45515e;
         }
+        .dou-logo{
+            display:inline-block;
+            width: 25px;
+            height: 25px;
+            background-size: 25px 25px;
+            background-image: url('./../../assets/imgs/ucenter/dou-logo.png');
+          margin-left: 10px;
+          vertical-align: middle;
+            margin-top: -5px;
+        }
         > .body {
             width: 100%;
         }

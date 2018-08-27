@@ -290,9 +290,13 @@
 										<span class="en">{{item.name.en}}</span>
 									</p>
 									<p class="attr">
+										{{if item.oldPrice}}
+										<span class="oldPrice">￥{{item.oldPrice}}</span><span class="oldPound">/{{item.pound}}磅</span>
+										{{/if}}
 										<span class="price">￥{{item.price}}</span>
 										<span class="pound">/{{item.pound}}磅</span>
 									</p>
+									<i class="dou-logo"></i>
 									<a href="javascript:;" class="join-basket"></a>
 								</div>
 							</li>
@@ -403,9 +407,11 @@
 										<span class="en">{{item.name.en}}</span>
 									</p>
 									<p class="attr">
+
 										<span class="price">￥{{item.price}}</span>
 										<span class="pound">/{{item.pound}}磅</span>
 									</p>
+									<i class="dou-logo"></i>
 									<a href="javascript:;" class="join-basket"></a>
 								</div>
 							</li>

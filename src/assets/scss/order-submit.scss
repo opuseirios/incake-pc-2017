@@ -2253,3 +2253,129 @@ img {
     }
   }
 }
+/*兜礼*/
+.dou-wrapper{
+  text-align: right;
+  margin-bottom: 20px;
+  img{
+    width: 224px;
+    height: 24px;
+  }
+}
+
+#mask-douli{
+  position: fixed;
+  display: none;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-image: url("../imgs/basket/mask_bg.png");
+  z-index: 99;
+  .douli-container{
+    position: relative;
+    width: 600px;
+    height: 510px;
+    background: #fff;
+    border: 2px solid #e9546a;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: 80px 100px;
+    box-sizing: border-box;
+    transform: translate(-50%,-50%);
+    .msg{
+      text-align: center;
+      p{
+        font-weight: 600;
+        color: #45515e;
+        font-size: 22px;
+        line-height: 32px;
+      }
+    }
+    .content{
+      margin-top: 30px;
+      position: relative;
+      .notice{
+        padding-left: 20px;
+        font-size: 18px;
+        color: #666;
+      }
+      input{
+        width: 374px;
+        margin-top: 20px;
+        border: 1px solid #e9546a;
+        height: 50px;
+        border-radius: 3px;
+        padding-left: 20px;
+        font-size: 18px;
+        line-height: 50px;
+        color: #333;
+        &::-webkit-input-placeholder{
+          color: #666;
+        }
+        &.code{
+          flex: 1;
+          margin-right: 10px;
+        }
+      }
+      .code-wrapper{
+        width: 100%;
+        display: flex;
+      }
+      .getCode{
+        margin-top: 21px;
+        flex: 0 0 120px;
+        width: 120px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: #fff;
+        background:#e9546a;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        &.active{
+          color: #969696;
+          background: #e6e6e6;
+        }
+      }
+      .payNow{
+        margin-top: 40px;
+        width: 100%;
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: #fff;
+        background: #e9546a;
+        font-size: 20px;
+        font-weight: 500;
+        border-radius: 3px;
+      }
+      .wrong-msg{
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        color: #e9546a;
+        bottom: 63px;
+        font-size: 14px;
+        display: none;
+      }
+
+    }
+  }
+  .icon-close{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    display: inline-block;
+    cursor: pointer;
+    width: 40px;
+    height: 25px;
+    background-size: 40px 25px;
+    background-image: url(./../imgs/card-upgrade/icon_false.png);
+  }
+}

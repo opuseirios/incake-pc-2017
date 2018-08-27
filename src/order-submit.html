@@ -920,6 +920,11 @@
 							<!-- summary info begin -->
 							<div class="summary-info">
 								<p class="s-info">商品总金额：¥<span class="s-total">288</span>&nbsp;，优惠券：¥<span class="s-coupon">30.00</span>&nbsp;，蛋糕卡：¥<span class="s-card">0.00</span>&nbsp;，促销：¥<span class="s-sales">0.00</span>&nbsp;，补差价：¥<span class="s-difference">0.00</span>&nbsp;，运费：¥<span class="s-freight">0.00</span></p>
+								<!--兜礼 wrapper-->
+								<div class="dou-wrapper">
+									<img src="./assets/imgs/basket/dou-text.png" alt="">
+								</div>
+								<!--/兜礼 wrapper-->
 								<p class="s-price vcenter clearfix">
 									<a href="javascript:;" class="btn-payment">去付款</a>
 									<span class="s-symbol">.00</span>
@@ -934,6 +939,30 @@
 					</div>
 					<!-- settlement container end -->
 				</div>
+
+                <!-- mask  begin-->
+                <div id="mask-douli">
+					<div class="douli-container">
+						<i class="icon-close"></i>
+						<div class="msg">
+							<p>订单已提交</p>
+							<p>请在30分钟内抵扣300元</p>
+						</div>
+						<div class="content">
+
+							<div class="notice">您需要使用30兜礼积分</div>
+							<input type="text" class="phoneNum" placeholder="请输入手机号码">
+							<div class="code-wrapper">
+								<input type="text" class="code" placeholder="请输入验证码">
+								<button class="getCode">获取验证码</button>
+							</div>
+							<div class="wrong-msg">手机号码或验证码错误，请重新输入</div>
+								<a href="javascript:;" class="payNow">立即使用</a>
+						</div>
+					</div>
+
+                </div>
+                <!-- mask end -->
 
 				<!-- mask  begin-->
 				<div id="mask-list">
