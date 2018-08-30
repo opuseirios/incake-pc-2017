@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>INCAKE | 教师节</title>
+    <link rel="stylesheet" href="assets/plugins/normalize/normalize.css">
+    <link rel="stylesheet" href="assets/plugins/swiper/css/idangerous.swiper.css">
+    <link rel="stylesheet" href="assets/plugins/liMarquee/css/liMarquee.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/teachers-day.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+<!-- layout begin -->
+<div class="layout">
+
+    <!-- layout header begin -->
+    <div class="layout-header" id="layoutHeader">
+        <div class="header-body">
+            <!-- logo begin -->
+            <a href="index.html" class="logo"></a>
+            <!-- logo end -->
+            <!-- nav begin -->
+            <ul class="nav clearfix">
+                <li><a href="/index.html">首页</a></li>
+                <li class="sub">
+                    <a href="/list.html">蛋糕馆</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">芝士系列</a></li>
+                        <li><a href="javascript:;">巧克力系列</a></li>
+                        <li><a href="javascript:;">拿破仑系列</a></li>
+                        <li><a href="javascript:;">慕斯系列</a></li>
+                        <li><a href="javascript:;">乳脂系列</a></li>
+                        <li><a href="javascript:;">选拼系列</a></li>
+                        <li><a href="javascript:;">星座系列</a></li>
+                        <li><a href="javascript:;">阿狸系列</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="javascript:;">特惠商城</a></li>
+                <!-- <li><a href="javascript:;">三小时送</a></li> -->
+                <li class="sub">
+                    <a href="javascript:;">INLIFE</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">下午茶</a></li>
+                        <li><a href="javascript:;">鲜花</a></li>
+                        <li><a href="javascript:;">饮品</a></li>
+                        <li><a href="javascript:;">礼品</a></li>
+                    </ul>
+                </li>
+                <li class="sub">
+                    <a href="javascript:;">惊喜定制</a>
+                    <ul class="subnav">
+                        <li><a href="javascript:;">惊喜蛋糕</a></li>
+                        <li><a href="javascript:;">翻糖定制</a></li>
+                        <li><a href="javascript:;">场景定制</a></li>
+                    </ul>
+                </li>
+                <!-- <li><a href="javascript:;">试吃申请</a></li> -->
+                <li><a href="javascript:;">卡券兑换</a></li>
+            </ul>
+            <!-- nav end -->
+            <!-- stock code begin -->
+            <p class="stock-code">股票代码：837489</p>
+            <!-- stock code end -->
+            <!-- portal begin -->
+            <div class="portal clearfix">
+                <div class="unlogin clearfix active">
+                    <a href="login.html" class="login">登录</a>
+                    <span>|</span>
+                    <a href="register.html" class="register">注册</a>
+                </div>
+                <div class="logined clearfix">
+                    <div class="profile-wrap">
+                        <p class="info">13811112222</p>
+                        <ul class="plist">
+                            <li class="active"><a href="javascript:;">个人中心</a></li>
+                            <li><a href="javascript:;">账户设置</a></li>
+                            <li><a href="javascript:;">账户优惠券</a></li>
+                            <li class="last"><a href="javascript:;">退出账号</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- portal end -->
+            <!-- basket begin -->
+            <div class="basket">
+                <a href="javascript:;" class="view"><span>10</span></a>
+                <div class="content">
+                    <span class="arrow-up"></span>
+                    <ul class="list basket-list"></ul>
+                    <script id="tplBasketList" type="text/html">
+                        {{if list.length > 0}}
+                        {{each list as item i}}
+                        <li class="clearfix">
+                            <a href="{{item.link}}" class="img">
+                                <img src="{{item.thumbUrl}}" alt="">
+                            </a>
+                            <div class="text">
+                                <p class="first-row clearfix">
+                                    <span class="name">{{item.name}}</span>
+                                    <span class="price">￥{{item.price}}</span>
+                                </p>
+                                <p class="second-row clearfix">
+                                    <span class="pound">{{item.pound}}磅</span>
+                                    <span class="num">x{{item.num}}</span>
+                                </p>
+                            </div>
+                            <a href="javascript:;" class="remove"></a>
+                        </li>
+                        {{/each}}
+                        {{/if}}
+                    </script>
+                    <a href="javascript:;" class="view-basket">查看购物篮 >></a>
+                </div>
+            </div>
+            <!-- basket end -->
+            <!-- locator begin -->
+            <div class="locator">
+                <span class="arrow"></span>
+                <p>上海</p>
+                <div class="content">
+                    <span class="arrow-up"></span>
+                    <p>请选择您要配送的城市：</p>
+                    <ul class="clearfix" id="ulChangeCity">
+                        <li class="active" citycode="021">上海</li>
+                        <li citycode="0591">福州</li>
+                        <li citycode="0512">苏州</li>
+                        <li citycode="0592">厦门</li>
+                        <li citycode="010">北京</li>
+                        <li citycode="025">南京</li>
+                        <li citycode="0571">杭州</li>
+                        <li citycode="0574">宁波</li>
+                        <li citycode="0532">青岛</li>
+                        <li citycode="0514">扬州</li>
+                        <li citycode="0511">镇江</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- locator end -->
+        </div>
+    </div>
+    <!-- layout header end -->
+
+    <!-- layout container begin -->
+    <div class="layout-container">
+
+        <!-- szone page begin -->
+        <div class="page teachers-day-page" id="teachersDayPage">
+            <!-- banner begin -->
+            <div class="teachers-day-banner">
+
+            </div>
+            <!-- banner end -->
+
+            <!-- body begin -->
+            <div class="teachers-day-container">
+                <div class="cake-container cake1">
+                    <div class="cake">
+                        <div class="content">
+                            <div class="info">
+                                <h3 class="name">经典奶香</h3>
+                                <p class="oldPrice">原价：198/1.2磅</p>
+                                <p class="nowPrice">现价：<i class="price">99</i>/1.2磅</p>
+                            </div>
+                            <a href="javascript:;" class="buyNow">立即购买</a>
+                        </div>
+                        <div class="img">
+                            <a href="javascript:;" class="img-btn">
+                                <img src="./assets/imgs/teachers-day/cake1.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake-container cake2">
+                    <div class="cake">
+                        <div class="content">
+                            <div class="info">
+                                <h3 class="name">云朵女孩</h3>
+                                <p class="oldPrice">原价：198/1.2磅</p>
+                                <p class="nowPrice">现价：<i class="price">109</i>/1.2磅</p>
+                            </div>
+                            <a href="javascript:;" class="buyNow">立即购买</a>
+                        </div>
+                        <div class="img">
+                            <a href="javascript:;" class="img-btn">
+                                <img src="./assets/imgs/teachers-day/cake2.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake-container cake3">
+                    <div class="cake">
+                        <div class="content">
+                            <div class="info">
+                                <h3 class="name">玛格丽特</h3>
+                                <p class="oldPrice">原价：198/1.5磅</p>
+                                <p class="nowPrice">现价：<i class="price">109</i>/1.5磅</p>
+                            </div>
+                            <a href="javascript:;" class="buyNow">立即购买</a>
+                        </div>
+                        <div class="img">
+                            <a href="javascript:;" class="img-btn">
+                                <img src="./assets/imgs/teachers-day/cake3.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake-container cake4">
+                    <div class="cake cake-wrapper1">
+                        <div class="content">
+                            <div class="info">
+                                <h3 class="name">哈尼小熊</h3>
+                                <p class="oldPrice">原价：198/1.2磅</p>
+                                <p class="nowPrice">现价：<i class="price">119</i>/1.2磅</p>
+                            </div>
+                            <a href="javascript:;" class="buyNow">立即购买</a>
+                        </div>
+                        <div class="img">
+                            <div class="txt1">
+                                <img src="./assets/imgs/teachers-day/txt2.png" alt="">
+                            </div>
+                            <a href="javascript:;" class="img-btn">
+                                <img src="./assets/imgs/teachers-day/cake4.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cake cake-wrapper2">
+                        <div class="content">
+                            <div class="info">
+                                <h3 class="name">鲜果锦汇</h3>
+                                <p class="oldPrice">原价：198/1.5磅</p>
+                                <p class="nowPrice">现价：<i class="price">119</i>/1.5磅</p>
+                            </div>
+                            <a href="javascript:;" class="buyNow">立即购买</a>
+                        </div>
+                        <div class="img">
+                            <div class="txt2">
+                                <img src="./assets/imgs/teachers-day/txt1.png" alt="">
+                            </div>
+                            <a href="javascript:;" class="img-btn">
+                                <img src="./assets/imgs/teachers-day/cake5.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- rule begin -->
+            <div class="teachers-day-rule">
+                <dl>
+                    <dt>活动规则</dt>
+                    <dd>1 五款活动产品预订时间：8-30~9-6，配送时间为下单起一个月内</dd>
+                    <dd>2 每款蛋糕配送地区请定位到所在城市查看</dd>
+                    <dd> 3 本活动不可使用代金卡，不与其他优惠同享</dd>
+                </dl>
+            </div>
+            <!-- rule end -->
+            <!-- body end -->
+        </div>
+    </div>
+
+    <!-- layout footer begin -->
+    <div class="layout-footer">
+        <div class="footer-body">
+            <div class="container">
+                <div class="logo"></div>
+                <div class="content">
+                    <p class="nav clearfix">
+                        <a href="javascript:;">配送范围</a><span>|</span>
+                        <a href="javascript:;">帮助中心</a><span>|</span>
+                        <a href="javascript:;">品牌故事</a><span>|</span>
+                        <a href="javascript:;">关于我们</a><span>|</span>
+                        <a href="javascript:;">招贤纳士</a>
+                    </p>
+                    <p class="hotline clearfix">
+                        <span>客服热线：</span>
+                        <span class="tel">400-921-5757</span>
+                    </p>
+                    <p class="stock-code">股票代码：837489</p>
+                    <!--<div class="third-party clearfix">
+                        <a class="wechat" href="javascript:;"></a>
+                        <a class="sina" href="javascript:;"></a>
+                        <a class="qq" href="javascript:;"></a>
+                        <a class="dianping" href="javascript:;"></a>
+                    </div>-->
+                </div>
+                <div class="qrcode">
+                    <div class="img"></div>
+                    <p class="text">微信订购更方便</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <p>
+                    <span>Copyright &copy;2012-2017 上海印克电子商务股份有限公司 版权所有</span>
+                    <!---->
+                    <span>沪ICP备12045835</span>
+                    <span>沪公网安备31010802001150</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- layout footer end -->
+</div>
+</body>
+</html>
