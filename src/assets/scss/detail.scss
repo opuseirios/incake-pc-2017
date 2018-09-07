@@ -975,8 +975,30 @@
 .dou-wrapper{
   margin-top: 10px;
     margin-bottom: -10px;
-  img{
-    width: 224px;
-      height: 24px;
-  }
+    width: 220px;
+    height: 24px;
+    display: flex;
+    font-size: 0;
+    .desc{
+        text-align: center;
+        flex:  0 0 135px;
+        width: 135px;
+        line-height: 20px;
+        color: #fff;
+        font-size: 14px;
+        background: #ea444b;
+        height: 24px;
+    }
+    .discount{
+        flex: 1;
+        text-align: center;
+        height: 20px;
+        border: 2px solid #ea444b;
+        color: #ea444b;
+        font-size: 14px;
+    }
+}
+
+.product-intro .introinfo-wrap > .desc .discount{
+    line-height: 20px;
 }

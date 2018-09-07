@@ -2009,12 +2009,31 @@
 }
 
 /*兜礼*/
-.dou-wrapper{
+.basket-container .list-container .item .item-content  .dou-wrapper{
   position: absolute;
   right: 80px;
   top: 100px;
-  img{
-    width: 224px;
+  width: 220px;
+  height: 24px;
+  display: flex;
+  font-size: 0;
+  .desc{
+    text-align: center;
+    flex:  0 0 135px;
+    width: 135px;
+    line-height: 20px;
+    color: #fff;
+    font-size: 14px;
+    background: #ea444b;
     height: 24px;
+  }
+  .discount{
+    flex: 1;
+    text-align: center;
+    height: 20px;
+    border: 2px solid #ea444b;
+    color: #ea444b;
+    line-height: 20px;
+    font-size: 14px;
   }
 }
